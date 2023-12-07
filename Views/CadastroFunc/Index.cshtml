@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Funcionarios";
+}
+
+<div class="text-center">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Telegram</th>
+                <th>Categoria</th>
+                <th>Status</th>
+                <th><a type="button" class="btn btn-primary" asp-controller="CadastroFunc" asp-action="">Adicionar</a></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Caio Bueno</td>
+                <td>xxxx@example.com</td>
+                <td>xxxxx-xxxx</td>
+                <td>xxxx@example.com</td>
+                <td>Aprendiz</td>
+                <td>Remoto</td>
+                <td><button type="button" class="btn btn-success">Detalhes</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
