@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using HD_SUPPORT.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,22 +10,49 @@ namespace HD_SUPPORT.Controllers
 {
     public class CadastroFuncController : Controller
     {
-        public IActionResult Index()
+        private readonly BancoContexto _contexto;
+        public CadastroFuncController(BancoContexto contexto)
         {
-            return View();
+            _contexto = contexto;
         }
-        public IActionResult Criar()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            return View(await _contexto.CadastroUser.ToListAsync());
         }
-        public IActionResult Editar()
+        [HttpGet]
+        public IActionResult NovoCadastro()
         {
             return View();
         }
 
-        public IActionResult Excluir()
+        [HttpPost]
+        public async Task<IActionResult> NovoCadastro(CadastroUser cadastro)
         {
-            return View();
+            await _contexto.CadastroUser.AddAsync(cadastro);
+            await _contexto.SaveChangesAsync();
+            return RedirectToAction("Index", "CadastroFunc", new { area = "" });
+        }
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            CadastroUser cadastro = await _contexto.CadastroUser.FindAsync(id);
+            return View(cadastro);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Atualizar(CadastroUser cadastro)
+        {
+            _contexto.CadastroUser.Update(cadastro);
+            await _contexto.SaveChangesAsync();
+            return RedirectToAction("Index", "CadastroFunc", new { area = "" });
+        }
+        [HttpPost]
+        public async Task<IActionResult> Excluir(int id)
+        {
+            CadastroUser cadastro = await _contexto.CadastroUser.FindAsync(id);
+            _contexto.CadastroUser.Remove(cadastro);
+            await _contexto.SaveChangesAsync();
+            return RedirectToAction("Index", "CadastroFunc", new { area = "" });
         }
     }
 }
