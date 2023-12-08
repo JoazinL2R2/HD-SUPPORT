@@ -43,6 +43,11 @@
                 <span asp-validation-for="Categoria" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="IdPatrimonio" class="control-label"></label>
+                <input asp-for="IdPatrimonio" class="form-control" />
+                <span asp-validation-for="IdPatrimonio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Modelo" class="control-label"></label>
                 <input asp-for="Modelo" class="form-control" />
                 <span asp-validation-for="Modelo" class="text-danger"></span>
@@ -83,6 +88,3 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

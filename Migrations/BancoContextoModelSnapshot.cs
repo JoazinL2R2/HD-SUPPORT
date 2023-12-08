@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
+#nullable disable
+
 namespace HD_SUPPORT.Migrations
 {
     [DbContext(typeof(BancoContexto))]
@@ -13,8 +15,7 @@ namespace HD_SUPPORT.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "5.0.17");
+            modelBuilder.HasAnnotation("ProductVersion", "8.0.0");
 
             modelBuilder.Entity("HD_SUPPORT.Models.CadastroHelpDesk", b =>
                 {
@@ -23,15 +24,19 @@ namespace HD_SUPPORT.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<byte[]>("Foto")
+                        .IsRequired()
                         .HasColumnType("BLOB");
 
                     b.Property<string>("Nome")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Senha")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -46,6 +51,7 @@ namespace HD_SUPPORT.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Categoria")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("DtEmprestimoFinal")
@@ -55,30 +61,43 @@ namespace HD_SUPPORT.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("HeadSet")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("IdPatrimonio")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Modelo")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Nome")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Processador")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("SistemaOperacional")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Status")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Telefone")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Telegram")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
