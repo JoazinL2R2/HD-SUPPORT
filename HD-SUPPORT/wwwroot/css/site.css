@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Nunito&family=Questrial&display=swap');
 html {
-  font-size: 14px;
+    font-size: 14px;
+    
+}
+* {
+    font-family: 'Questrial', sans-serif;
 }
 
 @media (min-width: 768px) {
