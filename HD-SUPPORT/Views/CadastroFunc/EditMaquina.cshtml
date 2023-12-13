@@ -1,0 +1,62 @@
+﻿@model HD_SUPPORT.Models.CadastroUser
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Editar Maquina e Periféricos</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Atualizar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            
+            <div class="form-group">
+                <label asp-for="IdPatrimonio" class="control-label"></label>
+                <input asp-for="IdPatrimonio" class="form-control" />
+                <span asp-validation-for="IdPatrimonio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Modelo" class="control-label"></label>
+                <input asp-for="Modelo" class="form-control" />
+                <span asp-validation-for="Modelo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Processador" class="control-label"></label>
+                <input asp-for="Processador" class="form-control" />
+                <span asp-validation-for="Processador" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SistemaOperacional" class="control-label"></label>
+                <input asp-for="SistemaOperacional" class="form-control" />
+                <span asp-validation-for="SistemaOperacional" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeadSet" class="control-label"></label>
+                <input asp-for="HeadSet" class="form-control" />
+                <span asp-validation-for="HeadSet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtEmprestimoInicio" class="control-label"></label>
+                <input asp-for="DtEmprestimoInicio" class="form-control" />
+                <span asp-validation-for="DtEmprestimoInicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtEmprestimoFinal" class="control-label"></label>
+                <input asp-for="DtEmprestimoFinal" class="form-control" />
+                <span asp-validation-for="DtEmprestimoFinal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+

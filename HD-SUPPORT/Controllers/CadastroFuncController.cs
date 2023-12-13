@@ -45,6 +45,20 @@ namespace HD_SUPPORT.Controllers
             _contexto.CadastroUser.Update(cadastro);
             await _contexto.SaveChangesAsync();
             return RedirectToAction("Index", "CadastroFunc", new { area = "" });
+        } 
+        [HttpGet]
+        public async Task<IActionResult> EditMaquina(int id)
+        {
+            CadastroUser cadastro = await _contexto.CadastroUser.FindAsync(id);
+            return View(cadastro);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AtualizarMaquina(CadastroUser cadastro)
+        {
+            _contexto.CadastroUser.Update(cadastro);
+            await _contexto.SaveChangesAsync();
+            return RedirectToAction("Index", "CadastroFunc", new { area = "" });
         }
         [HttpPost]
         public async Task<IActionResult> Excluir(int id)
