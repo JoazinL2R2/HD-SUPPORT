@@ -1,7 +1,5 @@
 using HD_SUPPORT;
-
 var builder = WebApplication.CreateBuilder(args);
-
 // Add services to the container.
 
 var startup = new Startup(builder.Configuration);
