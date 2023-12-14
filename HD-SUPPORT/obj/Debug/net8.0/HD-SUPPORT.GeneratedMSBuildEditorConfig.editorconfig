@@ -18,6 +18,26 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\joaocosta\Source\Repos\gugsinwork\HD-SUPPORT\HD-SUPPORT
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/joaocosta/Source/Repos/gugsinwork/HD-SUPPORT/HD-SUPPORT/Views/CadastroFunc/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9GdW5jXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/joaocosta/Source/Repos/gugsinwork/HD-SUPPORT/HD-SUPPORT/Views/CadastroFunc/EditMaquina.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9GdW5jXEVkaXRNYXF1aW5hLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/joaocosta/Source/Repos/gugsinwork/HD-SUPPORT/HD-SUPPORT/Views/CadastroFunc/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9GdW5jXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/joaocosta/Source/Repos/gugsinwork/HD-SUPPORT/HD-SUPPORT/Views/CadastroFunc/NovoCadastro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9GdW5jXE5vdm9DYWRhc3Ryby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/joaocosta/Source/Repos/gugsinwork/HD-SUPPORT/HD-SUPPORT/Views/CadastroHelpDesk/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9IZWxwRGVza1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/joaocosta/Source/Repos/gugsinwork/HD-SUPPORT/HD-SUPPORT/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
