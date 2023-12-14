@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rYJ5h4zjlPXBNwvS+5PX1ZfyhljOJoKiY5rkr2aqE0LtI0daiYNfEgbZlzCVEtP8sYzfLOOdjGIyVs49bqE3Tw==",
+  "dgSpecHash": "jTvZuA9dz3HmFah4N5kYRWLoU1N6TEJ+yJofg5VhYHf/FdhS2LSty/C65HWZZ2ozBT2YkoOWBdd4P3njq+nUdg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\caiobueno\\source\\repos\\HD-SUPPORT\\HD-SUPPORT.csproj",
+  "projectFilePath": "C:\\Users\\caiobueno\\source\\repos\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\caiobueno\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\caiobueno\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",

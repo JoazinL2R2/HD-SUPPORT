@@ -2572,11 +2572,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\caiobueno\\source\\repos\\HD-SUPPORT\\HD-SUPPORT.csproj",
+      "projectUniqueName": "C:\\Users\\caiobueno\\source\\repos\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj",
       "projectName": "HD-SUPPORT",
-      "projectPath": "C:\\Users\\caiobueno\\source\\repos\\HD-SUPPORT\\HD-SUPPORT.csproj",
+      "projectPath": "C:\\Users\\caiobueno\\source\\repos\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj",
       "packagesPath": "C:\\Users\\caiobueno\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\caiobueno\\source\\repos\\HD-SUPPORT\\obj\\",
+      "outputPath": "C:\\Users\\caiobueno\\source\\repos\\HD-SUPPORT\\HD-SUPPORT\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
