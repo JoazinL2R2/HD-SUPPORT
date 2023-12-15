@@ -49,9 +49,17 @@ namespace HD_SUPPORT.Controllers
         [HttpPost]
         public async Task<IActionResult> Atualizar(CadastroUser cadastro)
         {
-            _contexto.CadastroUser.Update(cadastro);
-            await _contexto.SaveChangesAsync();
-            return RedirectToAction("Index", "CadastroFunc", new { area = "" });
+            if (_contexto.CadastroUser.Any(x => x.Email == cadastro.Email))
+            {
+                ModelState.AddModelError(nameof(cadastro.Email), "Email existente");
+                return View("Edit", cadastro);
+            }
+            else
+            {
+                _contexto.CadastroUser.Update(cadastro);
+                await _contexto.SaveChangesAsync();
+                return RedirectToAction("Index", "CadastroFunc", new { area = "" });
+            }
         }
         [HttpGet]
         public async Task<IActionResult> EditMaquina(int id)
