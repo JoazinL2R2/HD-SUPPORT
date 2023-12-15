@@ -1,16 +1,16 @@
 ﻿using HD_SUPPORT.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Data.Entity.Validation;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace HD_SUPPORT.Controllers
 {
     public class CadastroFuncController : Controller
     {
         private readonly BancoContexto _contexto;
+        private string error;
+
         public CadastroFuncController(BancoContexto contexto)
         {
             _contexto = contexto;
@@ -28,9 +28,16 @@ namespace HD_SUPPORT.Controllers
         [HttpPost]
         public async Task<IActionResult> NovoCadastro(CadastroUser cadastro)
         {
-            await _contexto.CadastroUser.AddAsync(cadastro);
-            await _contexto.SaveChangesAsync();
-            return RedirectToAction("Index", "CadastroFunc", new { area = "" });
+            if (_contexto.CadastroUser.Any(x => x.Email == cadastro.Email)) { 
+                ModelState.AddModelError(nameof(cadastro.Email), "Email existente");
+                return View();
+            }
+            else
+            {
+                await _contexto.CadastroUser.AddAsync(cadastro);
+                await _contexto.SaveChangesAsync();
+                return RedirectToAction("Index", "CadastroFunc", new { area = "" });
+            }
         }
         [HttpGet]
         public async Task<IActionResult> Edit(int id)

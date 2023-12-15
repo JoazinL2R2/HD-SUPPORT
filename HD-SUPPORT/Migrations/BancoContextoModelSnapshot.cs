@@ -65,15 +65,12 @@ namespace HD_SUPPORT.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("HeadSet")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("IdPatrimonio")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Modelo")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Nome")
@@ -81,11 +78,9 @@ namespace HD_SUPPORT.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Processador")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("SistemaOperacional")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Status")

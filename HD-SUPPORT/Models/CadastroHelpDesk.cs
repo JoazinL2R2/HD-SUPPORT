@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
+using IndexAttribute = System.ComponentModel.DataAnnotations.Schema.IndexAttribute;
 namespace HD_SUPPORT.Models
 {
     public class CadastroHelpDesk

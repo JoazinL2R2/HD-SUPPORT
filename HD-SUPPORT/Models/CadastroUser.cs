@@ -14,12 +14,12 @@ namespace HD_SUPPORT.Models
         public string Telefone { get; set; }
         public string Status { get; set; }
         public string Categoria { get; set; }
-        public string IdPatrimonio { get; set; }
-        public string Modelo { get; set; }
-        public string Processador { get; set; }
-        public string SistemaOperacional { get; set; }
-        public string HeadSet { get; set; }
-        public DateTime DtEmprestimoInicio { get; set; }
-        public DateTime DtEmprestimoFinal { get; set; }
+        public string? IdPatrimonio { get; set; }
+        public string? Modelo { get; set; }
+        public string? Processador { get; set; }
+        public string? SistemaOperacional { get; set; }
+        public string? HeadSet { get; set; }
+        public DateTime? DtEmprestimoInicio { get; set; }
+        public DateTime? DtEmprestimoFinal { get; set; }
     }
 }

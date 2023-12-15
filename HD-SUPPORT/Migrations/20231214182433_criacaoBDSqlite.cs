@@ -39,13 +39,13 @@ namespace HD_SUPPORT.Migrations
                     Telefone = table.Column<string>(type: "TEXT", nullable: false),
                     Status = table.Column<string>(type: "TEXT", nullable: false),
                     Categoria = table.Column<string>(type: "TEXT", nullable: false),
-                    IdPatrimonio = table.Column<string>(type: "TEXT", nullable: false),
-                    Modelo = table.Column<string>(type: "TEXT", nullable: false),
-                    Processador = table.Column<string>(type: "TEXT", nullable: false),
-                    SistemaOperacional = table.Column<string>(type: "TEXT", nullable: false),
-                    HeadSet = table.Column<string>(type: "TEXT", nullable: false),
-                    DtEmprestimoInicio = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    DtEmprestimoFinal = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    IdPatrimonio = table.Column<string>(type: "TEXT", nullable: true),
+                    Modelo = table.Column<string>(type: "TEXT", nullable: true),
+                    Processador = table.Column<string>(type: "TEXT", nullable: true),
+                    SistemaOperacional = table.Column<string>(type: "TEXT", nullable: true),
+                    HeadSet = table.Column<string>(type: "TEXT", nullable: true),
+                    DtEmprestimoInicio = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    DtEmprestimoFinal = table.Column<DateTime>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
