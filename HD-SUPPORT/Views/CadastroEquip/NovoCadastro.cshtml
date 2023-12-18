@@ -1,0 +1,49 @@
+﻿@model HD_SUPPORT.Models.CadastroEquip
+
+@{
+    ViewData["Title"] = "NovoCadastro";
+}
+
+<h1>NovoCadastro</h1>
+
+<h4>CadastroUser</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="NovoCadastro">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Modelo" class="control-label"></label>
+                <input asp-for="Modelo" class="form-control" />
+                <span asp-validation-for="Modelo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdPatrimonio" class="control-label"></label>
+                <input asp-for="IdPatrimonio" class="form-control" />
+                <span asp-validation-for="IdPatrimonio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Modelo" class="control-label"></label>
+                <input asp-for="Modelo" class="form-control" />
+                <span asp-validation-for="Modelo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Processador" class="control-label"></label>
+                <input asp-for="Processador" class="form-control" />
+                <span asp-validation-for="Processador" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SistemaOperacionar" class="control-label"></label>
+                <input asp-for="SistemaOperacionar" class="form-control" />
+                <span asp-validation-for="SistemaOperacionar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Criar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>

@@ -33,22 +33,18 @@ namespace HD_SUPPORT.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("HeadSet")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("IdPatrimonio")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Modelo")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Processador")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("SistemaOperacionar")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -63,19 +59,15 @@ namespace HD_SUPPORT.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<byte[]>("Foto")
-                        .IsRequired()
                         .HasColumnType("BLOB");
 
                     b.Property<string>("Nome")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Senha")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -90,48 +82,21 @@ namespace HD_SUPPORT.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Categoria")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("DtEmprestimoFinal")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("DtEmprestimoInicio")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("HeadSet")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("IdPatrimonio")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Modelo")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Processador")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("SistemaOperacional")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Status")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Telefone")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Telegram")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\HD-SUPPORT",
+    "\\HD-SUPPORT\\Views",
+    "\\HD-SUPPORT\\Views\\CadastroFunc"
   ],
-  "SelectedNode": "\\HD-SUPPORT.sln",
+  "SelectedNode": "\\HD-SUPPORT\\Views\\CadastroFunc\\Edit.cshtml",
   "PreviewInSolutionExplorer": false
 }

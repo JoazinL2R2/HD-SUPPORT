@@ -1,7 +1,7 @@
 ﻿using HD_SUPPORT.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Data.Entity.Validation;
+//using System.Data.Entity.Validation;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace HD_SUPPORT.Controllers
@@ -9,7 +9,6 @@ namespace HD_SUPPORT.Controllers
     public class CadastroFuncController : Controller
     {
         private readonly BancoContexto _contexto;
-        private string error;
 
         public CadastroFuncController(BancoContexto contexto)
         {
@@ -49,7 +48,7 @@ namespace HD_SUPPORT.Controllers
         [HttpPost]
         public async Task<IActionResult> Atualizar(CadastroUser cadastro)
         {
-            if (_contexto.CadastroUser.Any(x => x.Email == cadastro.Email))
+            if (_contexto.CadastroUser.Any(x => x.Email == cadastro.Email && x.Id != cadastro.Id))
             {
                 ModelState.AddModelError(nameof(cadastro.Email), "Email existente");
                 return View("Edit", cadastro);
