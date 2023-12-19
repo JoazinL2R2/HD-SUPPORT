@@ -1,38 +1,42 @@
-﻿@model IEnumerable<HD_SUPPORT.Models.CadastroUser>
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor Acessor
 
-    @{
+@model IEnumerable<HD_SUPPORT.Models.CadastroUser>
+
+@{
     ViewData["Title"] = "Index";
-    }
-    <div class="align-content-center">
-        <h1>Funcionarios</h1>
-        <table class="table" id="tabela">
-            <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Nome)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Email)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Telegram)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Telefone)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Status)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Categoria)
-                    </th>
-                    <th>
-                        <a type="button" class="btn btn-primary" asp-action="NovoCadastro">CADASTRAR EMPRESTIMO</a>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
+}
+
+<div class="align-content-center">
+    <h1>Funcionarios</h1>
+    <table class="table" id="tabela">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Telegram)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Telefone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Categoria)
+                </th>
+                <th>
+                    <a type="button" class="btn btn-primary" asp-action="NovoCadastro">CADASTRAR EMPRESTIMO</a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
             {
                 <tr>
                     <td>
@@ -62,6 +66,12 @@
                     </td>
                 </tr>
             }
-            </tbody>
-        </table>
-    </div>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+    
+    

@@ -50,8 +50,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9GdW5jXE5vdm9DYWRhc3Ryby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/caiobueno/source/repos/HD-SUPPORT/HD-SUPPORT/Views/CadastroHelpDesk/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9IZWxwRGVza1xJbmRleC5jc2h0bWw=
+[C:/Users/caiobueno/source/repos/HD-SUPPORT/HD-SUPPORT/Views/CadastroHelpDesk/Cadastrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9IZWxwRGVza1xDYWRhc3RyYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/caiobueno/source/repos/HD-SUPPORT/HD-SUPPORT/Views/CadastroHelpDesk/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9IZWxwRGVza1xMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/caiobueno/source/repos/HD-SUPPORT/HD-SUPPORT/Views/Home/Index.cshtml]

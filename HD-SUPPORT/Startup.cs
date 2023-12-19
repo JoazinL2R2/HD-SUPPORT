@@ -27,6 +27,11 @@ namespace HD_SUPPORT
         {
             services.AddControllersWithViews();
             services.AddDbContext<BancoContexto>(opcoes => opcoes.UseSqlite(Configuration.GetConnectionString("conexaoBanco")));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,13 +53,15 @@ namespace HD_SUPPORT
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            app.UseSession();
+
             app.UseRouting();
 
             app.UseAuthorization();
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=CadastroHelpDesk}/{action=Login}/{id?}");
         }
     }
 }
