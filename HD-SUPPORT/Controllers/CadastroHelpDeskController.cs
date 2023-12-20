@@ -50,6 +50,10 @@ namespace HD_SUPPORT.Controllers
         [HttpGet]
         public IActionResult Login()
         {
+            if (HttpContext.Session.GetString("nome") != null)
+            {
+                HttpContext.Session.Clear();
+            }
             return View();
         }
 
