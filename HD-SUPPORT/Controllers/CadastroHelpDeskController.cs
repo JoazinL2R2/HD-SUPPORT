@@ -23,7 +23,7 @@ namespace HD_SUPPORT.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Cadastrar(CadastroHelpDesk cadastro)
+        public async Task<IActionResult> Cadastrar([Bind("Id,Nome,Email,Senha,Foto")] CadastroHelpDesk cadastro, IFormFile Imagem)
         {
             if (_contexto.CadastroHD.Any(x => x.Email == cadastro.Email))
             {
@@ -32,9 +32,19 @@ namespace HD_SUPPORT.Controllers
             }
             else
             {
-                await _contexto.CadastroHD.AddAsync(cadastro);
-                await _contexto.SaveChangesAsync();
-                return RedirectToAction("Index", "CadastroFunc", new { area = "" });
+                if (ModelState.IsValid)
+                {
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        Imagem.CopyTo(ms);
+                        cadastro.Foto = ms.ToArray();
+                    }
+
+                    await _contexto.CadastroHD.AddAsync(cadastro);
+                    await _contexto.SaveChangesAsync();
+                    return RedirectToAction("Index", "CadastroFunc", new { area = "" });
+                }
+                return View(cadastro);
             }
         }
         [HttpGet]
@@ -50,7 +60,7 @@ namespace HD_SUPPORT.Controllers
             {
                 var usuario = _contexto.CadastroHD.Where(b => b.Email == cadastro.Email).FirstOrDefault();
                 HttpContext.Session.SetString("nome", usuario.Nome);
-                //HttpContext.Session.Set("foto", usuario.Foto);
+                HttpContext.Session.Set("foto", usuario.Foto);
                 return RedirectToAction("Index", "CadastroFunc", new { area = "" });
             }
             else
