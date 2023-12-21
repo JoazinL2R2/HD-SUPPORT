@@ -32,12 +32,11 @@
             </div>
             <span>
                 <div class="links">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="CadastroFunc" asp-action="Index">Cadastros</a>
                     |
-                    <a class="nav-link text-dark" asp-area="" asp-controller="CadastroHelpDesk" asp-action="Login">Entrar</a>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="CadastroHelpDesk" asp-action="LogOut">Sair</a>
                 </div>
             </span>
-           
+            
             <div>
                 @if (Acessor.HttpContext.Session.GetString("nome") != null)
                 {

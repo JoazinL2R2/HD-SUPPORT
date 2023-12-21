@@ -5,6 +5,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using HD_SUPPORT.Models;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+
 
 namespace HD_SUPPORT.Controllers
 {
@@ -16,6 +20,7 @@ namespace HD_SUPPORT.Controllers
         {
             _contexto = contexto;
         }
+
         [HttpGet]
         public IActionResult Cadastrar()
         {
@@ -40,12 +45,41 @@ namespace HD_SUPPORT.Controllers
         [HttpGet]
         public IActionResult Login()
         {
+            ClaimsPrincipal claimUser = HttpContext.User;
+
+            if (claimUser.Identity.IsAuthenticated)
+                return RedirectToAction("CadastroFunc", "Index");
             return View();
         }
 
         [HttpPost]
-        public IActionResult Login(CadastroHelpDesk cadastro)
+        public async Task<IActionResult> Login(CadastroHelpDesk cadastro)
         {
+            if (cadastro.Email == "user@example.com" && 
+                cadastro.Senha == "123"
+                )
+            {
+                List<Claim> claims = new List<Claim>()
+                {
+                    new Claim(ClaimTypes.NameIdentifier,cadastro.Email),
+                    new Claim("OtherProperties","Example Role")
+                };
+                ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims,
+                    CookieAuthenticationDefaults.AuthenticationScheme
+                    );
+
+                AuthenticationProperties properties = new AuthenticationProperties()
+                {
+                    AllowRefresh = true
+                    
+                };
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+                    new ClaimsPrincipal(claimsIdentity),properties
+                    );
+                return RedirectToAction("Index", "Home");
+            }
+
+            ViewData["validate"] = "Usuario não encontrado";
             if (_contexto.CadastroHD.Any(x => x.Email == cadastro.Email && x.Senha == cadastro.Senha))
             {
                 var usuario = _contexto.CadastroHD.Where(b => b.Email == cadastro.Email).FirstOrDefault();

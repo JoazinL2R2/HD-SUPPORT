@@ -1,9 +1,11 @@
 ﻿using HD_SUPPORT.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace HD_SUPPORT.Controllers
 {
+    [Authorize]
     public class CadastroEquipController : Controller
     {
         private readonly BancoContexto _contexto;
@@ -12,6 +14,7 @@ namespace HD_SUPPORT.Controllers
         {
             _contexto = contexto;
         }
+        
         public async Task<IActionResult> Index()
         {
             return View(await _contexto.CadastroUser.ToListAsync());
