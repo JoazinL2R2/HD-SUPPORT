@@ -2,9 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\HD-SUPPORT",
+    "\\HD-SUPPORT\\Controllers",
     "\\HD-SUPPORT\\Views",
     "\\HD-SUPPORT\\Views\\CadastroFunc"
   ],
+<<<<<<< HEAD
   "SelectedNode": "\\HD-SUPPORT.sln",
+=======
+  "SelectedNode": "\\HD-SUPPORT\\Controllers\\CadastroHelpDeskController.cs",
+>>>>>>> c0aaa74192d4d8685e41fb9ea2c46fcd2260e0d6
   "PreviewInSolutionExplorer": false
 }
