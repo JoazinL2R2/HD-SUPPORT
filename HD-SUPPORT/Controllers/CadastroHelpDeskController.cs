@@ -81,17 +81,17 @@ namespace HD_SUPPORT.Controllers
         [HttpGet]
         public IActionResult Login()
         {
-<<<<<<< HEAD
+
             ClaimsPrincipal claimUser = HttpContext.User;
 
             if (claimUser.Identity.IsAuthenticated)
                 return RedirectToAction("CadastroFunc", "Index");
-=======
+
             if (HttpContext.Session.GetString("nome") != null)
             {
                 HttpContext.Session.Clear();
             }
->>>>>>> c0aaa74192d4d8685e41fb9ea2c46fcd2260e0d6
+
             return View();
         }
 
@@ -113,13 +113,13 @@ namespace HD_SUPPORT.Controllers
 
                 AuthenticationProperties properties = new AuthenticationProperties()
                 {
-                    AllowRefresh = true
-                    
+                    AllowRefresh = true,
+
                 };
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
                     new ClaimsPrincipal(claimsIdentity),properties
                     );
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "CadastroFunc");
             }
 
             ViewData["validate"] = "Usuario não encontrado";
@@ -136,5 +136,6 @@ namespace HD_SUPPORT.Controllers
                 return View();
             }
         }
+
     }
 }

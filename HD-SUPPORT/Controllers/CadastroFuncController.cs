@@ -1,11 +1,17 @@
 ﻿using HD_SUPPORT.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 //using System.Data.Entity.Validation;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
+
 namespace HD_SUPPORT.Controllers
 {
+    [Authorize]
     public class CadastroFuncController : Controller
     {
         private readonly BancoContexto _contexto;

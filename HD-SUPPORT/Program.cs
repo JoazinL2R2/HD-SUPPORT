@@ -8,7 +8,7 @@ builder.Services.AddAuthentication(
     .AddCookie(option =>
     {
         option.LoginPath = "/CadastroHelpDesk/Login";
-        option.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+        option.ExpireTimeSpan = TimeSpan.FromMinutes(20);
     });
 
 var startup = new Startup(builder.Configuration);
