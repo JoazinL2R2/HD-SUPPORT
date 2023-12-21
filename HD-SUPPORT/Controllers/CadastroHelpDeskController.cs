@@ -22,6 +22,8 @@ namespace HD_SUPPORT.Controllers
             return View();
         }
 
+        public const int ImageMinimumBytes = 512;
+
         [HttpPost]
         public async Task<IActionResult> Cadastrar([Bind("Id,Nome,Email,Senha,Foto")] CadastroHelpDesk cadastro, IFormFile Imagem)
         {
@@ -34,6 +36,30 @@ namespace HD_SUPPORT.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    if (!string.Equals(Imagem.ContentType, "image/jpg", StringComparison.OrdinalIgnoreCase) &&
+                        !string.Equals(Imagem.ContentType, "image/jpeg", StringComparison.OrdinalIgnoreCase) &&
+                        !string.Equals(Imagem.ContentType, "image/pjpeg", StringComparison.OrdinalIgnoreCase) &&
+                        !string.Equals(Imagem.ContentType, "image/gif", StringComparison.OrdinalIgnoreCase) &&
+                        !string.Equals(Imagem.ContentType, "image/x-png", StringComparison.OrdinalIgnoreCase) &&
+                        !string.Equals(Imagem.ContentType, "image/png", StringComparison.OrdinalIgnoreCase))
+                    {
+                        ModelState.AddModelError(nameof(cadastro.Foto), "Formato de imagem incopatível");
+                        return View();
+                    }
+                    var postedFileExtension = Path.GetExtension(Imagem.FileName);
+                    if (!string.Equals(postedFileExtension, ".jpg", StringComparison.OrdinalIgnoreCase)
+                        && !string.Equals(postedFileExtension, ".png", StringComparison.OrdinalIgnoreCase)
+                        && !string.Equals(postedFileExtension, ".gif", StringComparison.OrdinalIgnoreCase)
+                        && !string.Equals(postedFileExtension, ".jpeg", StringComparison.OrdinalIgnoreCase))
+                    {
+                        ModelState.AddModelError(nameof(cadastro.Foto), "Formato de imagem incopatível");
+                        return View();
+                    }
+                    if (Imagem.Length < ImageMinimumBytes)
+                    {
+                        ModelState.AddModelError(nameof(cadastro.Foto), "Arquivo muito grande");
+                        return View();
+                    }
                     using (MemoryStream ms = new MemoryStream())
                     {
                         Imagem.CopyTo(ms);
