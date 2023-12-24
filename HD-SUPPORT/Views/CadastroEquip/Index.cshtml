@@ -1,54 +1,101 @@
-﻿@model HD_SUPPORT.Models.CadastroUser
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor Acessor
+
+@model IEnumerable<HD_SUPPORT.Models.CadastroEquip>
 
 @{
-    ViewData["Title"] = "NovoCadastro";
+    ViewData["Title"] = "Index";
 }
 
-<h1>Novo Emprestimo</h1>
+<div class="align-content-center">
+    <div class="TableContainer">
+        <div class="table-menu">
+            <a role="button" href=""><i class="bi bi-search"></i></a>
 
-<h4>Cadastro Maquina</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="NovoEmprestimo">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Telegram" class="control-label"></label>
-                <input asp-for="Telegram" class="form-control" />
-                <span asp-validation-for="Telegram" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Telefone" class="control-label"></label>
-                <input asp-for="Telefone" class="form-control" />
-                <span asp-validation-for="Telefone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
-                <span asp-validation-for="Status" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Categoria" class="control-label"></label>
-                <input asp-for="Categoria" class="form-control" />
-                <span asp-validation-for="Categoria" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Criar" class="btn btn-primary" />
-            </div>
-        </form>
+            <input type="search" placeholder="Faça sua pesquisa">
+        </div>
+        <table id="table-position" class="table table-hover">
+            <thead class="thead-style">
+                <tr class="tr-style">
+                    <th>
+                        @Html.DisplayNameFor(model => model.IdPatrimonio)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Modelo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Processador)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SistemaOperacionar)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Disponivel)
+                    </th>
+
+                    <th scope="col"><div class="button-add"><a role="button" asp-action="NovoCadastro"><button>Adicionar</button></a></div></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr class="tbody-style">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdPatrimonio)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Modelo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Processador)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SistemaOperacionar)
+                        </td>
+                        <td>
+                            @if (item.Disponivel)
+                            {
+                                <text>Disponível</text>
+                            }
+                            else
+                            {
+                                <text>Indisponível</text>
+                            }
+                        </td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <a role="button" class="btn btn-dark" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i></a>
+                                <a role="button" class="btn btn-success" asp-action="Detalhes" asp-route-id="@item.Id"><i class="bi bi-newspaper"></i></a>
+                                <form asp-action="Excluir" asp-route-id="@item.Id">
+                                    <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                                </form>
+                            </div>
+
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+
+
+        <div class="pagination">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#"><i class="bi bi-arrow-left"></i></a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#"><i class="bi bi-arrow-right"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Voltar</a>
-</div>
+
+
+
+

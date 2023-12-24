@@ -1,7 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Http
-@inject IHttpContextAccessor Acessor
 
-@model IEnumerable<HD_SUPPORT.Models.EmprestimoViewModel>
+@model IEnumerable<EmprestimoViewModel>
 
 @{
     ViewData["Title"] = "Index";
@@ -36,55 +35,45 @@
                         @Html.DisplayNameFor(model => model.Equipamento.DtEmeprestimoInicio)
                     </th>
 
+
                     <th scope="col"><div class="button-add"><a role="button" asp-action="NovoCadastro"><button>Adicionar</button></a></div></th>
                 </tr>
             </thead>
             <tbody>
 
-                @if (Model != null && Model.Any())
+                @foreach (var item in Model)
                 {
-                    foreach (var item in Model)
-                    {
-                        <tr class="tbody-style">
-                            <td>
-                                @(item?.Funcionario?.Nome ?? "N/A")
-                            </td>
-                            <td>
-                                @(item?.Funcionario?.Email ?? "N/A")
-                            </td>
-                            <td>
-                                @(item?.Funcionario?.Categoria ?? "N/A")
-                            </td>
-                            <td>
-                                @(item?.Equipamento?.Modelo ?? "N/A")
-                            </td>
-                            <td>
-                                @(item?.Equipamento?.Modelo ?? "N/A")
-                            </td>
-                            <td>
-                                @(item?.Equipamento?.DtEmeprestimoInicio.ToString("dd/MM/yyyy") ?? "N/A")
-                            </td>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="Basic example">
-                                    <a role="button" class="btn btn-dark" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i></a>
-                                    <a role="button" class="btn btn-success" asp-action="Detalhes" asp-route-id="@item.Id"><i class="bi bi-newspaper"></i></a>
-                                    <form asp-action="Excluir" asp-route-id="@item.Id">
-                                        <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
-                    }
-                }
-                else
-                {
-                    <tr>
-                        <td colspan="7">
-                            <h1>Nenhum dado encontrado.</h1>
+                    <tr class="tbody-style">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Funcionario.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Funcionario.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Funcionario.Categoria)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Equipamento.IdPatrimonio)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Equipamento.Modelo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Equipamento.DtEmeprestimoInicio.ToString("dd/mm/yyyy"))
+                        </td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <a role="button" class="btn btn-dark" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i></a>
+                                <a role="button" class="btn btn-success" asp-action="Detalhes" asp-route-id="@item.Id"><i class="bi bi-newspaper"></i></a>
+                                <form asp-action="Excluir" asp-route-id="@item.Id">
+                                    <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                                </form>
+                            </div>
+
                         </td>
                     </tr>
                 }
-
 
             </tbody>
         </table>

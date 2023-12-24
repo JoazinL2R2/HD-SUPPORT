@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HD_SUPPORT.Controllers
 {
-    [Authorize]
     public class CadastroEquipController : Controller
     {
         private readonly BancoContexto _contexto;
@@ -14,11 +13,13 @@ namespace HD_SUPPORT.Controllers
         {
             _contexto = contexto;
         }
-        
+
         public async Task<IActionResult> Index()
         {
-            return View(await _contexto.CadastroUser.ToListAsync());
+            var equipamentos = await _contexto.CadastroEquipamentos.ToListAsync();
+            return View(equipamentos);
         }
+
         [HttpGet]
         public IActionResult NovoCadastro()
         {
@@ -26,40 +27,41 @@ namespace HD_SUPPORT.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> NovoCadastro(CadastroEquip cadastro)
+        public async Task<IActionResult> NovoCadastro(CadastroEquip equipamento)
         {
-            if (_contexto.CadastroEmprestimos.Any(x => x.IdPatrimonio == cadastro.IdPatrimonio))
+            if (_contexto.CadastroEquipamentos.Any(x => x.IdPatrimonio == equipamento.IdPatrimonio))
             {
-                ModelState.AddModelError(nameof(cadastro.IdPatrimonio), "Maquina já cadastrada");
+                ModelState.AddModelError(nameof(equipamento.IdPatrimonio), "Máquina já cadastrada");
                 return View();
             }
             else
             {
-                await _contexto.CadastroEmprestimos.AddAsync(cadastro);
+                _contexto.CadastroEquipamentos.Add(equipamento);
                 await _contexto.SaveChangesAsync();
-                return RedirectToAction("Index", "CadastroFunc", new { area = "" });
+                return RedirectToAction("Index", "CadastroEquip", new { area = "" });
             }
         }
+
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            CadastroEquip cadastro = await _contexto.CadastroEmprestimos.FindAsync(id);
+            var cadastro = await _contexto.CadastroEquipamentos.FindAsync(id);
             return View(cadastro);
         }
 
         [HttpPost]
         public async Task<IActionResult> Atualizar(CadastroEquip cadastro)
         {
-            if (_contexto.CadastroEmprestimos.Any(x => x.IdPatrimonio == cadastro.IdPatrimonio))
+            if (_contexto.CadastroEquipamentos.Any(x => x.IdPatrimonio == cadastro.IdPatrimonio && x.Id != cadastro.Id))
             {
-                ModelState.AddModelError(nameof(cadastro.IdPatrimonio), "Email existente");
+                ModelState.AddModelError(nameof(cadastro.IdPatrimonio), "Máquina já cadastrada");
                 return View("Edit", cadastro);
             }
             else
             {
-                _contexto.CadastroEmprestimos.Update(cadastro);
+                _contexto.CadastroEquipamentos.Update(cadastro);
                 await _contexto.SaveChangesAsync();
-                return RedirectToAction("Index", "CadastroFunc", new { area = "" });
+                return RedirectToAction("Index", "CadastroEquip", new { area = "" });
             }
         }
     }

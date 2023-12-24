@@ -1,0 +1,34 @@
+﻿@model HD_SUPPORT.Models.EmprestimoViewModel
+
+@{
+    ViewData["Title"] = "Novo Emprestimo";
+}
+
+<h1>Novo Emprestimo</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="NovoEmprestimo">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Equipamento.IdPatrimonio" class="control-label"></label>
+                <input asp-for="Equipamento.IdPatrimonio" class="form-control" />
+                <span asp-validation-for="Equipamento.IdPatrimonio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Funcionario.Email" class="control-label"></label>
+                <input asp-for="Funcionario.Email" class="form-control" />
+                <span asp-validation-for="Funcionario.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Criar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
