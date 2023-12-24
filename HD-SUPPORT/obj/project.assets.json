@@ -6982,19 +6982,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\JoazinL2R2\\.nuget\\packages\\": {}
+    "C:\\Users\\Caiovogl\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\JoazinL2R2\\Source\\Repos\\gugsinwork\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj",
+      "projectUniqueName": "C:\\Users\\Caiovogl\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj",
       "projectName": "HD-SUPPORT",
-      "projectPath": "C:\\Users\\JoazinL2R2\\Source\\Repos\\gugsinwork\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj",
-      "packagesPath": "C:\\Users\\JoazinL2R2\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\JoazinL2R2\\Source\\Repos\\gugsinwork\\HD-SUPPORT\\HD-SUPPORT\\obj\\",
+      "projectPath": "C:\\Users\\Caiovogl\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj",
+      "packagesPath": "C:\\Users\\Caiovogl\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Caiovogl\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\JoazinL2R2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Caiovogl\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

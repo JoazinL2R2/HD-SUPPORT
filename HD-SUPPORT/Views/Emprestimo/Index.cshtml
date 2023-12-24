@@ -1,6 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Http
 
-@model IEnumerable<EmprestimoViewModel>
+@model IEnumerable<HD_SUPPORT.Models.EmprestimoViewModel>
 
 @{
     ViewData["Title"] = "Index";
@@ -36,7 +36,7 @@
                     </th>
 
 
-                    <th scope="col"><div class="button-add"><a role="button" asp-action="NovoCadastro"><button>Adicionar</button></a></div></th>
+                    <th scope="col"><div class="button-add"><a role="button" asp-action="NovoEmprestimo"><button>Adicionar</button></a></div></th>
                 </tr>
             </thead>
             <tbody>
@@ -60,7 +60,14 @@
                             @Html.DisplayFor(modelItem => item.Equipamento.Modelo)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Equipamento.DtEmeprestimoInicio.ToString("dd/mm/yyyy"))
+                            @{
+                                string parameterValue = null;
+                                if (item.Equipamento != null)
+                                {
+                                    parameterValue = item.Equipamento.DtEmeprestimoInicio.ToString("dd/mm/yyyy");
+                                }
+                            }
+                            @Html.DisplayFor(modelItem => parameterValue)
                         </td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">

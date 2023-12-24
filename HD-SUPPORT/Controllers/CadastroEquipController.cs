@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography.X509Certificates;
 
 namespace HD_SUPPORT.Controllers
 {
@@ -12,8 +13,8 @@ namespace HD_SUPPORT.Controllers
         public CadastroEquipController(BancoContexto contexto)
         {
             _contexto = contexto;
-        }
 
+        }
         public async Task<IActionResult> Index()
         {
             var equipamentos = await _contexto.CadastroEquipamentos.ToListAsync();

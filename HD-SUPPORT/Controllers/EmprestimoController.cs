@@ -12,9 +12,15 @@ namespace HD_SUPPORT.Controllers
         {
             _contexto = contexto;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var emprestimo = await _contexto.CadastroEmprestimos.ToListAsync();
+            emprestimo.ForEach(async (item) =>
+            {
+                item.Equipamento = _contexto.CadastroEquipamentos.FirstOrDefault(u => u.Id == item.Id);
+                item.Funcionario = _contexto.CadastroUser.FirstOrDefault(u => u.Id == item.Id);
+            });
+            return View(emprestimo);
         }
         [HttpGet]
         public IActionResult NovoEmprestimo()
@@ -24,8 +30,11 @@ namespace HD_SUPPORT.Controllers
 
         [HttpPost]
         
-        public async Task<IActionResult> NovoEmprestimo([Bind("email", "idPatrimonio")] string email, int idPatrimonio)
+        public async Task<IActionResult> NovoEmprestimo(EmprestimoViewModel cadastro)
         {
+            var idPatrimonio = cadastro.Equipamento.IdPatrimonio;
+            var email = cadastro.Funcionario.Email;
+
             var funcionario = await _contexto.CadastroUser.FirstOrDefaultAsync(u => u.Email == email);
 
             if (funcionario == null)
@@ -40,7 +49,6 @@ namespace HD_SUPPORT.Controllers
             if (equipamentoDisponivel != null)
             {
                 equipamentoDisponivel.Disponivel = false;
-
 
                 var novoEmprestimo = new EmprestimoViewModel
                 {
