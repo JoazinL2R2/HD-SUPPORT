@@ -1,0 +1,111 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor Acessor
+
+@model IEnumerable<HD_SUPPORT.Models.EmprestimoViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="align-content-center">
+    <div class="TableContainer">
+        <div class="table-menu">
+            <a role="button" href=""><i class="bi bi-search"></i></a>
+
+            <input type="search" placeholder="Faça sua pesquisa">
+        </div>
+        <table id="table-position" class="table table-hover">
+            <thead class="thead-style">
+                <tr class="tr-style">
+                    <th>
+                        @Html.DisplayNameFor(model => model.Funcionario.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Funcionario.Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Funcionario.Categoria)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Equipamento.IdPatrimonio)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Equipamento.Modelo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Equipamento.DtEmeprestimoInicio)
+                    </th>
+
+                    <th scope="col"><div class="button-add"><a role="button" asp-action="NovoCadastro"><button>Adicionar</button></a></div></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr class="tbody-style">
+                            <td>
+                                @(item?.Funcionario?.Nome ?? "N/A")
+                            </td>
+                            <td>
+                                @(item?.Funcionario?.Email ?? "N/A")
+                            </td>
+                            <td>
+                                @(item?.Funcionario?.Categoria ?? "N/A")
+                            </td>
+                            <td>
+                                @(item?.Equipamento?.Modelo ?? "N/A")
+                            </td>
+                            <td>
+                                @(item?.Equipamento?.Modelo ?? "N/A")
+                            </td>
+                            <td>
+                                @(item?.Equipamento?.DtEmeprestimoInicio.ToString("dd/MM/yyyy") ?? "N/A")
+                            </td>
+                            <td>
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <a role="button" class="btn btn-dark" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i></a>
+                                    <a role="button" class="btn btn-success" asp-action="Detalhes" asp-route-id="@item.Id"><i class="bi bi-newspaper"></i></a>
+                                    <form asp-action="Excluir" asp-route-id="@item.Id">
+                                        <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="7">
+                            <h1>Nenhum dado encontrado.</h1>
+                        </td>
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+
+
+
+        <div class="pagination">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#"><i class="bi bi-arrow-left"></i></a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#"><i class="bi bi-arrow-right"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+
+
+
+
+

@@ -11,7 +11,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace HD_SUPPORT.Controllers
 {
-    [Authorize]
+    
     public class CadastroFuncController : Controller
     {
         private readonly BancoContexto _contexto;

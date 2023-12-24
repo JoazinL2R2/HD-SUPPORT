@@ -39,8 +39,20 @@
             </div>
             <div class="form-group">
                 <label asp-for="Categoria" class="control-label"></label>
-                <input asp-for="Categoria" class="form-control" />
+                <br />
+                <select name="categoria" id="categorias">
+                    <option value="HomeOffice">
+                        Home-Office
+                    </option>
+                    <option value="Presencial">
+                        Presencial
+                    </option>
+                    <option value="Hibrido">
+                        Hibrido
+                    </option>
+                </select>
                 <span asp-validation-for="Categoria" class="text-danger"></span>
+                <br />
             </div>
             <div class="form-group">
                 <label asp-for="Cpf" class="control-label"></label>
@@ -48,6 +60,7 @@
                 <span asp-validation-for="Cpf" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <br />
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
@@ -55,7 +68,9 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <br />
+    <br />
+    <a role="button" asp-controller="CadastroHelpDesk" asp-action="Login" class="btn btn-primary">Voltar</a>
 </div>
 
 @section Scripts {

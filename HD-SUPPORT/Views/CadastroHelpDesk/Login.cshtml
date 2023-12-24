@@ -31,16 +31,11 @@
                         <input asp-for="Senha" class="form-control" type="password" placeholder="Insira sua senha" />
                         <span asp-validation-for="Senha" class="text-danger"></span>
                     </div>
+                    <a asp-controller="CadastroFunc" asp-action="NovoCadastro">Sou Funcionario</a>
                     <br />
                     <div class="form-group">
                         <button class="button-style" type="submit">Login</button>
                     </div>
-                    @if(ViewData["ValidateMessage"] != null)
-                    {
-                        <br />
-                        <br />
-                        <label>@ViewData["ValidateMessage"]</label>
-                    }
                 </div> 
             </form>
         </div>

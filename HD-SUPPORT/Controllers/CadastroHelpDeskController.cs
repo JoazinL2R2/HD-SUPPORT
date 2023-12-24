@@ -65,6 +65,11 @@ namespace HD_SUPPORT.Controllers
                         ModelState.AddModelError(nameof(cadastro.Foto), "Arquivo muito grande");
                         return View();
                     }
+                    if(Imagem == null)
+                    {
+                        ModelState.AddModelError(nameof(cadastro.Foto), "Insira uma foto de perfil");
+                        return View();
+                    }
                     using (MemoryStream ms = new MemoryStream())
                     {
                         Imagem.CopyTo(ms);
@@ -98,10 +103,10 @@ namespace HD_SUPPORT.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(CadastroHelpDesk cadastro)
         {
-            if (cadastro.Email == "user@example.com" && 
-                cadastro.Senha == "123"
+            if (_contexto.CadastroHD.Any(x => x.Email == cadastro.Email && x.Senha == cadastro.Senha)
                 )
             {
+
                 List<Claim> claims = new List<Claim>()
                 {
                     new Claim(ClaimTypes.NameIdentifier,cadastro.Email),
@@ -119,12 +124,6 @@ namespace HD_SUPPORT.Controllers
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
                     new ClaimsPrincipal(claimsIdentity),properties
                     );
-                return RedirectToAction("Index", "CadastroFunc");
-            }
-
-            ViewData["validate"] = "Usuario não encontrado";
-            if (_contexto.CadastroHD.Any(x => x.Email == cadastro.Email && x.Senha == cadastro.Senha))
-            {
                 var usuario = _contexto.CadastroHD.Where(b => b.Email == cadastro.Email).FirstOrDefault();
                 HttpContext.Session.SetString("nome", usuario.Nome);
                 HttpContext.Session.Set("foto", usuario.Foto);

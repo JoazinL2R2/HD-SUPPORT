@@ -7,7 +7,8 @@ namespace HD_SUPPORT.Models
     {
         public DbSet<CadastroHelpDesk> CadastroHD { get; set; }
         public DbSet<CadastroUser> CadastroUser { get; set; }
-        public DbSet<CadastroEquip> CadastroEmprestimos { get; set; }
+        public DbSet<EmprestimoViewModel> CadastroEmprestimos { get; set; }
+        public DbSet<CadastroEquip> CadastroEquipamentos { get; set; }
         public BancoContexto(DbContextOptions<BancoContexto> opcoes) : base(opcoes)
         {
 

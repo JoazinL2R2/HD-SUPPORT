@@ -1,37 +1,25 @@
-﻿@model EmprestimoViewModel
+﻿@model CadastroUser
 @{
     ViewData["Title"] = "Detalhes";
 }
-<input type="hidden" asp-for="@Model.Funcionario.Id" />
+<input type="hidden" asp-for="@Model.Id" />
 <h1>Edit</h1>
 
-<h4>Detalhes do Funcionario @Model.Funcionario.Nome</h4>
+<h4>Detalhes do Funcionario @Model.Nome</h4>
 <hr />
 <div class="row">
     <label>Nome</label><br />
-    <p>@Model.Funcionario.Nome</p>
+    <p>@Model.Nome</p>
     <label>E-Mail</label><br />
-    <p>@Model.Funcionario.Email</p>
+    <p>@Model.Email</p>
     <label>Telegram</label><br />
-    <p>@Model.Funcionario.Telegram</p>
+    <p>@Model.Telegram</p>
     <label>Telefone</label><br /> 
-    <p>@Model.Funcionario.Telefone</p>
+    <p>@Model.Telefone</p>
     <label>Status</label><br />
-    <p>@Model.Funcionario.Status</p>
+    <p>@Model.Status</p>
     <label>Categoria</label><br /> 
-    <p>@Model.Funcionario.Categoria</p>
-    <label>Numero do Patrimonio</label><br />
-    <p>@Model.Equipamento.IdPatrimonio</p>
-    <label>Modelo</label><br />
-    <p>@Model.Equipamento.Modelo</p>
-    <label>Processador</label><br />
-    <p>@Model.Equipamento.Processador</p>
-    <label>Sistema Operacional</label><br />
-    <p>@Model.Equipamento.SistemaOperacionar</p>
-    <label>HeadSet</label><br />
-    <p>@Model.Equipamento.HeadSet</p>
-    <label>Data de inicio do Emprestimo</label><br />
-    <p>@Model.Equipamento.DtEmeprestimoInicio</p>
+    <p>@Model.Categoria</p>
 </div>
 
 <div>
