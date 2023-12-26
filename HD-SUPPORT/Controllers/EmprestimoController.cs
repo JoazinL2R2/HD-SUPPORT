@@ -111,14 +111,16 @@ namespace HD_SUPPORT.Controllers
             var equipamentoDisponivel = await _contexto.CadastroEquipamentos
                 .FirstOrDefaultAsync(x => x.IdPatrimonio == idPatrimonio && x.Disponivel);
 
-            if (equipamentoDisponivel != null)
+            if (equipamentoDisponivel != null || !_contexto.CadastroEmprestimos.Any(x => x.EquipamentoId == cadastro.EquipamentoId && x.Id != cadastro.Id))
             {
-                var equipamento = _contexto.CadastroEquipamentos.FirstOrDefault(x=> x.Id == cadastro.EquipamentoId);
-                equipamento.Disponivel = true;
-                _contexto.CadastroEquipamentos.Update(equipamento);
+                if (equipamentoDisponivel != null)
+                {
+                    var equipamento = _contexto.CadastroEquipamentos.FirstOrDefault(x => x.Id == cadastro.EquipamentoId);
+                    equipamento.Disponivel = true;
+                    _contexto.CadastroEquipamentos.Update(equipamento);
 
-                equipamentoDisponivel.Disponivel = false;
-
+                    equipamentoDisponivel.Disponivel = false;
+                }
                 cadastro.Equipamento = equipamentoDisponivel;
                 cadastro.Funcionario = funcionario;
 
