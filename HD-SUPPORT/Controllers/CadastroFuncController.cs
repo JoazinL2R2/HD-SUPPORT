@@ -31,6 +31,7 @@ namespace HD_SUPPORT.Controllers
             return View(Funcionarios);
         }
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult NovoCadastro()
         {
             return View();
