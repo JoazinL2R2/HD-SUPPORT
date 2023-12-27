@@ -15,10 +15,25 @@ namespace HD_SUPPORT.Controllers
             _contexto = contexto;
 
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
             var equipamentos = await _contexto.CadastroEquipamentos.ToListAsync();
-            return View(equipamentos);
+            var equipamentosFiltrados = new List<CadastroEquip>();
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                equipamentosFiltrados = equipamentos
+                    .Where(e => e.IdPatrimonio.ToString().Contains(searchString)
+                                || e.Modelo.Contains(searchString, StringComparison.OrdinalIgnoreCase)
+                                || e.Processador.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+                    .ToList();
+            }
+            else
+            {
+                equipamentosFiltrados = equipamentos;
+            }
+
+            return View(equipamentosFiltrados);
         }
 
         [HttpGet]

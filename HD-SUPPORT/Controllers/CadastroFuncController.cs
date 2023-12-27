@@ -20,9 +20,15 @@ namespace HD_SUPPORT.Controllers
         {
             _contexto = contexto;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _contexto.CadastroUser.ToListAsync());
+            var Funcionarios = await _contexto.CadastroUser.ToListAsync();
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                 Funcionarios = _contexto.CadastroUser.Where(x => x.Nome.Contains(searchString)
+                || x.Email.Contains(searchString)).ToList();
+            }
+            return View(Funcionarios);
         }
         [HttpGet]
         public IActionResult NovoCadastro()

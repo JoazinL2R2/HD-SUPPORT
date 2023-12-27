@@ -2,7 +2,6 @@
 using HD_SUPPORT.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-
 namespace HD_SUPPORT.Controllers
 {
     public class EmprestimoController : Controller
@@ -12,14 +11,22 @@ namespace HD_SUPPORT.Controllers
         {
             _contexto = contexto;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            var emprestimo = await _contexto.CadastroEmprestimos.ToListAsync();
-            emprestimo.ForEach(async (item) =>
+            var emprestimo = await _contexto.CadastroEmprestimos
+                .Include(e => e.Equipamento)
+                .Include(e => e.Funcionario)
+                .ToListAsync();
+
+            if (!string.IsNullOrEmpty(searchString))
             {
-                item.Equipamento = _contexto.CadastroEquipamentos.FirstOrDefault(u => u.Id == item.Id);
-                item.Funcionario = _contexto.CadastroUser.FirstOrDefault(u => u.Id == item.Id);
-            });
+                emprestimo = emprestimo
+                    .Where(x => x.Funcionario.Nome.Contains(searchString)
+                                || x.Funcionario.Email.Contains(searchString)
+                                || x.Equipamento.IdPatrimonio.ToString().Contains(searchString))
+                    .ToList();
+            }
+
             return View(emprestimo);
         }
         [HttpGet]
