@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JoazinL2R2\\source\\repos\\gugsinwork\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj": {}
+    "C:\\Users\\JoazinL2R2\\Source\\Repos\\gugsinwork\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JoazinL2R2\\source\\repos\\gugsinwork\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj": {
+    "C:\\Users\\JoazinL2R2\\Source\\Repos\\gugsinwork\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JoazinL2R2\\source\\repos\\gugsinwork\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj",
+        "projectUniqueName": "C:\\Users\\JoazinL2R2\\Source\\Repos\\gugsinwork\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj",
         "projectName": "HD-SUPPORT",
-        "projectPath": "C:\\Users\\JoazinL2R2\\source\\repos\\gugsinwork\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj",
+        "projectPath": "C:\\Users\\JoazinL2R2\\Source\\Repos\\gugsinwork\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj",
         "packagesPath": "C:\\Users\\JoazinL2R2\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JoazinL2R2\\source\\repos\\gugsinwork\\HD-SUPPORT\\HD-SUPPORT\\obj\\",
+        "outputPath": "C:\\Users\\JoazinL2R2\\Source\\Repos\\gugsinwork\\HD-SUPPORT\\HD-SUPPORT\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\JoazinL2R2\\AppData\\Roaming\\NuGet\\NuGet.Config",

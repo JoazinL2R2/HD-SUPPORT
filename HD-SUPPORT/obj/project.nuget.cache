@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XUhAUL7u89whx++om+dzT21Ud8LGFEiSuE8eb8shxVYh+7+PXUqHm8E5R1SAviKZX8fucPTnYT+pf3KxXO/S3A==",
+  "dgSpecHash": "8sWxBGaa/rws/zRV0mig0dolvH8olMg0pAwOCpa23Lpy8RLYuZsEXufJMuMCpCt+/O8SFb9Ld0DnoSJA0mWxpw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\JoazinL2R2\\source\\repos\\gugsinwork\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj",
+  "projectFilePath": "C:\\Users\\JoazinL2R2\\Source\\Repos\\gugsinwork\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\JoazinL2R2\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\JoazinL2R2\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

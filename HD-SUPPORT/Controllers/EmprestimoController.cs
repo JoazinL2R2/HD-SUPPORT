@@ -20,7 +20,6 @@ namespace HD_SUPPORT.Controllers
 
             if (!string.IsNullOrEmpty(searchString))
             {
-<<<<<<< HEAD
                 emprestimo = emprestimo
                     .Where(x => x.Funcionario.Nome.Contains(searchString)
                                 || x.Funcionario.Email.Contains(searchString)
@@ -28,11 +27,6 @@ namespace HD_SUPPORT.Controllers
                     .ToList();
             }
 
-=======
-                item.Equipamento = await _contexto.CadastroEquipamentos.FindAsync(item.EquipamentoId);
-                item.Funcionario = await _contexto.CadastroUser.FindAsync(item.FuncionarioId);
-            });
->>>>>>> 2be329dc0ad45ece70e96837e2bfa9fe34fff90f
             return View(emprestimo);
         }
         [HttpGet]
@@ -56,7 +50,7 @@ namespace HD_SUPPORT.Controllers
                 return View();
             }
 
-            var func = await _contexto.CadastroEmprestimos.FirstOrDefaultAsync(u => u.FuncionarioId == funcionario.Id);
+            var func = await _contexto.CadastroEmprestimos.FirstOrDefaultAsync(u => u.Funcionario.Id == funcionario.Id);
 
             if (func != null)
             {
@@ -91,8 +85,8 @@ namespace HD_SUPPORT.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             EmprestimoViewModel cadastro = await _contexto.CadastroEmprestimos.FindAsync(id);
-            cadastro.Equipamento = await _contexto.CadastroEquipamentos.FindAsync(cadastro.EquipamentoId);
-            cadastro.Funcionario = await _contexto.CadastroUser.FindAsync(cadastro.FuncionarioId);
+            cadastro.Equipamento = await _contexto.CadastroEquipamentos.FindAsync(cadastro.Equipamento.Id);
+            cadastro.Funcionario = await _contexto.CadastroUser.FindAsync(cadastro.Funcionario.Id);
             return View(cadastro);
         }
 
@@ -110,7 +104,7 @@ namespace HD_SUPPORT.Controllers
                 return View("Edit", cadastro);
             }
 
-            if (_contexto.CadastroEmprestimos.Any(x => x.EquipamentoId == cadastro.EquipamentoId && x.Id != cadastro.Id))
+            if (_contexto.CadastroEmprestimos.Any(x => x.Equipamento.Id == cadastro.Equipamento.Id && x.Id != cadastro.Equipamento.Id))
             {
                 ModelState.AddModelError("Equipamento.IdPatrimonio", "Equipamento já emprestado");
                 return View("Edit", cadastro);
@@ -124,11 +118,11 @@ namespace HD_SUPPORT.Controllers
             var equipamentoDisponivel = await _contexto.CadastroEquipamentos
                 .FirstOrDefaultAsync(x => x.IdPatrimonio == idPatrimonio && x.Disponivel);
 
-            if (equipamentoDisponivel != null || !_contexto.CadastroEmprestimos.Any(x => x.EquipamentoId == cadastro.EquipamentoId && x.Id != cadastro.Id))
+            if (equipamentoDisponivel != null || !_contexto.CadastroEmprestimos.Any(x => x.Equipamento.Id == cadastro.Equipamento.Id && x.Id != cadastro.Id))
             {
                 if (equipamentoDisponivel != null)
                 {
-                    var equipamento = _contexto.CadastroEquipamentos.FirstOrDefault(x => x.Id == cadastro.EquipamentoId);
+                    var equipamento = _contexto.CadastroEquipamentos.FirstOrDefault(x => x.Id == cadastro.Equipamento.Id);
                     equipamento.Disponivel = true;
                     _contexto.CadastroEquipamentos.Update(equipamento);
 
@@ -153,7 +147,7 @@ namespace HD_SUPPORT.Controllers
         {
             var cadastro = await _contexto.CadastroEmprestimos.FindAsync(id);
             if (cadastro != null) { 
-                var equipamento = await _contexto.CadastroEquipamentos.FindAsync(cadastro.EquipamentoId);
+                var equipamento = await _contexto.CadastroEquipamentos.FindAsync(cadastro.Equipamento.Id);
                 equipamento.Disponivel = true;
                 _contexto.CadastroEquipamentos.Update(equipamento);
                 _contexto.CadastroEmprestimos.Remove(cadastro);
