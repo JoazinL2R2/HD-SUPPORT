@@ -1286,3 +1286,8 @@ C:\Users\JoazinL2R2\source\repos\gugsinwork\HD-SUPPORT\HD-SUPPORT\obj\Debug\net8
 C:\Users\JoazinL2R2\source\repos\gugsinwork\HD-SUPPORT\HD-SUPPORT\obj\Debug\net8.0\HD-SUPPORT.pdb
 C:\Users\JoazinL2R2\source\repos\gugsinwork\HD-SUPPORT\HD-SUPPORT\obj\Debug\net8.0\HD-SUPPORT.genruntimeconfig.cache
 C:\Users\JoazinL2R2\source\repos\gugsinwork\HD-SUPPORT\HD-SUPPORT\obj\Debug\net8.0\ref\HD-SUPPORT.dll
+C:\Users\Caiovogl\Source\Repos\HD-SUPPORT\HD-SUPPORT\bin\Debug\net8.0\JetBrains.Annotations.dll
+C:\Users\Caiovogl\Source\Repos\HD-SUPPORT\HD-SUPPORT\bin\Debug\net8.0\X.PagedList.dll
+C:\Users\Caiovogl\Source\Repos\HD-SUPPORT\HD-SUPPORT\bin\Debug\net8.0\X.PagedList.Mvc.Core.dll
+C:\Users\Caiovogl\Source\Repos\HD-SUPPORT\HD-SUPPORT\bin\Debug\net8.0\X.PagedList.Web.Common.dll
+C:\Users\Caiovogl\Source\Repos\HD-SUPPORT\HD-SUPPORT\obj\Debug\net8.0\HD-SUPPORT.MvcApplicationPartsAssemblyInfo.cs

@@ -87,8 +87,8 @@ namespace HD_SUPPORT.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             EmprestimoViewModel cadastro = await _contexto.CadastroEmprestimos.FindAsync(id);
-            cadastro.Equipamento = await _contexto.CadastroEquipamentos.FindAsync(cadastro.Equipamento.Id);
-            cadastro.Funcionario = await _contexto.CadastroUser.FindAsync(cadastro.Funcionario.Id);
+            cadastro.Equipamento = await _contexto.CadastroEquipamentos.FindAsync(cadastro.EquipamentoId);
+            cadastro.Funcionario = await _contexto.CadastroUser.FindAsync(cadastro.FuncionarioId);
             return View(cadastro);
         }
 
@@ -120,11 +120,11 @@ namespace HD_SUPPORT.Controllers
             var equipamentoDisponivel = await _contexto.CadastroEquipamentos
                 .FirstOrDefaultAsync(x => x.IdPatrimonio == idPatrimonio && x.Disponivel);
 
-            if (equipamentoDisponivel != null || !_contexto.CadastroEmprestimos.Any(x => x.Equipamento.Id == cadastro.Equipamento.Id && x.Id != cadastro.Id))
+            if (equipamentoDisponivel != null || !_contexto.CadastroEmprestimos.Any(x => x.Equipamento.Id == cadastro.EquipamentoId && x.Id != cadastro.Id))
             {
                 if (equipamentoDisponivel != null)
                 {
-                    var equipamento = _contexto.CadastroEquipamentos.FirstOrDefault(x => x.Id == cadastro.Equipamento.Id);
+                    var equipamento = _contexto.CadastroEquipamentos.FirstOrDefault(x => x.Id == cadastro.EquipamentoId);
                     equipamento.Disponivel = true;
                     _contexto.CadastroEquipamentos.Update(equipamento);
 
