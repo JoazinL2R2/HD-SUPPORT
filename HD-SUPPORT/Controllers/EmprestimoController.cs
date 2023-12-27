@@ -1,9 +1,11 @@
 ﻿
 using HD_SUPPORT.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 namespace HD_SUPPORT.Controllers
 {
+    [Authorize(Roles = "HelpDesk")]
     public class EmprestimoController : Controller
     {
         private readonly BancoContexto _contexto;

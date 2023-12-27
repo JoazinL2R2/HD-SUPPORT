@@ -36,6 +36,23 @@ namespace HD_SUPPORT
                 options.IdleTimeout = TimeSpan.FromMinutes(30);
             });
             services.AddControllersWithViews();
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie(options =>
+            {
+                options.LoginPath = "/CadastroHelpDesk/Login";
+                options.AccessDeniedPath = "/CadastroHelpDesk/Login";
+            });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("HelpDeskPolicy", policy =>
+                    policy.RequireRole("HelpDesk")); // Usando RequireRole para verificar a reivindicação da função HelpDesk
+
+                // Não precisamos da reivindicação "Example Role" para FuncionarioPolicy, mas você pode adicioná-la se desejar
+                options.AddPolicy("FuncionarioPolicy", policy =>
+                    policy.RequireRole("Funcionario"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,11 +63,8 @@ namespace HD_SUPPORT
                 app.UseDeveloperExceptionPage();
             }
             else
-            // Configure the HTTP request pipeline.
-            if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
@@ -58,23 +72,10 @@ namespace HD_SUPPORT
             app.UseStaticFiles();
 
             app.UseSession();
-
             app.UseRouting();
 
-            app.UseAuthorization();
             app.UseAuthentication();
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-                app.UseHsts();
-            }
-
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            app.UseAuthorization();
 
             app.MapControllerRoute(
                 name: "default",

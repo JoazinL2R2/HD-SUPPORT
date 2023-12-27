@@ -8,10 +8,12 @@ using HD_SUPPORT.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace HD_SUPPORT.Controllers
 {
+    [AllowAnonymous]
     public class CadastroHelpDeskController : Controller
     {
         private readonly BancoContexto _contexto;
@@ -84,13 +86,12 @@ namespace HD_SUPPORT.Controllers
             }
         }
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Login()
         {
 
-            ClaimsPrincipal claimUser = HttpContext.User;
-
-            if (claimUser.Identity.IsAuthenticated)
-                return RedirectToAction("CadastroFunc", "Index");
+            if (User.Identity.IsAuthenticated)
+                return RedirectToAction("Index", "CadastroFunc");
 
             if (HttpContext.Session.GetString("nome") != null)
             {
@@ -101,6 +102,7 @@ namespace HD_SUPPORT.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Login(CadastroHelpDesk cadastro)
         {
             if (_contexto.CadastroHD.Any(x => x.Email == cadastro.Email && x.Senha == cadastro.Senha)
@@ -109,8 +111,8 @@ namespace HD_SUPPORT.Controllers
 
                 List<Claim> claims = new List<Claim>()
                 {
-                    new Claim(ClaimTypes.NameIdentifier,cadastro.Email),
-                    new Claim("OtherProperties","Example Role")
+                    new Claim(ClaimTypes.NameIdentifier, cadastro.Email),
+                    new Claim(ClaimTypes.Role, "HelpDesk")
                 };
                 ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims,
                     CookieAuthenticationDefaults.AuthenticationScheme
@@ -122,8 +124,7 @@ namespace HD_SUPPORT.Controllers
 
                 };
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
-                    new ClaimsPrincipal(claimsIdentity),properties
-                    );
+                    new ClaimsPrincipal(claimsIdentity), properties);
                 var usuario = _contexto.CadastroHD.Where(b => b.Email == cadastro.Email).FirstOrDefault();
                 HttpContext.Session.SetString("nome", usuario.Nome);
                 HttpContext.Session.Set("foto", usuario.Foto);

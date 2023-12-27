@@ -28,7 +28,7 @@ namespace HD_SUPPORT.Controllers
         public async Task<IActionResult> LogOut()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("CadastroHelpDesk","Login");
+            return RedirectToAction("Login","CadastroHelpDesk");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

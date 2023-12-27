@@ -11,7 +11,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace HD_SUPPORT.Controllers
 {
-    
+    [Authorize(Roles = "HelpDesk")]
     public class CadastroFuncController : Controller
     {
         private readonly BancoContexto _contexto;
@@ -37,6 +37,7 @@ namespace HD_SUPPORT.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> NovoCadastro(CadastroUser cadastro)
         {
             if (_contexto.CadastroUser.Any(x => x.Email == cadastro.Email)) { 
