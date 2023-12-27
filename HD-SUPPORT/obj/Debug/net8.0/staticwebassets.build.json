@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DldrGjT0cSX+pJPK/8fardS+3wGg2pe76p6vh+fH0ao=",
+  "Hash": "XAEE5V+1U9gGmhQZzlllDRdyrPINs1vTi/spJsTgMLo=",
   "Source": "HD-SUPPORT",
   "BasePath": "_content/HD-SUPPORT",
   "Mode": "Default",
@@ -357,6 +357,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\hd-support-logo.png"
+    },
+    {
+      "Identity": "C:\\Users\\Caiovogl\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\js\\jquery.inputmask.js",
+      "SourceId": "HD-SUPPORT",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Caiovogl\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "BasePath": "_content/HD-SUPPORT",
+      "RelativePath": "js/jquery.inputmask.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\jquery.inputmask.js"
     },
     {
       "Identity": "C:\\Users\\Caiovogl\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\js\\site.js",

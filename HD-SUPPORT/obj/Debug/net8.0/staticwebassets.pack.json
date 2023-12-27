@@ -61,6 +61,10 @@
       "PackagePath": "staticwebassets\\images\\hd-support-logo.png"
     },
     {
+      "Id": "C:\\Users\\Caiovogl\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\js\\jquery.inputmask.js",
+      "PackagePath": "staticwebassets\\js\\jquery.inputmask.js"
+    },
+    {
       "Id": "C:\\Users\\Caiovogl\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

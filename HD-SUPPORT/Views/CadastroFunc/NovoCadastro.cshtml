@@ -1,12 +1,11 @@
 ﻿@model HD_SUPPORT.Models.CadastroUser
 
 @{
-    ViewData["Title"] = "NovoCadastro";
+    ViewData["Title"] = "Cadastrar";
 }
 
-<h1>NovoCadastro</h1>
+<h1>Cadastre-se</h1>
 
-<h4>CadastroUser</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -24,17 +23,17 @@
             </div>
             <div class="form-group">
                 <label asp-for="Telegram" class="control-label"></label>
-                <input asp-for="Telegram" class="form-control" />
+                <input asp-for="Telegram" class="form-control" id="telegram"/>
                 <span asp-validation-for="Telegram" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Telefone" class="control-label"></label>
-                <input asp-for="Telefone" class="form-control" />
+                <input asp-for="Telefone" class="form-control" id="telefone"/>
                 <span asp-validation-for="Telefone" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
+                <input asp-for="Status" class="form-control" placeholder="Cargo na empresa"/>
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -56,12 +55,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Cpf" class="control-label"></label>
-                <input asp-for="Cpf" class="form-control" />
+                <input asp-for="Cpf" class="form-control" id="cpf"/>
                 <span asp-validation-for="Cpf" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <br />
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Criar" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -75,4 +74,11 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function() {
+            $("#telefone").inputmask('(99) 99999-9999');
+            $("#telegram").inputmask('(99) 99999-9999');
+            $("#cpf").inputmask('999.999.999-99');
+        });
+    </script>
 }

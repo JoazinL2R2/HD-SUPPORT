@@ -15,7 +15,7 @@ namespace HD_SUPPORT.Models
         public string? Status { get; set; }
         public string? Categoria { get; set; }
         [Required]
-        [StringLength(11)]
+        [StringLength(14)]
         public string? Cpf { get; set; }
     }
 }

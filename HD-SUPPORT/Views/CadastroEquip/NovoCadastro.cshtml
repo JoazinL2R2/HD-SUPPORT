@@ -1,19 +1,19 @@
 ﻿@model HD_SUPPORT.Models.CadastroEquip
 
 @{
-    ViewData["Title"] = "NovoCadastro";
+    ViewData["Title"] = "Cadastro";
 }
 
-<h1>NovoCadastro</h1>
+<h1>Cadastro</h1>
 
-<h4>CadastroUser</h4>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="NovoCadastro">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="IdPatrimonio" class="control-label"></label>
+                <label asp-for="IdPatrimonio" class="control-label">Id do patrimônio</label>
                 <input asp-for="IdPatrimonio" class="form-control" />
                 <span asp-validation-for="IdPatrimonio" class="text-danger"></span>
             </div>
@@ -28,7 +28,7 @@
                 <span asp-validation-for="Processador" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SistemaOperacionar" class="control-label"></label>
+                <label asp-for="SistemaOperacionar" class="control-label">Sistema operacional</label>
                 <input asp-for="SistemaOperacionar" class="form-control" />
                 <span asp-validation-for="SistemaOperacionar" class="text-danger"></span>
             </div>
