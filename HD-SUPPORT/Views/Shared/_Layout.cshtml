@@ -17,10 +17,10 @@
 <body>
     <header>
         <div class="logo_bne">
-            <img src="images/logo_bne.png" alt="">
+            <img src="~/images/logo_bne.png" alt="">
         </div>
         <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Tabelas
             </button>
             <ul class="dropdown-menu">
@@ -30,31 +30,27 @@
                 <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="LogOut">Sair</a></li>
             </ul>
         </div>
-        <div class="icon_menu">
-            <img src="images/menu_icon.png" alt="">
-        </div>
         <div>
             @if (Acessor.HttpContext.Session.GetString("nome") != null)
             {
                 <img src="data:image/jpeg;base64,@Convert.ToBase64String(@Acessor.HttpContext.Session.Get("foto"))" width="50" height="50">
                 @Acessor.HttpContext.Session.GetString("nome")
-                
+
             }
-        </div>
-        
+        </div>   
     </header>
 
 
-    <div class="container">
+    <div id="content-page">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.datatables.net/v/dt/dt-1.13.8/datatables.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/js/jquery.inputmask.js"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+
 </body>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/js/jquery.inputmask.js"></script>
+@await RenderSectionAsync("Scripts", required: false)
 </html>

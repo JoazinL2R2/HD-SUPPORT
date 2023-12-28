@@ -47,9 +47,8 @@ namespace HD_SUPPORT
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("HelpDeskPolicy", policy =>
-                    policy.RequireRole("HelpDesk")); // Usando RequireRole para verificar a reivindicação da função HelpDesk
+                    policy.RequireRole("HelpDesk"));
 
-                // Não precisamos da reivindicação "Example Role" para FuncionarioPolicy, mas você pode adicioná-la se desejar
                 options.AddPolicy("FuncionarioPolicy", policy =>
                     policy.RequireRole("Funcionario"));
             });
