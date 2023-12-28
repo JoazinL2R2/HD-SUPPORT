@@ -5,43 +5,56 @@
 }
 <div class="text-center">
 
-    <div class="ContainerHome">
-        <div class="content-text-geral">
-            <div class="content-text-hd">
-                <h1>Help Desk</h1>
-                <h2>Support</h2>
-            </div>
-            <div class="card-text-aprendiz">
-                <p>Primeira aplicação desenvolvida por aprendizes!</p>
-            </div>
-        </div>
-        <div class="forms-home">
+    <div class="content">
 
-            <form asp-action="Login">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="position-form">                 
-                    <div class="bar-style"></div>
-                    <div class="form-group">
-                        <label asp-for="Email" class="control-label">Usuario</label>
-                        <input asp-for="Email" class="form-control" placeholder="Insira seu Usuário" />
+        <div class="left">
+
+            <div class="titulo">
+                <p>HELP DESK</p>
+                <p class="subtitulo">Support</p>
+
+
+            </div>
+
+            <div class="gif">
+                <img src="images/teste.gif" alt="">
+            </div>
+
+        </div>
+
+        <div class="right">
+            <div class="menu">
+                <form asp-action="Login">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="titulo_menu">
+                        <p>Faça seu login agora!</p>
+                    </div>
+
+                    <div class="input-label">
+                        <label asp-for="Email" class="control-label">Usuario:</label>
+                        <p><input type="text" asp-for="Email" class="form-control" placeholder="Insira seu Usuário"></p>
                         <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
-                    <div class="form-group">
-                        <label asp-for="Senha" class="control-label">Senha</label>
+
+                    <div class="input-label">
+                        <label asp-for="Senha" class="control-label">Senha:</label>
                         <input asp-for="Senha" class="form-control" type="password" placeholder="Insira sua senha" />
                         <span asp-validation-for="Senha" class="text-danger"></span>
                     </div>
-                    <a asp-controller="CadastroFunc" asp-action="NovoCadastro">Sou Funcionario</a>
-                    <br />
-                    <div class="form-group">
+
+                    <div class="link_sou_func">
+                        <a asp-controller="CadastroFunc" asp-action="NovoCadastro">Sou funcionario</a>
+                    </div>
+
+                    <div class="Login_input">
                         <button class="button-style" type="submit">Login</button>
                     </div>
-                </div> 
-            </form>
-        </div>
-    </div>
-</div>
+                </form> 
+            </div>
 
+        </div>
+
+    </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
