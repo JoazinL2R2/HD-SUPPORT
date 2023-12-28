@@ -1,26 +1,32 @@
 * {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
     padding: 0;
 }
 
+
+
 header {
     background-color: white;
     display: flex;
-    margin-bottom: 5vh;
-    align-items:center;
+    align-items: center;
+    margin-bottom: 10vh;
 }
+
+
 .logo_bne img {
-    width: 130px;
+    width: 190px;
     margin-left: 20px;
 }
 
 .icon_menu img {
-    width: 60px;
+    width: 70px;
+
 }
 .icon_menu{
-    display:flex;
-    margin-left: 155vh;
+    margin-left: 140vh;
 }
+
 body {
     background: linear-gradient(to right, #046de1, #869cdd);
 }
@@ -33,13 +39,12 @@ body {
 .menu {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     background-color: white;
     width: 500px;
-    height: 530px;
+    height: 560px;
     border-radius: 20px;
-    margin-left: 30vh
 }
 
 .titulo_menu p {
@@ -55,11 +60,16 @@ body {
     font-size: 30px;
     text-align: left;
 }
+
+
+
+
 .menu input {
-    width: 100%;
+    width: 90%;
     height: 50px;
     border: 2px solid #046DE1;
     border-radius: 10px;
+    margin-left:3vh
 }
 
 .link_sou_func {
@@ -68,7 +78,8 @@ body {
 }
 
 .Login_input button {
-    margin-top: 6vh;
+    margin-left:20vh;
+    margin-top: 5vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -79,8 +90,6 @@ body {
     width: 120px;
     border-radius: 10px;
     height: 50px;
-    margin-left: 20vh;
-    margin-bottom: 5vh
 }
 
 .subtitulo {
@@ -89,23 +98,111 @@ body {
 
 
 .titulo {
+    font-family: Agrandir-regular;
     font-size: 75px;
     color: white;
     text-align: center;
 }
-.gif img{
-    height: 45vh;
-}
-.left{
-    padding:0px;
-    margin:0px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction: column;
-}
-.dropdown button{
+
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100%;
     background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    overflow-y: auto;
+    transition: right 0.3s ease-in-out;
+}
+
+    .side-menu a {
+        display: block;
+        padding: 15px;
+        text-decoration: none;
+        color: #333;
+        font-size: 18px;
+    }
+
+        .side-menu a:hover {
+            background-color: #f0f0f0;
+        }
+
+
+
+@media only screen and (max-width: 767px) {
+
+    header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 50px;
+    }
+
+    .icon_menu {
+        margin-right: 0px;
+    }
+
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menu {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        height: 500px;
+    }
+
+    .titulo_menu p {
+        margin-bottom: 70px;
+    }
+
+    .Login_input a {
+        margin-top: 50px;
+    }
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    header {
+        width: 100%
+    }
+
+    .Login_input a {
+        margin-top: 50px;
+    }
+
+    body {
+        width: 100%;
+    }
+
+    .left img {
+        width: 400px;
+    }
+
+    .left .titulo {
+        font-size: 70px;
+        width: 400px;
+    }
+
+    .menu {
+        margin-left: 50px;
+        width: 370px;
+        height: 560px;
+        margin-right: 20px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    header {
+        width: 100%;
+    }
 }
 
 .body-table {

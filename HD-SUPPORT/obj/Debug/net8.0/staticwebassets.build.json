@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WIkFggqerjMFZmhRt/RgpHjWDZqFLHU/j+czbY9sasc=",
+  "Hash": "XGdTkBCjtMfZnCAFnpT8LN/vU1r6B5RZqiyQtdEDxC8=",
   "Source": "HD-SUPPORT",
   "BasePath": "_content/HD-SUPPORT",
   "Mode": "Default",
@@ -319,6 +319,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\fonts\\Questrial-Regular.ttf"
+    },
+    {
+      "Identity": "C:\\Users\\JoazinL2R2\\Source\\Repos\\gugsinwork\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\9110796_x_icon.png",
+      "SourceId": "HD-SUPPORT",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\JoazinL2R2\\Source\\Repos\\gugsinwork\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "BasePath": "_content/HD-SUPPORT",
+      "RelativePath": "images/9110796_x_icon.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\9110796_x_icon.png"
     },
     {
       "Identity": "C:\\Users\\JoazinL2R2\\Source\\Repos\\gugsinwork\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\background.png",
