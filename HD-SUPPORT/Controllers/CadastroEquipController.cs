@@ -81,5 +81,13 @@ namespace HD_SUPPORT.Controllers
                 return RedirectToAction("Index", "CadastroEquip", new { area = "" });
             }
         }
+        [HttpPost]
+        public async Task<IActionResult> Excluir(int id)
+        {
+            var cadastro = await _contexto.CadastroEquipamentos.FindAsync(id);
+            _contexto.CadastroEquipamentos.Remove(cadastro);
+            await _contexto.SaveChangesAsync();
+            return RedirectToAction("Index", "CadastroEquip", new { area = "" });
+        }
     }
 }

@@ -92,6 +92,12 @@ namespace HD_SUPPORT.Controllers
         public async Task<IActionResult> Excluir(int id)
         {
             CadastroUser cadastro = await _contexto.CadastroUser.FindAsync(id);
+            var emprestimo = _contexto.CadastroEmprestimos.FirstOrDefault(emp => emp.FuncionarioId == id);
+            if(emprestimo!=null)
+            {
+                var equipamento = await _contexto.CadastroEquipamentos.FindAsync(emprestimo.EquipamentoId);
+                equipamento.Disponivel = true;
+            }
             _contexto.CadastroUser.Remove(cadastro);
             await _contexto.SaveChangesAsync();
             return RedirectToAction("Index", "CadastroFunc", new { area = "" });

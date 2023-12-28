@@ -38,7 +38,7 @@ namespace HD_SUPPORT.Controllers
         }
 
         [HttpPost]
-        
+
         public async Task<IActionResult> NovoEmprestimo(EmprestimoViewModel cadastro)
         {
             var idPatrimonio = cadastro.Equipamento.IdPatrimonio;
@@ -100,9 +100,17 @@ namespace HD_SUPPORT.Controllers
 
             var funcionario = await _contexto.CadastroUser.FirstOrDefaultAsync(u => u.Email == email);
 
+
+
             if (funcionario == null)
             {
                 ModelState.AddModelError("Funcionario.Email", "Funcionário não encontrado.");
+                return View("Edit", cadastro);
+            }
+
+            if (_contexto.CadastroEquipamentos.FirstOrDefault(x => x.IdPatrimonio == idPatrimonio) == null)
+            {
+                ModelState.AddModelError("Equipamento.IdPatrimonio", "Equipamento não encontrado.");
                 return View("Edit", cadastro);
             }
 
@@ -113,7 +121,7 @@ namespace HD_SUPPORT.Controllers
             }
             if (_contexto.CadastroEmprestimos.Any(x => x.Funcionario.Email == email && x.Id != cadastro.Id))
             {
-                ModelState.AddModelError("Funcionario.Email", "Funcionario já cadastrado");
+                ModelState.AddModelError("Funcionario.Email", "Funcionario já tem um empréstimo");
                 return View("Edit", cadastro);
             }
 
@@ -148,8 +156,9 @@ namespace HD_SUPPORT.Controllers
         public async Task<IActionResult> Excluir(int id)
         {
             var cadastro = await _contexto.CadastroEmprestimos.FindAsync(id);
-            if (cadastro != null) { 
-                var equipamento = await _contexto.CadastroEquipamentos.FindAsync(cadastro.Equipamento.Id);
+            if (cadastro != null)
+            {
+                var equipamento = await _contexto.CadastroEquipamentos.FindAsync(cadastro.EquipamentoId);
                 equipamento.Disponivel = true;
                 _contexto.CadastroEquipamentos.Update(equipamento);
                 _contexto.CadastroEmprestimos.Remove(cadastro);
