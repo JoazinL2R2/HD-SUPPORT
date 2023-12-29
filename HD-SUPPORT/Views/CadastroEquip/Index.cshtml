@@ -41,7 +41,17 @@
                         Disponível
                     </th>
 
-                    <th scope="col"><div class="button-add"><a role="button" asp-action="NovoCadastro"><button>Adicionar</button></a></div></th>
+                    <th scope="col">
+                        <div class="button-add">
+                            <button type="button" data-bs-toggle="modal" data-bs-target="@("#NovoEquipModal")" data-bs-url="@Url.Action($"NovoCadastro")">
+                                Adicionar
+                            </button>
+
+                            @await Html.PartialAsync("_NovoCadastroEquipPartialView", new HD_SUPPORT.Models.CadastroEquip())
+
+                        </div>
+                            
+                   </th>
                 </tr>
             </thead>
             <tbody>
@@ -73,8 +83,18 @@
                         </td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">
-                                <a role="button" class="btn btn-dark" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i></a>
-                                <a role="button" class="btn btn-success" asp-action="Detalhes" asp-route-id="@item.Id"><i class="bi bi-newspaper"></i></a>
+                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="@("#EditarEquipModal")" data-bs-url="@Url.Action($"Atualizar/{item.Id}")">
+                                    <i class="bi bi-pencil-square"></i>
+                                </button>
+
+                                @await Html.PartialAsync("_EditEquipPartialView", item)
+
+                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="@("#DetalhesEquipModal")" data-bs-url="@Url.Action($"Detalhes/{item.Id}")">
+                                    <i class="bi bi-newspaper"></i>
+                                </button>
+
+                                @await Html.PartialAsync("_DetalhesEquipPartialView", item)
+
                                 <form asp-action="Excluir" asp-route-id="@item.Id">
                                     <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
                                 </form>

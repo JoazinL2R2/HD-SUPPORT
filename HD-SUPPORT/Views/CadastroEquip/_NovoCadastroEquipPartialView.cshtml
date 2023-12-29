@@ -1,0 +1,45 @@
+﻿@model HD_SUPPORT.Models.CadastroEquip
+
+@{
+    ViewData["Title"] = "Cadastro";
+}
+
+
+<div class="modal fade" id="NovoEquipModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Adicionar Maquina</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="NovoCadastro">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <h5>Id do patrimônio</h5>
+                        <input asp-for="IdPatrimonio" class="form-control" />
+                        <span asp-validation-for="IdPatrimonio" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <h5>Modelo</h5>
+                        <input asp-for="Modelo" class="form-control" />
+                        <span asp-validation-for="Modelo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <h5>Processador</h5>
+                        <input asp-for="Processador" class="form-control" />
+                        <span asp-validation-for="Processador" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <h5>Sistema operacional</h5>
+                        <input asp-for="SistemaOperacionar" class="form-control" />
+                        <span asp-validation-for="SistemaOperacionar" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Adicionar" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

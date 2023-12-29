@@ -1,0 +1,25 @@
+﻿@model CadastroEquip
+
+<div class="modal fade" id="DetalhesEquipModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <input type="hidden" asp-for="@Model.Id"/>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Detalhes da Maquina @Model.IdPatrimonio</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <label>Numero do Patrimonio</label><br />
+                <p>@Model.IdPatrimonio</p>
+                <label>Modelo</label><br />
+                <p>@Model.Modelo</p>
+                <label>Processador</label><br />
+                <p>@Model.Processador</p>
+                <label>Sistema Operacional</label><br />
+                <p>@Model.SistemaOperacionar</p>
+                <label>Status</label><br />
+                <p>@Model.Disponivel</p>
+            </div>
+        </div>
+    </div>
+</div>

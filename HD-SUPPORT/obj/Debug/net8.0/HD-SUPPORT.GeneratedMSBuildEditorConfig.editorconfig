@@ -26,28 +26,24 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\JoazinL2R2\Source\Repos\gugsinwork\HD-SUPPORT\HD-SUPPORT
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/JoazinL2R2/Source/Repos/gugsinwork/HD-SUPPORT/HD-SUPPORT/Views/CadastroEquip/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9FcXVpcFxFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/JoazinL2R2/Source/Repos/gugsinwork/HD-SUPPORT/HD-SUPPORT/Views/CadastroEquip/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9FcXVpcFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JoazinL2R2/Source/Repos/gugsinwork/HD-SUPPORT/HD-SUPPORT/Views/CadastroEquip/NovoCadastro.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9FcXVpcFxOb3ZvQ2FkYXN0cm8uY3NodG1s
+[C:/Users/JoazinL2R2/Source/Repos/gugsinwork/HD-SUPPORT/HD-SUPPORT/Views/CadastroEquip/_DetalhesEquipPartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9FcXVpcFxfRGV0YWxoZXNFcXVpcFBhcnRpYWxWaWV3LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JoazinL2R2/Source/Repos/gugsinwork/HD-SUPPORT/HD-SUPPORT/Views/CadastroFunc/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9GdW5jXEVkaXQuY3NodG1s
+[C:/Users/JoazinL2R2/Source/Repos/gugsinwork/HD-SUPPORT/HD-SUPPORT/Views/CadastroEquip/_EditEquipPartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9FcXVpcFxfRWRpdEVxdWlwUGFydGlhbFZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JoazinL2R2/Source/Repos/gugsinwork/HD-SUPPORT/HD-SUPPORT/Views/CadastroEquip/_NovoCadastroEquipPartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9FcXVpcFxfTm92b0NhZGFzdHJvRXF1aXBQYXJ0aWFsVmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/JoazinL2R2/Source/Repos/gugsinwork/HD-SUPPORT/HD-SUPPORT/Views/CadastroFunc/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9GdW5jXEluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/JoazinL2R2/Source/Repos/gugsinwork/HD-SUPPORT/HD-SUPPORT/Views/CadastroFunc/NovoCadastro.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9GdW5jXE5vdm9DYWRhc3Ryby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/JoazinL2R2/Source/Repos/gugsinwork/HD-SUPPORT/HD-SUPPORT/Views/CadastroFunc/_DetalhesFuncPartialView.cshtml]
@@ -62,6 +58,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9GdW5jXF9FeGNsdWlyRnVuY1BhcnRpYWxWaWV3LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/JoazinL2R2/Source/Repos/gugsinwork/HD-SUPPORT/HD-SUPPORT/Views/CadastroFunc/_NovoCadastroFuncPartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9GdW5jXF9Ob3ZvQ2FkYXN0cm9GdW5jUGFydGlhbFZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/JoazinL2R2/Source/Repos/gugsinwork/HD-SUPPORT/HD-SUPPORT/Views/CadastroHelpDesk/Cadastrar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9IZWxwRGVza1xDYWRhc3RyYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -70,20 +70,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9IZWxwRGVza1xMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JoazinL2R2/Source/Repos/gugsinwork/HD-SUPPORT/HD-SUPPORT/Views/Emprestimo/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzdGltb1xEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/JoazinL2R2/Source/Repos/gugsinwork/HD-SUPPORT/HD-SUPPORT/Views/Emprestimo/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzdGltb1xFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/JoazinL2R2/Source/Repos/gugsinwork/HD-SUPPORT/HD-SUPPORT/Views/Emprestimo/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzdGltb1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JoazinL2R2/Source/Repos/gugsinwork/HD-SUPPORT/HD-SUPPORT/Views/Emprestimo/NovoEmprestimo.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzdGltb1xOb3ZvRW1wcmVzdGltby5jc2h0bWw=
+[C:/Users/JoazinL2R2/Source/Repos/gugsinwork/HD-SUPPORT/HD-SUPPORT/Views/Emprestimo/_DetalhesEmprestimoPartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzdGltb1xfRGV0YWxoZXNFbXByZXN0aW1vUGFydGlhbFZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JoazinL2R2/Source/Repos/gugsinwork/HD-SUPPORT/HD-SUPPORT/Views/Emprestimo/_EditarEmprestimoPartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzdGltb1xfRWRpdGFyRW1wcmVzdGltb1BhcnRpYWxWaWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JoazinL2R2/Source/Repos/gugsinwork/HD-SUPPORT/HD-SUPPORT/Views/Emprestimo/_NovoEmprestimoPartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzdGltb1xfTm92b0VtcHJlc3RpbW9QYXJ0aWFsVmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/JoazinL2R2/Source/Repos/gugsinwork/HD-SUPPORT/HD-SUPPORT/Views/Home/Index.cshtml]

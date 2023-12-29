@@ -1,0 +1,40 @@
+﻿@model HD_SUPPORT.Models.EmprestimoViewModel
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<div class="modal fade" id="EditarEmprestimoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Emprestimo do @Model.Funcionario.Nome</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="Atualizar">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="EquipamentoId" />
+                    <div class="form-group">
+                        <label asp-for="Equipamento.IdPatrimonio" class="control-label"></label>
+                        <input asp-for="Equipamento.IdPatrimonio" class="form-control" />
+                        <span asp-validation-for="Equipamento.IdPatrimonio" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Funcionario.Email" class="control-label"></label>
+                        <input asp-for="Funcionario.Email" class="form-control" />
+                        <span asp-validation-for="Funcionario.Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

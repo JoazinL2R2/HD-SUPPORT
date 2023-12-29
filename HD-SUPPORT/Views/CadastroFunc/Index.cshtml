@@ -44,7 +44,17 @@
                         @Html.DisplayNameFor(model => model.Categoria)
                     </th>
 
-                    <th scope="col"><div class="button-add"><a role="button" asp-action="NovoCadastro"><button>Adicionar</button></a></div></th>
+                    <th scope="col">
+                        <div class="button-add">
+                            <button type="button" data-bs-toggle="modal" data-bs-target="@("#NovoCadastroFuncModal")" data-bs-url="@Url.Action($"NovoCadastro")">
+                                Adicionar
+                            </button>
+
+                            @await Html.PartialAsync("_NovoCadastroFuncPartialView", new HD_SUPPORT.Models.CadastroUser())
+
+                        </div>
+
+                    </th>
                 </tr>
             </thead>
             <tbody>

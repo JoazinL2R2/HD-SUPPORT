@@ -34,7 +34,7 @@ namespace HD_SUPPORT.Controllers
         [HttpGet]
         public IActionResult NovoEmprestimo()
         {
-            return View();
+            return PartialView("_NovoEmprestimoPartialView");
         }
 
         [HttpPost]
@@ -49,7 +49,7 @@ namespace HD_SUPPORT.Controllers
             if (funcionario == null)
             {
                 ModelState.AddModelError("Funcionario.Email", "Funcionário não encontrado.");
-                return View();
+                return PartialView("_NovoEmprestimoPartialView", cadastro);
             }
 
             var func = await _contexto.CadastroEmprestimos.FirstOrDefaultAsync(u => u.Funcionario.Id == funcionario.Id);
@@ -57,7 +57,7 @@ namespace HD_SUPPORT.Controllers
             if (func != null)
             {
                 ModelState.AddModelError("Funcionario.Email", "Funcionário Existente.");
-                return View();
+                return PartialView("_NovoEmprestimoPartialView", cadastro);
             }
 
             var equipamentoDisponivel = await _contexto.CadastroEquipamentos
@@ -80,7 +80,7 @@ namespace HD_SUPPORT.Controllers
             else
             {
                 ModelState.AddModelError("Equipamento.IdPatrimonio", "Equipamento não está disponível ou não existe");
-                return View();
+                return PartialView("_NovoEmprestimoPartialView", cadastro);
             }
         }
         [HttpGet]
@@ -89,7 +89,7 @@ namespace HD_SUPPORT.Controllers
             EmprestimoViewModel cadastro = await _contexto.CadastroEmprestimos.FindAsync(id);
             cadastro.Equipamento = await _contexto.CadastroEquipamentos.FindAsync(cadastro.EquipamentoId);
             cadastro.Funcionario = await _contexto.CadastroUser.FindAsync(cadastro.FuncionarioId);
-            return View(cadastro);
+            return PartialView("_EditarEmprestimoPartialView", cadastro);
         }
 
         [HttpPost]
@@ -105,24 +105,24 @@ namespace HD_SUPPORT.Controllers
             if (funcionario == null)
             {
                 ModelState.AddModelError("Funcionario.Email", "Funcionário não encontrado.");
-                return View("Edit", cadastro);
+                return PartialView("_EditarEmprestimoPartialView", cadastro);
             }
 
             if (_contexto.CadastroEquipamentos.FirstOrDefault(x => x.IdPatrimonio == idPatrimonio) == null)
             {
                 ModelState.AddModelError("Equipamento.IdPatrimonio", "Equipamento não encontrado.");
-                return View("Edit", cadastro);
+                return PartialView("_EditarEmprestimoPartialView", cadastro);
             }
 
             if (_contexto.CadastroEmprestimos.Any(x => x.Equipamento.Id == cadastro.Equipamento.Id && x.Id != cadastro.Equipamento.Id))
             {
                 ModelState.AddModelError("Equipamento.IdPatrimonio", "Equipamento já emprestado");
-                return View("Edit", cadastro);
+                return PartialView("_EditarEmprestimoPartialView", cadastro);
             }
             if (_contexto.CadastroEmprestimos.Any(x => x.Funcionario.Email == email && x.Id != cadastro.Id))
             {
                 ModelState.AddModelError("Funcionario.Email", "Funcionario já tem um empréstimo");
-                return View("Edit", cadastro);
+                return PartialView("_EditarEmprestimoPartialView", cadastro);
             }
 
             var equipamentoDisponivel = await _contexto.CadastroEquipamentos
@@ -148,7 +148,7 @@ namespace HD_SUPPORT.Controllers
             else
             {
                 ModelState.AddModelError("Equipamento.IdPatrimonio", "Equipamento não está disponível ou não existe");
-                return View("Edit", cadastro);
+                return PartialView("_EditarEmprestimoPartialView", cadastro);
             }
         }
 

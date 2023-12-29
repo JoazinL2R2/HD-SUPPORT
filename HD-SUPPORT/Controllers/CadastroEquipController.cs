@@ -26,7 +26,8 @@ namespace HD_SUPPORT.Controllers
                 equipamentosFiltrados = equipamentos
                     .Where(e => e.IdPatrimonio.ToString().Contains(searchString)
                                 || e.Modelo.Contains(searchString, StringComparison.OrdinalIgnoreCase)
-                                || e.Processador.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+                                || e.Processador.Contains(searchString, StringComparison.OrdinalIgnoreCase)
+                                || e.SistemaOperacionar.Contains(searchString, StringComparison.OrdinalIgnoreCase))
                     .ToList();
             }
             else
@@ -40,7 +41,7 @@ namespace HD_SUPPORT.Controllers
         [HttpGet]
         public IActionResult NovoCadastro()
         {
-            return View();
+            return PartialView("_NovoCadastroEquipPartialView");
         }
 
         [HttpPost]
@@ -49,7 +50,7 @@ namespace HD_SUPPORT.Controllers
             if (_contexto.CadastroEquipamentos.Any(x => x.IdPatrimonio == equipamento.IdPatrimonio))
             {
                 ModelState.AddModelError(nameof(equipamento.IdPatrimonio), "Máquina já cadastrada");
-                return View();
+                return PartialView("_NovoCadastroEquipPartialView");
             }
             else
             {
@@ -62,8 +63,8 @@ namespace HD_SUPPORT.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            var cadastro = await _contexto.CadastroEquipamentos.FindAsync(id);
-            return View(cadastro);
+            CadastroEquip equipamento = await _contexto.CadastroEquipamentos.Where(x => x.Id == id).FirstOrDefaultAsync();
+            return PartialView("_EditEquipPartialView", equipamento);
         }
 
         [HttpPost]
@@ -72,7 +73,7 @@ namespace HD_SUPPORT.Controllers
             if (_contexto.CadastroEquipamentos.Any(x => x.IdPatrimonio == cadastro.IdPatrimonio && x.Id != cadastro.Id))
             {
                 ModelState.AddModelError(nameof(cadastro.IdPatrimonio), "Máquina já cadastrada");
-                return View("Edit", cadastro);
+                return PartialView("_EditEquipPartialView", cadastro);
             }
             else
             {

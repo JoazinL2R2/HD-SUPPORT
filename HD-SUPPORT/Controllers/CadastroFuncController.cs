@@ -34,7 +34,7 @@ namespace HD_SUPPORT.Controllers
         [AllowAnonymous]
         public IActionResult NovoCadastro()
         {
-            return View();
+            return PartialView("_NovoCadastroFuncPartialView");
         }
 
         [HttpPost]
@@ -43,7 +43,7 @@ namespace HD_SUPPORT.Controllers
         {
             if (_contexto.CadastroUser.Any(x => x.Email == cadastro.Email)) { 
                 ModelState.AddModelError(nameof(cadastro.Email), "Email existente");
-                return View();
+                return PartialView("_NovoCadastroFuncPartialView");
             }
             else
             {
@@ -119,5 +119,5 @@ namespace HD_SUPPORT.Controllers
         }
     }
 
-    }
+    
 }

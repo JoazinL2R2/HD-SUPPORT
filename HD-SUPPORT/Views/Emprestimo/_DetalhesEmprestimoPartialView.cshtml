@@ -1,0 +1,53 @@
+﻿@model EmprestimoViewModel
+@{
+    ViewData["Title"] = "Detalhes ";
+}
+<div class="modal fade" id="DetalhesEmprestimoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <input type="hidden" asp-for="@Model.Id" />
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">>Detalhes sobre o emprestimo do Funcionario @Model.Funcionario.Nome</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <label>Nome</label><br />
+                <p>@Model.Funcionario.Nome</p>
+                <label>E-Mail</label><br />
+                <p>@Model.Funcionario.Email</p>
+                <label>Telegram</label><br />
+                <p>@Model.Funcionario.Telegram</p>
+                <label>Telefone</label><br />
+                <p>@Model.Funcionario.Telefone</p>
+                <label>Status</label><br />
+                <p>@Model.Funcionario.Status</p>
+                <label>Categoria</label><br />
+                <p>@Model.Funcionario.Categoria</p>
+                <label>Numero do Patrimonio</label><br />
+                <p>@Model.Equipamento.IdPatrimonio</p>
+                <label>Modelo</label><br />
+                <p>@Model.Equipamento.Modelo</p>
+                <label>Processador</label><br />
+                <p>@Model.Equipamento.Processador</p>
+                <label>Sistema Operacional</label><br />
+                <p>@Model.Equipamento.SistemaOperacionar</p>
+                <label>HeadSet</label><br />
+                <p>@Model.Equipamento.HeadSet</p>
+                <label>Data de inicio do Emprestimo</label><br />
+                <p>@Model.Equipamento.DtEmeprestimoInicio</p>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        $(document).ready(function () {
+            $("#telefone").inputmask('(99) 99999-9999');
+            $("#telegram").inputmask('(99) 99999-9999');
+            $("#cpf").inputmask('999.999.999-99');
+        });
+    </script>
+}
