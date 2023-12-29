@@ -1,0 +1,37 @@
+﻿@model CadastroUser
+
+<div class="modal fade" id="DetalhesFuncModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <input type="hidden" asp-for="@Model.Id" />
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Detalhes do Funcionario @Model.Nome</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <label>Nome</label><br />
+                <p>@Model.Nome</p>
+                <label>E-Mail</label><br />
+                <p>@Model.Email</p>
+                <label>Telegram</label><br />
+                <p>@Model.Telegram</p>
+                <label>Telefone</label><br />
+                <p>@Model.Telefone</p>
+                <label>Status</label><br />
+                <p>@Model.Status</p>
+                <label>Categoria</label><br />
+                <p>@Model.Categoria</p>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+            $("#telefone").inputmask('(99) 99999-9999');
+            $("#telegram").inputmask('(99) 99999-9999');
+            $("#cpf").inputmask('999.999.999-99');
+        });
+    </script>
+}

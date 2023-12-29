@@ -52,28 +52,43 @@ namespace HD_SUPPORT.Controllers
                 return RedirectToAction("Index", "CadastroFunc", new { area = "" });
             }
         }
-        [HttpGet]
-        public async Task<IActionResult> Edit(int id)
+        public IActionResult Edit(int id)
         {
-            CadastroUser cadastro = await _contexto.CadastroUser.FindAsync(id);
-            return View(cadastro);
+            CadastroUser cadastro = _contexto.CadastroUser.Where(x => x.Id == id).FirstOrDefault();
+            return PartialView("_EditFuncPartialView", cadastro);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Atualizar(CadastroUser cadastro)
+        public IActionResult Atualizar(CadastroUser cadastro)
         {
-            if (_contexto.CadastroUser.Any(x => x.Email == cadastro.Email && x.Id != cadastro.Id))
+            try
             {
-                ModelState.AddModelError(nameof(cadastro.Email), "Email existente");
-                return View("Edit", cadastro);
+                if (cadastro == null)
+                {
+                    // Lógica para lidar com cadastro nulo, se necessário
+                    return BadRequest("O objeto CadastroUser está nulo.");
+                }
+
+                if (_contexto.CadastroUser.Any(x => x.Email == cadastro.Email && x.Id != cadastro.Id))
+                {
+                    ModelState.AddModelError(nameof(cadastro.Email), "Email existente");
+                    return View("Edit", cadastro);
+                }
+                else
+                {
+                    _contexto.CadastroUser.Update(cadastro);
+                    _contexto.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                _contexto.CadastroUser.Update(cadastro);
-                await _contexto.SaveChangesAsync();
-                return RedirectToAction("Index", "CadastroFunc", new { area = "" });
+                // Adicione logs detalhados ou mensagens de console para identificar a causa da exceção.
+                Console.WriteLine($"Erro durante a atualização: {ex.Message}");
+                return StatusCode(500, "Erro interno do servidor");
             }
         }
+
         [HttpGet]
         public async Task<IActionResult> EditMaquina(int id)
         {
@@ -93,7 +108,7 @@ namespace HD_SUPPORT.Controllers
         {
             CadastroUser cadastro = await _contexto.CadastroUser.FindAsync(id);
             var emprestimo = _contexto.CadastroEmprestimos.FirstOrDefault(emp => emp.FuncionarioId == id);
-            if(emprestimo!=null)
+            if (emprestimo != null)
             {
                 var equipamento = await _contexto.CadastroEquipamentos.FindAsync(emprestimo.EquipamentoId);
                 equipamento.Disponivel = true;
@@ -102,5 +117,7 @@ namespace HD_SUPPORT.Controllers
             await _contexto.SaveChangesAsync();
             return RedirectToAction("Index", "CadastroFunc", new { area = "" });
         }
+    }
+
     }
 }

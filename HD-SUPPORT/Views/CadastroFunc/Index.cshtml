@@ -72,10 +72,20 @@
                         </td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">
-                                <a role="button" class="btn btn-dark" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i></a>
-                                <a role="button" class="btn btn-success" asp-action="Detalhes" asp-route-id="@item.Id"><i class="bi bi-newspaper"></i></a>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="@("#EditarFuncModal")" data-bs-url="@Url.Action($"Atualizar/{item.Id}")">
+                                    <i class="bi bi-pencil-square"></i>
+                                </button>
+
+                                @await Html.PartialAsync("_EditFuncPartialView",item)
+
+                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="@("#DetalhesFuncModal")" data-bs-url="@Url.Action($"Detalhes/{item.Id}")">
+                                    <i class="bi bi-newspaper"></i>
+                                </button>
+
+                                @await Html.PartialAsync("_DetalhesFuncPartialView", item)
+
                                 <form asp-action="Excluir" asp-route-id="@item.Id">
-                                    <button type="submit" class="btn btn-danger" ><i class="bi bi-trash-fill"></i></button>
+                                    <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
                                 </form>
                             </div>
 
