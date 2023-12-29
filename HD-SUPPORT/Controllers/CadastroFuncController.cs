@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 //using System.Data.Entity.Validation;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using Microsoft.AspNetCore.Http;
 
 
 namespace HD_SUPPORT.Controllers
@@ -43,7 +44,7 @@ namespace HD_SUPPORT.Controllers
         {
             if (_contexto.CadastroUser.Any(x => x.Email == cadastro.Email)) { 
                 ModelState.AddModelError(nameof(cadastro.Email), "Email existente");
-                return PartialView("_NovoCadastroFuncPartialView");
+                return RedirectToAction("Index", "CadastroFunc", new { area = "" });
             }
             else
             {

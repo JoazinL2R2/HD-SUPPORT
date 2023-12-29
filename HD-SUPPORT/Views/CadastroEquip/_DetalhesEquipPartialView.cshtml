@@ -18,7 +18,16 @@
                 <label>Sistema Operacional</label><br />
                 <p>@Model.SistemaOperacionar</p>
                 <label>Status</label><br />
-                <p>@Model.Disponivel</p>
+                <p>
+                    @if (@Model.Disponivel)
+                    {
+                        <text>Disponível</text>
+                    }
+                    else
+                    {
+                        <text>Indisponível</text>
+                    }
+                </p>
             </div>
         </div>
     </div>

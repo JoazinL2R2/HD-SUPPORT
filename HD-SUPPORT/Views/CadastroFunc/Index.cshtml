@@ -7,6 +7,7 @@
     ViewData["Title"] = "Funcionarios";
 }
 
+
 <div class="align-content-center">
     <div class="TableContainer">
         <div class="table-menu">
@@ -82,7 +83,7 @@
                         </td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="@("#EditarFuncModal")" data-bs-url="@Url.Action($"Atualizar/{item.Id}")">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="@("#EditarFuncModal")" data-bs-url="@Url.Action($"Edit/{item.Id}")">
                                     <i class="bi bi-pencil-square"></i>
                                 </button>
 
@@ -122,7 +123,20 @@
 
 </div>
 
+    @section Scripts {
+        <script src="~/js/jquery.inputmask.js"></script>
+        <script>
 
+            $(document).ready(function () {
+                $("#telefone").inputmask('(99) 99999-9999');
+                $("#telegram").inputmask('(99) 99999-9999');
+                $("#cpf").inputmask('999.999.999-99');
+                $("#telefone2").inputmask('(99) 99999-9999');
+                $("#telegram2").inputmask('(99) 99999-9999');
+                $("#cpf2").inputmask('999.999.999-99');
+            });
+        </script>
+    }
 
 
     

@@ -32,6 +32,10 @@ header {
 
 }
 
+.control-label, .modal-title {
+    color: black;
+}
+
 body {
     background: linear-gradient(to right, #046de1, #869cdd);
 }

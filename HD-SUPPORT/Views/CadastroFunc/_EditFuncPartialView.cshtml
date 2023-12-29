@@ -1,5 +1,9 @@
 ﻿@model HD_SUPPORT.Models.CadastroUser
 
+@{
+    ViewData["Title"] = "Editar";
+}
+
 <div class="modal fade" id="EditarFuncModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -23,12 +27,12 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="Telegram" class="control-label"></label>
-                        <input asp-for="Telegram" class="form-control" id="telegram" />
+                        <input asp-for="Telegram" class="form-control" id="telegram2" />
                         <span asp-validation-for="Telegram" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Telefone" class="control-label"></label>
-                        <input asp-for="Telefone" class="form-control" id="telefone" />
+                        <input asp-for="Telefone" class="form-control" id="telefone2" />
                         <span asp-validation-for="Telefone" class="text-danger"></span>
                     </div>
                     <div class="form-group">
@@ -55,7 +59,7 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="Cpf" class="control-label"></label>
-                        <input asp-for="Cpf" class="form-control" id="cpf" />
+                        <input asp-for="Cpf" class="form-control" id="cpf2" />
                         <span asp-validation-for="Cpf" class="text-danger"></span>
                     </div>
                     <div class="form-group">
@@ -65,14 +69,18 @@
             </div>
         </div>
     </div>
+    @section Scripts {
+        <script src="~/js/jquery.inputmask.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                $("#telefone").inputmask('(99) 99999-9999');
+                $("#telegram").inputmask('(99) 99999-9999');
+                $("#cpf").inputmask('999.999.999-99');
+            });
+        </script>
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
 </div>
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script>
-        $(document).ready(function () {
-            $("#telefone").inputmask('(99) 99999-9999');
-            $("#telegram").inputmask('(99) 99999-9999');
-            $("#cpf").inputmask('999.999.999-99');
-        });
-    </script>
-}
