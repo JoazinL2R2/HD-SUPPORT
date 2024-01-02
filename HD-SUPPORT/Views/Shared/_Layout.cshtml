@@ -35,7 +35,7 @@
                 {
                     <img src="data:image/jpeg;base64,@Convert.ToBase64String(@Acessor.HttpContext.Session.Get("foto"))" width="50" height="50">
                     @Acessor.HttpContext.Session.GetString("nome")
-
+                    <a class="dropdown-item" asp-area="" asp-controller="CadastroHelpDesk" asp-action="Perfil">Perfil</a>
                 }
             </div> 
             <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="LogOut">Sair</a>

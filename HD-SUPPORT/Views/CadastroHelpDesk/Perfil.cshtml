@@ -1,0 +1,25 @@
+﻿@inject IHttpContextAccessor Acessor
+
+@{
+    ViewData["Title"] = "Perfil";
+}
+<section style="background-color:white">
+
+<h1>Perfil</h1>
+
+<div class="d-flex">
+    <img src="data:image/jpeg;base64,@Convert.ToBase64String(Acessor.HttpContext.Session.Get("foto"))" width="250" height="250">
+    <div>
+        <h3>Nome: @Acessor.HttpContext.Session.GetString("nome")</h3>
+        <p>Email: @Acessor.HttpContext.Session.GetString("email")</p>
+        <p>Senha: @Acessor.HttpContext.Session.GetString("senha")</p>
+    </div>
+</div>
+<div>
+        <a asp-action="Edit" asp-route-id="@Acessor.HttpContext.Session.GetInt32("Id")" class="btn btn-primary">Editar</a>
+        <form asp-action="Excluir" asp-route-id="@Acessor.HttpContext.Session.GetInt32("Id")">
+            <button type="submit" class="btn btn-danger">Excluir conta</button>
+        </form>
+</div>
+
+</section>

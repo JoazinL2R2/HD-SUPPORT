@@ -9,6 +9,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
+using System.ComponentModel;
 
 
 namespace HD_SUPPORT.Controllers
@@ -43,21 +44,7 @@ namespace HD_SUPPORT.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    if (!string.Equals(Imagem.ContentType, "image/jpg", StringComparison.OrdinalIgnoreCase) &&
-                        !string.Equals(Imagem.ContentType, "image/jpeg", StringComparison.OrdinalIgnoreCase) &&
-                        !string.Equals(Imagem.ContentType, "image/pjpeg", StringComparison.OrdinalIgnoreCase) &&
-                        !string.Equals(Imagem.ContentType, "image/gif", StringComparison.OrdinalIgnoreCase) &&
-                        !string.Equals(Imagem.ContentType, "image/x-png", StringComparison.OrdinalIgnoreCase) &&
-                        !string.Equals(Imagem.ContentType, "image/png", StringComparison.OrdinalIgnoreCase))
-                    {
-                        ModelState.AddModelError(nameof(cadastro.Foto), "Formato de imagem incopatível");
-                        return View();
-                    }
-                    var postedFileExtension = Path.GetExtension(Imagem.FileName);
-                    if (!string.Equals(postedFileExtension, ".jpg", StringComparison.OrdinalIgnoreCase)
-                        && !string.Equals(postedFileExtension, ".png", StringComparison.OrdinalIgnoreCase)
-                        && !string.Equals(postedFileExtension, ".gif", StringComparison.OrdinalIgnoreCase)
-                        && !string.Equals(postedFileExtension, ".jpeg", StringComparison.OrdinalIgnoreCase))
+                    if (!ImagemFormatoCorreto(Imagem))
                     {
                         ModelState.AddModelError(nameof(cadastro.Foto), "Formato de imagem incopatível");
                         return View();
@@ -65,11 +52,6 @@ namespace HD_SUPPORT.Controllers
                     if (Imagem.Length < ImageMinimumBytes)
                     {
                         ModelState.AddModelError(nameof(cadastro.Foto), "Arquivo muito grande");
-                        return View();
-                    }
-                    if(Imagem == null)
-                    {
-                        ModelState.AddModelError(nameof(cadastro.Foto), "Insira uma foto de perfil");
                         return View();
                     }
                     using (MemoryStream ms = new MemoryStream())
@@ -82,9 +64,40 @@ namespace HD_SUPPORT.Controllers
                     await _contexto.SaveChangesAsync();
                     return RedirectToAction("Index", "CadastroFunc", new { area = "" });
                 }
-                return View(cadastro);
+                else
+                {
+                    if (Imagem == null)
+                    {
+                        ModelState.AddModelError(nameof(cadastro.Foto), "Insira uma foto de perfil");
+                        return View();
+                    }
+                    return View(cadastro);
+                }
             }
         }
+
+        public bool ImagemFormatoCorreto(IFormFile Imagem)
+        {
+            if (!string.Equals(Imagem.ContentType, "image/jpg", StringComparison.OrdinalIgnoreCase) &&
+                        !string.Equals(Imagem.ContentType, "image/jpeg", StringComparison.OrdinalIgnoreCase) &&
+                        !string.Equals(Imagem.ContentType, "image/pjpeg", StringComparison.OrdinalIgnoreCase) &&
+                        !string.Equals(Imagem.ContentType, "image/gif", StringComparison.OrdinalIgnoreCase) &&
+                        !string.Equals(Imagem.ContentType, "image/x-png", StringComparison.OrdinalIgnoreCase) &&
+                        !string.Equals(Imagem.ContentType, "image/png", StringComparison.OrdinalIgnoreCase))
+            {
+                return false;
+            }
+            var postedFileExtension = Path.GetExtension(Imagem.FileName);
+            if (!string.Equals(postedFileExtension, ".jpg", StringComparison.OrdinalIgnoreCase)
+                && !string.Equals(postedFileExtension, ".png", StringComparison.OrdinalIgnoreCase)
+                && !string.Equals(postedFileExtension, ".gif", StringComparison.OrdinalIgnoreCase)
+                && !string.Equals(postedFileExtension, ".jpeg", StringComparison.OrdinalIgnoreCase))
+            {
+                return false;
+            }
+            return true;
+        }
+
         [HttpGet]
         [AllowAnonymous]
         public IActionResult Login()
@@ -126,8 +139,7 @@ namespace HD_SUPPORT.Controllers
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
                     new ClaimsPrincipal(claimsIdentity), properties);
                 var usuario = _contexto.CadastroHD.Where(b => b.Email == cadastro.Email).FirstOrDefault();
-                HttpContext.Session.SetString("nome", usuario.Nome);
-                HttpContext.Session.Set("foto", usuario.Foto);
+                criarSessao(usuario);
                 return RedirectToAction("Index", "CadastroFunc", new { area = "" });
             }
             else
@@ -137,5 +149,97 @@ namespace HD_SUPPORT.Controllers
             }
         }
 
+        public void criarSessao(CadastroHelpDesk usuario)
+        {
+            HttpContext.Session.SetString("nome", usuario.Nome);
+            HttpContext.Session.Set("foto", usuario.Foto);
+            var emailSeparado = usuario.Email.Split("@");
+            emailSeparado[0] = emailSeparado[0].Substring(0, Convert.ToInt16(MathF.Ceiling(emailSeparado[0].Length / 2))).PadRight(emailSeparado[0].Length, '*');
+            var email = emailSeparado[0] + "@" + emailSeparado[1];
+            HttpContext.Session.SetString("email", email);
+            var senha = "".PadRight(usuario.Senha.Length, '*');
+            HttpContext.Session.SetString("senha", senha);
+            HttpContext.Session.SetInt32("Id", usuario.Id);
+        }
+
+        [HttpGet]
+        public IActionResult Perfil()
+        {
+            return View();
+        }
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            CadastroHelpDesk cadastro = _contexto.CadastroHD.Where(x => x.Id == id).FirstOrDefault();
+            cadastro.Senha = "";
+            return View(cadastro);
+        }
+        [HttpPost]
+        public IActionResult Atualizar([Bind("Id,Nome,Email,Senha,Foto")] CadastroHelpDesk cadastro, IFormFile Imagem)
+        {
+            try
+            {
+                if (cadastro == null)
+                {
+                    // Lógica para lidar com cadastro nulo, se necessário
+                    return BadRequest("O objeto CadastroHelpDesk está nulo.");
+                }
+
+                if (_contexto.CadastroHD.Any(x => x.Email == cadastro.Email && x.Id != cadastro.Id))
+                {
+                    ModelState.AddModelError(nameof(cadastro.Email), "Email existente");
+                    return View("Edit", cadastro);
+                }
+                else
+                {
+                    if (ModelState.IsValid)
+                    {
+                        if (!ImagemFormatoCorreto(Imagem))
+                        {
+                            ModelState.AddModelError(nameof(cadastro.Foto), "Formato de imagem incopatível");
+                            return View("Edit", cadastro);
+                        }
+                        if (Imagem.Length < ImageMinimumBytes)
+                        {
+                            ModelState.AddModelError(nameof(cadastro.Foto), "Arquivo muito grande");
+                            return View("Edit", cadastro);
+                        }
+                        using (MemoryStream ms = new MemoryStream())
+                        {
+                            Imagem.CopyTo(ms);
+                            cadastro.Foto = ms.ToArray();
+                        }
+                        _contexto.CadastroHD.Update(cadastro);
+                        _contexto.SaveChanges();
+                        var usuario = _contexto.CadastroHD.Where(b => b.Email == cadastro.Email).FirstOrDefault();
+                        criarSessao(usuario);
+                        return RedirectToAction("Perfil");
+                    }
+                    else
+                    {
+                        if (Imagem == null)
+                        {
+                            ModelState.AddModelError(nameof(cadastro.Foto), "Insira uma foto de perfil");
+                            return View("Edit", cadastro);
+                        }
+                        return View("Edit", cadastro);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Adicione logs detalhados ou mensagens de console para identificar a causa da exceção.
+                Console.WriteLine($"Erro durante a atualização: {ex.Message}");
+                return StatusCode(500, "Erro interno do servidor");
+            }
+        }
+        [HttpPost]
+        public async Task<IActionResult> Excluir(int id)
+        {
+            var cadastro = await _contexto.CadastroHD.FindAsync(id);
+            _contexto.CadastroHD.Remove(cadastro);
+            await _contexto.SaveChangesAsync();
+            return RedirectToAction("LogOut", "Home", new { area = "" });
+        }
     }
 }
