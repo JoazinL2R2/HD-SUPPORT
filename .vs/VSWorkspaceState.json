@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\HD-SUPPORT",
-    "\\HD-SUPPORT\\Controllers"
+    "\\HD-SUPPORT\\Views",
+    "\\HD-SUPPORT\\Views\\CadastroHelpDesk",
+    "\\HD-SUPPORT\\Views\\Emprestimo"
   ],
-  "SelectedNode": "\\HD-SUPPORT\\Controllers\\CadastroFuncController.cs",
+  "SelectedNode": "\\HD-SUPPORT\\Views\\Emprestimo\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }

@@ -1,6 +1,6 @@
 ﻿@model CadastroUser
 
-<div class="modal fade" id="DetalhesFuncModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="@("DetalhesFuncModal"+Model.Id.ToString())" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <input type="hidden" asp-for="@Model.Id" />
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">

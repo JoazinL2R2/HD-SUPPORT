@@ -83,13 +83,13 @@
                         </td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="@("#EditarEquipModal")" data-bs-url="@Url.Action($"Atualizar/{item.Id}")">
+                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="@("#EditarEquipModal" + item.Id.ToString())" data-bs-url="@Url.Action($"Atualizar/{item.Id}")">
                                     <i class="bi bi-pencil-square"></i>
                                 </button>
 
                                 @await Html.PartialAsync("_EditEquipPartialView", item)
 
-                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="@("#DetalhesEquipModal")" data-bs-url="@Url.Action($"Detalhes/{item.Id}")">
+                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="@("#DetalhesEquipModal" + item.Id.ToString())" data-bs-url="@Url.Action($"Detalhes/{item.Id}")">
                                     <i class="bi bi-newspaper"></i>
                                 </button>
 

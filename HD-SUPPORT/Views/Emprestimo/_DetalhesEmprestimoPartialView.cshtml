@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Detalhes ";
 }
-<div class="modal fade" id="DetalhesEmprestimoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="@("DetalhesEmprestimosModal"+Model.Id.ToString())" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <input type="hidden" asp-for="@Model.Id" />
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
