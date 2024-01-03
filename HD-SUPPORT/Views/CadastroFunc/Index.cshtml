@@ -95,9 +95,11 @@
 
                                 @await Html.PartialAsync("_DetalhesFuncPartialView", item)
 
-                                <form asp-action="Excluir" asp-route-id="@item.Id">
-                                    <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
-                                </form>
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="@("#DeleteFuncModal" + item.Id.ToString())" data-bs-url="@Url.Action($"Delete/{item.Id}")">
+                                    <i class="bi bi-trash-fill"></i>
+                                </button>
+
+                                @await Html.PartialAsync("_ExcluirFuncPartialView", item)
                             </div>
 
                         </td>

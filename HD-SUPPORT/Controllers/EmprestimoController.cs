@@ -153,9 +153,9 @@ namespace HD_SUPPORT.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Excluir(int id)
+        public async Task<IActionResult> Excluir(EmprestimoViewModel emprestimo)
         {
-            var cadastro = await _contexto.CadastroEmprestimos.FindAsync(id);
+            var cadastro = await _contexto.CadastroEmprestimos.FindAsync(emprestimo.Id);
             if (cadastro != null)
             {
                 var equipamento = await _contexto.CadastroEquipamentos.FindAsync(cadastro.EquipamentoId);

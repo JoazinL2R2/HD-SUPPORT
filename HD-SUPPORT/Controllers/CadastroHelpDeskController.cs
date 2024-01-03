@@ -103,13 +103,15 @@ namespace HD_SUPPORT.Controllers
         public IActionResult Login()
         {
 
-            if (User.Identity.IsAuthenticated)
-                return RedirectToAction("Index", "CadastroFunc");
+            if (User.Identity.IsAuthenticated) {
+                return RedirectToAction("LogOut", "Home");
+            }
 
             if (HttpContext.Session.GetString("nome") != null)
             {
                 HttpContext.Session.Clear();
             }
+
 
             return View();
         }
@@ -163,9 +165,10 @@ namespace HD_SUPPORT.Controllers
         }
 
         [HttpGet]
-        public IActionResult Perfil()
+        public async Task<IActionResult> Perfil()
         {
-            return View();
+            var perfil = await _contexto.CadastroHD.FindAsync(HttpContext.Session.GetInt32("Id"));
+            return View(perfil);
         }
         [HttpGet]
         public IActionResult Edit(int id)
@@ -234,10 +237,10 @@ namespace HD_SUPPORT.Controllers
             }
         }
         [HttpPost]
-        public async Task<IActionResult> Excluir(int id)
+        public async Task<IActionResult> Excluir(CadastroHelpDesk cadastro)
         {
-            var cadastro = await _contexto.CadastroHD.FindAsync(id);
-            _contexto.CadastroHD.Remove(cadastro);
+            var perfil = await _contexto.CadastroHD.FindAsync(cadastro.Id);
+            _contexto.CadastroHD.Remove(perfil);
             await _contexto.SaveChangesAsync();
             return RedirectToAction("LogOut", "Home", new { area = "" });
         }

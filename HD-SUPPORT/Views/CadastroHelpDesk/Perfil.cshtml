@@ -1,5 +1,7 @@
 ﻿@inject IHttpContextAccessor Acessor
 
+@model HD_SUPPORT.Models.CadastroHelpDesk;
+
 @{
     ViewData["Title"] = "Perfil";
 }
@@ -17,9 +19,11 @@
 </div>
 <div>
         <a asp-action="Edit" asp-route-id="@Acessor.HttpContext.Session.GetInt32("Id")" class="btn btn-primary">Editar</a>
-        <form asp-action="Excluir" asp-route-id="@Acessor.HttpContext.Session.GetInt32("Id")">
-            <button type="submit" class="btn btn-danger">Excluir conta</button>
-        </form>
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="@("#DeleteHDModal" + Model.Id.ToString())" data-bs-url="@Url.Action($"Delete/{Model.Id}")">
+            Excluir
+        </button>
+
+        @await Html.PartialAsync("_ExcluirHDPartialView", Model)
 </div>
 
 </section>

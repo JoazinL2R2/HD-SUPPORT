@@ -105,10 +105,10 @@ namespace HD_SUPPORT.Controllers
             return RedirectToAction("Index", "CadastroFunc", new { area = "" });
         }
         [HttpPost]
-        public async Task<IActionResult> Excluir(int id)
+        public async Task<IActionResult> Excluir(CadastroUser funcionario)
         {
-            CadastroUser cadastro = await _contexto.CadastroUser.FindAsync(id);
-            var emprestimo = _contexto.CadastroEmprestimos.FirstOrDefault(emp => emp.FuncionarioId == id);
+            CadastroUser cadastro = await _contexto.CadastroUser.FindAsync(funcionario.Id);
+            var emprestimo = _contexto.CadastroEmprestimos.FirstOrDefault(emp => emp.FuncionarioId == funcionario.Id);
             if (emprestimo != null)
             {
                 var equipamento = await _contexto.CadastroEquipamentos.FindAsync(emprestimo.EquipamentoId);

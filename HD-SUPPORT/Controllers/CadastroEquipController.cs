@@ -83,9 +83,9 @@ namespace HD_SUPPORT.Controllers
             }
         }
         [HttpPost]
-        public async Task<IActionResult> Excluir(int id)
+        public async Task<IActionResult> Excluir(CadastroEquip equipamento)
         {
-            var cadastro = await _contexto.CadastroEquipamentos.FindAsync(id);
+            var cadastro = await _contexto.CadastroEquipamentos.FindAsync(equipamento.Id);
             _contexto.CadastroEquipamentos.Remove(cadastro);
             await _contexto.SaveChangesAsync();
             return RedirectToAction("Index", "CadastroEquip", new { area = "" });
