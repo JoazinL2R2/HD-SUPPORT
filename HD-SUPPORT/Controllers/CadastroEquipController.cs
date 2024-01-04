@@ -18,6 +18,11 @@ namespace HD_SUPPORT.Controllers
         }
         public async Task<IActionResult> Index(string searchString)
         {
+            if (HttpContext.Session.GetString("nome") == null)
+            {
+                return RedirectToAction("LogOut", "Home", new { area = "" });
+            }
+
             var equipamentos = await _contexto.CadastroEquipamentos.ToListAsync();
             var equipamentosFiltrados = new List<CadastroEquip>();
 
@@ -54,9 +59,16 @@ namespace HD_SUPPORT.Controllers
             }
             else
             {
-                _contexto.CadastroEquipamentos.Add(equipamento);
-                await _contexto.SaveChangesAsync();
-                return RedirectToAction("Index", "CadastroEquip", new { area = "" });
+                if (ModelState.IsValid)
+                {
+                    _contexto.CadastroEquipamentos.Add(equipamento);
+                    await _contexto.SaveChangesAsync();
+                    return RedirectToAction("Index", "CadastroEquip", new { area = "" });
+                }
+                else
+                {
+                    return RedirectToAction("Index", "CadastroEquip");
+                }
             }
         }
 
@@ -77,9 +89,16 @@ namespace HD_SUPPORT.Controllers
             }
             else
             {
-                _contexto.CadastroEquipamentos.Update(cadastro);
-                await _contexto.SaveChangesAsync();
-                return RedirectToAction("Index", "CadastroEquip", new { area = "" });
+                if (ModelState.IsValid)
+                {
+                    _contexto.CadastroEquipamentos.Update(cadastro);
+                    await _contexto.SaveChangesAsync();
+                    return RedirectToAction("Index", "CadastroEquip", new { area = "" });
+                }
+                else
+                {
+                    return RedirectToAction("Index", "CadastroEquip");
+                }
             }
         }
         [HttpPost]

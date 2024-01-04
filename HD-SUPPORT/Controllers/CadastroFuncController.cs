@@ -23,6 +23,11 @@ namespace HD_SUPPORT.Controllers
         }
         public async Task<IActionResult> Index(string searchString)
         {
+            if (HttpContext.Session.GetString("nome") == null)
+            {
+                return RedirectToAction("LogOut", "Home", new { area = "" });
+            }
+
             var Funcionarios = await _contexto.CadastroUser.ToListAsync();
             if (!string.IsNullOrEmpty(searchString))
             {
@@ -48,9 +53,15 @@ namespace HD_SUPPORT.Controllers
             }
             else
             {
-                await _contexto.CadastroUser.AddAsync(cadastro);
-                await _contexto.SaveChangesAsync();
-                return RedirectToAction("Index", "CadastroFunc", new { area = "" });
+                if (ModelState.IsValid) { 
+                    await _contexto.CadastroUser.AddAsync(cadastro);
+                    await _contexto.SaveChangesAsync();
+                    return RedirectToAction("Index", "CadastroFunc", new { area = "" });
+                }
+                else
+                {
+                    return RedirectToAction("Index", "CadastroFunc");
+                }
             }
         }
         public IActionResult Edit(int id)
@@ -77,9 +88,16 @@ namespace HD_SUPPORT.Controllers
                 }
                 else
                 {
-                    _contexto.CadastroUser.Update(cadastro);
-                    _contexto.SaveChanges();
-                    return RedirectToAction("Index");
+                    if (ModelState.IsValid)
+                    {
+                        _contexto.CadastroUser.Update(cadastro);
+                        _contexto.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "CadastroFunc");
+                    }
                 }
             }
             catch (Exception ex)
@@ -88,21 +106,6 @@ namespace HD_SUPPORT.Controllers
                 Console.WriteLine($"Erro durante a atualização: {ex.Message}");
                 return StatusCode(500, "Erro interno do servidor");
             }
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> EditMaquina(int id)
-        {
-            CadastroUser cadastro = await _contexto.CadastroUser.FindAsync(id);
-            return View(cadastro);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> AtualizarMaquina(CadastroUser cadastro)
-        {
-            _contexto.CadastroUser.Update(cadastro);
-            await _contexto.SaveChangesAsync();
-            return RedirectToAction("Index", "CadastroFunc", new { area = "" });
         }
         [HttpPost]
         public async Task<IActionResult> Excluir(CadastroUser funcionario)

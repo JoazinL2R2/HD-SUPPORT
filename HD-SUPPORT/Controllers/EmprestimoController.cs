@@ -15,6 +15,11 @@ namespace HD_SUPPORT.Controllers
         }
         public async Task<IActionResult> Index(string searchString)
         {
+            if (HttpContext.Session.GetString("nome") == null)
+            {
+                return RedirectToAction("LogOut", "Home", new { area = "" });
+            }
+
             var emprestimo = await _contexto.CadastroEmprestimos
                 .Include(e => e.Equipamento)
                 .Include(e => e.Funcionario)
