@@ -18,5 +18,6 @@ namespace HD_SUPPORT.Models
         [Required]
         [StringLength(14)]
         public string Cpf { get; set; }
+        public string? profissional_HD { get; set; }
     }
 }

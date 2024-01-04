@@ -117,6 +117,9 @@ namespace HD_SUPPORT.Controllers
                 var equipamento = await _contexto.CadastroEquipamentos.FindAsync(emprestimo.EquipamentoId);
                 equipamento.Disponivel = true;
             }
+            cadastro.profissional_HD = HttpContext.Session.GetString("nome");
+            _contexto.CadastroUser.Update(cadastro);
+            await _contexto.SaveChangesAsync();
             _contexto.CadastroUser.Remove(cadastro);
             await _contexto.SaveChangesAsync();
             return RedirectToAction("Index", "CadastroFunc", new { area = "" });

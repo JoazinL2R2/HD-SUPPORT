@@ -11,5 +11,6 @@
         public DateTime DtEmeprestimoInicio { get; set; }
         public DateTime DtEmeprestimoFinal { get; set; }
         public bool Disponivel { get; set; } = true;
+        public string? profissional_HD { get; set; }
     }
 }

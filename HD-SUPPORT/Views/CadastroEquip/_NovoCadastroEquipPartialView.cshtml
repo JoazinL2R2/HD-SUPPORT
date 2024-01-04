@@ -1,4 +1,5 @@
 ﻿@model HD_SUPPORT.Models.CadastroEquip
+@inject IHttpContextAccessor Acessor
 
 @{
     ViewData["Title"] = "Cadastro";
@@ -15,6 +16,7 @@
             <div class="modal-body">
                 <form asp-action="NovoCadastro">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="profissional_HD" value="@Acessor.HttpContext.Session.GetString("nome")" />
                     <div class="form-group">
                         <h5 class="control-label">Id do patrimônio</h5>
                         <input asp-for="IdPatrimonio" class="form-control" />

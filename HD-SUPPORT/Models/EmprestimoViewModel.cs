@@ -9,5 +9,6 @@
         public int FuncionarioId { get; set; }
         public CadastroEquip Equipamento { get; set; }
         public int EquipamentoId { get; set; }
+        public string? profissional_HD { get; set; }
     }
 }

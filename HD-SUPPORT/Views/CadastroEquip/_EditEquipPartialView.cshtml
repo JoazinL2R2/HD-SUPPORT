@@ -1,4 +1,5 @@
 ﻿@model HD_SUPPORT.Models.CadastroEquip
+@inject IHttpContextAccessor Acessor
  
 @{
     ViewData["Title"] = "Edit";
@@ -16,6 +17,7 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input type="hidden" asp-for="Id" />
                     <input type="hidden" asp-for="Disponivel" />
+                    <input type="hidden" asp-for="profissional_HD" value="@Acessor.HttpContext.Session.GetString("nome")" />
                     <div class="form-group">
                         <label asp-for="IdPatrimonio" class="control-label">Id do patrimônio</label>
                         <input asp-for="IdPatrimonio" class="form-control" />
