@@ -30,12 +30,12 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="Telegram" class="control-label"></label>
-                        <input asp-for="Telegram" class="form-control" class="telegram2" />
+                        <input asp-for="Telegram" class="form-control telegram2" />
                         <span asp-validation-for="Telegram" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Telefone" class="control-label"></label>
-                        <input asp-for="Telefone" class="form-control" class="telefone2" />
+                        <input asp-for="Telefone" class="form-control telefone2" />
                         <span asp-validation-for="Telefone" class="text-danger"></span>
                     </div>
                     <div class="form-group">
@@ -62,7 +62,7 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="Cpf" class="control-label"></label>
-                        <input asp-for="Cpf" class="form-control" class="cpf2" />
+                        <input asp-for="Cpf" class="form-control cpf2"/>
                         <span asp-validation-for="Cpf" class="text-danger"></span>
                     </div>
                     <div class="form-group">
@@ -73,15 +73,6 @@
         </div>
     </div>
     @section Scripts {
-        <script src="~/js/jquery.inputmask.js"></script>
-
-        <script>
-            $(document).ready(function () {
-                $(".telefone2").inputmask('(99) 99999-9999');
-                $(".telegram2").inputmask('(99) 99999-9999');
-                $(".cpf2").inputmask('999.999.999-99');
-            });
-        </script>
         @{
             await Html.RenderPartialAsync("_ValidationScriptsPartial");
         }
