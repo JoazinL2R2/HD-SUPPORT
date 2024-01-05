@@ -28,6 +28,10 @@ namespace HD_SUPPORT.Controllers
         public async Task<IActionResult> LogOut()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            if (HttpContext.Session.GetString("nome") == null)
+            {
+                TempData["msg"] = "<script>alert('Sessão expirada');</script>";
+            }
             return RedirectToAction("Login","CadastroHelpDesk");
         }
 

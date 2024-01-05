@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HD-SUPPORT")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f89ae28117a9cfa8933645d5832dcc2a88559145")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+96000e2be615637f0bd3a49c7066e36881d17d4a")]
 [assembly: System.Reflection.AssemblyProductAttribute("HD-SUPPORT")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HD-SUPPORT")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

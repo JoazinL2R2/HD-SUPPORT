@@ -5,6 +5,7 @@
 }
 
 
+
 @section Header {
 
 }
@@ -70,5 +71,8 @@
         // Simular o envio do formulário quando o link é clicado
         document.getElementById('loginForm').submit();
     });
+
+    
 </script>
 
+@Html.Raw(TempData["msg"])
