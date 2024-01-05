@@ -43,12 +43,26 @@ namespace HD_SUPPORT.Controllers
             return PartialView("_NovoCadastroFuncPartialView");
         }
 
+        public bool verificaDigitos(string numero)
+        {
+            return numero.Contains('_');
+        }
         [HttpPost]
         [AllowAnonymous]
         public async Task<IActionResult> NovoCadastro(CadastroUser cadastro)
         {
-            if (_contexto.CadastroUser.Any(x => x.Email == cadastro.Email)) { 
-                ModelState.AddModelError(nameof(cadastro.Email), "Email existente");
+            List<string> numeros = [cadastro.Cpf, cadastro.Telefone, cadastro.Telegram];
+            var voltar = false;
+            numeros.ForEach(e =>
+            {
+                if (verificaDigitos(e))
+                {
+                    ModelState.AddModelError(e, "Preencha com todos os valores");
+                    voltar = true;
+                }
+            });
+            if (voltar)
+            {
                 return RedirectToAction("Index", "CadastroFunc", new { area = "" });
             }
             else
@@ -79,6 +93,21 @@ namespace HD_SUPPORT.Controllers
                 {
                     // Lógica para lidar com cadastro nulo, se necessário
                     return BadRequest("O objeto CadastroUser está nulo.");
+                }
+
+                List<string> numeros = [cadastro.Cpf, cadastro.Telefone, cadastro.Telegram];
+                var voltar = false;
+                numeros.ForEach(e =>
+                {
+                    if (verificaDigitos(e))
+                    {
+                        ModelState.AddModelError(nameof(e), "Preencha com todos os valores");
+                        voltar = true;
+                    }
+                });
+                if (voltar)
+                {
+                    return RedirectToAction("Index", "CadastroFunc", new { area = "" });
                 }
 
                 if (_contexto.CadastroUser.Any(x => x.Email == cadastro.Email && x.Id != cadastro.Id))
