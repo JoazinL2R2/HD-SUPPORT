@@ -54,7 +54,7 @@ body {
     position: absolute;
     padding: 5px;
 }
-.btn-login a {
+.btn-login button {
     color: white;
     font-size: 15px;
     text-decoration: none;
@@ -78,6 +78,13 @@ body {
     background-color: #0169fd;
     text-align: center;
     transition: ease 0.5s;
+}
+
+#loginButton {
+    background: none;
+    outline: none;
+    border: none;
+    border-radius: 8px;
 }
 
 .btn-funcionario {
