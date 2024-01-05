@@ -163,7 +163,7 @@ body {
     border: 2px solid #0169fd;
 }
 
-.btn-login a:hover {
+.btn-login button:hover {
     color: #0169fd;
 }
 
