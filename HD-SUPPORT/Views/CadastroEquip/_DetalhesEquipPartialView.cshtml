@@ -9,25 +9,37 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <label>Numero do Patrimonio</label><br />
-                <p>@Model.IdPatrimonio</p>
-                <label>Modelo</label><br />
-                <p>@Model.Modelo</p>
-                <label>Processador</label><br />
-                <p>@Model.Processador</p>
-                <label>Sistema Operacional</label><br />
-                <p>@Model.SistemaOperacionar</p>
-                <label>Status</label><br />
-                <p>
-                    @if (@Model.Disponivel)
-                    {
-                        <text>Disponível</text>
-                    }
-                    else
-                    {
-                        <text>Indisponível</text>
-                    }
-                </p>
+                <div class="topico">
+                    <label><u>Numero do Patrimonio:</u></label>
+                    <p>@Model.IdPatrimonio</p>
+                </div>
+                <div class="topico">
+                    <label><u>Numero do Patrimonio:</u></label>
+                    <p>@Model.IdPatrimonio</p>
+                </div>
+                <div class="topico">
+                    <label><u>Modelo:</u></label>
+                    <p>@Model.Modelo</p>
+                </div>
+                <div class="topico">
+                    <label><u>Processador:</u></label>
+                    <p>@Model.Processador</p>
+                </div>
+
+                <div class="topico">
+                    <label><u>Status</u></label>
+                    <p>
+                        @if (@Model.Disponivel)
+                        {
+                            <text>Disponível</text>
+                        }
+                        else
+                        {
+                            <text>Indisponível</text>
+                        }
+                    </p>
+                </div>
+                
             </div>
         </div>
     </div>

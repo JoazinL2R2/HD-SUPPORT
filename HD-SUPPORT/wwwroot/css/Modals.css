@@ -1,0 +1,94 @@
+﻿.container-modal {
+    margin-top: 20vh;
+    background-color: white;
+    border-radius: 10px;
+    width: 375px;
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal {
+}
+
+.titulo-modal hr {
+    margin-top: 15px;
+    width: 373px;
+    color: black;
+}
+
+.titulo-modal p {
+    font-size: 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+    .modal-body input{
+        width: 300px;
+        height: 40px;
+        border-radius: 10px;
+        border: 1px solid #046DE1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-body label {
+        font-size: 20px;
+        display: flex;
+        justify-content: left;
+        align-items: left;
+        margin-top: 10px;
+    }
+
+.btn-salvar {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .btn-salvar button {
+        color: white;
+        background-color: #046DE1;
+        border: none;
+        width: 100px;
+        height: 30px;
+        border-radius: 5px;
+    }
+
+
+
+.categoria-btn select {
+    margin-top: 5px;
+    width: 120px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #046DE1;
+    font-size: 15px;
+}
+.topico {
+    width: 80%;
+    height: 80px;
+    border-radius: 10px;
+    border: 1px solid #046DE1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+    margin-top: 5vh;
+    padding-top:2vh;
+}
+.topico label, input{
+    margin: 0;
+    padding: 0;
+}

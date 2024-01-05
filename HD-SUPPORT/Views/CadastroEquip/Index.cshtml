@@ -6,6 +6,38 @@
 @{
     ViewData["Title"] = "Maquinas";
 }
+@section Header {
+    <header>
+        <div class="logo_bne">
+            <img src="~/images/logo_bne.png" alt="">
+        </div>
+        <div class="icon_menu" onclick="toggleMenu()">
+            <img src="~/images/menu_icon.png" alt="">
+        </div>
+        <div class="side-menu" id="sideMenu">
+            <div class="close_menu">
+                <img src="~/images/9110796_x_icon.png" alt="" width="40px">
+            </div>
+            <a class="dropdown-item" asp-controller="Emprestimo" asp-action="Index">Tabela Emprestimos</a>
+            <a class="dropdown-item" asp-controller="CadastroEquip" asp-action="Index">Tabela Equipamentos</a>
+            <a class="dropdown-item" asp-controller="CadastroFunc" asp-action="Index">Tabela Funcionarios</a>
+            <div>
+                @if (Acessor.HttpContext.Session.GetString("nome") != null)
+                {
+                    <img src="data:image/jpeg;base64,@Convert.ToBase64String(@Acessor.HttpContext.Session.Get("foto"))" width="50" height="50">
+                    @Acessor.HttpContext.Session.GetString("nome")
+                    <a class="dropdown-item" asp-area="" asp-controller="CadastroHelpDesk" asp-action="Perfil">Perfil</a>
+                }
+            </div>
+            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="LogOut">Sair</a>
+        </div>
+    </header>
+
+}
+<head>
+    <link rel="stylesheet" href="~/css/Modals.css" />
+    <link rel="stylesheet" href="~/css/Tebela.css" />
+</head>
 
 <div class="align-content-center">
     <div class="TableContainer">
