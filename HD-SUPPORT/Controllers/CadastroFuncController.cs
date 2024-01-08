@@ -45,10 +45,7 @@ namespace HD_SUPPORT.Controllers
 
         public bool verificaDigitos(string numero)
         {
-            if (numero != null) {
-                return numero.Contains('_');
-            }
-            return true;
+            return numero.Contains('_');
         }
         [HttpPost]
         [AllowAnonymous]
