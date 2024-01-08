@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace HD_SUPPORT.Controllers
 {
-    [Authorize(Roles = "HelpDesk")]
+    [Authorize(Roles = "HelpDesk, RH")]
     public class CadastroFuncController : Controller
     {
         private readonly BancoContexto _contexto;
