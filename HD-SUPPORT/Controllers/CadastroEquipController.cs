@@ -6,7 +6,7 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace HD_SUPPORT.Controllers
 {
-    [Authorize(Roles = "HelpDesk")]
+    [Authorize(Roles = "HelpDesk, RH")]
     public class CadastroEquipController : Controller
     {
         private readonly BancoContexto _contexto;

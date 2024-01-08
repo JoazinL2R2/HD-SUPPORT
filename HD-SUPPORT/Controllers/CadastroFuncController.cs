@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace HD_SUPPORT.Controllers
 {
-    [Authorize(Roles = "HelpDesk")]
+    [Authorize(Roles = "HelpDesk, RH")]
     public class CadastroFuncController : Controller
     {
         private readonly BancoContexto _contexto;
@@ -45,7 +45,10 @@ namespace HD_SUPPORT.Controllers
 
         public bool verificaDigitos(string numero)
         {
-            return numero.Contains('_');
+            if (numero != null) {
+                return numero.Contains('_');
+            }
+            return true;
         }
         [HttpPost]
         [AllowAnonymous]

@@ -18,7 +18,10 @@
             <div class="close_menu">
                 <img src="~/images/9110796_x_icon.png" alt="" width="40px">
             </div>
-            <a class="dropdown-item" asp-controller="Emprestimo" asp-action="Index">Tabela Emprestimos</a>
+            @if (Acessor.HttpContext.Session.GetString("profissional") == "HelpDesk")
+            {
+                <a class="dropdown-item" asp-controller="Emprestimo" asp-action="Index">Tabela Emprestimos</a>
+            }
             <a class="dropdown-item" asp-controller="CadastroEquip" asp-action="Index">Tabela Equipamentos</a>
             <a class="dropdown-item" asp-controller="CadastroFunc" asp-action="Index">Tabela Funcionarios</a>
             <div>
@@ -78,8 +81,11 @@
                             <button type="button" data-bs-toggle="modal" data-bs-target="@("#NovoEquipModal")" data-bs-url="@Url.Action($"NovoCadastro")">
                                 Adicionar
                             </button>
-
-                            @await Html.PartialAsync("_NovoCadastroEquipPartialView", new HD_SUPPORT.Models.CadastroEquip())
+                            @if (Acessor.HttpContext.Session.GetString("profissional") == "HelpDesk")
+                            {
+                                @await Html.PartialAsync("_NovoCadastroEquipPartialView", new HD_SUPPORT.Models.CadastroEquip())
+                            }
+                           
 
                         </div>
                             
@@ -119,7 +125,11 @@
                                     <i class="bi bi-pencil-square"></i>
                                 </button>
 
-                                @await Html.PartialAsync("_EditEquipPartialView", item)
+                                @if (Acessor.HttpContext.Session.GetString("profissional") == "HelpDesk")
+                                {
+                                    @await Html.PartialAsync("_EditEquipPartialView", item);
+                                }
+                                
 
                                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="@("#DetalhesEquipModal" + item.Id.ToString())" data-bs-url="@Url.Action($"Detalhes/{item.Id}")">
                                     <i class="bi bi-newspaper"></i>
@@ -131,7 +141,11 @@
                                     <i class="bi bi-trash-fill"></i>
                                 </button>
 
-                                @await Html.PartialAsync("_ExcluirEquipPartialView", item)
+                                @if (Acessor.HttpContext.Session.GetString("profissional") == "HelpDesk")
+                                {
+                                    @await Html.PartialAsync("_ExcluirEquipPartialView", item);
+                                }
+
                             </div>
 
                         </td>
