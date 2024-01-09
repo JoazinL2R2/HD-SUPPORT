@@ -14,7 +14,7 @@ using System.ComponentModel;
 
 namespace HD_SUPPORT.Controllers
 {
-    [AllowAnonymous]
+    [Authorize(Roles = "HelpDesk, RH")]
     public class CadastroHelpDeskController : Controller
     {
         private readonly BancoContexto _contexto;
@@ -222,7 +222,7 @@ namespace HD_SUPPORT.Controllers
                         _contexto.CadastroHD.Update(cadastro);
                         _contexto.SaveChanges();
                         var usuario = _contexto.CadastroHD.Where(b => b.Email == cadastro.Email).FirstOrDefault();
-                        criarSessao(usuario);
+                        criarSessao(usuario, HttpContext.Session.GetString("profissional"));
                         return RedirectToAction("Perfil");
                     }
                     else
