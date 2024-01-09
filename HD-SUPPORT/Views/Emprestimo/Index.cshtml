@@ -17,7 +17,10 @@
             <div class="close_menu">
                 <img src="~/images/9110796_x_icon.png" alt="" width="40px">
             </div>
-            <a class="dropdown-item" asp-controller="Emprestimo" asp-action="Index">Tabela Emprestimos</a>
+            @if(Acessor.HttpContext.Session.GetString("profissional") == "HelpDesk")
+            {
+                <a class="dropdown-item" asp-controller="Emprestimo" asp-action="Index">Tabela Emprestimos</a>
+            }
             <a class="dropdown-item" asp-controller="CadastroEquip" asp-action="Index">Tabela Equipamentos</a>
             <a class="dropdown-item" asp-controller="CadastroFunc" asp-action="Index">Tabela Funcionarios</a>
             <div>

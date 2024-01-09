@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace HD_SUPPORT.Controllers
 {
-    [Authorize(Roles = "HelpDesk")]
+    [Authorize(Roles = "HelpDesk, RH")]
     public class CadastroFuncController : Controller
     {
         private readonly BancoContexto _contexto;
@@ -45,37 +45,46 @@ namespace HD_SUPPORT.Controllers
 
         public bool verificaDigitos(string numero)
         {
-            return numero.Contains('_');
+            if (numero != null) {
+                return numero.Contains('_');
+            }
+            return true;
         }
         [HttpPost]
         [AllowAnonymous]
         public async Task<IActionResult> NovoCadastro(CadastroUser cadastro)
         {
-            List<string> numeros = [cadastro.Cpf, cadastro.Telefone, cadastro.Telegram];
-            var voltar = false;
-            numeros.ForEach(e =>
-            {
-                if (verificaDigitos(e))
+            if (ModelState.IsValid) { 
+                List<string> numeros = [cadastro.Cpf, cadastro.Telefone, cadastro.Telegram];
+                var voltar = false;
+                numeros.ForEach(e =>
                 {
-                    ModelState.AddModelError(e, "Preencha com todos os valores");
-                    voltar = true;
-                }
-            });
-            if (voltar)
-            {
-                return RedirectToAction("Index", "CadastroFunc", new { area = "" });
-            }
-            else
-            {
-                if (ModelState.IsValid) { 
-                    await _contexto.CadastroUser.AddAsync(cadastro);
-                    await _contexto.SaveChangesAsync();
+                    if (verificaDigitos(e))
+                    {
+                        ModelState.AddModelError(e, "Preencha com todos os valores");
+                        voltar = true;
+                    }
+                });
+                if (voltar)
+                {
                     return RedirectToAction("Index", "CadastroFunc", new { area = "" });
                 }
                 else
                 {
-                    return RedirectToAction("Index", "CadastroFunc");
+                    if (ModelState.IsValid) { 
+                        await _contexto.CadastroUser.AddAsync(cadastro);
+                        await _contexto.SaveChangesAsync();
+                        return RedirectToAction("Index", "CadastroFunc", new { area = "" });
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "CadastroFunc");
+                    }
                 }
+            }
+            else
+            {
+                return RedirectToAction("Index", "CadastroFunc");
             }
         }
         public IActionResult Edit(int id)

@@ -14,7 +14,7 @@ using System.ComponentModel;
 
 namespace HD_SUPPORT.Controllers
 {
-    [AllowAnonymous]
+    [Authorize(Roles="HelpDesk, RH")]
     public class CadastroHelpDeskController : Controller
     {
         private readonly BancoContexto _contexto;
@@ -123,11 +123,17 @@ namespace HD_SUPPORT.Controllers
             if (_contexto.CadastroHD.Any(x => x.Email == cadastro.Email && x.Senha == cadastro.Senha)
                 )
             {
+                var emailSeparado = cadastro.Email.Split("@");
+                var profissional = "HelpDesk";
+                if (emailSeparado[1].ToUpper().Contains("RH"))
+                {
+                    profissional = "RH";
+                }
 
                 List<Claim> claims = new List<Claim>()
                 {
                     new Claim(ClaimTypes.NameIdentifier, cadastro.Email),
-                    new Claim(ClaimTypes.Role, "HelpDesk")
+                    new Claim(ClaimTypes.Role, profissional)
                 };
                 ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims,
                     CookieAuthenticationDefaults.AuthenticationScheme
@@ -141,7 +147,7 @@ namespace HD_SUPPORT.Controllers
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
                     new ClaimsPrincipal(claimsIdentity), properties);
                 var usuario = _contexto.CadastroHD.Where(b => b.Email == cadastro.Email).FirstOrDefault();
-                criarSessao(usuario);
+                criarSessao(usuario, profissional);
                 return RedirectToAction("Index", "CadastroFunc", new { area = "" });
             }
             else
@@ -151,7 +157,7 @@ namespace HD_SUPPORT.Controllers
             }
         }
 
-        public void criarSessao(CadastroHelpDesk usuario)
+        public void criarSessao(CadastroHelpDesk usuario, string profissional)
         {
             HttpContext.Session.SetString("nome", usuario.Nome);
             HttpContext.Session.Set("foto", usuario.Foto);
@@ -162,6 +168,7 @@ namespace HD_SUPPORT.Controllers
             var senha = "".PadRight(usuario.Senha.Length, '*');
             HttpContext.Session.SetString("senha", senha);
             HttpContext.Session.SetInt32("Id", usuario.Id);
+            HttpContext.Session.SetString("profissional", profissional);
         }
 
         [HttpGet]
@@ -215,7 +222,7 @@ namespace HD_SUPPORT.Controllers
                         _contexto.CadastroHD.Update(cadastro);
                         _contexto.SaveChanges();
                         var usuario = _contexto.CadastroHD.Where(b => b.Email == cadastro.Email).FirstOrDefault();
-                        criarSessao(usuario);
+                        criarSessao(usuario, HttpContext.Session.GetString("profissional"));
                         return RedirectToAction("Perfil");
                     }
                     else
