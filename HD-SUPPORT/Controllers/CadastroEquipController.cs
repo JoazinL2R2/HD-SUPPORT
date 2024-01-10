@@ -41,7 +41,10 @@ namespace HD_SUPPORT.Controllers
                                 || e.SistemaOperacionar.Contains(searchString, StringComparison.OrdinalIgnoreCase))
                     .ToList();
                 //disponibilidade
-                equipamentosFiltrados = equipamentosFiltrados.Where(e => e.Disponivel == disponibilidade).ToList();
+                if(disponivel != "2" && disponivel != null)
+                {
+                    equipamentosFiltrados = equipamentosFiltrados.Where(e => e.Disponivel == disponibilidade).ToList();
+                }
             }
             else if(disponivel!="2" && disponivel != null)
             {
@@ -117,7 +120,7 @@ namespace HD_SUPPORT.Controllers
         public async Task<IActionResult> Excluir(CadastroEquip equipamento)
         {
             var cadastro = await _contexto.CadastroEquipamentos.FindAsync(equipamento.Id);
-            cadastro.profissional_HD = HttpContext.Session.GetString("nome");
+            cadastro.profissional_HD = HttpContext.Session.GetString("profissional") + " - " + HttpContext.Session.GetString("nome");
             _contexto.CadastroEquipamentos.Update(cadastro);
             await _contexto.SaveChangesAsync();
             _contexto.CadastroEquipamentos.Remove(cadastro);

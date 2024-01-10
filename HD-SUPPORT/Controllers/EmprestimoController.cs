@@ -1,4 +1,5 @@
 ﻿
+using HD_SUPPORT.Migrations;
 using HD_SUPPORT.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -75,7 +76,8 @@ namespace HD_SUPPORT.Controllers
                 var novoEmprestimo = new EmprestimoViewModel
                 {
                     Funcionario = funcionario,
-                    Equipamento = equipamentoDisponivel
+                    Equipamento = equipamentoDisponivel,
+                    profissional_HD = cadastro.profissional_HD
                 };
 
                 await _contexto.CadastroEmprestimos.AddAsync(novoEmprestimo);
@@ -145,6 +147,7 @@ namespace HD_SUPPORT.Controllers
                 }
                 cadastro.Equipamento = equipamentoDisponivel;
                 cadastro.Funcionario = funcionario;
+                cadastro.profissional_HD = HttpContext.Session.GetString("profissional") + " - " + HttpContext.Session.GetString("nome");
 
                 _contexto.CadastroEmprestimos.Update(cadastro);
                 await _contexto.SaveChangesAsync();
@@ -166,7 +169,7 @@ namespace HD_SUPPORT.Controllers
                 var equipamento = await _contexto.CadastroEquipamentos.FindAsync(cadastro.EquipamentoId);
                 equipamento.Disponivel = true;
                 _contexto.CadastroEquipamentos.Update(equipamento);
-                cadastro.profissional_HD = HttpContext.Session.GetString("nome");
+                cadastro.profissional_HD = HttpContext.Session.GetString("profissional") + " - " + HttpContext.Session.GetString("nome");
                 _contexto.CadastroEmprestimos.Update(cadastro);
                 await _contexto.SaveChangesAsync();
                 _contexto.CadastroEmprestimos.Remove(cadastro);

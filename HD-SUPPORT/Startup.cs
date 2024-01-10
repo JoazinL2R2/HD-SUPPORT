@@ -32,7 +32,7 @@ namespace HD_SUPPORT
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSession(options =>
             {
-                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.IdleTimeout = TimeSpan.FromHours(1);
             });
             services.AddControllersWithViews();
 
