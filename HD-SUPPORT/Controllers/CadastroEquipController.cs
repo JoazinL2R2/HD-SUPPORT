@@ -16,7 +16,7 @@ namespace HD_SUPPORT.Controllers
             _contexto = contexto;
 
         }
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string searchString, string disponivel)
         {
             if (HttpContext.Session.GetString("nome") == null)
             {
@@ -25,6 +25,12 @@ namespace HD_SUPPORT.Controllers
 
             var equipamentos = await _contexto.CadastroEquipamentos.ToListAsync();
             var equipamentosFiltrados = new List<CadastroEquip>();
+            var disponibilidade = true;
+
+            if (disponivel == "0")
+            {
+                disponibilidade = false;
+            }
 
             if (!string.IsNullOrEmpty(searchString))
             {
@@ -34,6 +40,12 @@ namespace HD_SUPPORT.Controllers
                                 || e.Processador.Contains(searchString, StringComparison.OrdinalIgnoreCase)
                                 || e.SistemaOperacionar.Contains(searchString, StringComparison.OrdinalIgnoreCase))
                     .ToList();
+                //disponibilidade
+                equipamentosFiltrados = equipamentosFiltrados.Where(e => e.Disponivel == disponibilidade).ToList();
+            }
+            else if(disponivel!="2" && disponivel != null)
+            {
+                equipamentosFiltrados = equipamentos.Where(e => e.Disponivel == disponibilidade).ToList();
             }
             else
             {
