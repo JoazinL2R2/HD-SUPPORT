@@ -4,77 +4,63 @@
 @{
     ViewData["Title"] = "Cadastrar";
 }
-<div class="modal fade" id="NovoCadastroFuncModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar Novo Funcionario</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="novocadastro-form" asp-action="NovoCadastro">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <input type="hidden" asp-for="profissional_HD" value="@Acessor.HttpContext.Session.GetString("nome")" />
-                    <div class="form-group">
-                        <label asp-for="Nome" class="control-label"></label>
-                        <input asp-for="Nome" class="form-control" />
-                        <span asp-validation-for="Nome" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Email" class="control-label"></label>
-                        <input asp-for="Email" class="form-control" />
-                        <span asp-validation-for="Email" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Telegram" class="control-label"></label>
-                        <input asp-for="Telegram" class="form-control telefone" />
-                        <span asp-validation-for="Telegram" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Telefone" class="control-label"></label>
-                        <input asp-for="Telefone" class="form-control telefone" />
-                        <span asp-validation-for="Telefone" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Status" class="control-label"></label>
-                        <input asp-for="Status" class="form-control" placeholder="Cargo na empresa" />
-                        <span asp-validation-for="Status" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Categoria" class="control-label"></label>
-                        <br />
-                        <select name="categoria" id="categorias">
-                            <option value="HomeOffice">
-                                Home-Office
-                            </option>
-                            <option value="Presencial">
-                                Presencial
-                            </option>
-                            <option value="Hibrido">
-                                Hibrido
-                            </option>
-                        </select>
-                        <span asp-validation-for="Categoria" class="text-danger"></span>
-                        <br />
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Cpf" class="control-label"></label>
-                        <input asp-for="Cpf" class="form-control cpf" />
-                        <span asp-validation-for="Cpf" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <br />
-                        <input type="submit" value="Criar" class="btn btn-primary"  />
-                    </div>
-                </form>
-            </div>
-        </div>
+
+<form id="novocadastro-form" asp-action="NovoCadastro">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="profissional_HD" value="@Acessor.HttpContext.Session.GetString("nome")" />
+    <div class="form-group">
+        <label asp-for="Nome" class="control-label"></label>
+        <input asp-for="Nome" class="form-control" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
     </div>
-    @section Scripts {
-        @{
-            await Html.RenderPartialAsync("_ValidationScriptsPartial");
-        }
+    <div class="form-group">
+        <label asp-for="Email" class="control-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Telegram" class="control-label"></label>
+        <input asp-for="Telegram" class="form-control telefone" />
+        <span asp-validation-for="Telegram" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Telefone" class="control-label"></label>
+        <input asp-for="Telefone" class="form-control telefone" />
+        <span asp-validation-for="Telefone" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Status" class="control-label"></label>
+        <input asp-for="Status" class="form-control" placeholder="Cargo na empresa" />
+        <span asp-validation-for="Status" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Categoria" class="control-label"></label>
+        <br />
+        <select name="categoria" id="categorias">
+            <option value="HomeOffice">
+                Home-Office
+            </option>
+            <option value="Presencial">
+                Presencial
+            </option>
+            <option value="Hibrido">
+                Hibrido
+            </option>
+        </select>
+        <span asp-validation-for="Categoria" class="text-danger"></span>
+        <br />
+    </div>
+
+    <div class="form-group">
+        <br />
+        <input type="submit" value="Criar" class="btn btn-primary" />
+    </div>
+</form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
-</div>
+}
+
 
 

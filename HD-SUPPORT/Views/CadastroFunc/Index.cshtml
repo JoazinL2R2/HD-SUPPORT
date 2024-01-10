@@ -82,12 +82,9 @@
 
                     <th scope="col">
                         <div class="button-add">
-                            <button type="button" data-bs-toggle="modal" data-bs-target="@("#NovoCadastroFuncModal")" data-bs-url="@Url.Action($"NovoCadastro")">
+                            <button type="button" class="BtnNovoCadastro">
                                 Adicionar
                             </button>
-
-                            @await Html.PartialAsync("_NovoCadastroFuncPartialView", new HD_SUPPORT.Models.CadastroUser())
-
                         </div>
 
                     </th>
@@ -118,11 +115,10 @@
                         </td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="@("#EditarFuncModal"+item.Id.ToString())" data-bs-url="@Url.Action($"Edit/{item.Id}")">
+                                <button type="button" Funcionario-id="@item.Id" class="btn btn-primary BtnEditar">
                                     <i class="bi bi-pencil-square"></i>
                                 </button>
 
-                                @await Html.PartialAsync("_EditFuncPartialView",item)
 
                                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="@("#DetalhesFuncModal" + item.Id.ToString())" data-bs-url="@Url.Action($"Detalhes/{item.Id}")">
                                     <i class="bi bi-newspaper"></i>
@@ -157,17 +153,107 @@
                 </ul>
             </nav>
         </div>
+        /*Erro Model*/
+        <div class="modal fade" id="ModelErro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Erro</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="ModelErro">
+                            <p>@TempData["ErroAtualizacao"]</p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
 
+                    </div>
+                </div>
+            </div>
+        </div>
+        /*Edit Model*/
+        <div class="modal fade" id="EditarFuncModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="ModalEditar">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="NovoCadastroFuncModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar Novo Funcionario</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="ModalNovoCadastro">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 </div>
 
     @section Scripts {
         <script src="~/js/jquery.inputmask.js"></script>
         <script>
 
-            $(document).ready(function () {
-                $(".telefone").inputmask('(99) 99999-9999');
-                $(".cpf").inputmask('999.999.999-99');
-            });
+                $(document).ready(function () {
+                    $(".telefone").inputmask('(99) 99999-9999');
+                    $(".cpf").inputmask('999.999.999-99');
+
+                    var erroAtualizacao = "@TempData["ErroAtualizacao"]";
+                    var funcionarioId;
+
+                    if (erroAtualizacao) {
+                        setTimeout(function () {
+                            $('#ModelErro').modal('show');
+                        }, 100);
+                    }
+
+                    $('.BtnEditar').click(function () {
+                        funcionarioId = $(this).attr('Funcionario-id');
+                        abrirModalEditar(funcionarioId);
+                    });
+
+
+                    $('.BtnNovoCadastro').click(function () {
+                        abrirModalNovoCadastro();
+                    });
+
+                    function abrirModalEditar(id) {
+                        $.ajax({
+                            type: 'GET',
+                            url: '/CadastroFunc/Edit/' + id,
+                            success: function (result) {
+                                $("#ModalEditar").html(result);
+                                $('#EditarFuncModal').modal('show');
+                            }
+                        });
+                    }
+
+                    function abrirModalNovoCadastro() {
+                        $.ajax({
+                            type: 'GET',
+                            url: '/CadastroFunc/NovoCadastro',
+                            success: function (result) {
+                                $("#ModalNovoCadastro").html(result);
+                                $('#NovoCadastroFuncModal').modal('show');
+                            }
+                        });
+                    }
+                });
         </script>
     }
 

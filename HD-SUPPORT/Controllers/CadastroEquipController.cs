@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 
 namespace HD_SUPPORT.Controllers
@@ -64,13 +65,25 @@ namespace HD_SUPPORT.Controllers
         [HttpPost]
         public async Task<IActionResult> NovoCadastro(CadastroEquip equipamento)
         {
-            if (_contexto.CadastroEquipamentos.Any(x => x.IdPatrimonio == equipamento.IdPatrimonio))
+            if (ModelState.IsValid)
             {
-                ModelState.AddModelError(nameof(equipamento.IdPatrimonio), "Máquina já cadastrada");
-                return PartialView("_NovoCadastroEquipPartialView");
-            }
-            else
-            {
+                PropertyInfo[] properties = typeof(CadastroEquip).GetProperties();
+
+                foreach (PropertyInfo property in properties)
+                {
+                    object? value = property.GetValue(equipamento);
+
+                    if (value == null)
+                    {
+                        TempData["ErroAtualizacao"] = "Preencha todos os campos";
+                        return RedirectToAction("Index", "CadastroEquip", new { area = "" });
+                    }
+                }
+                if (_contexto.CadastroEquipamentos.Any(x => x.IdPatrimonio == equipamento.IdPatrimonio && x.Id != equipamento.Id))
+                {
+                    TempData["ErroAtualizacao"] = "maquina já existente";
+                    return RedirectToAction("Index");
+                }
                 if (ModelState.IsValid)
                 {
                     _contexto.CadastroEquipamentos.Add(equipamento);
@@ -82,8 +95,11 @@ namespace HD_SUPPORT.Controllers
                     return RedirectToAction("Index", "CadastroEquip");
                 }
             }
+            else
+            {
+                return RedirectToAction("Index", "CadastroEquip");
+            }
         }
-
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
@@ -96,8 +112,8 @@ namespace HD_SUPPORT.Controllers
         {
             if (_contexto.CadastroEquipamentos.Any(x => x.IdPatrimonio == cadastro.IdPatrimonio && x.Id != cadastro.Id))
             {
-                ModelState.AddModelError(nameof(cadastro.IdPatrimonio), "Máquina já cadastrada");
-                return PartialView("_EditEquipPartialView", cadastro);
+                TempData["ErroAtualizacao"] = "maquina já existente";
+                return RedirectToAction("Index");
             }
             else
             {

@@ -54,9 +54,17 @@ namespace HD_SUPPORT.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> NovoCadastro(CadastroUser cadastro)
         {
-            if (ModelState.IsValid) { 
-                List<string> numeros = [cadastro.Cpf, cadastro.Telefone, cadastro.Telegram];
-                var voltar = false;
+            if (ModelState.IsValid)
+            {
+                List<string> numeros = new List<string> { cadastro.Telefone, cadastro.Telegram };
+
+                if (numeros.Any(e => e == null))
+                {
+                    TempData["ErroAtualizacao"] = "Preencha todos os campos";
+                    return RedirectToAction("Index", "CadastroFunc", new { area = "" });
+                }
+
+                bool voltar = false;
                 numeros.ForEach(e =>
                 {
                     if (verificaDigitos(e))
@@ -65,13 +73,25 @@ namespace HD_SUPPORT.Controllers
                         voltar = true;
                     }
                 });
+
                 if (voltar)
                 {
                     return RedirectToAction("Index", "CadastroFunc", new { area = "" });
                 }
+                if (_contexto.CadastroUser.Any(x => x.Email == cadastro.Email && x.Id != cadastro.Id))
+                {
+                    TempData["ErroAtualizacao"] = "Email já Cadastrado";
+                    return RedirectToAction("Index");
+                }
+                if (_contexto.CadastroUser.Any(x => x.Telefone == cadastro.Telefone && x.Id != cadastro.Id))
+                {
+                    TempData["ErroAtualizacao"] = "Telefone já cadastrado";
+                    return RedirectToAction("Index");
+                }
                 else
                 {
-                    if (ModelState.IsValid) { 
+                    if (ModelState.IsValid)
+                    {
                         await _contexto.CadastroUser.AddAsync(cadastro);
                         await _contexto.SaveChangesAsync();
                         return RedirectToAction("Index", "CadastroFunc", new { area = "" });
@@ -87,6 +107,7 @@ namespace HD_SUPPORT.Controllers
                 return RedirectToAction("Index", "CadastroFunc");
             }
         }
+
         public IActionResult Edit(int id)
         {
             CadastroUser cadastro = _contexto.CadastroUser.Where(x => x.Id == id).FirstOrDefault();
@@ -104,7 +125,7 @@ namespace HD_SUPPORT.Controllers
                     return BadRequest("O objeto CadastroUser está nulo.");
                 }
 
-                List<string> numeros = [cadastro.Cpf, cadastro.Telefone, cadastro.Telegram];
+                List<string> numeros = [cadastro.Telefone, cadastro.Telegram];
                 var voltar = false;
                 numeros.ForEach(e =>
                 {
@@ -121,13 +142,14 @@ namespace HD_SUPPORT.Controllers
 
                 if (_contexto.CadastroUser.Any(x => x.Email == cadastro.Email && x.Id != cadastro.Id))
                 {
-                    ModelState.AddModelError(nameof(cadastro.Email), "Email existente");
-                    return View("Edit", cadastro);
+                    TempData["ErroAtualizacao"] = "Email já cadastrado";
+                    return RedirectToAction("Index");
                 }
                 else
                 {
                     if (ModelState.IsValid)
                     {
+
                         _contexto.CadastroUser.Update(cadastro);
                         _contexto.SaveChanges();
                         return RedirectToAction("Index");
@@ -140,9 +162,9 @@ namespace HD_SUPPORT.Controllers
             }
             catch (Exception ex)
             {
-                // Adicione logs detalhados ou mensagens de console para identificar a causa da exceção.
                 Console.WriteLine($"Erro durante a atualização: {ex.Message}");
-                return StatusCode(500, "Erro interno do servidor");
+                TempData["ErroAtualizacao"] = "Erro interno do servidor";
+                return RedirectToAction("Index");
             }
         }
         [HttpPost]
