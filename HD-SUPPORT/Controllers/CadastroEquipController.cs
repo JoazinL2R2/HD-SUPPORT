@@ -62,6 +62,16 @@ namespace HD_SUPPORT.Controllers
             return PartialView("_NovoCadastroEquipPartialView");
         }
 
+        public bool dadosExistentes(CadastroEquip equipamento)
+        {
+            if (equipamento.IdPatrimonio == null || equipamento.Modelo == null || equipamento.Processador == null || 
+                equipamento.SistemaOperacionar == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
         [HttpPost]
         public async Task<IActionResult> NovoCadastro(CadastroEquip equipamento)
         {
@@ -84,7 +94,7 @@ namespace HD_SUPPORT.Controllers
                     TempData["ErroAtualizacao"] = "maquina já existente";
                     return RedirectToAction("Index");
                 }
-                if (ModelState.IsValid)
+                if (dadosExistentes(equipamento))
                 {
                     _contexto.CadastroEquipamentos.Add(equipamento);
                     await _contexto.SaveChangesAsync();
@@ -92,7 +102,8 @@ namespace HD_SUPPORT.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("Index", "CadastroEquip");
+                    TempData["ErroAtualizacao"] = "Preencha todos os dados";
+                    return RedirectToAction("Index");
                 }
             }
             else
@@ -117,7 +128,7 @@ namespace HD_SUPPORT.Controllers
             }
             else
             {
-                if (ModelState.IsValid)
+                if (dadosExistentes(cadastro))
                 {
                     _contexto.CadastroEquipamentos.Update(cadastro);
                     await _contexto.SaveChangesAsync();
@@ -125,7 +136,8 @@ namespace HD_SUPPORT.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("Index", "CadastroEquip");
+                    TempData["ErroAtualizacao"] = "Preencha todos os dados";
+                    return RedirectToAction("Index");
                 }
             }
         }

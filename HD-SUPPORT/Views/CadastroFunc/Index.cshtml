@@ -210,8 +210,7 @@
         <script>
 
                 $(document).ready(function () {
-                    $(".telefone").inputmask('(99) 99999-9999');
-                    $(".cpf").inputmask('999.999.999-99');
+                    
 
                     var erroAtualizacao = "@TempData["ErroAtualizacao"]";
                     var funcionarioId;
@@ -239,6 +238,7 @@
                             success: function (result) {
                                 $("#ModalEditar").html(result);
                                 $('#EditarFuncModal').modal('show');
+                            $(".telefone").inputmask('(99) 99999-9999');
                             }
                         });
                     }
@@ -250,6 +250,7 @@
                             success: function (result) {
                                 $("#ModalNovoCadastro").html(result);
                                 $('#NovoCadastroFuncModal').modal('show');
+                            $(".telefone").inputmask('(99) 99999-9999');
                             }
                         });
                     }
