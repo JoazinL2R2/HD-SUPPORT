@@ -10,18 +10,24 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using System.ComponentModel;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using HD_SUPPORT.Services;
+using Microsoft.Extensions.Caching.Memory;
 
 
 namespace HD_SUPPORT.Controllers
 {
-    [Authorize(Roles="HelpDesk, RH")]
     public class CadastroHelpDeskController : Controller
     {
         private readonly BancoContexto _contexto;
+        private readonly IEmailService _email;
+        private readonly IMemoryCache _memoryCache;
 
-        public CadastroHelpDeskController(BancoContexto contexto)
+        public CadastroHelpDeskController(BancoContexto contexto, IEmailService email, IMemoryCache memoryCache)
         {
             _contexto = contexto;
+            _email = email;
+            _memoryCache = memoryCache;
         }
 
         [HttpGet]
@@ -99,7 +105,6 @@ namespace HD_SUPPORT.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
         public IActionResult Login()
         {
 
@@ -117,7 +122,6 @@ namespace HD_SUPPORT.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
         public async Task<IActionResult> Login(CadastroHelpDesk cadastro)
         {
             if (_contexto.CadastroHD.Any(x => x.Email == cadastro.Email && x.Senha == cadastro.Senha)
@@ -191,7 +195,6 @@ namespace HD_SUPPORT.Controllers
             {
                 if (cadastro == null)
                 {
-                    // Lógica para lidar com cadastro nulo, se necessário
                     return BadRequest("O objeto CadastroHelpDesk está nulo.");
                 }
 
@@ -250,6 +253,52 @@ namespace HD_SUPPORT.Controllers
             _contexto.CadastroHD.Remove(perfil);
             await _contexto.SaveChangesAsync();
             return RedirectToAction("LogOut", "Home", new { area = "" });
+        }
+        public IActionResult EnviarEmail(string email)
+        {
+            const string caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            Random random = new Random();
+            int comprimento = 5;
+            char[] codigo = new char[comprimento];
+            for (int i = 0; i < comprimento; i++)
+            {
+                codigo[i] = caracteres[random.Next(caracteres.Length)];
+            }
+            var CodigoAleatorio = new string(codigo);
+            string emailUsuario = email;
+            string mensagem = $"Seu Codigo de verificação é: {CodigoAleatorio}. Não Compartilhe este codigo";
+            bool emailEnviado = _email.Enviar(emailUsuario,"HD - Support  -- Codigo de verificação", mensagem);
+            TempData["CodigoAleatorio"] = CodigoAleatorio;
+            if (emailEnviado) {
+                return View("Cadastrar");
+            }
+            else
+            {
+                TempData["MensagemErro"] = "Não foi possivel enviar o email ou o email é invalido. Confira o email e tente novamente";
+            }
+            return View("Cadastrar");
+        }
+
+        public IActionResult VerificacaoEmail(string codigo, string email)
+        {
+            string codigoArmazenado = TempData["CodigoAleatorio"] as string;
+
+            if (string.IsNullOrEmpty(codigo) || string.IsNullOrEmpty(email))
+            {
+                TempData["ErroAtualizacao"] = "Preencha Todos Os Campos";
+                return RedirectToAction("Cadastrar", "CadastroCadastroHelpDesk");
+            }
+
+            if (codigo == codigoArmazenado)
+            {
+                TempData["sucessoAtualizacao"] = "Conta criada com sucesso";
+                return RedirectToAction("Login", "CadastroHelpDesk");
+            }
+            else
+            {
+                TempData["ErroAtualizacao"] = "Codigo Incorreto";
+                return RedirectToAction("Cadastrar", "CadastroCadastroHelpDesk");
+            }
         }
     }
 }

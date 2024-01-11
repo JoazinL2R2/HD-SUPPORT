@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "9JglmsnLy6Fye1qVqbjZ56RFKf0cSP3VMe7oSwaibJHd55xVnTJrYDNEctLeRlHxYM0GATvwF5jN2wmhQ1jcLA==",
+  "dgSpecHash": "7OMpeq4tLMgWwvS/GoljHukF+qxteOCHTufLdXsiJEw6FqyQNtqH60IcQfnJQ6mLEObeCtqL/O1nQV/bzaotlA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Joazin\\Source\\Repos\\gugsinwork\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj",
   "expectedPackageFiles": [
@@ -120,6 +120,7 @@
     "C:\\Users\\Joazin\\.nuget\\packages\\nuget.projectmodel\\6.3.1\\nuget.projectmodel.6.3.1.nupkg.sha512",
     "C:\\Users\\Joazin\\.nuget\\packages\\nuget.protocol\\6.3.1\\nuget.protocol.6.3.1.nupkg.sha512",
     "C:\\Users\\Joazin\\.nuget\\packages\\nuget.versioning\\6.3.1\\nuget.versioning.6.3.1.nupkg.sha512",
+    "C:\\Users\\Joazin\\.nuget\\packages\\smtpserver\\10.0.1\\smtpserver.10.0.1.nupkg.sha512",
     "C:\\Users\\Joazin\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.1.6\\sqlitepclraw.bundle_e_sqlite3.2.1.6.nupkg.sha512",
     "C:\\Users\\Joazin\\.nuget\\packages\\sqlitepclraw.core\\2.1.6\\sqlitepclraw.core.2.1.6.nupkg.sha512",
     "C:\\Users\\Joazin\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.6\\sqlitepclraw.lib.e_sqlite3.2.1.6.nupkg.sha512",

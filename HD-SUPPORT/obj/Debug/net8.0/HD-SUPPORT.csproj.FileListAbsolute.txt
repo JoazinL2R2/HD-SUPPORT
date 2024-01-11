@@ -1558,3 +1558,4 @@ C:\Users\Joazin\Source\Repos\gugsinwork\HD-SUPPORT\HD-SUPPORT\obj\Debug\net8.0\r
 C:\Users\Joazin\Source\Repos\gugsinwork\HD-SUPPORT\HD-SUPPORT\obj\Debug\net8.0\HD-SUPPORT.pdb
 C:\Users\Joazin\Source\Repos\gugsinwork\HD-SUPPORT\HD-SUPPORT\obj\Debug\net8.0\HD-SUPPORT.genruntimeconfig.cache
 C:\Users\Joazin\Source\Repos\gugsinwork\HD-SUPPORT\HD-SUPPORT\obj\Debug\net8.0\ref\HD-SUPPORT.dll
+C:\Users\Joazin\Source\Repos\gugsinwork\HD-SUPPORT\HD-SUPPORT\bin\Debug\net8.0\SmtpServer.dll

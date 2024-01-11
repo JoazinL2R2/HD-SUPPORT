@@ -72,6 +72,10 @@
               "target": "Package",
               "version": "[8.0.0, )"
             },
+            "SmtpServer": {
+              "target": "Package",
+              "version": "[10.0.1, )"
+            },
             "X.PagedList": {
               "target": "Package",
               "version": "[8.4.7, )"
