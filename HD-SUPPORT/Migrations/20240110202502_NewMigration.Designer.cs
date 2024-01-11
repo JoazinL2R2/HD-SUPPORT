@@ -3,6 +3,7 @@ using System;
 using HD_SUPPORT.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HD_SUPPORT.Migrations
 {
     [DbContext(typeof(BancoContexto))]
-    partial class BancoContextoModelSnapshot : ModelSnapshot
+    [Migration("20240110202502_NewMigration")]
+    partial class NewMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.0");
@@ -35,16 +38,19 @@ namespace HD_SUPPORT.Migrations
                     b.Property<string>("HeadSet")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("IdPatrimonio")
+                    b.Property<int>("IdPatrimonio")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Modelo")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Processador")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("SistemaOperacionar")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("profissional_HD")

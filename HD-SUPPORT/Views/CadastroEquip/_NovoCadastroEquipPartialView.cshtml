@@ -6,14 +6,6 @@
 }
 
 
-<div class="modal fade" id="NovoEquipModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Adicionar Maquina</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
                 <form asp-action="NovoCadastro">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input type="hidden" asp-for="profissional_HD" value="@Acessor.HttpContext.Session.GetString("nome")" />
@@ -46,7 +38,3 @@
                         <input type="submit" value="Adicionar" class="btn btn-primary" />
                     </div>
                 </form>
-            </div>
-        </div>
-    </div>
-</div>
