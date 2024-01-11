@@ -42,7 +42,10 @@ namespace HD_SUPPORT.Controllers
                                 || e.SistemaOperacionar.Contains(searchString, StringComparison.OrdinalIgnoreCase))
                     .ToList();
                 //disponibilidade
-                equipamentosFiltrados = equipamentosFiltrados.Where(e => e.Disponivel == disponibilidade).ToList();
+                if (disponivel != "2" && disponivel != null)
+                {
+                    equipamentosFiltrados = equipamentosFiltrados.Where(e => e.Disponivel == disponibilidade).ToList();
+                }
             }
             else if(disponivel!="2" && disponivel != null)
             {
@@ -77,18 +80,6 @@ namespace HD_SUPPORT.Controllers
         {
             if (ModelState.IsValid)
             {
-                PropertyInfo[] properties = typeof(CadastroEquip).GetProperties();
-
-                foreach (PropertyInfo property in properties)
-                {
-                    object? value = property.GetValue(equipamento);
-
-                    if (value == null)
-                    {
-                        TempData["ErroAtualizacao"] = "Preencha todos os campos";
-                        return RedirectToAction("Index", "CadastroEquip", new { area = "" });
-                    }
-                }
                 if (_contexto.CadastroEquipamentos.Any(x => x.IdPatrimonio == equipamento.IdPatrimonio && x.Id != equipamento.Id))
                 {
                     TempData["ErroAtualizacao"] = "maquina já existente";
@@ -144,8 +135,12 @@ namespace HD_SUPPORT.Controllers
         [HttpPost]
         public async Task<IActionResult> Excluir(CadastroEquip equipamento)
         {
+            if (HttpContext.Session.GetString("nome") == null)
+            {
+                return RedirectToAction("LogOut", "Home", new { area = "" });
+            }
             var cadastro = await _contexto.CadastroEquipamentos.FindAsync(equipamento.Id);
-            cadastro.profissional_HD = HttpContext.Session.GetString("nome");
+            cadastro.profissional_HD = HttpContext.Session.GetString("profissional") + " - " + HttpContext.Session.GetString("nome");
             _contexto.CadastroEquipamentos.Update(cadastro);
             await _contexto.SaveChangesAsync();
             _contexto.CadastroEquipamentos.Remove(cadastro);

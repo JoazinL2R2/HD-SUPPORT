@@ -153,7 +153,7 @@
                 </ul>
             </nav>
         </div>
-        /*Erro Model*/
+
         <div class="modal fade" id="ModelErro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -172,7 +172,7 @@
                 </div>
             </div>
         </div>
-        /*Edit Model*/
+
         <div class="modal fade" id="EditarFuncModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -238,7 +238,7 @@
                             success: function (result) {
                                 $("#ModalEditar").html(result);
                                 $('#EditarFuncModal').modal('show');
-                                $(".telefone").inputmask('(99) 99999-9999');
+                            $(".telefone").inputmask('(99) 99999-9999');
                             }
                         });
                     }
@@ -250,7 +250,7 @@
                             success: function (result) {
                                 $("#ModalNovoCadastro").html(result);
                                 $('#NovoCadastroFuncModal').modal('show');
-                                $(".telefone").inputmask('(99) 99999-9999');
+                            $(".telefone").inputmask('(99) 99999-9999');
                             }
                         });
                     }

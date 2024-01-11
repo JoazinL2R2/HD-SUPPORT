@@ -172,6 +172,10 @@ namespace HD_SUPPORT.Controllers
         [HttpPost]
         public async Task<IActionResult> Excluir(CadastroUser funcionario)
         {
+            if (HttpContext.Session.GetString("nome") == null)
+            {
+                return RedirectToAction("LogOut", "Home", new { area = "" });
+            }
             CadastroUser cadastro = await _contexto.CadastroUser.FindAsync(funcionario.Id);
             var emprestimo = _contexto.CadastroEmprestimos.FirstOrDefault(emp => emp.FuncionarioId == funcionario.Id);
             if (emprestimo != null)
@@ -179,7 +183,7 @@ namespace HD_SUPPORT.Controllers
                 var equipamento = await _contexto.CadastroEquipamentos.FindAsync(emprestimo.EquipamentoId);
                 equipamento.Disponivel = true;
             }
-            cadastro.profissional_HD = HttpContext.Session.GetString("nome");
+            cadastro.profissional_HD = HttpContext.Session.GetString("profissional") + " - " + HttpContext.Session.GetString("nome");
             _contexto.CadastroUser.Update(cadastro);
             await _contexto.SaveChangesAsync();
             _contexto.CadastroUser.Remove(cadastro);
