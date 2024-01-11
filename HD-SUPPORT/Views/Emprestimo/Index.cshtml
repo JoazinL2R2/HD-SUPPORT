@@ -81,12 +81,7 @@
 
                     <th scope="col">
                         <div class="button-add">
-                            <button type="button" data-bs-toggle="modal" data-bs-target="@("#NovoEmprestimoModal")" data-bs-url="@Url.Action($"NovoEmprestimo")">
-                                Adicionar
-                            </button>
-
-                            @await Html.PartialAsync("_NovoEmprestimoPartialView", new HD_SUPPORT.Models.EmprestimoViewModel())
-
+                            <button type="button" id="btnNovoEmprestimo">Adicionar</button>
                         </div>
 
                     </th>
@@ -124,11 +119,9 @@
                         </td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="@("#EditarEmprestimoModal" + item.Id.ToString())" data-bs-url="@Url.Action($"Atualizar/{item.Id}")">
+                                <button type="button" Emprestimo-id="@item.Id" class="btn btn-primary BtnEditar">
                                     <i class="bi bi-pencil-square"></i>
                                 </button>
-
-                                @await Html.PartialAsync("_EditarEmprestimoPartialView", item)
 
                                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="@("#DetalhesEmprestimoModal" + item.Id.ToString())" data-bs-url="@Url.Action($"Detalhes/{item.Id}")">
                                     <i class="bi bi-newspaper"></i>
@@ -164,7 +157,97 @@
             </nav>
         </div>
 
+        <div class="modal fade" id="ModelErro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Tente Novamente</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="ModelErro">
+                            <p>@TempData["ErroAtualizacao"]</p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="EditarEmprestimoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Emprestimo do </h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="ModalEditarEmpresitmo">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <div class="modal fade" id="NovoEmprestimoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Novo Emprestimo</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="ModalNovoEmprestimo">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @section Scripts {
+        <script src="~/js/jquery.inputmask.js"></script>
+        <script>
+
+            $(document).ready(function () {
+
+                var erroAtualizacao = "@TempData["ErroAtualizacao"]";
+                var emprestimoId;
+
+                if (erroAtualizacao) {
+                    setTimeout(function () {
+                        $('#ModelErro').modal('show');
+                    }, 100);
+                }
+                $('.BtnEditar').click(function () {
+                    emprestimoId = $(this).attr('Emprestimo-id');
+                    $.ajax({
+                        type: 'GET',
+                        url: '/Emprestimo/Edit/' + emprestimoId,
+                        success: function (result) {
+                            $("#ModalEditarEmpresitmo").html(result);
+                            $('#EditarEmprestimoModal').modal(`show`);
+                        }
+                    })
+                });
+                $('#btnNovoEmprestimo').click(function () {
+                    $.ajax({
+                        type: 'GET',
+                        url: '/Emprestimo/NovoEmprestimo',
+                        success: function (result) {
+                            $("#ModalNovoEmprestimo").html(result);
+                            $('#NovoEmprestimoModal').modal('show');
+                        }
+                    });
+                });
+            });
+        </script>
+    }
 
 
 

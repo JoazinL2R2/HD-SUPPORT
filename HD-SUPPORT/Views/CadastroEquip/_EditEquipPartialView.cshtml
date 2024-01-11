@@ -5,19 +5,11 @@
     ViewData["Title"] = "Edit";
 }
 
-<div class="modal fade" id="@("EditarEquipModal"+Model.Id.ToString())" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Editar partrimonio @Model.IdPatrimonio</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
                 <form asp-action="Atualizar">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input type="hidden" asp-for="Id" />
                     <input type="hidden" asp-for="Disponivel" />
-                    <input type="hidden" asp-for="profissional_HD" value="@Acessor.HttpContext.Session.GetString("profissional") - @Acessor.HttpContext.Session.GetString("nome")" />
+                    <input type="hidden" asp-for="profissional_HD" value="@Acessor.HttpContext.Session.GetString("profissional") - @Acessor.HttpContext.Session.GetString("nome")"  />
                     <div class="form-group">
                         <label asp-for="IdPatrimonio" class="control-label">Id do patrimônio</label>
                         <input asp-for="IdPatrimonio" class="form-control" />
@@ -47,7 +39,3 @@
                         <input type="submit" value="Save" class="btn btn-primary" />
                     </div>
                 </form>
-            </div>
-        </div>
-    </div>
-</div>

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 
 namespace HD_SUPPORT.Controllers
@@ -41,7 +42,7 @@ namespace HD_SUPPORT.Controllers
                                 || e.SistemaOperacionar.Contains(searchString, StringComparison.OrdinalIgnoreCase))
                     .ToList();
                 //disponibilidade
-                if(disponivel != "2" && disponivel != null)
+                if (disponivel != "2" && disponivel != null)
                 {
                     equipamentosFiltrados = equipamentosFiltrados.Where(e => e.Disponivel == disponibilidade).ToList();
                 }
@@ -64,17 +65,27 @@ namespace HD_SUPPORT.Controllers
             return PartialView("_NovoCadastroEquipPartialView");
         }
 
+        public bool dadosExistentes(CadastroEquip equipamento)
+        {
+            if (equipamento.IdPatrimonio == null || equipamento.Modelo == null || equipamento.Processador == null || 
+                equipamento.SistemaOperacionar == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
         [HttpPost]
         public async Task<IActionResult> NovoCadastro(CadastroEquip equipamento)
         {
-            if (_contexto.CadastroEquipamentos.Any(x => x.IdPatrimonio == equipamento.IdPatrimonio))
+            if (ModelState.IsValid)
             {
-                ModelState.AddModelError(nameof(equipamento.IdPatrimonio), "Máquina já cadastrada");
-                return PartialView("_NovoCadastroEquipPartialView");
-            }
-            else
-            {
-                if (ModelState.IsValid)
+                if (_contexto.CadastroEquipamentos.Any(x => x.IdPatrimonio == equipamento.IdPatrimonio && x.Id != equipamento.Id))
+                {
+                    TempData["ErroAtualizacao"] = "maquina já existente";
+                    return RedirectToAction("Index");
+                }
+                if (dadosExistentes(equipamento))
                 {
                     _contexto.CadastroEquipamentos.Add(equipamento);
                     await _contexto.SaveChangesAsync();
@@ -82,11 +93,15 @@ namespace HD_SUPPORT.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("Index", "CadastroEquip");
+                    TempData["ErroAtualizacao"] = "Preencha todos os dados";
+                    return RedirectToAction("Index");
                 }
             }
+            else
+            {
+                return RedirectToAction("Index", "CadastroEquip");
+            }
         }
-
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
@@ -99,12 +114,12 @@ namespace HD_SUPPORT.Controllers
         {
             if (_contexto.CadastroEquipamentos.Any(x => x.IdPatrimonio == cadastro.IdPatrimonio && x.Id != cadastro.Id))
             {
-                ModelState.AddModelError(nameof(cadastro.IdPatrimonio), "Máquina já cadastrada");
-                return PartialView("_EditEquipPartialView", cadastro);
+                TempData["ErroAtualizacao"] = "maquina já existente";
+                return RedirectToAction("Index");
             }
             else
             {
-                if (ModelState.IsValid)
+                if (dadosExistentes(cadastro))
                 {
                     _contexto.CadastroEquipamentos.Update(cadastro);
                     await _contexto.SaveChangesAsync();
@@ -112,13 +127,18 @@ namespace HD_SUPPORT.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("Index", "CadastroEquip");
+                    TempData["ErroAtualizacao"] = "Preencha todos os dados";
+                    return RedirectToAction("Index");
                 }
             }
         }
         [HttpPost]
         public async Task<IActionResult> Excluir(CadastroEquip equipamento)
         {
+            if (HttpContext.Session.GetString("nome") == null)
+            {
+                return RedirectToAction("LogOut", "Home", new { area = "" });
+            }
             var cadastro = await _contexto.CadastroEquipamentos.FindAsync(equipamento.Id);
             cadastro.profissional_HD = HttpContext.Session.GetString("profissional") + " - " + HttpContext.Session.GetString("nome");
             _contexto.CadastroEquipamentos.Update(cadastro);

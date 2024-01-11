@@ -54,31 +54,46 @@ namespace HD_SUPPORT.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> NovoCadastro(CadastroUser cadastro)
         {
-            if (ModelState.IsValid) { 
-                List<string> numeros = [cadastro.Cpf, cadastro.Telefone, cadastro.Telegram];
-                var voltar = false;
+            if (ModelState.IsValid)
+            {
+                List<string> numeros = new List<string> { cadastro.Telefone, cadastro.Telegram };
+
+                if (numeros.Any(e => e == null))
+                {
+                    TempData["ErroAtualizacao"] = "Preencha todos os campos";
+                    return RedirectToAction("Index", "CadastroFunc", new { area = "" });
+                }
+
+                bool voltar = false;
                 numeros.ForEach(e =>
                 {
                     if (verificaDigitos(e))
                     {
-                        ModelState.AddModelError(e, "Preencha com todos os valores");
                         voltar = true;
                     }
                 });
-                if (voltar)
+                if (_contexto.CadastroUser.Any(x => x.Email == cadastro.Email && x.Id != cadastro.Id))
                 {
-                    return RedirectToAction("Index", "CadastroFunc", new { area = "" });
+                    TempData["ErroAtualizacao"] = "Email já Cadastrado";
+                    return RedirectToAction("Index");
+                }
+                if (_contexto.CadastroUser.Any(x => x.Telefone == cadastro.Telefone && x.Id != cadastro.Id))
+                {
+                    TempData["ErroAtualizacao"] = "Telefone já cadastrado";
+                    return RedirectToAction("Index");
                 }
                 else
                 {
-                    if (ModelState.IsValid) { 
+                    if (dadosExistentes(cadastro) && !voltar)
+                    {
                         await _contexto.CadastroUser.AddAsync(cadastro);
                         await _contexto.SaveChangesAsync();
                         return RedirectToAction("Index", "CadastroFunc", new { area = "" });
                     }
                     else
                     {
-                        return RedirectToAction("Index", "CadastroFunc");
+                        TempData["ErroAtualizacao"] = "Preencha todos os dados";
+                        return RedirectToAction("Index");
                     }
                 }
             }
@@ -87,6 +102,7 @@ namespace HD_SUPPORT.Controllers
                 return RedirectToAction("Index", "CadastroFunc");
             }
         }
+
         public IActionResult Edit(int id)
         {
             CadastroUser cadastro = _contexto.CadastroUser.Where(x => x.Id == id).FirstOrDefault();
@@ -104,50 +120,62 @@ namespace HD_SUPPORT.Controllers
                     return BadRequest("O objeto CadastroUser está nulo.");
                 }
 
-                List<string> numeros = [cadastro.Cpf, cadastro.Telefone, cadastro.Telegram];
+                List<string> numeros = [cadastro.Telefone, cadastro.Telegram];
                 var voltar = false;
                 numeros.ForEach(e =>
                 {
                     if (verificaDigitos(e))
                     {
-                        ModelState.AddModelError(nameof(e), "Preencha com todos os valores");
                         voltar = true;
                     }
                 });
-                if (voltar)
-                {
-                    return RedirectToAction("Index", "CadastroFunc", new { area = "" });
-                }
 
                 if (_contexto.CadastroUser.Any(x => x.Email == cadastro.Email && x.Id != cadastro.Id))
                 {
-                    ModelState.AddModelError(nameof(cadastro.Email), "Email existente");
-                    return View("Edit", cadastro);
+                    TempData["ErroAtualizacao"] = "Email já cadastrado";
+                    return RedirectToAction("Index");
                 }
                 else
                 {
-                    if (ModelState.IsValid)
+                    if (dadosExistentes(cadastro) && !voltar)
                     {
+
                         _contexto.CadastroUser.Update(cadastro);
                         _contexto.SaveChanges();
                         return RedirectToAction("Index");
                     }
                     else
                     {
-                        return RedirectToAction("Index", "CadastroFunc");
+                        TempData["ErroAtualizacao"] = "Preencha todos os dados";
+                        return RedirectToAction("Index");
                     }
                 }
             }
             catch (Exception ex)
             {
-                // Adicione logs detalhados ou mensagens de console para identificar a causa da exceção.
                 Console.WriteLine($"Erro durante a atualização: {ex.Message}");
-                return StatusCode(500, "Erro interno do servidor");
+                TempData["ErroAtualizacao"] = "Erro interno do servidor";
+                return RedirectToAction("Index");
             }
         }
+
+        public bool dadosExistentes(CadastroUser cadastro)
+        {
+            if(cadastro.Telefone == null || cadastro.Telegram == null || cadastro.Email == null || cadastro.Status == null ||
+                cadastro.Nome == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
         [HttpPost]
         public async Task<IActionResult> Excluir(CadastroUser funcionario)
         {
+            if (HttpContext.Session.GetString("nome") == null)
+            {
+                return RedirectToAction("LogOut", "Home", new { area = "" });
+            }
             CadastroUser cadastro = await _contexto.CadastroUser.FindAsync(funcionario.Id);
             var emprestimo = _contexto.CadastroEmprestimos.FirstOrDefault(emp => emp.FuncionarioId == funcionario.Id);
             if (emprestimo != null)
@@ -155,7 +183,7 @@ namespace HD_SUPPORT.Controllers
                 var equipamento = await _contexto.CadastroEquipamentos.FindAsync(emprestimo.EquipamentoId);
                 equipamento.Disponivel = true;
             }
-            cadastro.profissional_HD = HttpContext.Session.GetString("profissional") +" - "+HttpContext.Session.GetString("nome");
+            cadastro.profissional_HD = HttpContext.Session.GetString("profissional") + " - " + HttpContext.Session.GetString("nome");
             _contexto.CadastroUser.Update(cadastro);
             await _contexto.SaveChangesAsync();
             _contexto.CadastroUser.Remove(cadastro);
