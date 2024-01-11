@@ -72,10 +72,14 @@ namespace HD_SUPPORT.Controllers
             {
                 equipamentoDisponivel.Disponivel = false;
 
+                var dataHoje = DateTime.Today.Date;
+                equipamentoDisponivel.DtEmeprestimoInicio = dataHoje;
+
                 var novoEmprestimo = new EmprestimoViewModel
                 {
                     Funcionario = funcionario,
-                    Equipamento = equipamentoDisponivel
+                    Equipamento = equipamentoDisponivel,
+                    profissional_HD = cadastro.profissional_HD
                 };
 
                 await _contexto.CadastroEmprestimos.AddAsync(novoEmprestimo);
@@ -145,6 +149,7 @@ namespace HD_SUPPORT.Controllers
                 }
                 cadastro.Equipamento = equipamentoDisponivel;
                 cadastro.Funcionario = funcionario;
+                cadastro.profissional_HD = HttpContext.Session.GetString("profissional") + " - " + HttpContext.Session.GetString("nome");
 
                 _contexto.CadastroEmprestimos.Update(cadastro);
                 await _contexto.SaveChangesAsync();
@@ -160,13 +165,17 @@ namespace HD_SUPPORT.Controllers
         [HttpPost]
         public async Task<IActionResult> Excluir(EmprestimoViewModel emprestimo)
         {
+            if (HttpContext.Session.GetString("nome") == null)
+            {
+                return RedirectToAction("LogOut", "Home", new { area = "" });
+            }
             var cadastro = await _contexto.CadastroEmprestimos.FindAsync(emprestimo.Id);
             if (cadastro != null)
             {
                 var equipamento = await _contexto.CadastroEquipamentos.FindAsync(cadastro.EquipamentoId);
                 equipamento.Disponivel = true;
                 _contexto.CadastroEquipamentos.Update(equipamento);
-                cadastro.profissional_HD = HttpContext.Session.GetString("nome");
+                cadastro.profissional_HD = HttpContext.Session.GetString("profissional") + " - " + HttpContext.Session.GetString("nome");
                 _contexto.CadastroEmprestimos.Update(cadastro);
                 await _contexto.SaveChangesAsync();
                 _contexto.CadastroEmprestimos.Remove(cadastro);
