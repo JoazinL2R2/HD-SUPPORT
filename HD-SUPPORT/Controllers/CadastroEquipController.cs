@@ -17,7 +17,7 @@ namespace HD_SUPPORT.Controllers
             _contexto = contexto;
 
         }
-        public async Task<IActionResult> Index(string searchString, string disponivel)
+        public async Task<IActionResult> Index(string searchString, string disponivel, int paginaAtual = 1)
         {
             if (HttpContext.Session.GetString("nome") == null)
             {
@@ -56,6 +56,26 @@ namespace HD_SUPPORT.Controllers
                 equipamentosFiltrados = equipamentos;
             }
 
+            TempData["pesquisa"] = searchString;
+
+            TempData["QuantidadeDados"] = equipamentosFiltrados.Count;
+
+            TempData["paginaAtual"] = paginaAtual;
+
+            TempData["disponivel"] = disponivel;
+
+            var pagina = (paginaAtual - 1) * 6;
+
+            var maximo = 6;
+
+            if (equipamentosFiltrados.Count < 6 + pagina)
+            {
+                maximo = equipamentosFiltrados.Count - pagina;
+            }
+
+            equipamentosFiltrados = equipamentosFiltrados.GetRange(pagina, maximo);
+
+            TempData["QuantidadeDadosTabela"] = equipamentosFiltrados.Count;
             return View(equipamentosFiltrados);
         }
 
