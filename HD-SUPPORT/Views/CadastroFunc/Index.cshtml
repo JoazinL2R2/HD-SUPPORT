@@ -46,6 +46,7 @@
 <div class="align-content-center">
     <div class="TableContainer">
         <div class="table-menu">
+            <p style="color:white">Mostrando @TempData["QuantidadeDadosTabela"] de @TempData["QuantidadeDados"] funcionários</p>
             <form asp-action="Index" asp-controller="CadastroFunc">
                 <a role="button">
                     <i class="bi bi-search"></i>
@@ -145,11 +146,41 @@
         <div class="pagination">
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="#"><i class="bi bi-arrow-left"></i></a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#"><i class="bi bi-arrow-right"></i></a></li>
+                    @if (TempData["paginaAtual"] != null)
+                    {
+                        var pagina = Convert.ToInt32(TempData["paginaAtual"]);
+
+                        if (pagina != 1)
+                        {
+                            <form asp-action="Index" asp-controller="CadastroFunc">
+                                <input hidden name="searchString" value="@TempData["pesquisa"]">
+                                <input hidden name="paginaAtual" value="1">
+                                <button class="page-link" type="submit"><i class="bi bi-arrow-left"></i></button>
+                            </form>
+                        }
+                    
+                        var dados = Convert.ToDouble(TempData["QuantidadeDados"]);
+                        dados = Math.Ceiling(dados / 6);
+                        for(var i = 1; i < dados+1; i++)
+                        {
+                            <li class="page-item">
+                                <form asp-action="Index" asp-controller="CadastroFunc">
+                                    <input hidden name="searchString" value="@TempData["pesquisa"]">
+                                    <input hidden name="paginaAtual" value="@i">
+                                    <button class="page-link" type="submit">@i</button>
+                                </form>
+                            </li>
+                        }
+
+                        if (pagina != dados)
+                        {
+                            <form asp-action="Index" asp-controller="CadastroFunc">
+                                <input hidden name="searchString" value="@TempData["pesquisa"]">
+                                <input hidden name="paginaAtual" value="@dados">
+                                <button class="page-link" type="submit"><i class="bi bi-arrow-right"></i></button>
+                            </form>
+                        }
+                    }
                 </ul>
             </nav>
         </div>

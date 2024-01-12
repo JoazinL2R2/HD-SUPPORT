@@ -35,6 +35,7 @@ namespace HD_SUPPORT.Controllers
                     .ToList();
             }
 
+            TempData["QuantidadeDados"] = emprestimo.Count;
             return View(emprestimo);
         }
         [HttpGet]

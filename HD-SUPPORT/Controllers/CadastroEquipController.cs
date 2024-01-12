@@ -56,6 +56,11 @@ namespace HD_SUPPORT.Controllers
                 equipamentosFiltrados = equipamentos;
             }
 
+            var pagina = 0;
+
+            equipamentosFiltrados = equipamentosFiltrados.GetRange(0+(pagina*10),10);
+
+            TempData["QuantidadeDados"] = equipamentosFiltrados.Count;
             return View(equipamentosFiltrados);
         }
 

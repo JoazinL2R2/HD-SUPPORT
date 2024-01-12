@@ -21,7 +21,7 @@ namespace HD_SUPPORT.Controllers
         {
             _contexto = contexto;
         }
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string searchString, int paginaAtual = 1)
         {
             if (HttpContext.Session.GetString("nome") == null)
             {
@@ -34,6 +34,26 @@ namespace HD_SUPPORT.Controllers
                  Funcionarios = _contexto.CadastroUser.Where(x => x.Nome.Contains(searchString)
                 || x.Email.Contains(searchString)).ToList();
             }
+
+            TempData["pesquisa"] = searchString;
+
+            TempData["QuantidadeDados"] = Funcionarios.Count;
+
+            TempData["paginaAtual"] = paginaAtual;
+
+            var pagina = (paginaAtual-1)*6;
+
+            var maximo = 6;
+
+            if (Funcionarios.Count < 6 + pagina)
+            {
+                maximo = Funcionarios.Count-pagina;
+            }
+
+            Funcionarios = Funcionarios.GetRange(pagina, maximo);
+
+            TempData["QuantidadeDadosTabela"] = Funcionarios.Count;
+
             return View(Funcionarios);
         }
         [HttpGet]
