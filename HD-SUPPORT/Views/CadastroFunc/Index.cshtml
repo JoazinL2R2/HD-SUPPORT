@@ -154,29 +154,69 @@
                         {
                             <form asp-action="Index" asp-controller="CadastroFunc">
                                 <input hidden name="searchString" value="@TempData["pesquisa"]">
-                                <input hidden name="paginaAtual" value="1">
+                                <input hidden name="paginaAtual" value="@(pagina-1)">
                                 <button class="page-link" type="submit"><i class="bi bi-arrow-left"></i></button>
                             </form>
                         }
+
+                        <li class="page-item">
+                            <form asp-action="Index" asp-controller="CadastroFunc">
+                                <input hidden name="searchString" value="@TempData["pesquisa"]">
+                                <input hidden name="paginaAtual" value="1">
+                                @if (pagina != 1)
+                                {
+                                    <button class="page-link" type="submit">1</button>
+                                }
+                                else
+                                {
+                                    <a class="page-link" style="color:black">1</a>
+                                }
+                            </form>
+                        </li>
                     
                         var dados = Convert.ToDouble(TempData["QuantidadeDados"]);
                         dados = Math.Ceiling(dados / 6);
-                        for(var i = 1; i < dados+1; i++)
+                        for(var i = pagina-3; i < pagina+4; i++)
                         {
-                            <li class="page-item">
-                                <form asp-action="Index" asp-controller="CadastroFunc">
-                                    <input hidden name="searchString" value="@TempData["pesquisa"]">
-                                    <input hidden name="paginaAtual" value="@i">
-                                    <button class="page-link" type="submit">@i</button>
-                                </form>
-                            </li>
+                            if(i>1 && i<dados){
+                                <li class="page-item">
+                                    <form asp-action="Index" asp-controller="CadastroFunc">
+                                        <input hidden name="searchString" value="@TempData["pesquisa"]">
+                                        <input hidden name="paginaAtual" value="@i">
+                                        @if(i != pagina)
+                                        {
+                                            <button class="page-link" type="submit">@i</button>
+                                        }
+                                        else
+                                        {
+                                            <a class="page-link" style="color:black">@i</a>   
+                                        }
+
+                                    </form>
+                                </li>
+                            }
                         }
+
+                        <li class="page-item">
+                            <form asp-action="Index" asp-controller="CadastroFunc">
+                                <input hidden name="searchString" value="@TempData["pesquisa"]">
+                                <input hidden name="paginaAtual" value="@dados">
+                                @if (dados != pagina)
+                                {
+                                    <button class="page-link" type="submit">@dados</button>
+                                }
+                                else
+                                {
+                                    <a class="page-link" style="color:black">@dados</a>
+                                }
+                            </form>
+                        </li>
 
                         if (pagina != dados)
                         {
                             <form asp-action="Index" asp-controller="CadastroFunc">
                                 <input hidden name="searchString" value="@TempData["pesquisa"]">
-                                <input hidden name="paginaAtual" value="@dados">
+                                <input hidden name="paginaAtual" value="@(pagina+1)">
                                 <button class="page-link" type="submit"><i class="bi bi-arrow-right"></i></button>
                             </form>
                         }

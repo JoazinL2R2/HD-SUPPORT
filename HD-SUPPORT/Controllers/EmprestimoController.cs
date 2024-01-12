@@ -14,7 +14,7 @@ namespace HD_SUPPORT.Controllers
         {
             _contexto = contexto;
         }
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string searchString, int paginaAtual = 1)
         {
             if (HttpContext.Session.GetString("nome") == null)
             {
@@ -29,13 +29,30 @@ namespace HD_SUPPORT.Controllers
             if (!string.IsNullOrEmpty(searchString))
             {
                 emprestimo = emprestimo
-                    .Where(x => x.Funcionario.Nome.Contains(searchString)
-                                || x.Funcionario.Email.Contains(searchString)
+                    .Where(x => x.Funcionario.Nome.ToUpper().Contains(searchString.ToUpper())
+                                || x.Funcionario.Email.ToUpper().Contains(searchString.ToUpper())
                                 || x.Equipamento.IdPatrimonio.ToString().Contains(searchString))
                     .ToList();
             }
 
+            TempData["pesquisa"] = searchString;
+
             TempData["QuantidadeDados"] = emprestimo.Count;
+
+            TempData["paginaAtual"] = paginaAtual;
+
+            var pagina = (paginaAtual - 1) * 6;
+
+            var maximo = 6;
+
+            if (emprestimo.Count < 6 + pagina)
+            {
+                maximo = emprestimo.Count - pagina;
+            }
+
+            emprestimo = emprestimo.GetRange(pagina, maximo);
+
+            TempData["QuantidadeDadosTabela"] = emprestimo.Count;
             return View(emprestimo);
         }
         [HttpGet]

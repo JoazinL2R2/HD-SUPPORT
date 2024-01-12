@@ -31,8 +31,8 @@ namespace HD_SUPPORT.Controllers
             var Funcionarios = await _contexto.CadastroUser.ToListAsync();
             if (!string.IsNullOrEmpty(searchString))
             {
-                 Funcionarios = _contexto.CadastroUser.Where(x => x.Nome.Contains(searchString)
-                || x.Email.Contains(searchString)).ToList();
+                 Funcionarios = _contexto.CadastroUser.Where(x => x.Nome.ToUpper().Contains(searchString.ToUpper())
+                || x.Email.ToUpper().Contains(searchString.ToUpper())).ToList();
             }
 
             TempData["pesquisa"] = searchString;
