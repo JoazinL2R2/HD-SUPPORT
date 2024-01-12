@@ -3,6 +3,7 @@ using HD_SUPPORT.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 namespace HD_SUPPORT.Controllers
 {
     [Authorize(Roles = "HelpDesk")]
@@ -72,8 +73,7 @@ namespace HD_SUPPORT.Controllers
             {
                 equipamentoDisponivel.Disponivel = false;
 
-                var dataHoje = DateTime.Today.Date;
-                equipamentoDisponivel.DtEmeprestimoInicio = dataHoje;
+                equipamentoDisponivel.DtEmeprestimoInicio = DateTime.Now;
 
                 var novoEmprestimo = new EmprestimoViewModel
                 {

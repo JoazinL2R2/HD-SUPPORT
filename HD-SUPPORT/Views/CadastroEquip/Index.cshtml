@@ -233,29 +233,29 @@
                         $('#ModelErro').modal('show');
                     }, 100);
                 }
-
-                $('.BtnEditar').click(function () {
-                    var equipamentoId = $(this).attr('Equipamento-id');
-                    $.ajax({
-                        type: 'GET',
-                        url: '/CadastroEquip/Edit/' + equipamentoId,
-                        success: function (result) {
-                            $("#EditModal").html(result);
-                            $('#EditarEquipModal').modal('show');
-                        }
-                    })
-                });
-                $('.bntAdicionar').click(function () {
-                    $.ajax({
-                        type: 'GET',
-                        url: '/CadastroEquip/NovoCadastro',
-                        success: function (result) {
-                            $("#NovaMaquina").html(result);
-                            $('#NovoEquipModal').modal('show');
-                        }
-                    })
-                });
-
+                if (@Acessor.HttpContext.Session.GetString("profissional") == "HelpDesk") { 
+                    $('.BtnEditar').click(function () {
+                        var equipamentoId = $(this).attr('Equipamento-id');
+                        $.ajax({
+                            type: 'GET',
+                            url: '/CadastroEquip/Edit/' + equipamentoId,
+                            success: function (result) {
+                                $("#EditModal").html(result);
+                                $('#EditarEquipModal').modal('show');
+                            }
+                        })
+                    });
+                    $('.bntAdicionar').click(function () {
+                        $.ajax({
+                            type: 'GET',
+                            url: '/CadastroEquip/NovoCadastro',
+                            success: function (result) {
+                                $("#NovaMaquina").html(result);
+                                $('#NovoEquipModal').modal('show');
+                            }
+                        })
+                    });
+                }
             });
         </script>
     }

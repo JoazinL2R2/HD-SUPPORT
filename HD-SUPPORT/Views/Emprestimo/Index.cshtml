@@ -112,7 +112,7 @@
                                 string parameterValue = null;
                                 if (item.Equipamento != null)
                                 {
-                                    parameterValue = item.Equipamento.DtEmeprestimoInicio.ToString("dd/mm/yyyy");
+                                    parameterValue = item.Equipamento.DtEmeprestimoInicio.ToString("dd/MM/yyyy");
                                 }
                             }
                             @Html.DisplayFor(modelItem => parameterValue)
