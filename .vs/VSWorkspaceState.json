@@ -2,11 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\HD-SUPPORT",
-    "\\HD-SUPPORT\\Views",
-    "\\HD-SUPPORT\\Views\\CadastroEquip",
-    "\\HD-SUPPORT\\Views\\CadastroFunc",
-    "\\HD-SUPPORT\\wwwroot",
-    "\\HD-SUPPORT\\wwwroot\\js"
+    "\\HD-SUPPORT\\Controllers",
+    "\\HD-SUPPORT\\Views\\CadastroHelpDesk"
   ],
+  "SelectedNode": "\\HD-SUPPORT.sln",
   "PreviewInSolutionExplorer": false
 }

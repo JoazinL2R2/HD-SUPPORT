@@ -4,54 +4,28 @@ using Microsoft.Extensions.Configuration;
 
 namespace HD_SUPPORT.Services
 {
-    public interface IEmailService
+    public interface IEmailSender
     {
-        public bool Enviar(string email, string assunto, string mensagem);
+        Task SendEmailAsync(string email, string subject, string message);
     }
 
-    public class SmtpEmailService : IEmailService
+    public class EmailSender : IEmailSender
     {
-        private readonly IConfiguration _configuration;
-        public SmtpEmailService(IConfiguration configuration)
+        public Task SendEmailAsync(string email, string subject, string message)
         {
-            _configuration = configuration;
-        }
-
-        public bool Enviar(string email, string assunto, string mensagem)
-        {
-            try
+            var client = new SmtpClient("smtp.office365.com", 587)
             {
-                string host = _configuration.GetValue<string>("SMTP:Host");
-                string nome = _configuration.GetValue<string>("SMTP:Nome");
-                string username = _configuration.GetValue<string>("SMTP:UserName");
-                string senha = _configuration.GetValue<string>("SMTP:Senha");
-                int porta = _configuration.GetValue<int>("SMTP:Porta");
+                EnableSsl = true,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential("testejoazinl2r2@hotmail.com", "admin123Empl@yer")
+            };
 
-                MailMessage mail = new MailMessage()
-                {
-                    From = new MailAddress( username, nome)
-                };
-                mail.To.Add(email);
-                mail.Subject = assunto;
-                mail.Body = mensagem;
-                mail.IsBodyHtml = true;
-                mail.Priority = MailPriority.High;
-
-                using (SmtpClient smtp = new SmtpClient(host, porta))
-                {
-                    smtp.Credentials = new NetworkCredential(username, senha); // Fornecer credenciais
-                    smtp.EnableSsl = true;
-
-                    smtp.Send(mail);
-
-                    return true;
-                }
-            }
-            catch (SystemException ex)
-            {
-                // Trate a exceção ou registre para depuração
-                return false;
-            }
+            return client.SendMailAsync(
+                new MailMessage(from: "testejoazinl2r2@hotmail.com",
+                                to: email,
+                                subject,
+                                message
+                                ));
         }
     }
 }

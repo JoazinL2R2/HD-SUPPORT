@@ -20,13 +20,13 @@ namespace HD_SUPPORT.Controllers
     public class CadastroHelpDeskController : Controller
     {
         private readonly BancoContexto _contexto;
-        private readonly IEmailService _email;
+        private readonly Services.IEmailSender emailSender;
         private readonly IMemoryCache _memoryCache;
 
-        public CadastroHelpDeskController(BancoContexto contexto, IEmailService email, IMemoryCache memoryCache)
+        public CadastroHelpDeskController(BancoContexto contexto, Services.IEmailSender emailSender, IMemoryCache memoryCache)
         {
             _contexto = contexto;
-            _email = email;
+            this.emailSender = emailSender;
             _memoryCache = memoryCache;
         }
 
@@ -254,9 +254,10 @@ namespace HD_SUPPORT.Controllers
             await _contexto.SaveChangesAsync();
             return RedirectToAction("LogOut", "Home", new { area = "" });
         }
+        [HttpPost]
         public IActionResult EnviarEmail(string email)
         {
-            const string caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            const string caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             Random random = new Random();
             int comprimento = 5;
             char[] codigo = new char[comprimento];
@@ -265,40 +266,42 @@ namespace HD_SUPPORT.Controllers
                 codigo[i] = caracteres[random.Next(caracteres.Length)];
             }
             var CodigoAleatorio = new string(codigo);
-            string emailUsuario = email;
             string mensagem = $"Seu Codigo de verificação é: {CodigoAleatorio}. Não Compartilhe este codigo";
-            bool emailEnviado = _email.Enviar(emailUsuario,"HD - Support  -- Codigo de verificação", mensagem);
-            TempData["CodigoAleatorio"] = CodigoAleatorio;
-            if (emailEnviado) {
-                return View("Cadastrar");
-            }
-            else
+            string subject = "HD - Support  -- Codigo de verificação";
+
+            try
             {
-                TempData["MensagemErro"] = "Não foi possivel enviar o email ou o email é invalido. Confira o email e tente novamente";
+                this.emailSender.SendEmailAsync(email, subject, mensagem);
+                TempData["CodigoAleatorio"] = CodigoAleatorio;
+
+                return Json(new { success = true, message = "Código enviado com sucesso." });
             }
-            return View("Cadastrar");
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "Erro ao enviar o código por e-mail.", error = ex.Message });
+            }
         }
 
-        public IActionResult VerificacaoEmail(string codigo, string email)
+
+        [HttpPost]
+        public IActionResult VerificacaoEmail(string codigoVerificacao, string codigoInput)
         {
-            string codigoArmazenado = TempData["CodigoAleatorio"] as string;
-
-            if (string.IsNullOrEmpty(codigo) || string.IsNullOrEmpty(email))
-            {
-                TempData["ErroAtualizacao"] = "Preencha Todos Os Campos";
-                return RedirectToAction("Cadastrar", "CadastroCadastroHelpDesk");
-            }
-
-            if (codigo == codigoArmazenado)
+            if (codigoVerificacao == codigoInput)
             {
                 TempData["sucessoAtualizacao"] = "Conta criada com sucesso";
-                return RedirectToAction("Login", "CadastroHelpDesk");
+                return Json(new { success = true, message = "Verificação bem-sucedida." });
+            }
+            else if (codigoInput == null)
+            {
+                TempData["ErroAtualizacao"] = "Codigo vazio, tente novamente";
+                return Json(new { success = false, message = "Código vazio, tente novamente." });
             }
             else
             {
                 TempData["ErroAtualizacao"] = "Codigo Incorreto";
-                return RedirectToAction("Cadastrar", "CadastroCadastroHelpDesk");
+                return Json(new { success = false, message = "Código incorreto, tente novamente." });
             }
         }
+
     }
 }

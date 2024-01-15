@@ -31,7 +31,7 @@ namespace HD_SUPPORT
             services.AddControllersWithViews();
             services.AddDbContext<BancoContexto>(opcoes => opcoes.UseSqlite(Configuration.GetConnectionString("conexaoBanco")));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddSingleton<IEmailService, SmtpEmailService>();
+            services.AddTransient<IEmailSender, EmailSender>();
             services.AddSession(options =>
             {
                 options.IdleTimeout = TimeSpan.FromMinutes(30);

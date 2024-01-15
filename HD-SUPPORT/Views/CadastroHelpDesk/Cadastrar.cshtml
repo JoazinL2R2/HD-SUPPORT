@@ -9,7 +9,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Cadastrar" method="post" enctype="multipart/form-data">
+        <form asp-action="Cadastrar" method="post" enctype="multipart/form-data" id="FormCadastro">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Nome" class="control-label"></label>
@@ -18,7 +18,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" id="EmailInput"/>
+                <input asp-for="Email" class="form-control" id="EmailInput" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -47,7 +47,33 @@
             </div>
             <div class="modal-body">
                 <div id="Verificacao">
+                    <form asp-action="VerificacaoEmail" asp-controller="CadastroHelpDesk" method="post">
+                        <h1>Verifique o seu email</h1><br />
+
+                        <input type="text" placeholder="Digite o código" id="inputCodigo" />
+
+                        <a role="button" class="btn btn-outline-success " id="btnVerificar">Verificar</a>
+                        <a role="button" class="btn btn-outline-info " id="btnEnviarNovamente">Enviar Novamente</a>
+                    </form>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalSucesso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Erro</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="Modelsucesso">
+                    Cadastro Criado com Sucesso!
+                </div>
+            </div>
+            <div class="modal-footer">
             </div>
         </div>
     </div>
@@ -60,45 +86,82 @@
         $(document).ready(function () {
             $('.BtnVerificacao').click(function () {
                 var email = $('#EmailInput').val();
+                var codigo = $('#inputCodigo').val();
                 window.emailTemporario = email;
+                window.codigoVerificacao = codigo;
                 enviarEmail();
-                abrirModalVerificacao()
             });
 
-            function enviarEmail() {
-                var emailTemporario = window.emailTemporario;
+            $('#btnVerificar').click(function () {
+                var codigo = $('#ModalVerificacao #inputCodigo').val();
+                window.codigoInput = codigo;
+                console.log('Código de verificação: ', codigo);
+                submeterFormulario(); // Renomeando para submeterFormulario
+            });
+
+            $('#btnEnviarNovamente').click(function () {
+                var email = $('#EmailInput').val();
+                var codigo = $('#inputCodigo').val();
+                window.emailTemporario = email;
+                window.codigoVerificacao = codigo;
+                enviarEmail();
+            });
+
+            function submeterFormulario() {
+                var codigoVerificacao = window.codigoVerificacao;
+                var codigoInput = window.codigoInput;
                 $.ajax({
                     type: 'POST',
-                    url: '/CadastroHelpDesk/EnviarEmail',
-                    data: { email: emailTemporario },
+                    url: '/CadastroHelpDesk/VerificacaoEmail',
+                    data: { codigo: codigoVerificacao, codigoInput: codigoInput },
                     success: function (result) {
-                        abrirModalVerificacao();
+                        console.log('VerificacaoCodigo sucesso');
+                        if (result.success) {
+                            // Se a verificação for bem-sucedida, envia o formulário
+                            $('#FormCadastro').submit();
+                        } else {
+                            console.log('Código de verificação incorreto');
+                            // Adicione lógica para lidar com o código incorreto, se necessário
+                        }
                     },
-                    error: function () {
-                        return false;
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.error('VerificacaoCodigo error:', textStatus, errorThrown);
                     }
                 });
             }
 
-            function abrirModalVerificacao() {
+            function enviarEmail() {
                 var emailTemporario = window.emailTemporario;
+                var codigoVerificacao = window.codigoVerificacao;
+
                 $.ajax({
                     type: 'POST',
-                    url: '/CadastroHelpDesk/VerificacaoPartialView',
-                    data: { email: emailTemporario },
+                    url: '/CadastroHelpDesk/EnviarEmail',
+                    data: { codigo: codigoVerificacao, email: emailTemporario },
                     success: function (result) {
-                        $('#ModalVerificacao').modal('show');
-                        $("#Verificacao").html(result);
+                        console.log('EnviarEmail success:', result);
+                        $.ajax({
+                            type: 'POST',
+                            url: '/CadastroHelpDesk/VerificacaoEmail',
+                            data: { email: emailTemporario },
+                            success: function (result) {
+                                console.log('VerificacaoEmail success:', result);
+                                $('#ModalVerificacao').modal('show');
+                            },
+                            error: function () {
+                                console.error('VerificacaoEmail error');
+                            }
+                        });
                     },
                     error: function () {
-                        return false;
+                        console.error('EnviarEmail error');
                     }
                 });
             }
         });
+
     </script>
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
-

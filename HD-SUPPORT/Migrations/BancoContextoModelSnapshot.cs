@@ -52,7 +52,7 @@ namespace HD_SUPPORT.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CadastroEquipamentos");
+                    b.ToTable("CadastroEquipamentos", (string)null);
                 });
 
             modelBuilder.Entity("HD_SUPPORT.Models.CadastroHelpDesk", b =>
@@ -78,7 +78,7 @@ namespace HD_SUPPORT.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CadastroHD");
+                    b.ToTable("CadastroHD", (string)null);
                 });
 
             modelBuilder.Entity("HD_SUPPORT.Models.CadastroUser", b =>
@@ -110,7 +110,7 @@ namespace HD_SUPPORT.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CadastroUser");
+                    b.ToTable("CadastroUser", (string)null);
                 });
 
             modelBuilder.Entity("HD_SUPPORT.Models.EmprestimoViewModel", b =>
@@ -134,7 +134,7 @@ namespace HD_SUPPORT.Migrations
 
                     b.HasIndex("FuncionarioId");
 
-                    b.ToTable("CadastroEmprestimos");
+                    b.ToTable("CadastroEmprestimos", (string)null);
                 });
 
             modelBuilder.Entity("HD_SUPPORT.Models.EmprestimoViewModel", b =>

@@ -16,5 +16,6 @@ namespace HD_SUPPORT.Models
         public string Email { get; set; }
         public string Senha { get; set; }
         public byte[]? Foto { get; set; }
+        public string CodigoVerificacao { get; internal set; }
     }
 }
