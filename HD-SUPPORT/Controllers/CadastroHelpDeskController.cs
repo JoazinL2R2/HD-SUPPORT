@@ -284,14 +284,16 @@ namespace HD_SUPPORT.Controllers
 
 
         [HttpPost]
-        public IActionResult VerificacaoEmail(string codigoVerificacao, string codigoInput)
+        public IActionResult VerificacaoEmail(string codigoVerificacao)
         {
-            if (codigoVerificacao == codigoInput)
+            Console.WriteLine("codigo recebido do front:" + codigoVerificacao);
+            var codigoArmazenado = TempData["CodigoAleatorio"] as string;
+            if (codigoVerificacao == codigoArmazenado)
             {
                 TempData["sucessoAtualizacao"] = "Conta criada com sucesso";
-                return Json(new { success = true, message = "Verificação bem-sucedida." });
+                return Json(new { success = true, message = "Cadastro Criado com sucesso." });
             }
-            else if (codigoInput == null)
+            else if (codigoVerificacao == null)
             {
                 TempData["ErroAtualizacao"] = "Codigo vazio, tente novamente";
                 return Json(new { success = false, message = "Código vazio, tente novamente." });

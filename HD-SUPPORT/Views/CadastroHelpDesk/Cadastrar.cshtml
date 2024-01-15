@@ -53,7 +53,6 @@
                         <input type="text" placeholder="Digite o código" id="inputCodigo" />
 
                         <a role="button" class="btn btn-outline-success " id="btnVerificar">Verificar</a>
-                        <a role="button" class="btn btn-outline-info " id="btnEnviarNovamente">Enviar Novamente</a>
                     </form>
                 </div>
             </div>
@@ -65,12 +64,29 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Erro</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Sucesso :)</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="Modelsucesso">
                     Cadastro Criado com Sucesso!
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalErro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Erro :(</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="Modelsucesso">
+                    Codigo vazio ou invalido, tente novamente
                 </div>
             </div>
             <div class="modal-footer">
@@ -84,44 +100,43 @@
     <script src="~/js/jquery.inputmask.js"></script>
     <script>
         $(document).ready(function () {
+
             $('.BtnVerificacao').click(function () {
+
+                console.log("btn clicado");
                 var email = $('#EmailInput').val();
-                var codigo = $('#inputCodigo').val();
                 window.emailTemporario = email;
-                window.codigoVerificacao = codigo;
                 enviarEmail();
             });
 
             $('#btnVerificar').click(function () {
+                event.preventDefault();
                 var codigo = $('#ModalVerificacao #inputCodigo').val();
                 window.codigoInput = codigo;
                 console.log('Código de verificação: ', codigo);
-                submeterFormulario(); // Renomeando para submeterFormulario
-            });
-
-            $('#btnEnviarNovamente').click(function () {
-                var email = $('#EmailInput').val();
-                var codigo = $('#inputCodigo').val();
-                window.emailTemporario = email;
-                window.codigoVerificacao = codigo;
-                enviarEmail();
+                submeterFormulario();
             });
 
             function submeterFormulario() {
-                var codigoVerificacao = window.codigoVerificacao;
                 var codigoInput = window.codigoInput;
+                console.log('Dados do formulário:', $('#FormCadastro').serialize());
+
                 $.ajax({
                     type: 'POST',
                     url: '/CadastroHelpDesk/VerificacaoEmail',
-                    data: { codigo: codigoVerificacao, codigoInput: codigoInput },
+                    data: { codigoVerificacao: codigoInput },
                     success: function (result) {
                         console.log('VerificacaoCodigo sucesso');
                         if (result.success) {
-                            // Se a verificação for bem-sucedida, envia o formulário
-                            $('#FormCadastro').submit();
+                            document.getElementById('FormCadastro').submit();
+                            console.log('FormEnviado sucesso');
+                            $('#ModalVerificacao').modal('hide')
+                            $('#modalSucesso').modal(`show`);
+
                         } else {
                             console.log('Código de verificação incorreto');
-                            // Adicione lógica para lidar com o código incorreto, se necessário
+                            $('#ModalVerificacao').modal('hide')
+                            $('#modalErro').modal(`show`);
                         }
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
@@ -132,30 +147,17 @@
 
             function enviarEmail() {
                 var emailTemporario = window.emailTemporario;
-                var codigoVerificacao = window.codigoVerificacao;
-
                 $.ajax({
                     type: 'POST',
                     url: '/CadastroHelpDesk/EnviarEmail',
-                    data: { codigo: codigoVerificacao, email: emailTemporario },
+                    data: {email: emailTemporario},
                     success: function (result) {
                         console.log('EnviarEmail success:', result);
-                        $.ajax({
-                            type: 'POST',
-                            url: '/CadastroHelpDesk/VerificacaoEmail',
-                            data: { email: emailTemporario },
-                            success: function (result) {
-                                console.log('VerificacaoEmail success:', result);
-                                $('#ModalVerificacao').modal('show');
-                            },
-                            error: function () {
-                                console.error('VerificacaoEmail error');
-                            }
-                        });
+                        $('#ModalVerificacao').modal('show');
                     },
                     error: function () {
-                        console.error('EnviarEmail error');
-                    }
+                        console.error('VerificacaoEmail error');
+                        }
                 });
             }
         });

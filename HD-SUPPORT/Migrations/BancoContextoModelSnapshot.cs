@@ -35,16 +35,19 @@ namespace HD_SUPPORT.Migrations
                     b.Property<string>("HeadSet")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("IdPatrimonio")
+                    b.Property<int>("IdPatrimonio")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Modelo")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Processador")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("SistemaOperacionar")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("profissional_HD")
