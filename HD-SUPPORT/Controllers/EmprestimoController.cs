@@ -3,6 +3,7 @@ using HD_SUPPORT.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 namespace HD_SUPPORT.Controllers
 {
     [Authorize(Roles = "HelpDesk")]
@@ -13,7 +14,7 @@ namespace HD_SUPPORT.Controllers
         {
             _contexto = contexto;
         }
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string searchString, int paginaAtual = 1)
         {
             if (HttpContext.Session.GetString("nome") == null)
             {
@@ -28,12 +29,30 @@ namespace HD_SUPPORT.Controllers
             if (!string.IsNullOrEmpty(searchString))
             {
                 emprestimo = emprestimo
-                    .Where(x => x.Funcionario.Nome.Contains(searchString)
-                                || x.Funcionario.Email.Contains(searchString)
+                    .Where(x => x.Funcionario.Nome.ToUpper().Contains(searchString.ToUpper())
+                                || x.Funcionario.Email.ToUpper().Contains(searchString.ToUpper())
                                 || x.Equipamento.IdPatrimonio.ToString().Contains(searchString))
                     .ToList();
             }
 
+            TempData["pesquisa"] = searchString;
+
+            TempData["QuantidadeDados"] = emprestimo.Count;
+
+            TempData["paginaAtual"] = paginaAtual;
+
+            var pagina = (paginaAtual - 1) * 6;
+
+            var maximo = 6;
+
+            if (emprestimo.Count < 6 + pagina)
+            {
+                maximo = emprestimo.Count - pagina;
+            }
+
+            emprestimo = emprestimo.GetRange(pagina, maximo);
+
+            TempData["QuantidadeDadosTabela"] = emprestimo.Count;
             return View(emprestimo);
         }
         [HttpGet]
@@ -72,10 +91,13 @@ namespace HD_SUPPORT.Controllers
             {
                 equipamentoDisponivel.Disponivel = false;
 
+                equipamentoDisponivel.DtEmeprestimoInicio = DateTime.Now;
+
                 var novoEmprestimo = new EmprestimoViewModel
                 {
                     Funcionario = funcionario,
-                    Equipamento = equipamentoDisponivel
+                    Equipamento = equipamentoDisponivel,
+                    profissional_HD = cadastro.profissional_HD
                 };
 
                 await _contexto.CadastroEmprestimos.AddAsync(novoEmprestimo);
@@ -142,9 +164,12 @@ namespace HD_SUPPORT.Controllers
                     _contexto.CadastroEquipamentos.Update(equipamento);
 
                     equipamentoDisponivel.Disponivel = false;
+
+                    equipamentoDisponivel.DtEmeprestimoInicio = DateTime.Now;
                 }
                 cadastro.Equipamento = equipamentoDisponivel;
                 cadastro.Funcionario = funcionario;
+                cadastro.profissional_HD = HttpContext.Session.GetString("profissional") + " - " + HttpContext.Session.GetString("nome");
 
                 _contexto.CadastroEmprestimos.Update(cadastro);
                 await _contexto.SaveChangesAsync();
@@ -160,13 +185,17 @@ namespace HD_SUPPORT.Controllers
         [HttpPost]
         public async Task<IActionResult> Excluir(EmprestimoViewModel emprestimo)
         {
+            if (HttpContext.Session.GetString("nome") == null)
+            {
+                return RedirectToAction("LogOut", "Home", new { area = "" });
+            }
             var cadastro = await _contexto.CadastroEmprestimos.FindAsync(emprestimo.Id);
             if (cadastro != null)
             {
                 var equipamento = await _contexto.CadastroEquipamentos.FindAsync(cadastro.EquipamentoId);
                 equipamento.Disponivel = true;
                 _contexto.CadastroEquipamentos.Update(equipamento);
-                cadastro.profissional_HD = HttpContext.Session.GetString("nome");
+                cadastro.profissional_HD = HttpContext.Session.GetString("profissional") + " - " + HttpContext.Session.GetString("nome");
                 _contexto.CadastroEmprestimos.Update(cadastro);
                 await _contexto.SaveChangesAsync();
                 _contexto.CadastroEmprestimos.Remove(cadastro);

@@ -1981,22 +1981,6 @@
           }
         }
       },
-      "SmtpServer/10.0.1": {
-        "type": "package",
-        "dependencies": {
-          "System.IO.Pipelines": "4.7.2"
-        },
-        "compile": {
-          "lib/netstandard2.0/SmtpServer.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/SmtpServer.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "SQLitePCLRaw.bundle_e_sqlite3/2.1.6": {
         "type": "package",
         "dependencies": {
@@ -6110,20 +6094,6 @@
         "nuget.versioning.nuspec"
       ]
     },
-    "SmtpServer/10.0.1": {
-      "sha512": "WqSuBsfKGftrioGzC9dPfPFmuRGR1BEH7SX+5+VW3sH/iDHwUSL7eLJiVwYP8OEgEbPSBx27F9J3uDv3zJ+VHw==",
-      "type": "package",
-      "path": "smtpserver/10.0.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE",
-        "lib/netstandard2.0/SmtpServer.dll",
-        "lib/netstandard2.0/SmtpServer.xml",
-        "smtpserver.10.0.1.nupkg.sha512",
-        "smtpserver.nuspec"
-      ]
-    },
     "SQLitePCLRaw.bundle_e_sqlite3/2.1.6": {
       "sha512": "BmAf6XWt4TqtowmiWe4/5rRot6GerAeklmOPfviOvwLoF5WwgxcJHAxZtySuyW9r9w+HLILnm8VfJFLCUJYW8A==",
       "type": "package",
@@ -7123,26 +7093,30 @@
       "Microsoft.EntityFrameworkCore.Sqlite.Core >= 8.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 8.0.0",
-      "SmtpServer >= 10.0.1",
       "X.PagedList >= 8.4.7",
       "X.PagedList.Mvc.Core >= 8.4.7",
       "X.PagedList.Web.Common >= 8.0.7"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Joazin\\.nuget\\packages\\": {}
+    "C:\\Users\\caiobueno\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Joazin\\Source\\Repos\\gugsinwork\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj",
+      "projectUniqueName": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj",
       "projectName": "HD-SUPPORT",
-      "projectPath": "C:\\Users\\Joazin\\Source\\Repos\\gugsinwork\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj",
-      "packagesPath": "C:\\Users\\Joazin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Joazin\\Source\\Repos\\gugsinwork\\HD-SUPPORT\\HD-SUPPORT\\obj\\",
+      "projectPath": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj",
+      "packagesPath": "C:\\Users\\caiobueno\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Joazin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\caiobueno\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7199,10 +7173,6 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[8.0.0, )"
-          },
-          "SmtpServer": {
-            "target": "Package",
-            "version": "[10.0.1, )"
           },
           "X.PagedList": {
             "target": "Package",

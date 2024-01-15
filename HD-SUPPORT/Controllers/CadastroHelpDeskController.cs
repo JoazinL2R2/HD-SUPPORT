@@ -109,6 +109,8 @@ namespace HD_SUPPORT.Controllers
         {
 
             if (User.Identity.IsAuthenticated) {
+                //Criação de sessão apenas para não aparecer "Sessão expirada" na página de login
+                HttpContext.Session.SetString("nome", "teste");
                 return RedirectToAction("LogOut", "Home");
             }
 
@@ -165,6 +167,7 @@ namespace HD_SUPPORT.Controllers
         {
             HttpContext.Session.SetString("nome", usuario.Nome);
             HttpContext.Session.Set("foto", usuario.Foto);
+            HttpContext.Session.SetString("emailTodo", usuario.Email);
             var emailSeparado = usuario.Email.Split("@");
             emailSeparado[0] = emailSeparado[0].Substring(0, Convert.ToInt16(MathF.Ceiling(emailSeparado[0].Length / 2))).PadRight(emailSeparado[0].Length, '*');
             var email = emailSeparado[0] + "@" + emailSeparado[1];
@@ -178,12 +181,20 @@ namespace HD_SUPPORT.Controllers
         [HttpGet]
         public async Task<IActionResult> Perfil()
         {
+            if (HttpContext.Session.GetString("nome") == null)
+            {
+                return RedirectToAction("LogOut", "Home", new { area = "" });
+            }
             var perfil = await _contexto.CadastroHD.FindAsync(HttpContext.Session.GetInt32("Id"));
             return View(perfil);
         }
         [HttpGet]
         public IActionResult Edit(int id)
         {
+            if (HttpContext.Session.GetString("nome") == null)
+            {
+                return RedirectToAction("LogOut", "Home", new { area = "" });
+            }
             CadastroHelpDesk cadastro = _contexto.CadastroHD.Where(x => x.Id == id).FirstOrDefault();
             cadastro.Senha = "";
             return View(cadastro);

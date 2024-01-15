@@ -45,6 +45,7 @@
 <div class="align-content-center">
     <div class="TableContainer">
         <div class="table-menu">
+            <p style="color:white">Mostrando @TempData["QuantidadeDadosTabela"] de @TempData["QuantidadeDados"] equipamentos</p>
             <form asp-action="Index" asp-controller="CadastroEquip">
                 <a role="button">
                     <i class="bi bi-search"></i>
@@ -163,15 +164,92 @@
         <div class="pagination">
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="#"><i class="bi bi-arrow-left"></i></a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#"><i class="bi bi-arrow-right"></i></a></li>
+                    @if (TempData["paginaAtual"] != null)
+                    {
+                        var pagina = Convert.ToInt32(TempData["paginaAtual"]);
+
+                        if (pagina != 1)
+                        {
+                            <form asp-action="Index" asp-controller="CadastroEquip">
+                                <input hidden name="searchString" value="@TempData["pesquisa"]">
+                                <input hidden name="disponivel" value="@TempData["disponivel"]">
+                                <input hidden name="paginaAtual" value="@(pagina-1)">
+                                <button class="page-link" type="submit"><i class="bi bi-arrow-left"></i></button>
+                            </form>
+                        }
+
+                        <li class="page-item">
+                            <form asp-action="Index" asp-controller="CadastroEquip">
+                                <input hidden name="searchString" value="@TempData["pesquisa"]">
+                                <input hidden name="disponivel" value="@TempData["disponivel"]">
+                                <input hidden name="paginaAtual" value="1">
+                                @if (pagina != 1)
+                                {
+                                    <button class="page-link" type="submit">1</button>
+                                }
+                                else
+                                {
+                                    <a class="page-link" style="color:black">1</a>
+                                }
+                            </form>
+                        </li>
+
+                        var dados = Convert.ToDouble(TempData["QuantidadeDados"]);
+                        dados = Math.Ceiling(dados / 6);
+                        for (var i = pagina - 3; i < pagina + 4; i++)
+                        {
+                            
+                            if (i > 1 && i < dados)
+                            {
+                                Console.WriteLine(i);
+                                <li class="page-item">
+                                    <form asp-action="Index" asp-controller="CadastroEquip">
+                                        <input hidden name="searchString" value="@TempData["pesquisa"]">
+                                        <input hidden name="disponivel" value="@TempData["disponivel"]">
+                                        <input hidden name="paginaAtual" value="@i">
+                                        @if (i != pagina)
+                                        {
+                                            <button class="page-link" type="submit">@i</button>
+                                        }
+                                        else
+                                        {
+                                            <a class="page-link" style="color:black">@i</a>
+                                        }
+
+                                    </form>
+                                </li>
+                            }
+                        }
+
+                        <li class="page-item">
+                            <form asp-action="Index" asp-controller="CadastroEquip">
+                                <input hidden name="searchString" value="@TempData["pesquisa"]">
+                                <input hidden name="disponivel" value="@TempData["disponivel"]">
+                                <input hidden name="paginaAtual" value="@dados">
+                                @if (dados != pagina)
+                                {
+                                    <button class="page-link" type="submit">@dados</button>
+                                }
+                                else
+                                {
+                                    <a class="page-link" style="color:black">@dados</a>
+                                }
+                            </form>
+                        </li>
+
+                        if (pagina != dados)
+                        {
+                            <form asp-action="Index" asp-controller="CadastroEquip">
+                                <input hidden name="searchString" value="@TempData["pesquisa"]">
+                                <input hidden name="disponivel" value="@TempData["disponivel"]">
+                                <input hidden name="paginaAtual" value="@(pagina+1)">
+                                <button class="page-link" type="submit"><i class="bi bi-arrow-right"></i></button>
+                            </form>
+                        }
+                    }
                 </ul>
             </nav>
         </div>
-        /*Erro Model*/
         <div class="modal fade" id="ModelErro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -234,29 +312,29 @@
                         $('#ModelErro').modal('show');
                     }, 100);
                 }
-
-                $('.BtnEditar').click(function () {
-                    var equipamentoId = $(this).attr('Equipamento-id');
-                    $.ajax({
-                        type: 'GET',
-                        url: '/CadastroEquip/Edit/' + equipamentoId,
-                        success: function (result) {
-                            $("#EditModal").html(result);
-                            $('#EditarEquipModal').modal('show');
-                        }
-                    })
-                });
-                $('.bntAdicionar').click(function () {
-                    $.ajax({
-                        type: 'GET',
-                        url: '/CadastroEquip/NovoCadastro',
-                        success: function (result) {
-                            $("#NovaMaquina").html(result);
-                            $('#NovoEquipModal').modal('show');
-                        }
-                    })
-                });
-
+                if (@Acessor.HttpContext.Session.GetString("profissional") == "HelpDesk") { 
+                    $('.BtnEditar').click(function () {
+                        var equipamentoId = $(this).attr('Equipamento-id');
+                        $.ajax({
+                            type: 'GET',
+                            url: '/CadastroEquip/Edit/' + equipamentoId,
+                            success: function (result) {
+                                $("#EditModal").html(result);
+                                $('#EditarEquipModal').modal('show');
+                            }
+                        })
+                    });
+                    $('.bntAdicionar').click(function () {
+                        $.ajax({
+                            type: 'GET',
+                            url: '/CadastroEquip/NovoCadastro',
+                            success: function (result) {
+                                $("#NovaMaquina").html(result);
+                                $('#NovoEquipModal').modal('show');
+                            }
+                        })
+                    });
+                }
             });
         </script>
     }

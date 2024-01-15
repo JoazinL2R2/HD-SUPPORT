@@ -8,7 +8,7 @@
 
                 <form asp-action="NovoCadastro">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <input type="hidden" asp-for="profissional_HD" value="@Acessor.HttpContext.Session.GetString("nome")" />
+                    <input type="hidden" asp-for="profissional_HD" value="@Acessor.HttpContext.Session.GetString("profissional") - @Acessor.HttpContext.Session.GetString("emailTodo")" />
                     <div class="form-group">
                         <h5 class="control-label">Id do patrimônio</h5>
                         <input asp-for="IdPatrimonio" class="form-control" />

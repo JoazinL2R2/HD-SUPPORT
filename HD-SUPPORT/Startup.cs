@@ -34,7 +34,7 @@ namespace HD_SUPPORT
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddSession(options =>
             {
-                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.IdleTimeout = TimeSpan.FromHours(1);
             });
             services.AddControllersWithViews();
 

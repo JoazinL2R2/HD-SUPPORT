@@ -21,7 +21,7 @@ namespace HD_SUPPORT.Controllers
         {
             _contexto = contexto;
         }
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string searchString, int paginaAtual = 1)
         {
             if (HttpContext.Session.GetString("nome") == null)
             {
@@ -31,9 +31,29 @@ namespace HD_SUPPORT.Controllers
             var Funcionarios = await _contexto.CadastroUser.ToListAsync();
             if (!string.IsNullOrEmpty(searchString))
             {
-                 Funcionarios = _contexto.CadastroUser.Where(x => x.Nome.Contains(searchString)
-                || x.Email.Contains(searchString)).ToList();
+                 Funcionarios = _contexto.CadastroUser.Where(x => x.Nome.ToUpper().Contains(searchString.ToUpper())
+                || x.Email.ToUpper().Contains(searchString.ToUpper())).ToList();
             }
+
+            TempData["pesquisa"] = searchString;
+
+            TempData["QuantidadeDados"] = Funcionarios.Count;
+
+            TempData["paginaAtual"] = paginaAtual;
+
+            var pagina = (paginaAtual-1)*6;
+
+            var maximo = 6;
+
+            if (Funcionarios.Count < 6 + pagina)
+            {
+                maximo = Funcionarios.Count-pagina;
+            }
+
+            Funcionarios = Funcionarios.GetRange(pagina, maximo);
+
+            TempData["QuantidadeDadosTabela"] = Funcionarios.Count;
+
             return View(Funcionarios);
         }
         [HttpGet]
@@ -69,15 +89,9 @@ namespace HD_SUPPORT.Controllers
                 {
                     if (verificaDigitos(e))
                     {
-                        ModelState.AddModelError(e, "Preencha com todos os valores");
                         voltar = true;
                     }
                 });
-
-                if (voltar)
-                {
-                    return RedirectToAction("Index", "CadastroFunc", new { area = "" });
-                }
                 if (_contexto.CadastroUser.Any(x => x.Email == cadastro.Email && x.Id != cadastro.Id))
                 {
                     TempData["ErroAtualizacao"] = "Email já Cadastrado";
@@ -90,7 +104,7 @@ namespace HD_SUPPORT.Controllers
                 }
                 else
                 {
-                    if (ModelState.IsValid)
+                    if (dadosExistentes(cadastro) && !voltar)
                     {
                         await _contexto.CadastroUser.AddAsync(cadastro);
                         await _contexto.SaveChangesAsync();
@@ -98,7 +112,8 @@ namespace HD_SUPPORT.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Index", "CadastroFunc");
+                        TempData["ErroAtualizacao"] = "Preencha todos os dados";
+                        return RedirectToAction("Index");
                     }
                 }
             }
@@ -131,14 +146,9 @@ namespace HD_SUPPORT.Controllers
                 {
                     if (verificaDigitos(e))
                     {
-                        ModelState.AddModelError(nameof(e), "Preencha com todos os valores");
                         voltar = true;
                     }
                 });
-                if (voltar)
-                {
-                    return RedirectToAction("Index", "CadastroFunc", new { area = "" });
-                }
 
                 if (_contexto.CadastroUser.Any(x => x.Email == cadastro.Email && x.Id != cadastro.Id))
                 {
@@ -147,7 +157,7 @@ namespace HD_SUPPORT.Controllers
                 }
                 else
                 {
-                    if (ModelState.IsValid)
+                    if (dadosExistentes(cadastro) && !voltar)
                     {
 
                         _contexto.CadastroUser.Update(cadastro);
@@ -156,7 +166,8 @@ namespace HD_SUPPORT.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Index", "CadastroFunc");
+                        TempData["ErroAtualizacao"] = "Preencha todos os dados";
+                        return RedirectToAction("Index");
                     }
                 }
             }
@@ -167,9 +178,24 @@ namespace HD_SUPPORT.Controllers
                 return RedirectToAction("Index");
             }
         }
+
+        public bool dadosExistentes(CadastroUser cadastro)
+        {
+            if(cadastro.Telefone == null || cadastro.Telegram == null || cadastro.Email == null || cadastro.Status == null ||
+                cadastro.Nome == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
         [HttpPost]
         public async Task<IActionResult> Excluir(CadastroUser funcionario)
         {
+            if (HttpContext.Session.GetString("nome") == null)
+            {
+                return RedirectToAction("LogOut", "Home", new { area = "" });
+            }
             CadastroUser cadastro = await _contexto.CadastroUser.FindAsync(funcionario.Id);
             var emprestimo = _contexto.CadastroEmprestimos.FirstOrDefault(emp => emp.FuncionarioId == funcionario.Id);
             if (emprestimo != null)
@@ -177,7 +203,7 @@ namespace HD_SUPPORT.Controllers
                 var equipamento = await _contexto.CadastroEquipamentos.FindAsync(emprestimo.EquipamentoId);
                 equipamento.Disponivel = true;
             }
-            cadastro.profissional_HD = HttpContext.Session.GetString("nome");
+            cadastro.profissional_HD = HttpContext.Session.GetString("profissional") + " - " + HttpContext.Session.GetString("nome");
             _contexto.CadastroUser.Update(cadastro);
             await _contexto.SaveChangesAsync();
             _contexto.CadastroUser.Remove(cadastro);
