@@ -164,6 +164,8 @@ namespace HD_SUPPORT.Controllers
                     _contexto.CadastroEquipamentos.Update(equipamento);
 
                     equipamentoDisponivel.Disponivel = false;
+
+                    equipamentoDisponivel.DtEmeprestimoInicio = DateTime.Now;
                 }
                 cadastro.Equipamento = equipamentoDisponivel;
                 cadastro.Funcionario = funcionario;

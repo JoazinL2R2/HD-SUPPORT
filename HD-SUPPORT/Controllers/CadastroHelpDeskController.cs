@@ -10,18 +10,24 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using System.ComponentModel;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using HD_SUPPORT.Services;
+using Microsoft.Extensions.Caching.Memory;
 
 
 namespace HD_SUPPORT.Controllers
 {
-    [Authorize(Roles="HelpDesk, RH")]
     public class CadastroHelpDeskController : Controller
     {
         private readonly BancoContexto _contexto;
+        private readonly Services.IEmailSender emailSender;
+        private readonly IMemoryCache _memoryCache;
 
-        public CadastroHelpDeskController(BancoContexto contexto)
+        public CadastroHelpDeskController(BancoContexto contexto, Services.IEmailSender emailSender, IMemoryCache memoryCache)
         {
             _contexto = contexto;
+            this.emailSender = emailSender;
+            _memoryCache = memoryCache;
         }
 
         [HttpGet]
@@ -99,7 +105,6 @@ namespace HD_SUPPORT.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
         public IActionResult Login()
         {
 
@@ -119,7 +124,6 @@ namespace HD_SUPPORT.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
         public async Task<IActionResult> Login(CadastroHelpDesk cadastro)
         {
             if (_contexto.CadastroHD.Any(x => x.Email == cadastro.Email && x.Senha == cadastro.Senha)
@@ -163,6 +167,7 @@ namespace HD_SUPPORT.Controllers
         {
             HttpContext.Session.SetString("nome", usuario.Nome);
             HttpContext.Session.Set("foto", usuario.Foto);
+            HttpContext.Session.SetString("emailTodo", usuario.Email);
             var emailSeparado = usuario.Email.Split("@");
             emailSeparado[0] = emailSeparado[0].Substring(0, Convert.ToInt16(MathF.Ceiling(emailSeparado[0].Length / 2))).PadRight(emailSeparado[0].Length, '*');
             var email = emailSeparado[0] + "@" + emailSeparado[1];
@@ -201,7 +206,6 @@ namespace HD_SUPPORT.Controllers
             {
                 if (cadastro == null)
                 {
-                    // Lógica para lidar com cadastro nulo, se necessário
                     return BadRequest("O objeto CadastroHelpDesk está nulo.");
                 }
 
@@ -261,5 +265,56 @@ namespace HD_SUPPORT.Controllers
             await _contexto.SaveChangesAsync();
             return RedirectToAction("LogOut", "Home", new { area = "" });
         }
+        [HttpPost]
+        public IActionResult EnviarEmail(string email)
+        {
+            const string caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            Random random = new Random();
+            int comprimento = 5;
+            char[] codigo = new char[comprimento];
+            for (int i = 0; i < comprimento; i++)
+            {
+                codigo[i] = caracteres[random.Next(caracteres.Length)];
+            }
+            var CodigoAleatorio = new string(codigo);
+            string mensagem = $"Seu Codigo de verificação é: {CodigoAleatorio}. Não Compartilhe este codigo";
+            string subject = "HD - Support  -- Codigo de verificação";
+
+            try
+            {
+                this.emailSender.SendEmailAsync(email, subject, mensagem);
+                TempData["CodigoAleatorio"] = CodigoAleatorio;
+
+                return Json(new { success = true, message = "Código enviado com sucesso." });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "Erro ao enviar o código por e-mail.", error = ex.Message });
+            }
+        }
+
+
+        [HttpPost]
+        public IActionResult VerificacaoEmail(string codigoVerificacao)
+        {
+            Console.WriteLine("codigo recebido do front:" + codigoVerificacao);
+            var codigoArmazenado = TempData["CodigoAleatorio"] as string;
+            if (codigoVerificacao == codigoArmazenado)
+            {
+                TempData["sucessoAtualizacao"] = "Conta criada com sucesso";
+                return Json(new { success = true, message = "Cadastro Criado com sucesso." });
+            }
+            else if (codigoVerificacao == null)
+            {
+                TempData["ErroAtualizacao"] = "Codigo vazio, tente novamente";
+                return Json(new { success = false, message = "Código vazio, tente novamente." });
+            }
+            else
+            {
+                TempData["ErroAtualizacao"] = "Codigo Incorreto";
+                return Json(new { success = false, message = "Código incorreto, tente novamente." });
+            }
+        }
+
     }
 }
