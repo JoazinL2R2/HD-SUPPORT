@@ -170,7 +170,7 @@
 
                         if (pagina != 1)
                         {
-                            <form asp-action="Index" asp-controller="CadastroFunc">
+                            <form asp-action="Index" asp-controller="CadastroEquip">
                                 <input hidden name="searchString" value="@TempData["pesquisa"]">
                                 <input hidden name="disponivel" value="@TempData["disponivel"]">
                                 <input hidden name="paginaAtual" value="@(pagina-1)">
@@ -179,7 +179,7 @@
                         }
 
                         <li class="page-item">
-                            <form asp-action="Index" asp-controller="CadastroFunc">
+                            <form asp-action="Index" asp-controller="CadastroEquip">
                                 <input hidden name="searchString" value="@TempData["pesquisa"]">
                                 <input hidden name="disponivel" value="@TempData["disponivel"]">
                                 <input hidden name="paginaAtual" value="1">
@@ -203,7 +203,7 @@
                             {
                                 Console.WriteLine(i);
                                 <li class="page-item">
-                                    <form asp-action="Index" asp-controller="CadastroFunc">
+                                    <form asp-action="Index" asp-controller="CadastroEquip">
                                         <input hidden name="searchString" value="@TempData["pesquisa"]">
                                         <input hidden name="disponivel" value="@TempData["disponivel"]">
                                         <input hidden name="paginaAtual" value="@i">
@@ -222,7 +222,7 @@
                         }
 
                         <li class="page-item">
-                            <form asp-action="Index" asp-controller="CadastroFunc">
+                            <form asp-action="Index" asp-controller="CadastroEquip">
                                 <input hidden name="searchString" value="@TempData["pesquisa"]">
                                 <input hidden name="disponivel" value="@TempData["disponivel"]">
                                 <input hidden name="paginaAtual" value="@dados">
@@ -239,7 +239,7 @@
 
                         if (pagina != dados)
                         {
-                            <form asp-action="Index" asp-controller="CadastroFunc">
+                            <form asp-action="Index" asp-controller="CadastroEquip">
                                 <input hidden name="searchString" value="@TempData["pesquisa"]">
                                 <input hidden name="disponivel" value="@TempData["disponivel"]">
                                 <input hidden name="paginaAtual" value="@(pagina+1)">

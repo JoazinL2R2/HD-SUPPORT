@@ -1,4 +1,5 @@
 ﻿using HD_SUPPORT.Models;
+using HD_SUPPORT.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,6 +31,7 @@ namespace HD_SUPPORT
             services.AddControllersWithViews();
             services.AddDbContext<BancoContexto>(opcoes => opcoes.UseSqlite(Configuration.GetConnectionString("conexaoBanco")));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddTransient<IEmailSender, EmailSender>();
             services.AddSession(options =>
             {
                 options.IdleTimeout = TimeSpan.FromHours(1);
