@@ -18,7 +18,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" id="EmailInput" />
+                <input asp-for="Email" class="form-control" id="EmailInput" placeholder="email@employer.com.br"/>
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -30,6 +30,19 @@
                 <label asp-for="Foto" class="control-label"></label>
                 <input asp-for="Foto" class="form-control" name="Imagem" id="Imagem" type="file" />
                 <span asp-validation-for="Foto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label">Função</label>
+                <br />
+                <select name="funcao" id="categorias">
+                    <option value="HelpDesk">
+                        Help-Desk
+                    </option>
+                    <option value="RH">
+                        RH
+                    </option>
+                </select>
+                <br />
             </div>
             <div class="form-group">
                 <a role="button" class="BtnVerificacao btn btn-outline-info">Criar</a>

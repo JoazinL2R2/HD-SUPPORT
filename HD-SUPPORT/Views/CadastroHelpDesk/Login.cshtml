@@ -41,9 +41,7 @@
                                 <a role="button" asp-controller="CadastroHelpDesk" asp-action="Cadastrar">Sou da equipe Help Desk</a>
                             </div>
 
-                            <div class="btn-login" id="btn-login">
-                                <a id="loginButton">Login</a>
-                            </div>
+                            <button id="loginButton" type="submit">Login</button>
 
                             <div class="btn-funcionario">
                                 <a role="button" id="NovoCadastro">Sou Funcionario</a>
@@ -95,8 +93,7 @@
     <script>
 
         $(document).ready(function () {
-            $(".telefone").inputmask('(99) 99999-9999');
-            $(".cpf").inputmask('999.999.999-99');
+            
 
             var erroAtualizacao = "@TempData["ErroAtualizacao"]";
             if (erroAtualizacao) {
@@ -116,19 +113,13 @@
                     success: function (result) {
                         $("#ModalNovoCadastro").html(result);
                         $('#NovoCadastroFuncModal').modal('show');
+                        $(".telefone").inputmask('(99) 99999-9999');
                     }
                 });
             }
         });
     </script>
 }
-<script>
 
-    document.getElementById('loginButton').addEventListener('click', function () {
-        document.getElementById('loginForm').submit();
-    });
-
-
-</script>
 
 @Html.Raw(TempData["msg"])

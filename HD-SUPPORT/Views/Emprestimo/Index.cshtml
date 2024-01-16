@@ -153,14 +153,20 @@
                     {
                         var pagina = Convert.ToInt32(TempData["paginaAtual"]);
 
-                        if (pagina != 1)
-                        {
-                            <form asp-action="Index" asp-controller="Emprestimo">
-                                <input hidden name="searchString" value="@TempData["pesquisa"]">
-                                <input hidden name="paginaAtual" value="@(pagina-1)">
+
+                        <form asp-action="Index" asp-controller="Emprestimo">
+                            <input hidden name="searchString" value="@TempData["pesquisa"]">
+                            <input hidden name="paginaAtual" value="@(pagina-1)">
+                            @if (pagina != 1)
+                            {
                                 <button class="page-link" type="submit"><i class="bi bi-arrow-left"></i></button>
-                            </form>
-                        }
+                            }
+                            else
+                            {
+                                <a class="page-link"><i class="bi bi-arrow-left"></i></a>
+                            }
+                        </form>
+
 
                         <li class="page-item">
                             <form asp-action="Index" asp-controller="Emprestimo">
@@ -179,21 +185,37 @@
 
                         var dados = Convert.ToDouble(TempData["QuantidadeDados"]);
                         dados = Math.Ceiling(dados / 6);
+
+                        var diferenca = 0;
+
+                        if (pagina < 5)
+                        {
+                            diferenca = 5 - pagina;
+                        }
+
+
+                        if (pagina > dados - 5)
+                        {
+                            diferenca = (Convert.ToInt32(dados) - pagina) - 4;
+                        }
+
+
                         for (var i = pagina - 3; i < pagina + 4; i++)
                         {
-                            if (i > 1 && i < dados)
+                            var pag = i + diferenca;
+                            if (pag > 1 && pag < dados)
                             {
                                 <li class="page-item">
                                     <form asp-action="Index" asp-controller="Emprestimo">
                                         <input hidden name="searchString" value="@TempData["pesquisa"]">
-                                        <input hidden name="paginaAtual" value="@i">
-                                        @if (i != pagina)
+                                        <input hidden name="paginaAtual" value="@pag">
+                                        @if (pag != pagina)
                                         {
-                                            <button class="page-link" type="submit">@i</button>
+                                            <button class="page-link" type="submit">@pag</button>
                                         }
                                         else
                                         {
-                                            <a class="page-link" style="color:black">@i</a>
+                                            <a class="page-link" style="color:black">@pag</a>
                                         }
 
                                     </form>
@@ -216,14 +238,19 @@
                             </form>
                         </li>
 
-                        if (pagina != dados)
-                        {
-                            <form asp-action="Index" asp-controller="Emprestimo">
-                                <input hidden name="searchString" value="@TempData["pesquisa"]">
-                                <input hidden name="paginaAtual" value="@(pagina+1)">
+
+                        <form asp-action="Index" asp-controller="Emprestimo">
+                            <input hidden name="searchString" value="@TempData["pesquisa"]">
+                            <input hidden name="paginaAtual" value="@(pagina+1)">
+                            @if (pagina != dados)
+                            {
                                 <button class="page-link" type="submit"><i class="bi bi-arrow-right"></i></button>
-                            </form>
-                        }
+                            }
+                            else
+                            {
+                                <a class="page-link"><i class="bi bi-arrow-right"></i></a>
+                            }
+                        </form>
                     }
                 </ul>
             </nav>

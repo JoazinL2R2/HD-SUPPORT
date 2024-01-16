@@ -39,46 +39,49 @@ namespace HD_SUPPORT.Controllers
         public const int ImageMinimumBytes = 512;
 
         [HttpPost]
-        public async Task<IActionResult> Cadastrar([Bind("Id,Nome,Email,Senha,Foto")] CadastroHelpDesk cadastro, IFormFile Imagem)
+        public async Task<IActionResult> Cadastrar([Bind("Id,Nome,Email,Senha,Foto")] CadastroHelpDesk cadastro, IFormFile Imagem, string funcao)
         {
-            if (_contexto.CadastroHD.Any(x => x.Email == cadastro.Email))
+            if (ModelState.IsValid)
             {
-                ModelState.AddModelError(nameof(cadastro.Email), "Email existente");
-                return View();
+                if (_contexto.CadastroHD.Any(x => x.Email == cadastro.Email))
+                {
+                    ModelState.AddModelError(nameof(cadastro.Email), "Email existente");
+                    return View();
+                }
+                else if (cadastro.Email.Split("@")[1] != "employer.com.br")
+                {
+                    ModelState.AddModelError(nameof(cadastro.Email), "Email deve ter @employer.com.br");
+                    return View();
+                }
+                if (!ImagemFormatoCorreto(Imagem))
+                {
+                    ModelState.AddModelError(nameof(cadastro.Foto), "Formato de imagem incopatível");
+                    return View();
+                }
+                if (Imagem.Length < ImageMinimumBytes)
+                {
+                    ModelState.AddModelError(nameof(cadastro.Foto), "Arquivo muito grande");
+                    return View();
+                }
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    Imagem.CopyTo(ms);
+                    cadastro.Foto = ms.ToArray();
+                }
+
+                cadastro.Nome = funcao + "-" + cadastro.Nome;
+                await _contexto.CadastroHD.AddAsync(cadastro);
+                await _contexto.SaveChangesAsync();
+                return RedirectToAction("Index", "CadastroFunc", new { area = "" });
             }
             else
             {
-                if (ModelState.IsValid)
+                if (Imagem == null)
                 {
-                    if (!ImagemFormatoCorreto(Imagem))
-                    {
-                        ModelState.AddModelError(nameof(cadastro.Foto), "Formato de imagem incopatível");
-                        return View();
-                    }
-                    if (Imagem.Length < ImageMinimumBytes)
-                    {
-                        ModelState.AddModelError(nameof(cadastro.Foto), "Arquivo muito grande");
-                        return View();
-                    }
-                    using (MemoryStream ms = new MemoryStream())
-                    {
-                        Imagem.CopyTo(ms);
-                        cadastro.Foto = ms.ToArray();
-                    }
-
-                    await _contexto.CadastroHD.AddAsync(cadastro);
-                    await _contexto.SaveChangesAsync();
-                    return RedirectToAction("Index", "CadastroFunc", new { area = "" });
+                    ModelState.AddModelError(nameof(cadastro.Foto), "Insira uma foto de perfil");
+                    return View();
                 }
-                else
-                {
-                    if (Imagem == null)
-                    {
-                        ModelState.AddModelError(nameof(cadastro.Foto), "Insira uma foto de perfil");
-                        return View();
-                    }
-                    return View(cadastro);
-                }
+                return View(cadastro);
             }
         }
 
@@ -126,12 +129,12 @@ namespace HD_SUPPORT.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(CadastroHelpDesk cadastro)
         {
-            if (_contexto.CadastroHD.Any(x => x.Email == cadastro.Email && x.Senha == cadastro.Senha)
-                )
+            if (_contexto.CadastroHD.Any(x => x.Email == cadastro.Email && x.Senha == cadastro.Senha))
             {
-                var emailSeparado = cadastro.Email.Split("@");
+                var usuario = _contexto.CadastroHD.Where(b => b.Email == cadastro.Email).FirstOrDefault();
+                var NomeSeparado = usuario.Nome.Split("-");
                 var profissional = "HelpDesk";
-                if (emailSeparado[1].ToUpper().Contains("RH"))
+                if (NomeSeparado[0].ToUpper().Contains("RH"))
                 {
                     profissional = "RH";
                 }
@@ -152,7 +155,7 @@ namespace HD_SUPPORT.Controllers
                 };
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
                     new ClaimsPrincipal(claimsIdentity), properties);
-                var usuario = _contexto.CadastroHD.Where(b => b.Email == cadastro.Email).FirstOrDefault();
+                
                 criarSessao(usuario, profissional);
                 return RedirectToAction("Index", "CadastroFunc", new { area = "" });
             }
@@ -165,7 +168,7 @@ namespace HD_SUPPORT.Controllers
 
         public void criarSessao(CadastroHelpDesk usuario, string profissional)
         {
-            HttpContext.Session.SetString("nome", usuario.Nome);
+            HttpContext.Session.SetString("nome", usuario.Nome.Split("-")[1]);
             HttpContext.Session.Set("foto", usuario.Foto);
             HttpContext.Session.SetString("emailTodo", usuario.Email);
             var emailSeparado = usuario.Email.Split("@");
