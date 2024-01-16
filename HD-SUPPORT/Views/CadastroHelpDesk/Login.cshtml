@@ -15,57 +15,49 @@
     <link rel="stylesheet" href="~/css/PaginaLogin.css" />
 </head>
 
-    <div class="container">
-        <div class="background">
-            <div class="titulo">
-                <h1>Help Desk</h1>
-                <p>support</p>
+<div class="container">
+    <div class="content-login">
+        <div class="content-left">
+            <div class="content-form-primary">
+                <div class="form-content">
+                    <div class="text-content">
+                        <h1>Bem-Vindo!</h1>
+                        <p>Insira suas informações de login</p>
+                    </div>
+                    <form asp-action="Login" id="loginForm">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <label asp-for="Email" class="control-label">Usuario</label>
+                        <input id="email" type="text" asp-for="Email" class="form-control">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+
+                        <br />
+                        <label asp-for="Senha" id="senha_label" class="control-label">Senha</label>
+                        <input asp-for="Senha" class="form-control" type="password" id="senha" />
+                        <span asp-validation-for="Senha" class="text-danger"></span>
+
+                        <div class="position-button">
+                            <div class="funcionario-link">
+                                <a role="button" asp-controller="CadastroHelpDesk" asp-action="Cadastrar">Sou da equipe Help Desk</a>
+                            </div>
+
+                            <div class="btn-login" id="btn-login">
+                                <a id="loginButton">Login</a>
+                            </div>
+
+                            <div class="btn-funcionario">
+                                <a role="button" id="NovoCadastro">Sou Funcionario</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
+        </div>
+        <div class="content-right">
             <img src="~/images/0a1cc76ab63a4c573c934e56b674f6f9.gif" alt="">
         </div>
-
-        <div class="logo">
-        <img id="logoBne" src="~/images/bne_logo.jpg" alt="">
-            <div class="logo-text">
-
-                <h1>Help Desk</h1>
-                <p>support</p>
-            </div>
-        </div>
-
-        <div class="forms-login">
-            <p><img src="~/images/photo_4949811906286300321_y.jpg" alt="" height="50px"></p>
-            <h1 style="color: #3b3b3b;">Bem-Vindo!</h1>
-            <p style="margin-bottom: 5vh;">insira suas informações de login</p>
-
-            <div class="content-form">
-            <form asp-action="Login" id="loginForm">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-                    <label asp-for="Email" class="control-label">Usuario:</label>
-                    <input id="email" type="text" asp-for="Email" class="form-control">
-                    <span asp-validation-for="Email" class="text-danger"></span>
-
-                    <br />
-                    <label asp-for="Senha" class="control-label">Senha:</label>
-                    <input asp-for="Senha" class="form-control" type="password" id="senha" />
-                    <span asp-validation-for="Senha" class="text-danger"></span>
-
-                    <div class="position-button">
-                        <a role="button" asp-action="Cadastrar" asp-controller="CadastroHelpDesk">Sou do Help-Desk</a>
-                        <div class="btn-login" id="btn-login">
-                            <button type="submit" id="loginButton">Login</button>
-                        </div>
-
-                        <div class="btn-funcionario">
-                        <a role="button" id="NovoCadastro">Sou Funcionario</a>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
     </div>
-
+</div>
 <div class="modal fade" id="NovoCadastroFuncModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -136,7 +128,7 @@
         document.getElementById('loginForm').submit();
     });
 
-    
+
 </script>
 
 @Html.Raw(TempData["msg"])

@@ -1,68 +1,136 @@
-﻿
+﻿* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    font-family: Open Sans, sans-serif;
-}
-
 body {
-    margin: 0;
-    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #000000;
+    background-image: url(~/images/2iiB.gif);
 }
 
-.background {
+.container {
     display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.content-login {
+    width: 100%;
+    max-width: 100%;
+    background-color: rgb(255, 255, 255);
+    height: 600px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 20px -2px rgba(19, 113, 235, 0.75);
+    -webkit-box-shadow: 1px 1px 20px -2px rgba(5, 68, 241, 0.75);
+    -moz-box-shadow: 1px 1px 20px -2px rgba(0, 60, 255, 0.75);
+}
+
+    .content-login .content-left {
+        background-color: rgb(255, 255, 255);
+        height: 100%;
+        width: 50%;
+        border-radius: 30px 0 0 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .content-login .content-right {
+        background-color: blue;
+        height: 100%;
+        width: 80%;
+        border-radius: 0 30px 30px 0;
+    }
+
+        .content-login .content-right img {
+            max-width: 100%;
+            height: 100%;
+            border-radius: 0 30px 30px 0;
+        }
+
+.content-form-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    max-width: 80%;
+}
+
+.logo {
+    position: relative;
+    right: 123px;
+    bottom: 100px;
+}
+
+.text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 400px;
+}
+
+    .text-content h1 {
+        color: #3b3b3b;
+        font-size: 50px;
+        font-weight: 900;
+    }
+
+    .text-content p {
+        color: #000000;
+        position: relative;
+        bottom: 10px;
+    }
+
+    .text-content img {
+        height: 60px;
+    }
+
+form {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-    .background img {
-        width: 100%;
-        display: flex;
-        height: 100vh;
-        width: 900px;
-    }
-
-.container {
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    margin: 0;
-    padding: 0;
+#loginForm label {
+    position: relative;
+    right: 120px;
+    color: black;
+    font-weight: 600;
 }
 
-
-.forms-login {
-    margin-top: 15vh;
-    margin-left: 15vh;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+#loginForm #senha_label {
+    position: relative;
+    right: 127px;
 }
 
+#loginForm input {
+    outline: 0;
+    border-style: none;
+    background-color: white;
+    border-bottom: 2px solid #0169fd;
+    width: 300px;
+    margin-top: 10px;
+}
 
-.content-form {
-    display: flex;
-    flex-direction: column;
-}
-#logoBne {
-    height: 40px;
-    position: absolute;
-    padding: 5px;
-}
-.btn-login button {
-    color: white;
-    font-size: 15px;
-    text-decoration: none;
-    width: 500px;
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
 
 .btn-login {
     border: 2px solid #0169fd;
@@ -70,21 +138,15 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    left: 55px;
-    margin-top: 5vh;
+    margin-top: 20px;
     height: 40px;
     border-radius: 8px;
+    color: white;
     width: 250px;
     background-color: #0169fd;
     text-align: center;
     transition: ease 0.5s;
-}
-
-#loginButton {
-    background: none;
-    outline: none;
-    border: none;
-    border-radius: 8px;
+    cursor: pointer;
 }
 
 .btn-funcionario {
@@ -93,9 +155,9 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    left: 55px;
-    margin-top: 2vh;
+    margin-top: 20px;
     height: 40px;
+    cursor: pointer;
     border-radius: 8px;
     width: 250px;
     background-color: white;
@@ -113,48 +175,14 @@ body {
         text-align: center;
     }
 
-
-.content-form input {
-    margin-bottom: 20px;
-    width: 280px;
-    border: none;
-    outline: 1px;
-    border-bottom: 2px solid #0169fd;
-}
-
-.content-form label {
-    font-weight: 600;
-    font-size: 17px;
-}
-
-.titulo {
-    top: 60px;
-    height: 110px;
-    border-radius: 20px;
+.btn-login a {
     color: white;
+    font-size: 15px;
+    text-decoration: none;
+    width: 500px;
     text-align: center;
-    background-color: #0169fd;
-    width: 400px;
-    position: absolute;
-    z-index: 1;
-}
-
-    .titulo h1 {
-        font-size: 60px;
-    }
-
-    .titulo p {
-        left: 35px;
-        position: relative;
-        bottom: 25px;
-        font-size: 35px;
-    }
-
-.funcionario {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .btn-login:hover {
@@ -163,579 +191,40 @@ body {
     border: 2px solid #0169fd;
 }
 
-.btn-login button:hover {
+.btn-funcionario a:hover {
+    color: white;
+}
+
+.btn-login a:hover {
     color: #0169fd;
 }
 
 .btn-funcionario:hover {
     background-color: #0169fd;
-    color: #0169fd;
+    color: #ffffff;
     border: 2px solid white;
-}
-
-.forms-login h1 {
-    font-size: 50px;
-}
-
-.forms-login p {
-    font-size: 17px;
-}
-
-.btn-funcionario a:hover {
-    color: white;
-}
-
-.logo-text {
-    display: none;
-}
-
-.background {
-    display: flex;
-    justify-content: center;
 }
 
 .position-button {
     position: relative;
-    right: 42px;
+    top: 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
-@media only screen and (min-width: 330px) and (max-width:700px) {
-    .background img {
-        display: none;
-        height: 0vh;
-        z-index: -1;
-    }
+.funcionario-link a {
+    color: #0169fd;
+}
 
-    .logo-text {
-        display: flex;
-        flex-direction: column;
-        height: 80px;
-        width: 170px;
-        text-align: center;
-        border-radius: 41% 59% 48% 52% / 32% 29% 71% 68%;
-        position: absolute;
-        left: 110px;
-        top: 50px;
-        background-color: #0169fd;
-    }
-
-        .logo-text h1 {
-            color: white;
-            font-size: 30px;
-            position: relative;
-            top: 10px;
-        }
-
-        .logo-text p {
-            color: white;
-            font-size: 20px;
-            position: relative;
-            bottom: 6px;
-            font-weight: 600;
-            margin-left: 55px;
-        }
-
-    .titulo {
+@media only screen and (min-width:300px) and (max-width: 1020px) {
+    .content-right {
         display: none;
     }
 
-    .container {
+    .content-left {
         display: flex;
-        justify-content: center;
-    }
-
-    .forms-login {
-        margin-top: 130px;
-        display: flex;
-        position: relative;
-        right: 35px;
-        justify-content: center;
         align-items: center;
-        flex-direction: column;
-    }
-
-        .forms-login p img {
-            display: none;
-        }
-
-    .logo {
-        position: relative;
-        right: 20px;
-    }
-}
-
-@media only screen and (min-width:650px) and (max-width:700px) {
-    .background img {
-        display: none;
-        width: 500px;
-        height: 100vh;
-    }
-
-    .titulo {
-        position: absolute;
-        left: 80px;
-        width: 300px;
-        align-items: center;
-    }
-
-        .titulo h1 {
-            font-size: 50px;
-        }
-
-        .titulo p {
-            font-size: 30px;
-        }
-
-    .container {
-        display: flex;
-        justify-content: center;
-    }
-
-    .forms-login {
-        margin-top: 100px;
-        display: flex;
-        position: relative;
-        right: 8vh;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    .logo {
-        position: relative;
-        right: 0px;
-    }
-
-    .forms-login h1 {
-        font-size: 30px;
-    }
-
-    .forms-login p {
-        font-size: 12px;
-    }
-
-    .content-form input {
-        width: 180px;
-    }
-
-    .btn-login a {
-        font-size: 15px;
-    }
-
-    .btn-funcionario a {
-        font-size: 15px;
-    }
-
-    .btn-login {
-        width: 120px;
-        height: 30px;
-        position: relative;
-    }
-
-    .btn-funcionario {
-        width: 120px;
-        height: 30px;
-    }
-
-    .position-button {
-        position: relative;
-        right: 25px;
-    }
-}
-
-@media only screen and (min-width: 700px) and (max-width: 750px) {
-    .background img {
-        display: flex;
-        width: 500px;
-        height: 100vh;
-    }
-
-    .titulo {
-        position: absolute;
-        left: 80px;
-        width: 300px;
-        align-items: center;
-    }
-
-        .titulo h1 {
-            font-size: 50px;
-        }
-
-        .titulo p {
-            font-size: 30px;
-        }
-
-    .container {
-        display: flex;
-        justify-content: center;
-    }
-
-    .forms-login {
-        margin-top: 100px;
-        display: flex;
-        position: relative;
-        right: 6vh;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    .logo {
-        position: relative;
-        right: 0px;
-    }
-
-    .forms-login h1 {
-        font-size: 30px;
-    }
-
-    .forms-login p {
-        font-size: 12px;
-    }
-
-    .content-form input {
-        width: 180px;
-    }
-
-    .btn-login a {
-        font-size: 15px;
-    }
-
-    .btn-funcionario a {
-        font-size: 15px;
-    }
-
-    .btn-login {
-        width: 120px;
-        height: 30px;
-        position: relative;
-    }
-
-    .btn-funcionario {
-        width: 120px;
-        height: 30px;
-    }
-
-    .position-button {
-        position: relative;
-        right: 25px;
-    }
-}
-
-@media only screen and (min-width: 750px) and (max-width: 850px) {
-    .background img {
-        display: flex;
-        width: 600px;
-        height: 100vh;
-    }
-
-    .titulo {
-        position: absolute;
-        left: 120px;
-        width: 300px;
-        align-items: center;
-    }
-
-        .titulo h1 {
-            font-size: 50px;
-        }
-
-        .titulo p {
-            font-size: 30px;
-        }
-
-    .container {
-        display: flex;
-        justify-content: center;
-    }
-
-    .forms-login {
-        margin-top: 100px;
-        display: flex;
-        position: relative;
-        right: 60px;
-        margin-right: 10px;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    .logo {
-        position: relative;
-        right: 0px;
-    }
-
-    .forms-login h1 {
-        font-size: 30px;
-    }
-
-    .forms-login p {
-        font-size: 12px;
-    }
-
-    .content-form input {
-        width: 180px;
-    }
-
-    .btn-login a {
-        font-size: 15px;
-    }
-
-    .btn-funcionario a {
-        font-size: 15px;
-    }
-
-    .btn-login {
-        width: 120px;
-        height: 30px;
-        position: relative;
-    }
-
-    .btn-funcionario {
-        width: 120px;
-        height: 30px;
-    }
-
-    .position-button {
-        position: relative;
-        right: 25px;
-    }
-}
-
-@media only screen and (min-width: 850px) and (max-width: 950px) {
-    .background img {
-        display: flex;
-        width: 100%;
-        height: 100vh;
-    }
-
-    .titulo {
-        position: absolute;
-        left: 200px;
-        width: 300px;
-        align-items: center;
-    }
-
-        .titulo h1 {
-            font-size: 50px;
-        }
-
-        .titulo p {
-            font-size: 30px;
-        }
-
-    .container {
-        display: flex;
-        justify-content: center;
-    }
-
-    .forms-login {
-        margin-top: 100px;
-        display: flex;
-        position: relative;
-        right: 40px;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    .logo {
-        position: relative;
-        right: 0px;
-    }
-
-    .forms-login h1 {
-        font-size: 30px;
-    }
-
-    .forms-login p {
-        font-size: 12px;
-    }
-
-    .content-form input {
-        width: 180px;
-    }
-
-    .btn-login a {
-        font-size: 15px;
-    }
-
-    .btn-funcionario a {
-        font-size: 15px;
-    }
-
-    .btn-login {
-        width: 120px;
-        height: 30px;
-        position: relative;
-    }
-
-    .btn-funcionario {
-        width: 120px;
-        height: 30px;
-    }
-
-    .position-button {
-        position: relative;
-        right: 25px;
-    }
-}
-
-@media only screen and (min-width: 950px) and (max-width: 1250px) {
-    .background img {
-        display: flex;
-        width: 95%;
-        position: relative;
-        right: 60px;
-        height: 100vh;
-    }
-
-    .titulo {
-        position: absolute;
-        align-items: center;
-    }
-
-        .titulo h1 {
-            font-size: 50px;
-        }
-
-        .titulo p {
-            font-size: 30px;
-        }
-
-    .container {
-        display: flex;
-        justify-content: center;
-    }
-
-    .forms-login {
-        margin-top: -30px;
-        display: flex;
-        position: relative;
-        right: 70px;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    .logo {
-        position: relative;
-        right: 60px;
-    }
-
-    .forms-login h1 {
-        font-size: 55px;
-    }
-
-    .forms-login p {
-        font-size: 20px;
-    }
-
-    .content-form input {
-        width: 320px;
-    }
-
-    .btn-login a {
-        font-size: 15px;
-    }
-
-    .btn-funcionario a {
-        font-size: 15px;
-    }
-
-    .btn-login {
-        width: 250px;
-        height: 40px;
-        position: relative;
-    }
-
-    .btn-funcionario {
-        width: 250px;
-        height: 40px;
-    }
-
-    .position-button {
-        position: relative;
-        right: 25px;
-    }
-}
-
-@media only screen and (min-width:1250px) and (max-width:1310px) {
-    .background img {
-        display: flex;
-        width: 95%;
-        position: relative;
-        right: 60px;
-        height: 100vh;
-    }
-
-    .titulo {
-        position: absolute;
-        align-items: center;
-        right: 55%;
-    }
-
-        .titulo h1 {
-            font-size: 50px;
-        }
-
-        .titulo p {
-            font-size: 30px;
-        }
-
-    .container {
-        display: flex;
-        justify-content: center;
-    }
-
-    .forms-login {
-        margin-top: -30px;
-        display: flex;
-        position: relative;
-        right: 70px;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    .logo {
-        position: relative;
-        right: 60px;
-    }
-
-    .forms-login h1 {
-        font-size: 55px;
-    }
-
-    .forms-login p {
-        font-size: 20px;
-    }
-
-    .content-form input {
-        width: 320px;
-    }
-
-    .btn-login a {
-        font-size: 15px;
-    }
-
-    .btn-funcionario a {
-        font-size: 15px;
-    }
-
-    .btn-login {
-        width: 250px;
-        height: 40px;
-        position: relative;
-    }
-
-    .btn-funcionario {
-        width: 250px;
-        height: 40px;
-    }
-
-    .position-button {
-        position: relative;
-        right: 25px;
     }
 }
