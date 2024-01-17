@@ -3,111 +3,126 @@
 @{
     ViewData["Title"] = "Index";
 }
+<head>
+    <link rel="stylesheet" href="~/css/Cadastro.css">
+</head>
+<body>
+    <div class="container">
+        <div class="content-login">
+            <div class="content-left">
+                <div class="content-form-primary">
+                    <div class="form-content">
+                        <div class="text-content">
+                            <h1>Criar Conta!</h1>
+                            <p>Insira suas informações de usuário</p>
+                        </div>
+                        <form asp-action="Cadastrar" id="FormCadastro">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-<h1>Cadastro</h1>
+                            <label asp-for="Nome" class="control-label"></label>
+                            <input asp-for="Nome" class="form-control" />
+                            <span asp-validation-for="Nome" class="text-danger"></span>
+                            <br>
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" class="form-control" id="EmailInput" placeholder="email@employer.com.br" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                            <br />
+                            <label asp-for="Senha" class="control-label"></label>
+                            <input asp-for="Senha" class="form-control" />
+                            <span asp-validation-for="Senha" class="text-danger"></span>
+                            <br />
+                            <label class="control-label">Função</label>
+                            <br />
+                            <select name="funcao" id="categorias">
+                                <option value="HelpDesk">
+                                    Help-Desk
+                                </option>
+                                <option value="RH">
+                                    RH
+                                </option>
+                            </select>
+                            <br />
+                            <label asp-for="Foto" class="control-label"></label>
+                            <input asp-for="Foto" class="form-control" name="Imagem" id="Imagem" type="file" />
+                            <span asp-validation-for="Foto" class="text-danger"></span>
+                            <br />
+                            
 
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Cadastrar" method="post" enctype="multipart/form-data" id="FormCadastro">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
+                            <div class="position-button">
+
+
+                                <div class="btn-login" id="btn-login">
+                                    <a id="loginButton" class="BtnVerificacao">Criar Conta</a>
+                                </div>
+
+                                <a asp-action="Login" asp-controller="CadastroHelpDesk">Ja possui conta?</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" id="EmailInput" placeholder="email@employer.com.br"/>
-                <span asp-validation-for="Email" class="text-danger"></span>
+            <div class="content-right">
+                <img src="~/images/image 11.png" alt="">
             </div>
-            <div class="form-group">
-                <label asp-for="Senha" class="control-label"></label>
-                <input asp-for="Senha" class="form-control" />
-                <span asp-validation-for="Senha" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Foto" class="control-label"></label>
-                <input asp-for="Foto" class="form-control" name="Imagem" id="Imagem" type="file" />
-                <span asp-validation-for="Foto" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label  class="control-label">Função</label>
-                <br />
-                <select name="funcao" id="categorias">
-                    <option value="HelpDesk">
-                        Help-Desk
-                    </option>
-                    <option value="RH">
-                        RH
-                    </option>
-                </select>
-                <br />
-            </div>
-            <div class="form-group">
-                <a role="button" class="BtnVerificacao btn btn-outline-info">Criar</a>
-            </div>
-        </form>
+        </div>
     </div>
-</div>
 
-<div class="modal" id="ModalVerificacao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Verificar Codigo</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div id="Verificacao">
-                    <form asp-action="VerificacaoEmail" asp-controller="CadastroHelpDesk" method="post">
-                        <h1>Verifique o seu email</h1><br />
+    <div class="modal" id="ModalVerificacao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Verificar Codigo</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="Verificacao">
+                        <form asp-action="VerificacaoEmail" asp-controller="CadastroHelpDesk" method="post">
+                            <h1>Verifique o seu email</h1><br />
 
-                        <input type="text" placeholder="Digite o código" id="inputCodigo" />
+                            <input type="text" placeholder="Digite o código" id="inputCodigo" />
 
-                        <a role="button" class="btn btn-outline-success " id="btnVerificar">Verificar</a>
-                    </form>
+                            <a role="button" class="btn btn-outline-success " id="btnVerificar">Verificar</a>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-<div class="modal fade" id="modalSucesso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Sucesso :)</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="Modelsucesso">
-                    Cadastro Criado com Sucesso!
+    <div class="modal fade" id="modalSucesso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Sucesso :)</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-            </div>
-            <div class="modal-footer">
+                <div class="modal-body">
+                    <div class="Modelsucesso">
+                        Cadastro Criado com Sucesso!
+                    </div>
+                </div>
+                <div class="modal-footer">
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="modal fade" id="modalErro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Erro :(</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="Modelsucesso">
-                    Codigo vazio ou invalido, tente novamente
+    <div class="modal fade" id="modalErro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Erro :(</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-            </div>
-            <div class="modal-footer">
+                <div class="modal-body">
+                    <div class="Modelsucesso">
+                        Codigo vazio ou invalido, tente novamente
+                    </div>
+                </div>
+                <div class="modal-footer">
+                </div>
             </div>
         </div>
     </div>
-</div>
-
+</body>
 
 @section Scripts {
     <script src="~/js/jquery.inputmask.js"></script>
