@@ -302,7 +302,7 @@ namespace HD_SUPPORT.Controllers
         {
             Console.WriteLine("codigo recebido do front:" + codigoVerificacao);
             var codigoArmazenado = TempData["CodigoAleatorio"] as string;
-            if (codigoVerificacao == codigoArmazenado)
+            if (codigoVerificacao == codigoArmazenado && codigoArmazenado != null)
             {
                 TempData["sucessoAtualizacao"] = "Conta criada com sucesso";
                 return Json(new { success = true, message = "Cadastro Criado com sucesso." });

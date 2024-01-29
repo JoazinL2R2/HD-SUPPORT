@@ -44,7 +44,7 @@
                             <button id="loginButton" type="submit">Login</button>
 
                             <div class="btn-funcionario">
-                                <a role="button" id="NovoCadastro">Sou Funcionario</a>
+                                <a role="button" asp-action="NovoCadastroLogin" asp-controller="CadastroFunc">Sou Funcionario</a>
                             </div>
                         </div>
                     </form>
@@ -56,69 +56,9 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="NovoCadastroFuncModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar - se</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div id="ModalNovoCadastro">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="ModelErro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Erro</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="ModelErro">
-                    <p>@TempData["ErroAtualizacao"]</p>
-                </div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div>
 
 @section Scripts {
     <script src="~/js/jquery.inputmask.js"></script>
-    <script>
-
-        $(document).ready(function () {
-            
-
-            var erroAtualizacao = "@TempData["ErroAtualizacao"]";
-            if (erroAtualizacao) {
-                setTimeout(function () {
-                    $('#ModelErro').modal('show');
-                }, 100);
-            }
-
-            $('#NovoCadastro').click(function () {
-                abrirModalNovoCadastro();
-            });
-
-            function abrirModalNovoCadastro() {
-                $.ajax({
-                    type: 'GET',
-                    url: '/CadastroFunc/NovoCadastro',
-                    success: function (result) {
-                        $("#ModalNovoCadastro").html(result);
-                        $('#NovoCadastroFuncModal').modal('show');
-                        $(".telefone").inputmask('(99) 99999-9999');
-                    }
-                });
-            }
-        });
-    </script>
 }
 
 
