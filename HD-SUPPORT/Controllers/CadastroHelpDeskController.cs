@@ -39,40 +39,50 @@ namespace HD_SUPPORT.Controllers
         public const int ImageMinimumBytes = 512;
 
         [HttpPost]
-        public async Task<IActionResult> Cadastrar([Bind("Id,Nome,Email,Senha,Foto")] CadastroHelpDesk cadastro, IFormFile Imagem, string funcao)
+        public async Task<IActionResult> Cadastrar([Bind("Id,Nome,Email,Senha, Foto")] CadastroHelpDesk cadastro, IFormFile Imagem, string funcao, string verificado, string img_verificado = "")
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid || verificado == "True")
             {
-                if (_contexto.CadastroHD.Any(x => x.Email == cadastro.Email))
+                if (verificado != "True")
                 {
-                    ModelState.AddModelError(nameof(cadastro.Email), "Email existente");
+                    if (_contexto.CadastroHD.Any(x => x.Email == cadastro.Email))
+                    {
+                        ModelState.AddModelError(nameof(cadastro.Email), "Email existente");
+                        return View();
+                    }
+                    else if (cadastro.Email.Split("@")[1] != "employer.com.br")
+                    {
+                        ModelState.AddModelError(nameof(cadastro.Email), "Email deve ter @employer.com.br");
+                        Console.WriteLine("email paia");
+                        return View();
+                    }
+                    if (!ImagemFormatoCorreto(Imagem))
+                    {
+                        ModelState.AddModelError(nameof(cadastro.Foto), "Formato de imagem incopatível");
+                        return View();
+                    }
+                    if (Imagem.Length < ImageMinimumBytes)
+                    {
+                        ModelState.AddModelError(nameof(cadastro.Foto), "Arquivo muito grande");
+                        return View();
+                    }
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        Imagem.CopyTo(ms);
+                        cadastro.Foto = ms.ToArray();
+                    }
+                    TempData["podeverificar"] = "pode";
+                    ViewData["imagem"] = Convert.ToBase64String(cadastro.Foto);
                     return View();
                 }
-                else if (cadastro.Email.Split("@")[1] != "employer.com.br")
+                else
                 {
-                    ModelState.AddModelError(nameof(cadastro.Email), "Email deve ter @employer.com.br");
-                    return View();
+                    cadastro.Nome = funcao + "-" + cadastro.Nome;
+                    cadastro.Foto = Convert.FromBase64String(img_verificado);
+                    await _contexto.CadastroHD.AddAsync(cadastro);
+                    await _contexto.SaveChangesAsync();
+                    return RedirectToAction("Index", "CadastroFunc", new { area = "" });
                 }
-                if (!ImagemFormatoCorreto(Imagem))
-                {
-                    ModelState.AddModelError(nameof(cadastro.Foto), "Formato de imagem incopatível");
-                    return View();
-                }
-                if (Imagem.Length < ImageMinimumBytes)
-                {
-                    ModelState.AddModelError(nameof(cadastro.Foto), "Arquivo muito grande");
-                    return View();
-                }
-                using (MemoryStream ms = new MemoryStream())
-                {
-                    Imagem.CopyTo(ms);
-                    cadastro.Foto = ms.ToArray();
-                }
-
-                cadastro.Nome = funcao + "-" + cadastro.Nome;
-                await _contexto.CadastroHD.AddAsync(cadastro);
-                await _contexto.SaveChangesAsync();
-                return RedirectToAction("Index", "CadastroFunc", new { area = "" });
             }
             else
             {
