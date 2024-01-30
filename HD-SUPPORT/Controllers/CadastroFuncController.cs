@@ -16,10 +16,12 @@ namespace HD_SUPPORT.Controllers
     public class CadastroFuncController : Controller
     {
         private readonly BancoContexto _contexto;
+        private readonly Services.IEmailSender emailSender;
 
-        public CadastroFuncController(BancoContexto contexto)
+        public CadastroFuncController(BancoContexto contexto, Services.IEmailSender emailSender)
         {
             _contexto = contexto;
+            this.emailSender = emailSender;
         }
         public async Task<IActionResult> Index(string searchString, int paginaAtual = 1)
         {
@@ -55,6 +57,64 @@ namespace HD_SUPPORT.Controllers
             TempData["QuantidadeDadosTabela"] = Funcionarios.Count;
 
             return View(Funcionarios);
+        }
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult NovoCadastroLogin()
+        {
+            return View();
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> NovoCadastroLogin(CadastroUser cadastro)
+        {
+            if (ModelState.IsValid)
+            {
+                List<string> numeros = new List<string> { cadastro.Telefone, cadastro.Telegram };
+
+                if (numeros.Any(e => e == null))
+                {
+                    TempData["ErroAtualizacao"] = "Preencha todos os campos";
+                    return RedirectToAction("Login", "CadastroHelpDesk", new { area = "" });
+                }
+
+                bool voltar = false;
+                numeros.ForEach(e =>
+                {
+                    if (verificaDigitos(e))
+                    {
+                        voltar = true;
+                    }
+                });
+                if (_contexto.CadastroUser.Any(x => x.Email == cadastro.Email && x.Id != cadastro.Id))
+                {
+                    TempData["ErroAtualizacao"] = "Email já Cadastrado";
+                    return RedirectToAction("Login");
+                }
+                if (_contexto.CadastroUser.Any(x => x.Telefone == cadastro.Telefone && x.Id != cadastro.Id))
+                {
+                    TempData["ErroAtualizacao"] = "Telefone já cadastrado";
+                    return RedirectToAction("Login");
+                }
+                else
+                {
+                    if (dadosExistentes(cadastro) && !voltar)
+                    {
+                        await _contexto.CadastroUser.AddAsync(cadastro);
+                        await _contexto.SaveChangesAsync();
+                        return RedirectToAction("Login", "CadastroHelpDesk", new { area = "" });
+                    }
+                    else
+                    {
+                        TempData["ErroAtualizacao"] = "Preencha todos os dados";
+                        return RedirectToAction("Login");
+                    }
+                }
+            }
+            else
+            {
+                return RedirectToAction("Login", "CadastroHelpDesk");
+            }
         }
         [HttpGet]
         [AllowAnonymous]
@@ -209,6 +269,58 @@ namespace HD_SUPPORT.Controllers
             _contexto.CadastroUser.Remove(cadastro);
             await _contexto.SaveChangesAsync();
             return RedirectToAction("Index", "CadastroFunc", new { area = "" });
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult EnviarEmail(string email)
+        {
+            const string caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            Random random = new Random();
+            int comprimento = 5;
+            char[] codigo = new char[comprimento];
+            for (int i = 0; i < comprimento; i++)
+            {
+                codigo[i] = caracteres[random.Next(caracteres.Length)];
+            }
+            var CodigoAleatorio = new string(codigo);
+            string mensagem = $"Seu Codigo de verificação é: {CodigoAleatorio}. Não Compartilhe este codigo";
+            string subject = "HD - Support  -- Codigo de verificação";
+
+            try
+            {
+                this.emailSender.SendEmailAsync(email, subject, mensagem);
+                TempData["CodigoAleatorio"] = CodigoAleatorio;
+
+                return Json(new { success = true, message = "Código enviado com sucesso." });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "Erro ao enviar o código por e-mail.", error = ex.Message });
+            }
+        }
+
+
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult VerificacaoEmail(string codigoVerificacao)
+        {
+            Console.WriteLine("codigo recebido do front:" + codigoVerificacao);
+            var codigoArmazenado = TempData["CodigoAleatorio"] as string;
+            if (codigoVerificacao == codigoArmazenado && codigoArmazenado != null)
+            {
+                TempData["sucessoAtualizacao"] = "Cadastro criado com sucesso";
+                return Json(new { success = true, message = "Cadastro Criado com sucesso." });
+            }
+            else if (codigoVerificacao == null)
+            {
+                TempData["ErroAtualizacao"] = "Codigo vazio, tente novamente";
+                return Json(new { success = false, message = "Código vazio, tente novamente." });
+            }
+            else
+            {
+                TempData["ErroAtualizacao"] = "Codigo Incorreto";
+                return Json(new { success = false, message = "Código incorreto, tente novamente." });
+            }
         }
     }
 
