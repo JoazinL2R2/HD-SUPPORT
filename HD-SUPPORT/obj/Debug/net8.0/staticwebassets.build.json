@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bB+1gU45cwYjl5Wyv85TiaC+jcz10BEQy4OIH9UoWTg=",
+  "Hash": "sjUz4C/hTYWvP1aPRmX14I6Ncwp5D+cEZdgYaMf4TJ0=",
   "Source": "HD-SUPPORT",
   "BasePath": "_content/HD-SUPPORT",
   "Mode": "Default",
@@ -110,6 +110,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Cadastro.css"
+    },
+    {
+      "Identity": "C:\\Users\\Joazin\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\css\\CadastroFuncLogin.css",
+      "SourceId": "HD-SUPPORT",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Joazin\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "BasePath": "_content/HD-SUPPORT",
+      "RelativePath": "css/CadastroFuncLogin.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\CadastroFuncLogin.css"
     },
     {
       "Identity": "C:\\Users\\Joazin\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\css\\Modals.css",
@@ -756,6 +775,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\sas.gif"
+    },
+    {
+      "Identity": "C:\\Users\\Joazin\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\sas.jpg",
+      "SourceId": "HD-SUPPORT",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Joazin\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "BasePath": "_content/HD-SUPPORT",
+      "RelativePath": "images/sas.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\sas.jpg"
     },
     {
       "Identity": "C:\\Users\\Joazin\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\teste.gif",
