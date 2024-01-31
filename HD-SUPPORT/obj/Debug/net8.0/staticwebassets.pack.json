@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\Cadastro.css"
     },
     {
+      "Id": "C:\\Users\\Joazin\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\css\\CadastroFuncLogin.css",
+      "PackagePath": "staticwebassets\\css\\CadastroFuncLogin.css"
+    },
+    {
       "Id": "C:\\Users\\Joazin\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\css\\Modals.css",
       "PackagePath": "staticwebassets\\css\\Modals.css"
     },
@@ -155,6 +159,10 @@
     {
       "Id": "C:\\Users\\Joazin\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\sas.gif",
       "PackagePath": "staticwebassets\\images\\sas.gif"
+    },
+    {
+      "Id": "C:\\Users\\Joazin\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\sas.jpg",
+      "PackagePath": "staticwebassets\\images\\sas.jpg"
     },
     {
       "Id": "C:\\Users\\Joazin\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\teste.gif",
