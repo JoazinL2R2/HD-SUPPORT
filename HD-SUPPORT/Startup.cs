@@ -41,8 +41,8 @@ namespace HD_SUPPORT
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie(options =>
             {
-                options.LoginPath = "/CadastroHelpDesk/Login";
-                options.AccessDeniedPath = "/CadastroHelpDesk/Login";
+                options.LoginPath = "/Home/Index";
+                options.AccessDeniedPath = "/Home/Index";
             });
 
             services.AddAuthorization(options =>
@@ -79,7 +79,7 @@ namespace HD_SUPPORT
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=CadastroHelpDesk}/{action=Login}/{id?}");
+                pattern: "{controller=Home}/{action=Index}/{id?}");
         }
     }
 }

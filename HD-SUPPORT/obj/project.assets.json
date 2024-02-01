@@ -7099,19 +7099,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Joazin\\.nuget\\packages\\": {}
+    "C:\\Users\\gusta\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Joazin\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj",
+      "projectUniqueName": "C:\\Users\\gusta\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj",
       "projectName": "HD-SUPPORT",
-      "projectPath": "C:\\Users\\Joazin\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj",
-      "packagesPath": "C:\\Users\\Joazin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Joazin\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\obj\\",
+      "projectPath": "C:\\Users\\gusta\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj",
+      "packagesPath": "C:\\Users\\gusta\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\gusta\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Joazin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\gusta\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7201,7 +7201,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
