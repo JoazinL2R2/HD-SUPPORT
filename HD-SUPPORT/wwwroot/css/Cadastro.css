@@ -23,7 +23,6 @@ body {
     width: 100%;
     align-items: center;
     justify-content: space-around;
-    margin-top: 8vh;
     flex-wrap: wrap;
 }
 
@@ -31,7 +30,7 @@ body {
     width: 100%;
     max-width: 100%;
     background-color: rgb(255, 255, 255);
-    height: 100%;
+    height: 80%;
     border-radius: 30px;
     display: flex;
     justify-content: center;
@@ -83,22 +82,24 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     justify-content: center;
     position: relative;
-    bottom: 80px;
     width: 400px;
+    top: 20px;  
 }
 
     .text-content h1 {
         color: #3b3b3b;
-        font-size: 50px;
+        font-size: 30px;
         font-weight: 900;
+        position: relative;
     }
 
     .text-content p {
         color: #000000;
         position: relative;
-        top: 15px;
+        bottom: 5px;
     }
 
     .text-content img {
@@ -110,6 +111,8 @@ form {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
+    top: 20px;
 }
 
 #FormCadastro label {
@@ -132,14 +135,16 @@ form {
     width: 300px;
 }
 
-
+#LoginCadastroFunc{
+    position: relative;
+    bottom: 25px;
+}
 .btn-login {
     border: 2px solid #0169fd;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    margin-top: 20px;
     height: 40px;
     border-radius: 8px;
     color: white;
@@ -148,6 +153,7 @@ form {
     text-align: center;
     transition: ease 0.5s;
     cursor: pointer;
+    bottom: 40px;
 }
 
 .btn-funcionario {
