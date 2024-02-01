@@ -29,6 +29,10 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\gusta\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\css\\video.css",
+      "PackagePath": "staticwebassets\\css\\video.css"
+    },
+    {
       "Id": "C:\\Users\\gusta\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },

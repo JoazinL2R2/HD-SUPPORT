@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "F7BolSo424YOu+397+6OChrfX7X+rZH4tf+W6abOgFg=",
+  "Hash": "QGFtapB9U7qfgMh7QVIs5lzC1VEBTGjH6K4i2BPsWfw=",
   "Source": "HD-SUPPORT",
   "BasePath": "_content/HD-SUPPORT",
   "Mode": "Default",
@@ -205,6 +205,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Tebela.css"
+    },
+    {
+      "Identity": "C:\\Users\\gusta\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\css\\video.css",
+      "SourceId": "HD-SUPPORT",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\gusta\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "BasePath": "_content/HD-SUPPORT",
+      "RelativePath": "css/video.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\video.css"
     },
     {
       "Identity": "C:\\Users\\gusta\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\favicon.ico",

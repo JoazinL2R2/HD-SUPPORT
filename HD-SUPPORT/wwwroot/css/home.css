@@ -13,9 +13,11 @@
         transform: translateY(650px);
     }
 }
+
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
+
 @font-face {
-    font-family: "space-grotesk"+;
+    font-family: "space-grotesk";
     src: url(~/fonts/space-grotesk.bold.otf);
 }
 
@@ -31,6 +33,7 @@
     box-sizing: border-box;
     font-family: space-grotesk;
 }
+
 body {
     background-color: black;
     display: flex;
@@ -38,7 +41,6 @@ body {
     justify-content: center;
     color: white;
     flex-direction: column;
-    background-image: url();
 }
 
 header {
@@ -60,17 +62,25 @@ header {
     z-index: -10;
 }
 
-    .content-stars video {
-        position: fixed;
-        top: 0;
-        left: 0;
-        object-fit: cover;
-        width: 100%;
-        height: 100vh;
-        opacity: 80%;
-        filter: brightness(20);
-        filter: contrast(2);
-    }
+.container {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.content-stars video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100vh;
+    opacity: 80%;
+    filter: brightness(20);
+    filter: contrast(2);
+}
 
 .content-home {
     align-items: center;
@@ -79,7 +89,7 @@ header {
     bottom: 70px;
     max-width: 100%;
     height: 100vh;
-    justify-content: space-around;
+    justify-content: center;
     display: flex;
     flex-wrap: wrap;
     font-weight: 900;
@@ -92,8 +102,13 @@ header {
     display: flex;
     flex-direction: column;
     font-size: 30px;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'JetBrains Mono';
 }
+
+    .content-text h1 {
+        font-weight: 900;
+    }
+
 #seguro {
     background: linear-gradient(90deg, rgb(1, 51, 116) 35%, rgb(2, 77, 184) 100%);
     width: 180px;
@@ -101,6 +116,7 @@ header {
     text-align: center;
     border-radius: 30px 0px 30px 30px;
 }
+
 .content_planet {
     width: 50%;
     z-index: 10;
@@ -136,6 +152,7 @@ header {
 
 
 .box {
+    display: flex;
     --clr-shadow__border: #0e0af7;
     --clr-text: #F6F4EB;
     border-radius: 12px;
@@ -146,11 +163,7 @@ header {
     position: relative;
     outline: 1px solid var(--clr-shadow__border);
     width: 300px;
-    align-items: center;
-    display: flex;
-    justify-content: center
-    text-align: center;
-    bottom: 180px;
+    margin-top: 200px;
 }
 
 .button {
@@ -164,12 +177,16 @@ header {
     border-radius: 12px;
     font-weight: 100;
     width: 300px;
-    font-family: 'JetBrains Mono'
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    align-items: center;
 }
 
     .button:hover {
         color: white;
         border: none;
+        text-decoration: none;
     }
 
 .space {
@@ -357,6 +374,6 @@ header {
 
     .box {
         position: relative;
-        bottom: 250px;
+        bottom: 0px;
     }
 }
