@@ -2,8 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\HD-SUPPORT",
-    "\\HD-SUPPORT\\Controllers"
+    "\\HD-SUPPORT\\Controllers",
+    "\\HD-SUPPORT\\Services",
+    "\\HD-SUPPORT\\Views",
+    "\\HD-SUPPORT\\Views\\CadastroFunc",
+    "\\HD-SUPPORT\\Views\\CadastroHelpDesk"
   ],
-  "SelectedNode": "\\HD-SUPPORT\\Controllers\\CadastroHelpDeskController.cs",
+  "SelectedNode": "\\HD-SUPPORT\\Views\\CadastroFunc\\_ExcluirFuncPartialView.cshtml",
   "PreviewInSolutionExplorer": false
 }
