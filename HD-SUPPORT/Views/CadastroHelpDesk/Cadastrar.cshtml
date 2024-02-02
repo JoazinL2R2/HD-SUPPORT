@@ -33,8 +33,7 @@
                             <input asp-for="Senha" class="form-control" />
                             <span asp-validation-for="Senha" class="text-danger"></span>
                             <br />
-                            <label class="control-label">Função</label>
-                            <br />
+                            
                             <select name="funcao" id="categorias">
                                 <option value="HelpDesk">
                                     Help-Desk
@@ -44,8 +43,8 @@
                                 </option>
                             </select>
                             <br />
-                            <label asp-for="Foto" class="control-label"></label>
-                            <input class="form-control" asp-for="Foto" name="Imagem" id="Imagem" type="file" />
+                            <label asp-for="Foto" id="foto-label" class="foto-label"></label>
+                            <input class="foto" asp-for="Foto" name="Imagem" id="Imagem" type="file" />
                             <span asp-validation-for="Foto" class="text-danger"></span>
                             <br />
 
@@ -53,7 +52,7 @@
 
                                 <button class="btn-login" id="btn-login" type="submit">Criar Conta</button>
 
-                                <a asp-action="Login" asp-controller="CadastroHelpDesk">Ja possui conta?</a>
+                                <a asp-action="Login" id="conta" asp-controller="CadastroHelpDesk">Ja possui conta?</a>
                             </div>
                         </form>
                     </div>

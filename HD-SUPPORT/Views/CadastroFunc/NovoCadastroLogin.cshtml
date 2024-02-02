@@ -3,8 +3,8 @@
     ViewData["Title"] = "Index";
 }
 <head>
-    <link rel="stylesheet" href="~/css/Cadastro.css">
-    <link rel="stylesheet" href="~/css/video.css" />
+    <link rel="stylesheet" href="~/css/video.css">
+    <link rel="stylesheet" href="~/css/CadastroFuncLogin.css">
 </head>
 <body>
     <div class="content-stars">
@@ -16,64 +16,64 @@
                 <div class="content-form-primary">
                     <div class="form-content">
                         <div class="text-content">
-                            <h1>Realizar Cadastro!</h1>
-                            <p>Insira suas informações</p>
+                            <img src="~/images/photo_4949811906286300321_y.jpg" height="40px" alt="">
+                            <h1>Cadastrar-se</h1>
+
                         </div>
                         <form id="novocadastro-form" asp-action="NovoCadastro">
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                            <div class="form-group">
-                                <label asp-for="Nome" class="control-label"></label>
-                                <input asp-for="Nome" class="form-control" />
-                                <span asp-validation-for="Nome" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="Email" class="control-label"></label>
-                                <input asp-for="Email" class="form-control" id="EmailInputFunc" />
-                                <span asp-validation-for="Email" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="Telegram" class="control-label"></label>
-                                <input asp-for="Telegram" class="form-control telefone" />
-                                <span asp-validation-for="Telegram" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="Telefone" class="control-label"></label>
-                                <input asp-for="Telefone" class="form-control telefone" />
-                                <span asp-validation-for="Telefone" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="Status" class="control-label"></label>
-                                <input asp-for="Status" class="form-control" placeholder="Cargo na empresa" />
-                                <span asp-validation-for="Status" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="Categoria" class="control-label"></label>
-                                <br />
-                                <select name="categoria" id="categorias">
-                                    <option value="HomeOffice">
-                                        Home-Office
-                                    </option>
-                                    <option value="Presencial">
-                                        Presencial
-                                    </option>
-                                    <option value="Hibrido">
-                                        Hibrido
-                                    </option>
-                                </select>
-                                <span asp-validation-for="Categoria" class="text-danger"></span>
-                                <br />
-                            </div>
 
-                            <div class="form-group">
-                                <br />
-                                <a class="btn btn-primary" id="LoginCadastroFunc">Cadastrar</a>
+                            <label asp-for="Nome" class="control-label"></label>
+                            <input asp-for="Nome" class="form-control" />
+                            <span asp-validation-for="Nome" class="text-danger"></span>
+                      
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" class="form-control" id="EmailInputFunc" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+
+                     
+                            <label asp-for="Telegram" id="control-label" class="control-label">Telegram</label>
+                            <input asp-for="Telegram" class="form-control telefone" />
+                            <span asp-validation-for="Telegram" class="text-danger"></span>
+
+                            <label asp-for="Telefone" id="control-label" class="control-label">Telefone</label>
+                            <input asp-for="Telefone" class="form-control telefone" />
+                            <span asp-validation-for="Telefone" class="text-danger"></span>
+
+                            <label asp-for="Status" class="control-label"></label>
+                            <input asp-for="Status" class="form-control" placeholder="Cargo na empresa" />
+                            <span asp-validation-for="Status" class="text-danger"></span>
+
+                            <label asp-for="Categoria" class="categoria"></label>
+                            <select name="categoria" id="categorias">
+                                <option id="option" value="HomeOffice">
+                                    Home-Office
+                                </option>
+                                <option id="option" value="Presencial">
+                                    Presencial
+                                </option>
+                                <option id="option" value="Hibrido">
+                                    Hibrido
+                                </option>
+                            </select>
+                            <span asp-validation-for="Categoria" class="text-danger"></span>
+
+                            <br />
+                            <div class="position-button">
+
+
+                                <div class="btn-login" id="btn-login">
+                                    <a id="LoginCadastroFunc">Cadastrar</a>
+                                </div>
+
+
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="content-right">
-                <img src="~/images/image 11.png" alt="">
+                <img src="~/images/msg5916651316-1528.jpg" alt="">
             </div>
         </div>
     </div>
@@ -81,17 +81,15 @@
     <div class="modal" id="NovoCadastroFuncLoginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Verificar Codigo</h1>
-                </div>
                 <div class="modal-body">
                     <div id="ModalVerificacaoCadastro">
                         <form asp-action="VerificacaoEmail" asp-controller="CadastroFunc" method="post">
-                            <h1>Verifique o seu email</h1><br />
-
+                            <img src="~/images/gmail.png" height="50px" />
+                            <h1>Verifique o seu email</h1>
+                                <p>Vefifique o código em sua caixa de mensagens</p>
                             <input type="text" placeholder="Digite o código" id="inputCodigo" />
                             <br />
-                            <a role="button" class="btn btn-outline-success " id="btnVerificarCodigo">Verificar</a>
+                            <a role="button" class="btn" id="btnVerificarCodigo">Verificar</a>
                         </form>
                     </div>
                 </div>
@@ -212,3 +210,5 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
+
+

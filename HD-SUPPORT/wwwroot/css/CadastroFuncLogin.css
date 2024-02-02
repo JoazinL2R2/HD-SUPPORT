@@ -84,33 +84,68 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
+    bottom: 80px;
     width: 400px;
-    bottom: 30px;
 }
 
     .text-content h1 {
         color: #3b3b3b;
-        font-size: 50px;
+        font-size: 30px;
         font-weight: 900;
+        position: relative;
+        top: 50px;
     }
 
     .text-content p {
         color: #000000;
         position: relative;
-        bottom: 10px;
+        top: 15px;
     }
 
     .text-content img {
         height: 60px;
     }
-
+    #novocadastro-form{
+        position: relative;
+        bottom: 30px;
+    }
+    .control-label{
+        position: relative;
+        right: 120px;
+        top: 5px;
+        font-weight: 600;
+    }
+    .categoria{
+        text-align: center;
+    }
+    #categorias{
+        border: none;
+        border-style: none;
+        background-color: white;
+        border-radius:3px;
+        height: 30px;
+        color: #0169fd;
+        border: 1px solid #0169fd;
+        outline: 0;
+    }
+    option:hover{
+        background-color: #0169fd;
+        color: white;
+    }
+.form-control {
+    height: 30px;
+    border: none;
+    border-style: none;
+    width: 300px;
+    border-bottom: 2px solid #0169fd;
+    outline: 0;
+    margin-bottom: 15px;
+}
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative;
-    bottom: 20px;
 }
 
 #loginForm label {
@@ -135,21 +170,78 @@ form {
 }
 
 
-#loginButton {
+.btn-login {
     border: 2px solid #0169fd;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    margin-top: 20px;
-    height: 40px;
     border-radius: 8px;
     color: white;
+    bottom: 40px;
     width: 250px;
     background-color: #0169fd;
     text-align: center;
     transition: ease 0.5s;
     cursor: pointer;
+}
+#inputCodigo{
+    height: 40px;
+    border: 2px solid #0169fd;
+    width: 300px;
+    border-radius: 10px 0px 10px 10px;
+    outline: 0;
+    position: relative;
+    bottom: 20px;
+    padding: 0 10px;
+}
+#inputCodigo::placeholder{
+    position: relative;
+    left: px;
+}
+#btnVerificarCodigo{
+    border: none;
+    width: 150px;
+    position: relative;
+    bottom: 10px;
+    border: #0169fd 1px solid;
+    color: #0169fd;
+    transition: ease all 0.5s;
+}
+#btnVerificarCodigo:hover{
+    background-color: #0169fd;
+    color: white;
+}
+.modal-body{
+    
+}
+#ModalVerificacaoCadastro{
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+    #ModalVerificacaoCadastro h1{
+        position: relative;
+        bottom:30px;
+    }
+    #ModalVerificacaoCadastro p{
+        position: relative;
+        bottom: 35px;
+        font-size: 15px
+    }
+    #ModalVerificacaoCadastro img{
+        margin-bottom: 10px;
+        margin-top: 10px;
+        position: relative;
+        bottom: 25px;
+        height: 40px;
+    }
+
+@keyframes bounce {
+    50% {
+        transform: translateY(25px);
+    }
 }
 
 .btn-funcionario {
@@ -178,8 +270,17 @@ form {
         text-align: center;
     }
 
+.btn-login a {
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+    width: 500px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 
-#loginButton:hover {
+.btn-login:hover {
     background-color: white;
     color: #0169fd;
     border: 2px solid #0169fd;
@@ -189,6 +290,9 @@ form {
     color: white;
 }
 
+.btn-login a:hover {
+    color: #0169fd;
+}
 
 .btn-funcionario:hover {
     background-color: #0169fd;
@@ -207,6 +311,65 @@ form {
 
 .funcionario-link a {
     color: #0169fd;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 12px 8px 16px;
+    gap: 8px;
+    height: 40px;
+    width: 128px;
+    border: none;
+    background: #056bfa27;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.lable {
+    margin-top: 1px;
+    font-size: 19px;
+    line-height: 22px;
+    color: #056DFA;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+}
+
+.button:hover {
+    background: #056bfa49;
+}
+
+    .button:hover .svg-icon {
+        animation: spin 1s linear infinite;
+    }
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-8deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(8deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+
+.button > i {
+    font-size: 20px;
+    color: #056DFA;
 }
 
 @media only screen and (min-width:300px) and (max-width: 1020px) {

@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\HD-SUPPORT",
-    "\\HD-SUPPORT\\Controllers"
+    "\\HD-SUPPORT"
   ],
-  "SelectedNode": "\\HD-SUPPORT\\Controllers\\CadastroHelpDeskController.cs",
+  "SelectedNode": "\\HD-SUPPORT\\Startup.cs",
   "PreviewInSolutionExplorer": false
 }
