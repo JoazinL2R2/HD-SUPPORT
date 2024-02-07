@@ -40,6 +40,9 @@
                             <div class="funcionario-link">
                                 <a role="button" asp-controller="CadastroHelpDesk" asp-action="Cadastrar">Sou da equipe Help Desk</a>
                             </div>
+                            <div class="funcionario-link">
+                                <a role="button" id="btnRecuperarSenha">Esqueceu sua senha?</a>
+                            </div>
 
                             <button id="loginButton" type="submit">Login</button>
 
@@ -57,8 +60,64 @@
     </div>
 </div>
 
+<div class="modal fade" id="ModalRecuperarSenha" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Verificar codigo</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="ModalRecuperarSenhaBody">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="ModalRecuperarSenha" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Recuperar senha</h1>
+            </div>
+            <div class="modal-body">
+                <div id="Verificacao">
+                    <form asp-action="VerificacaoEmail" asp-controller="CadastroHelpDesk" method="post">
+                        <h1>Insira seu E-mail:</h1><br />
+
+                        <input type="text" placeholder="informe seu e-mail" id="emailRecuperacao" />
+                        <br />
+                        <a role="button" class="btn btn-outline-success ">Recuperar</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 @section Scripts {
     <script src="~/js/jquery.inputmask.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#btnRecuperarSenha').click(function () {
+                abrirModalRecuperarSenha();
+            });
+        })
+
+        function abrirModalRecuperarSenha(id) {
+            $.ajax({
+                type: 'GET',
+                url: '/CadastroFunc/Edit/' + id,
+                success: function (result) {
+                    $("#ModalEditar").html(result);
+                    $('#EditarFuncModal').modal('show');
+                    $(".telefone").inputmask('(99) 99999-9999');
+                }
+            });
+        }
+    </script>
 }
 
 
