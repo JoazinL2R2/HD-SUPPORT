@@ -13,6 +13,8 @@ using System.ComponentModel;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using HD_SUPPORT.Services;
 using Microsoft.Extensions.Caching.Memory;
+using System.Security.Cryptography;
+using System.Text;
 
 
 namespace HD_SUPPORT.Controllers
@@ -34,6 +36,20 @@ namespace HD_SUPPORT.Controllers
         public IActionResult Cadastrar()
         {
             return View();
+        }
+
+        public string criarHash(string texto)
+        {
+            var md5 = MD5.Create();
+            byte[] bytes = System.Text.Encoding.ASCII.GetBytes(texto);
+            byte[] hash = md5.ComputeHash(bytes);
+
+            StringBuilder sb = new StringBuilder();
+            for(int i = 0; i < hash.Length; i++)
+            {
+                sb.Append(hash[i].ToString("X2"));
+            }
+            return sb.ToString();
         }
 
         public const int ImageMinimumBytes = 512;
@@ -79,6 +95,7 @@ namespace HD_SUPPORT.Controllers
                 {
                     cadastro.Nome = funcao + "-" + cadastro.Nome;
                     cadastro.Foto = Convert.FromBase64String(img_verificado);
+                    cadastro.Senha = criarHash(cadastro.Senha);
                     await _contexto.CadastroHD.AddAsync(cadastro);
                     await _contexto.SaveChangesAsync();
                     return RedirectToAction("Index", "CadastroFunc", new { area = "" });
@@ -132,14 +149,13 @@ namespace HD_SUPPORT.Controllers
                 HttpContext.Session.Clear();
             }
 
-
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> Login(CadastroHelpDesk cadastro)
         {
-            if (_contexto.CadastroHD.Any(x => x.Email == cadastro.Email && x.Senha == cadastro.Senha))
+            if (_contexto.CadastroHD.Any(x => x.Email == cadastro.Email && x.Senha == criarHash(cadastro.Senha)))
             {
                 var usuario = _contexto.CadastroHD.Where(b => b.Email == cadastro.Email).FirstOrDefault();
                 var NomeSeparado = usuario.Nome.Split("-");
@@ -185,8 +201,6 @@ namespace HD_SUPPORT.Controllers
             emailSeparado[0] = emailSeparado[0].Substring(0, Convert.ToInt16(MathF.Ceiling(emailSeparado[0].Length / 2))).PadRight(emailSeparado[0].Length, '*');
             var email = emailSeparado[0] + "@" + emailSeparado[1];
             HttpContext.Session.SetString("email", email);
-            var senha = "".PadRight(usuario.Senha.Length, '*');
-            HttpContext.Session.SetString("senha", senha);
             HttpContext.Session.SetInt32("Id", usuario.Id);
             HttpContext.Session.SetString("profissional", profissional);
         }
@@ -246,6 +260,7 @@ namespace HD_SUPPORT.Controllers
                             Imagem.CopyTo(ms);
                             cadastro.Foto = ms.ToArray();
                         }
+                        cadastro.Senha = criarHash(cadastro.Senha);
                         _contexto.CadastroHD.Update(cadastro);
                         _contexto.SaveChanges();
                         var usuario = _contexto.CadastroHD.Where(b => b.Email == cadastro.Email).FirstOrDefault();
