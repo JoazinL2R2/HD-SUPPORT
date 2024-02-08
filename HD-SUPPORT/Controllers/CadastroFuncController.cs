@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 //using System.Data.Entity.Validation;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using Microsoft.AspNetCore.Http;
+using System;
 
 
 namespace HD_SUPPORT.Controllers
@@ -66,55 +67,66 @@ namespace HD_SUPPORT.Controllers
         }
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> NovoCadastroLogin(CadastroUser cadastro)
+        public async Task<IActionResult> NovoCadastroLogin([Bind("Id,Nome,Email,Telegram,Telefone,Status,Categoria")] CadastroUser cadastro, string verificado)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid || verificado == "True")
             {
-                List<string> numeros = new List<string> { cadastro.Telefone, cadastro.Telegram };
-
-                if (numeros.Any(e => e == null))
+                
+                if (verificado != "True")
                 {
-                    TempData["ErroAtualizacao"] = "Preencha todos os campos";
-                    return RedirectToAction("Login", "CadastroHelpDesk", new { area = "" });
-                }
+                    
+                    List<string> numeros = new List<string> { cadastro.Telefone, cadastro.Telegram };
 
-                bool voltar = false;
-                numeros.ForEach(e =>
-                {
-                    if (verificaDigitos(e))
+                    if (numeros.Any(e => e == null))
                     {
-                        voltar = true;
+                        TempData["ErroAtualizacao"] = "Preencha todos os campos";
+                        return View(cadastro);
                     }
-                });
-                if (_contexto.CadastroUser.Any(x => x.Email == cadastro.Email && x.Id != cadastro.Id))
-                {
-                    TempData["ErroAtualizacao"] = "Email já Cadastrado";
-                    return RedirectToAction("Login");
-                }
-                if (_contexto.CadastroUser.Any(x => x.Telefone == cadastro.Telefone && x.Id != cadastro.Id))
-                {
-                    TempData["ErroAtualizacao"] = "Telefone já cadastrado";
-                    return RedirectToAction("Login");
-                }
-                else
-                {
-                    if (dadosExistentes(cadastro) && !voltar)
+
+                    bool voltar = false;
+                    numeros.ForEach(e =>
                     {
-                        await _contexto.CadastroUser.AddAsync(cadastro);
-                        await _contexto.SaveChangesAsync();
-                        return RedirectToAction("Login", "CadastroHelpDesk", new { area = "" });
+                        if (verificaDigitos(e))
+                        {
+                            voltar = true;
+                        }
+                    });
+                    if (_contexto.CadastroUser.Any(x => x.Email == cadastro.Email && x.Id != cadastro.Id))
+                    {
+                        TempData["ErroAtualizacao"] = "Email já Cadastrado";
+                        return View(cadastro);
+                    }
+                    if (_contexto.CadastroUser.Any(x => x.Telefone == cadastro.Telefone && x.Id != cadastro.Id))
+                    {
+                        TempData["ErroAtualizacao"] = "Telefone já cadastrado";
+                        return View(cadastro);
                     }
                     else
                     {
-                        TempData["ErroAtualizacao"] = "Preencha todos os dados";
-                        return RedirectToAction("Login");
+                        if (dadosExistentes(cadastro) && !voltar)
+                        {
+                            TempData["podeverificar"] = "pode";
+                            return View(cadastro);
+                        }
+                        else
+                        {
+                            TempData["ErroAtualizacao"] = "Preencha todos os dados";
+                            return View(cadastro);
+                        }
                     }
+                }
+                else
+                {
+                    await _contexto.CadastroUser.AddAsync(cadastro);
+                    await _contexto.SaveChangesAsync();
+                    return RedirectToAction("Login", "CadastroHelpDesk", new { area = "" });
                 }
             }
             else
             {
-                return RedirectToAction("Login", "CadastroHelpDesk");
+                return View(cadastro);
             }
+            
         }
         [HttpGet]
         [AllowAnonymous]

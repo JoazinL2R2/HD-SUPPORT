@@ -16,8 +16,9 @@
                             <h1>Cadastrar-se</h1>
 
                         </div>
-                        <form id="novocadastro-form" asp-action="NovoCadastro">
+                        <form id="novocadastro-form" asp-action="NovoCadastroLogin">
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input hidden name="verificado" id="verificado" value="False" />
 
                             <label asp-for="Nome" class="control-label"></label>
                             <input asp-for="Nome" class="form-control" />
@@ -133,6 +134,24 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="ModelErro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Erro</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="ModelErro">
+                        <p>@TempData["ErroAtualizacao"]</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 @section Scripts {
@@ -147,6 +166,12 @@
                     $('#ModelErro').modal('show');
                 }, 1000);
             }
+
+            if ('@TempData["podeverificar"]' == "pode") {
+                var email = $('#EmailInputFunc').val();
+                window.emailTemporario = email;
+                modalVerificacao();
+            }
             $('#NovoCadastroFuncLoginModal').modal({
                 keyboard: false,
                 backdrop: 'static'
@@ -154,10 +179,9 @@
 
             $('#LoginCadastroFunc').click(function () {
                 console.log("btn clicado");
-                var email = $('#EmailInputFunc').val();
-                window.emailTemporario = email;
-                modalVerificacao();
+                document.getElementById('novocadastro-form').submit();
             });
+
             $('#btnVerificarCodigo').click(function (event) {
                 event.preventDefault();
                 var codigo = $('#NovoCadastroFuncLoginModal #inputCodigo').val();
@@ -191,11 +215,11 @@
                     success: function (result) {
                         console.log('VerificacaoCodigo sucesso');
                         if (result.success) {
+                            $('#verificado').val("True");
                             document.getElementById('novocadastro-form').submit();
                             console.log('FormEnviado sucesso');
                             $('#NovoCadastroFuncLoginModal').modal('hide')
                             $('#modalSucesso').modal(`show`);
-
                         } else {
                             console.log('Código de verificação incorreto');
                             $('#NovoCadastroFuncLoginModal').modal('hide')
