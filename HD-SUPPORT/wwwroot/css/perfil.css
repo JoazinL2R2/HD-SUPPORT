@@ -87,6 +87,16 @@ body {
     transition: ease 0.5s
 }
 
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #000000;
+    background-image: url(~/images/2iiB.gif);
+}
+
 .btn-excluir button {
     display: flex;
     align-items: center;

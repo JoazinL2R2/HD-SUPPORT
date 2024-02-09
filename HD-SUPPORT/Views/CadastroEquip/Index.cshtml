@@ -50,17 +50,36 @@
                 <a role="button">
                     <i class="bi bi-search"></i>
                 </a>
-                <input type="search" placeholder="Faça sua pesquisa" name="SearchString">
+                <input type="search" placeholder="Faça sua pesquisa" name="SearchString" value="@TempData["pesquisa"]">
                 <select name="disponivel">
                     <option value="2">
                         Ambos
                     </option>
-                    <option value="1">
-                        Dísponivel
-                    </option>
-                    <option value="0">
-                        Indisponível
-                    </option>
+                    @if(TempData["disponivel"].ToString()=="1")
+                    {
+                        <option value="1" selected>
+                            Dísponivel
+                        </option>
+                    }
+                    else
+                    {
+                        <option value="1">
+                            Dísponivel
+                        </option>
+                    }
+                    @if (TempData["disponivel"].ToString() == "0")
+                    {
+                        <option value="0" selected>
+                            Indísponivel
+                        </option>
+                    }
+                    else
+                    {
+                        <option value="0">
+                            Indísponivel
+                        </option>
+                    }
+
                 </select>
             </form>
             <span>

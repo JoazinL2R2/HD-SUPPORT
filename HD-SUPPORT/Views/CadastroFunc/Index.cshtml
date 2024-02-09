@@ -35,7 +35,7 @@
             <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="LogOut">Sair</a>
         </div>
     </header>
-
+    <br>
 }
 <head>
 
@@ -47,11 +47,41 @@
     <div class="TableContainer">
         <div class="table-menu">
             <p style="color:white">Mostrando @TempData["QuantidadeDadosTabela"] de @TempData["QuantidadeDados"] funcionários</p>
-            <form asp-action="Index" asp-controller="CadastroFunc">
+            <form asp-action="Index" asp-controller="CadastroFunc" class="d-flex">
                 <a role="button">
                     <i class="bi bi-search"></i>
                 </a>
-                <input type="search" placeholder="Faça sua pesquisa" name="SearchString">
+                <input type="search" placeholder="Faça sua pesquisa" name="SearchString" value="@TempData["pesquisa"]">
+                <div class="d-flex">
+                    <p style="color:white">Ordenar:</p>
+                    <select name="ordenar">
+                        <option value="ordenar">
+                            Recentes
+                        </option>
+                        @if (TempData["ordem"].ToString() == "az")
+                        {
+                            <option value="az" selected>
+                                De A-Z
+                            </option>
+                        }else{
+                            <option value="az">
+                                De A-Z
+                            </option>
+                        }
+                        @if (TempData["ordem"].ToString() == "za")
+                        {
+                            <option value="za" selected>
+                                De Z-A
+                            </option>
+                        }
+                        else
+                        {
+                            <option value="za">
+                                De Z-A
+                            </option>
+                        }
+                    </select>
+                </div>
             </form>
             <span>
                 <a asp-action="Index">
@@ -148,6 +178,7 @@
                         <form asp-action="Index" asp-controller="CadastroFunc">
                             <input hidden name="searchString" value="@TempData["pesquisa"]">
                             <input hidden name="paginaAtual" value="@(pagina-1)">
+                            <input hidden name="ordenar" value="@TempData["ordem"]">
                             @if (pagina != 1)
                             {
                                 <button class="page-link" type="submit"><i class="bi bi-arrow-left"></i></button>
@@ -162,6 +193,7 @@
                             <form asp-action="Index" asp-controller="CadastroFunc">
                                 <input hidden name="searchString" value="@TempData["pesquisa"]">
                                 <input hidden name="paginaAtual" value="1">
+                                <input hidden name="ordenar" value="@TempData["ordem"]">
                                 @if (pagina != 1)
                                 {
                                     <button class="page-link" type="submit">1</button>
@@ -198,6 +230,7 @@
                                     <form asp-action="Index" asp-controller="CadastroFunc">
                                         <input hidden name="searchString" value="@TempData["pesquisa"]">
                                         <input hidden name="paginaAtual" value="@pag">
+                                        <input hidden name="ordenar" value="@TempData["ordem"]">
                                         @if(pag != pagina)
                                         {
                                             <button class="page-link" type="submit">@pag</button>
@@ -216,6 +249,7 @@
                             <form asp-action="Index" asp-controller="CadastroFunc">
                                 <input hidden name="searchString" value="@TempData["pesquisa"]">
                                 <input hidden name="paginaAtual" value="@dados">
+                                <input hidden name="ordenar" value="@TempData["ordem"]">
                                 @if (dados != pagina)
                                 {
                                     <button class="page-link" type="submit">@dados</button>
@@ -231,6 +265,7 @@
                         <form asp-action="Index" asp-controller="CadastroFunc">
                             <input hidden name="searchString" value="@TempData["pesquisa"]">
                             <input hidden name="paginaAtual" value="@(pagina+1)">
+                            <input hidden name="ordenar" value="@TempData["ordem"]">
                             @if (pagina != dados)
                             {
                                 <button class="page-link" type="submit"><i class="bi bi-arrow-right"></i></button>
