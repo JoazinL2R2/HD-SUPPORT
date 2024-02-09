@@ -5,8 +5,12 @@
 }
 <head>
     <link rel="stylesheet" href="~/css/Cadastro.css">
+    <link rel="stylesheet" href="~/css/video.css">
 </head>
 <body>
+    <div class="content-stars">
+        <video src="~/images/pexels_videos_2792967 (1440p).mp4" autoplay loop muted></video>
+    </div>
     <div class="container">
         <div class="content-login">
             <div class="content-left">
@@ -33,8 +37,7 @@
                             <input asp-for="Senha" class="form-control" />
                             <span asp-validation-for="Senha" class="text-danger"></span>
                             <br />
-                            <label class="control-label">Função</label>
-                            <br />
+
                             <select name="funcao" id="categorias">
                                 <option value="HelpDesk">
                                     Help-Desk
@@ -44,8 +47,8 @@
                                 </option>
                             </select>
                             <br />
-                            <label asp-for="Foto" class="control-label"></label>
-                            <input class="form-control" asp-for="Foto" name="Imagem" id="Imagem" type="file" />
+                            <label asp-for="Foto" id="foto-label" class="foto-label"></label>
+                            <input class="foto" asp-for="Foto" name="Imagem" id="Imagem" type="file" />
                             <span asp-validation-for="Foto" class="text-danger"></span>
                             <br />
 
@@ -53,7 +56,7 @@
 
                                 <button class="btn-login" id="btn-login" type="submit">Criar Conta</button>
 
-                                <a asp-action="Login" asp-controller="CadastroHelpDesk">Ja possui conta?</a>
+                                <a asp-action="Login" id="conta" asp-controller="CadastroHelpDesk">Ja possui conta?</a>
                             </div>
                         </form>
                     </div>

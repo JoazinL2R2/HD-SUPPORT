@@ -1,4 +1,5 @@
-﻿.container-modal {
+﻿modals css
+.container-modal {
     margin-top: 20vh;
     background-color: white;
     border-radius: 10px;
@@ -32,7 +33,7 @@
     align-items: center;
 }
 
-    .modal-body input{
+    .modal-body input {
         width: 300px;
         height: 40px;
         border-radius: 10px;
@@ -76,6 +77,7 @@
     border: 1px solid #046DE1;
     font-size: 15px;
 }
+
 .topico {
     width: 80%;
     height: 80px;
@@ -84,11 +86,235 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction:column;
+    flex-direction: column;
     margin-top: 5vh;
-    padding-top:2vh;
+    padding-top: 2vh;
 }
-.topico label, input{
-    margin: 0;
+
+    .topico label, input {
+        margin: 0;
+        padding: 0;
+    }
+
+login css
+* {
     padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #000000;
+    background-image: url(~/images/2iiB.gif);
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.content-login {
+    width: 100%;
+    max-width: 100%;
+    background-color: rgb(255, 255, 255);
+    height: 600px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 20px -2px rgba(19, 113, 235, 0.75);
+    -webkit-box-shadow: 1px 1px 20px -2px rgba(5, 68, 241, 0.75);
+    -moz-box-shadow: 1px 1px 20px -2px rgba(0, 60, 255, 0.75);
+}
+
+    .content-login .content-left {
+        background-color: rgb(255, 255, 255);
+        height: 100%;
+        width: 50%;
+        border-radius: 30px 0 0 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .content-login .content-right {
+        background-color: blue;
+        height: 100%;
+        width: 80%;
+        border-radius: 0 30px 30px 0;
+    }
+
+        .content-login .content-right img {
+            max-width: 100%;
+            height: 100%;
+            border-radius: 0 30px 30px 0;
+        }
+
+.content-form-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    max-width: 80%;
+}
+
+.logo {
+    position: relative;
+    right: 123px;
+    bottom: 100px;
+}
+
+.text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 400px;
+    bottom: 30px;
+}
+
+    .text-content h1 {
+        color: #3b3b3b;
+        font-size: 50px;
+        font-weight: 900;
+    }
+
+    .text-content p {
+        color: #000000;
+        position: relative;
+        bottom: 10px;
+    }
+
+    .text-content img {
+        height: 60px;
+    }
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    bottom: 20px;
+}
+
+#loginForm label {
+    position: relative;
+    right: 120px;
+    color: black;
+    font-weight: 600;
+}
+
+#loginForm #senha_label {
+    position: relative;
+    right: 127px;
+}
+
+#loginForm input {
+    outline: 0;
+    border-style: none;
+    background-color: white;
+    border-bottom: 2px solid #0169fd;
+    width: 300px;
+    margin-top: 10px;
+}
+
+
+#loginButton {
+    border: 2px solid #0169fd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 20px;
+    height: 40px;
+    border-radius: 8px;
+    color: white;
+    width: 250px;
+    background-color: #0169fd;
+    text-align: center;
+    transition: ease 0.5s;
+    cursor: pointer;
+}
+
+.btn-funcionario {
+    border: 2px solid #0169fd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 20px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 250px;
+    background-color: white;
+    text-align: center;
+    transition: ease 0.5s;
+}
+
+    .btn-funcionario a {
+        width: 500px;
+        color: #0169fd;
+        font-size: 15px;
+        text-decoration: none;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+    }
+
+
+#loginButton:hover {
+    background-color: white;
+    color: #0169fd;
+    border: 2px solid #0169fd;
+}
+
+.btn-funcionario a:hover {
+    color: white;
+}
+
+
+.btn-funcionario:hover {
+    background-color: #0169fd;
+    color: #ffffff;
+    border: 2px solid white;
+}
+
+.position-button {
+    position: relative;
+    top: 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.funcionario-link a {
+    color: #0169fd;
+}
+
+@media only screen and (min-width:300px) and (max-width: 1020px) {
+    .content-right {
+        display: none;
+    }
+
+    .content-left {
+        display: flex;
+        align-items: center;
+    }
 }
