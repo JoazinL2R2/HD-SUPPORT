@@ -2,12 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\HD-SUPPORT",
-    "\\HD-SUPPORT\\Controllers",
-    "\\HD-SUPPORT\\Services",
     "\\HD-SUPPORT\\Views",
-    "\\HD-SUPPORT\\Views\\CadastroFunc",
-    "\\HD-SUPPORT\\Views\\CadastroHelpDesk"
+    "\\HD-SUPPORT\\Views\\CadastroFunc"
   ],
-  "SelectedNode": "\\HD-SUPPORT\\Views\\CadastroFunc\\_ExcluirFuncPartialView.cshtml",
+  "SelectedNode": "\\HD-SUPPORT\\Views\\CadastroFunc\\NovoCadastroLogin.cshtml",
   "PreviewInSolutionExplorer": false
 }

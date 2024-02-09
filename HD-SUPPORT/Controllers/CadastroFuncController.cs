@@ -322,11 +322,7 @@ namespace HD_SUPPORT.Controllers
                 return Json(new { success = false, message = "Código incorreto, tente novamente." });
             }
         }
-        [AllowAnonymous]
-        public IActionResult RecuperarSenha()
-        {
-            return PartialView("_RecuperarSenhaPartialView");
-        }
+
     }
 
     

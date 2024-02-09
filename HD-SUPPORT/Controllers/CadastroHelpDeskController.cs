@@ -13,6 +13,7 @@ using System.ComponentModel;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using HD_SUPPORT.Services;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace HD_SUPPORT.Controllers
@@ -327,6 +328,75 @@ namespace HD_SUPPORT.Controllers
                 TempData["ErroAtualizacao"] = "Codigo Incorreto";
                 return Json(new { success = false, message = "Código incorreto, tente novamente." });
             }
+        }
+
+        [HttpPost]
+        public IActionResult EnviarEmailRecuperacao(string email, CadastroHelpDesk cadastro)
+        {
+
+            var EmailExistenteBaseDados = _contexto.CadastroHD.FirstOrDefault(x => x.Email == email);
+
+            if (EmailExistenteBaseDados == null)
+            {
+                return Json(new { success = false, message = "E-mail não encontrado na base de dados." });
+            }
+            const string caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            Random random = new Random();
+            int comprimento = 5;
+            char[] codigo = new char[comprimento];
+            for (int i = 0; i < comprimento; i++)
+            {
+                codigo[i] = caracteres[random.Next(caracteres.Length)];
+            }
+            var CodigoAleatorio = new string(codigo);
+            string mensagem = $"Seu Código de RECUPERAÇÃO da senha é: {CodigoAleatorio}. Não Compartilhe este código";
+            string subject = "HD - Support  -- Codigo de recuperação";
+
+            try
+            {
+                this.emailSender.SendEmailAsync(email, subject, mensagem);
+                TempData["CodigoAleatorioRecuperacao"] = CodigoAleatorio;
+
+                return Json(new { success = true, message = "Código enviado com sucesso." });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "Erro ao enviar o código por e-mail.", error = ex.Message });
+            }
+        }
+        [HttpPost]
+        public IActionResult VerificacaoRecuperacaoSenha(string codigoVerificacao)
+        {
+            Console.WriteLine("codigo recebido do front:" + codigoVerificacao);
+            var codigoArmazenado = TempData["CodigoAleatorioRecuperacao"] as string;
+            if (codigoVerificacao == codigoArmazenado && codigoArmazenado != null)
+            {
+                TempData["sucessoAtualizacao"] = "Conta criada com sucesso";
+                return Json(new { success = true, message = "Senha alterada com sucesso." });
+            }
+            else if (codigoVerificacao == null)
+            {
+                TempData["ErroAtualizacao"] = "Codigo vazio, tente novamente";
+                return Json(new { success = false, message = "Código vazio, tente novamente." });
+            }
+            else
+            {
+                TempData["ErroAtualizacao"] = "Codigo Incorreto";
+                return Json(new { success = false, message = "Código incorreto, tente novamente." });
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> MudarSenhaRecuperacao(string senha, string confirmacaoSenha, string email)
+        {
+            var cadastro = await _contexto.CadastroHD.FirstOrDefaultAsync(x => x.Email == email);
+            if (senha != confirmacaoSenha) {
+                return Json(new { success = false, message = "As senhas não conferem." });
+            }
+            cadastro.Senha = senha;
+            _contexto.CadastroHD.Update(cadastro);
+            await _contexto.SaveChangesAsync();
+            return Json(new { success = true, message = "Senha alterada com sucesso." });
         }
 
     }
