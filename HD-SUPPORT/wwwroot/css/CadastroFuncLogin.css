@@ -1,11 +1,13 @@
-    *{
+* {
     padding: 0;
     margin: 0;
     font-family: 'Open Sans', sans-serif;
     box-sizing: border-box;
 }
+
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
-body{
+
+body {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,7 +16,8 @@ body{
     background-color: #000000;
     background-image: url(~/images/2iiB.gif);
 }
-.container{
+
+.container {
     display: flex;
     width: 100%;
     align-items: center;
@@ -22,9 +25,10 @@ body{
     margin: 0;
     flex-wrap: wrap;
 }
-.content-login{
+
+.content-login {
     width: 100%;
-    max-width: 80%;
+    max-width: 100%;
     background-color: rgb(255, 255, 255);
     height: 600px;
     border-radius: 30px;
@@ -34,37 +38,40 @@ body{
     box-shadow: 1px 1px 20px -2px rgba(19, 113, 235, 0.75);
     -webkit-box-shadow: 1px 1px 20px -2px rgba(5, 68, 241, 0.75);
     -moz-box-shadow: 1px 1px 20px -2px rgba(0, 60, 255, 0.75);
-    
-}
-.content-login .content-left{    
-    background-color: rgb(255, 255, 255);
-    height: 100%;
-    width: 50%;
-    border-radius: 30px 0 0 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.content-login .content-right{    
-    background-color: blue;
-    height: 100%;
-    width: 80%;
-    border-radius: 0 30px 30px 0;
-}
-.content-login .content-right img{
-    max-width: 100%;
-    height: 100%;
-    border-radius: 0 30px 30px 0;
 }
 
-.content-form-primary{
+    .content-login .content-left {
+        background-color: rgb(255, 255, 255);
+        height: 100%;
+        width: 50%;
+        border-radius: 30px 0 0 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .content-login .content-right {
+        background-color: blue;
+        height: 100%;
+        width: 80%;
+        border-radius: 0 30px 30px 0;
+    }
+
+        .content-login .content-right img {
+            max-width: 100%;
+            height: 100%;
+            border-radius: 0 30px 30px 0;
+        }
+
+.content-form-primary {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 80%;
     max-width: 80%;
 }
+
 .logo {
     position: relative;
     right: 123px;
@@ -83,8 +90,10 @@ body{
 
     .text-content h1 {
         color: #3b3b3b;
-        font-size: 50px;
+        font-size: 30px;
         font-weight: 900;
+        position: relative;
+        top: 50px;
     }
 
     .text-content p {
@@ -96,6 +105,48 @@ body{
     .text-content img {
         height: 60px;
     }
+
+#novocadastro-form {
+    position: relative;
+    bottom: 30px;
+}
+
+.control-label {
+    position: relative;
+    right: 120px;
+    top: 5px;
+    font-weight: 600;
+}
+
+.categoria {
+    text-align: center;
+}
+
+#categorias {
+    border: none;
+    border-style: none;
+    background-color: white;
+    border-radius: 3px;
+    height: 30px;
+    color: #0169fd;
+    border: 1px solid #0169fd;
+    outline: 0;
+}
+
+option:hover {
+    background-color: #0169fd;
+    color: white;
+}
+
+.form-control {
+    height: 30px;
+    border: none;
+    border-style: none;
+    width: 300px;
+    border-bottom: 2px solid #0169fd;
+    outline: 0;
+    margin-bottom: 15px;
+}
 
 form {
     display: flex;
@@ -132,14 +183,80 @@ form {
     justify-content: center;
     align-items: center;
     position: relative;
-
     border-radius: 8px;
     color: white;
+    bottom: 40px;
     width: 250px;
     background-color: #0169fd;
     text-align: center;
     transition: ease 0.5s;
     cursor: pointer;
+}
+
+#inputCodigo {
+    height: 40px;
+    border: 2px solid #0169fd;
+    width: 300px;
+    border-radius: 10px 0px 10px 10px;
+    outline: 0;
+    position: relative;
+    bottom: 20px;
+    padding: 0 10px;
+}
+
+    #inputCodigo::placeholder {
+        position: relative;
+        left: px;
+    }
+
+#btnVerificarCodigo {
+    border: none;
+    width: 150px;
+    position: relative;
+    bottom: 10px;
+    border: #0169fd 1px solid;
+    color: #0169fd;
+    transition: ease all 0.5s;
+}
+
+    #btnVerificarCodigo:hover {
+        background-color: #0169fd;
+        color: white;
+    }
+
+.modal-body {
+}
+
+#ModalVerificacaoCadastro {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    #ModalVerificacaoCadastro h1 {
+        position: relative;
+        bottom: 30px;
+    }
+
+    #ModalVerificacaoCadastro p {
+        position: relative;
+        bottom: 35px;
+        font-size: 15px
+    }
+
+    #ModalVerificacaoCadastro img {
+        margin-bottom: 10px;
+        margin-top: 10px;
+        position: relative;
+        bottom: 25px;
+        height: 40px;
+    }
+
+@keyframes bounce {
+    50% {
+        transform: translateY(25px);
+    }
 }
 
 .btn-funcionario {
@@ -206,6 +323,7 @@ form {
     flex-direction: column;
     justify-content: center;
 }
+
 .funcionario-link a {
     color: #0169fd;
 }
@@ -222,58 +340,59 @@ form {
     background: #056bfa27;
     border-radius: 20px;
     cursor: pointer;
-  }
-  
-  .lable {
+}
+
+.lable {
     margin-top: 1px;
     font-size: 19px;
     line-height: 22px;
     color: #056DFA;
     font-family: sans-serif;
     letter-spacing: 1px;
-  }
-  
-  .button:hover {
+}
+
+.button:hover {
     background: #056bfa49;
-  }
-  
-  .button:hover .svg-icon {
-    animation: spin 1s linear infinite;
-  }
-  
-  @keyframes spin {
+}
+
+    .button:hover .svg-icon {
+        animation: spin 1s linear infinite;
+    }
+
+@keyframes spin {
     0% {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
-  
+
     25% {
-      transform: rotate(-8deg);
+        transform: rotate(-8deg);
     }
-  
+
     50% {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
-  
+
     75% {
-      transform: rotate(8deg);
+        transform: rotate(8deg);
     }
-  
+
     100% {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
-  }
+}
 
 
-  .button > i{
+.button > i {
     font-size: 20px;
     color: #056DFA;
-  }
+}
 
 @media only screen and (min-width:300px) and (max-width: 1020px) {
-    .content-right{
+    .content-right {
         display: none;
     }
-    .content-left{
+
+    .content-left {
         display: flex;
         align-items: center;
     }

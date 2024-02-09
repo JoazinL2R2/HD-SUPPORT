@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8M8LHccbRPEGGBqpY/a9wcw2O0ceUZrCxVnmx5HFR7I=",
+  "Hash": "SISJJBWFRQP+ThKj/z4pXxRgcKYh1Qb3ISy8S6noBrg=",
   "Source": "HD-SUPPORT",
   "BasePath": "_content/HD-SUPPORT",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "HD-SUPPORT\\wwwroot",
       "Source": "HD-SUPPORT",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\caiobueno\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.0\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
+      "Identity": "C:\\Users\\gustavoledo\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.0\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
       "SourceId": "Microsoft.AspNetCore.Components.QuickGrid",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\caiobueno\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.0\\staticwebassets\\",
       "BasePath": "_content/Microsoft.AspNetCore.Components.QuickGrid",
       "RelativePath": "Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\caiobueno\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.0\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\gustavoledo\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.0\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.0\\staticwebassets\\QuickGrid.razor.js",
+      "Identity": "C:\\Users\\gustavoledo\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.0\\staticwebassets\\QuickGrid.razor.js",
       "SourceId": "Microsoft.AspNetCore.Components.QuickGrid",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\caiobueno\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.0\\staticwebassets\\",
       "BasePath": "_content/Microsoft.AspNetCore.Components.QuickGrid",
       "RelativePath": "QuickGrid.razor.js",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\caiobueno\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.0\\staticwebassets\\QuickGrid.razor.js"
+      "OriginalItemSpec": "C:\\Users\\gustavoledo\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.0\\staticwebassets\\QuickGrid.razor.js"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\obj\\Debug\\net8.0\\scopedcss\\bundle\\HD-SUPPORT.styles.css",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\obj\\Debug\\net8.0\\scopedcss\\bundle\\HD-SUPPORT.styles.css",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "HD-SUPPORT.styles.css",
       "AssetKind": "All",
@@ -71,13 +71,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\obj\\Debug\\net8.0\\scopedcss\\bundle\\HD-SUPPORT.styles.css"
+      "OriginalItemSpec": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\obj\\Debug\\net8.0\\scopedcss\\bundle\\HD-SUPPORT.styles.css"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\HD-SUPPORT.bundle.scp.css",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\HD-SUPPORT.bundle.scp.css",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "HD-SUPPORT.bundle.scp.css",
       "AssetKind": "All",
@@ -90,13 +90,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\HD-SUPPORT.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\HD-SUPPORT.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\css\\Cadastro.css",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\css\\Cadastro.css",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "css/Cadastro.css",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\css\\Cadastro.css"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\css\\CadastroFuncLogin.css",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\css\\CadastroFuncLogin.css",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "css/CadastroFuncLogin.css",
       "AssetKind": "All",
@@ -131,10 +131,10 @@
       "OriginalItemSpec": "wwwroot\\css\\CadastroFuncLogin.css"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\css\\home.css",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\css\\home.css",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "css/home.css",
       "AssetKind": "All",
@@ -150,10 +150,10 @@
       "OriginalItemSpec": "wwwroot\\css\\home.css"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\css\\Modals.css",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\css\\Modals.css",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "css/Modals.css",
       "AssetKind": "All",
@@ -169,10 +169,10 @@
       "OriginalItemSpec": "wwwroot\\css\\Modals.css"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\css\\PaginaLogin.css",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\css\\PaginaLogin.css",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "css/PaginaLogin.css",
       "AssetKind": "All",
@@ -188,10 +188,10 @@
       "OriginalItemSpec": "wwwroot\\css\\PaginaLogin.css"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\css\\site.css",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -207,10 +207,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\css\\Tebela.css",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\css\\Tebela.css",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "css/Tebela.css",
       "AssetKind": "All",
@@ -226,10 +226,29 @@
       "OriginalItemSpec": "wwwroot\\css\\Tebela.css"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\css\\video.css",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "BasePath": "_content/HD-SUPPORT",
+      "RelativePath": "css/video.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\video.css"
+    },
+    {
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\favicon.ico",
+      "SourceId": "HD-SUPPORT",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -245,10 +264,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\fonts\\Agrandir-GrandHeavy.otf",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\fonts\\Agrandir-GrandHeavy.otf",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "fonts/Agrandir-GrandHeavy.otf",
       "AssetKind": "All",
@@ -264,10 +283,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Agrandir-GrandHeavy.otf"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\fonts\\Agrandir-GrandLight.otf",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\fonts\\Agrandir-GrandLight.otf",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "fonts/Agrandir-GrandLight.otf",
       "AssetKind": "All",
@@ -283,10 +302,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Agrandir-GrandLight.otf"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\fonts\\Agrandir-Narrow.otf",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\fonts\\Agrandir-Narrow.otf",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "fonts/Agrandir-Narrow.otf",
       "AssetKind": "All",
@@ -302,10 +321,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Agrandir-Narrow.otf"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\fonts\\Agrandir-Regular.otf",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\fonts\\Agrandir-Regular.otf",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "fonts/Agrandir-Regular.otf",
       "AssetKind": "All",
@@ -321,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Agrandir-Regular.otf"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\fonts\\Agrandir-TextBold.otf",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\fonts\\Agrandir-TextBold.otf",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "fonts/Agrandir-TextBold.otf",
       "AssetKind": "All",
@@ -340,10 +359,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Agrandir-TextBold.otf"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\fonts\\Agrandir-ThinItalic.otf",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\fonts\\Agrandir-ThinItalic.otf",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "fonts/Agrandir-ThinItalic.otf",
       "AssetKind": "All",
@@ -359,10 +378,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Agrandir-ThinItalic.otf"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\fonts\\Agrandir-Tight.otf",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\fonts\\Agrandir-Tight.otf",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "fonts/Agrandir-Tight.otf",
       "AssetKind": "All",
@@ -378,10 +397,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Agrandir-Tight.otf"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\fonts\\Agrandir-WideBlackItalic.otf",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\fonts\\Agrandir-WideBlackItalic.otf",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "fonts/Agrandir-WideBlackItalic.otf",
       "AssetKind": "All",
@@ -397,10 +416,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Agrandir-WideBlackItalic.otf"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\fonts\\Agrandir-WideLight.otf",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\fonts\\Agrandir-WideLight.otf",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "fonts/Agrandir-WideLight.otf",
       "AssetKind": "All",
@@ -416,10 +435,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Agrandir-WideLight.otf"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\fonts\\JetBrainsMono-Light.ttf",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\fonts\\JetBrainsMono-Light.ttf",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "fonts/JetBrainsMono-Light.ttf",
       "AssetKind": "All",
@@ -435,10 +454,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\JetBrainsMono-Light.ttf"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\fonts\\Questrial-Regular.ttf",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\fonts\\Questrial-Regular.ttf",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "fonts/Questrial-Regular.ttf",
       "AssetKind": "All",
@@ -454,10 +473,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Questrial-Regular.ttf"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\fonts\\space-grotesk.bold.otf",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\fonts\\space-grotesk.bold.otf",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "fonts/space-grotesk.bold.otf",
       "AssetKind": "All",
@@ -473,10 +492,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\space-grotesk.bold.otf"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\_b49925be-4825-4df9-88d2-b863d9ed5efe-removebg-preview.png",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\_b49925be-4825-4df9-88d2-b863d9ed5efe-removebg-preview.png",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "images/_b49925be-4825-4df9-88d2-b863d9ed5efe-removebg-preview.png",
       "AssetKind": "All",
@@ -492,10 +511,10 @@
       "OriginalItemSpec": "wwwroot\\images\\_b49925be-4825-4df9-88d2-b863d9ed5efe-removebg-preview.png"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\0a1cc76ab63a4c573c934e56b674f6f9.gif",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\0a1cc76ab63a4c573c934e56b674f6f9.gif",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "images/0a1cc76ab63a4c573c934e56b674f6f9.gif",
       "AssetKind": "All",
@@ -511,10 +530,10 @@
       "OriginalItemSpec": "wwwroot\\images\\0a1cc76ab63a4c573c934e56b674f6f9.gif"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\2iiB.gif",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\2iiB.gif",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "images/2iiB.gif",
       "AssetKind": "All",
@@ -530,10 +549,10 @@
       "OriginalItemSpec": "wwwroot\\images\\2iiB.gif"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\9110796_x_icon.png",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\9110796_x_icon.png",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "images/9110796_x_icon.png",
       "AssetKind": "All",
@@ -549,10 +568,10 @@
       "OriginalItemSpec": "wwwroot\\images\\9110796_x_icon.png"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\background.png",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\background.png",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "images/background.png",
       "AssetKind": "All",
@@ -568,10 +587,10 @@
       "OriginalItemSpec": "wwwroot\\images\\background.png"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\bne_logo.jpg",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\bne_logo.jpg",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "images/bne_logo.jpg",
       "AssetKind": "All",
@@ -587,10 +606,10 @@
       "OriginalItemSpec": "wwwroot\\images\\bne_logo.jpg"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\dada.gif",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\dada.gif",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "images/dada.gif",
       "AssetKind": "All",
@@ -606,10 +625,10 @@
       "OriginalItemSpec": "wwwroot\\images\\dada.gif"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\dadadasdasda.gif",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\dadadasdasda.gif",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "images/dadadasdasda.gif",
       "AssetKind": "All",
@@ -625,10 +644,10 @@
       "OriginalItemSpec": "wwwroot\\images\\dadadasdasda.gif"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\estrelas.gif",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\estrelas.gif",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "images/estrelas.gif",
       "AssetKind": "All",
@@ -644,10 +663,10 @@
       "OriginalItemSpec": "wwwroot\\images\\estrelas.gif"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\Gerencie_com-removebg-preview.png",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\Gerencie_com-removebg-preview.png",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "images/Gerencie_com-removebg-preview.png",
       "AssetKind": "All",
@@ -663,10 +682,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Gerencie_com-removebg-preview.png"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\gif.gif",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\gif.gif",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "images/gif.gif",
       "AssetKind": "All",
@@ -682,10 +701,10 @@
       "OriginalItemSpec": "wwwroot\\images\\gif.gif"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\gude-2023-12-27.log",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\gude-2023-12-27.log",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "images/gude-2023-12-27.log",
       "AssetKind": "All",
@@ -701,10 +720,10 @@
       "OriginalItemSpec": "wwwroot\\images\\gude-2023-12-27.log"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\hd-support-logo.png",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\hd-support-logo.png",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "images/hd-support-logo.png",
       "AssetKind": "All",
@@ -720,10 +739,10 @@
       "OriginalItemSpec": "wwwroot\\images\\hd-support-logo.png"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\image 11.png",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\image 11.png",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "images/image 11.png",
       "AssetKind": "All",
@@ -739,10 +758,10 @@
       "OriginalItemSpec": "wwwroot\\images\\image 11.png"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\logo_bne.png",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\logo_bne.png",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "images/logo_bne.png",
       "AssetKind": "All",
@@ -758,10 +777,10 @@
       "OriginalItemSpec": "wwwroot\\images\\logo_bne.png"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\menu_icon.png",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\menu_icon.png",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "images/menu_icon.png",
       "AssetKind": "All",
@@ -777,10 +796,10 @@
       "OriginalItemSpec": "wwwroot\\images\\menu_icon.png"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\original-e54e32fefb908ac7ff18ded0efb97695.mp4",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\original-e54e32fefb908ac7ff18ded0efb97695.mp4",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "images/original-e54e32fefb908ac7ff18ded0efb97695.mp4",
       "AssetKind": "All",
@@ -796,10 +815,10 @@
       "OriginalItemSpec": "wwwroot\\images\\original-e54e32fefb908ac7ff18ded0efb97695.mp4"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\output.png",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\output.png",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "images/output.png",
       "AssetKind": "All",
@@ -815,10 +834,10 @@
       "OriginalItemSpec": "wwwroot\\images\\output.png"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\pexels_videos_2792967 (1440p).mp4",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\pexels_videos_2792967 (1440p).mp4",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "images/pexels_videos_2792967 (1440p).mp4",
       "AssetKind": "All",
@@ -834,10 +853,10 @@
       "OriginalItemSpec": "wwwroot\\images\\pexels_videos_2792967 (1440p).mp4"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\photo_4949811906286300321_y.jpg",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\photo_4949811906286300321_y.jpg",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "images/photo_4949811906286300321_y.jpg",
       "AssetKind": "All",
@@ -853,10 +872,10 @@
       "OriginalItemSpec": "wwwroot\\images\\photo_4949811906286300321_y.jpg"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\sas.gif",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\sas.gif",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "images/sas.gif",
       "AssetKind": "All",
@@ -872,10 +891,10 @@
       "OriginalItemSpec": "wwwroot\\images\\sas.gif"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\sas.jpg",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\sas.jpg",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "images/sas.jpg",
       "AssetKind": "All",
@@ -891,10 +910,10 @@
       "OriginalItemSpec": "wwwroot\\images\\sas.jpg"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\teste.gif",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\teste.gif",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "images/teste.gif",
       "AssetKind": "All",
@@ -910,10 +929,10 @@
       "OriginalItemSpec": "wwwroot\\images\\teste.gif"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\Texto do seu parágrafo.gif",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\Texto do seu parágrafo.gif",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "images/Texto do seu parágrafo.gif",
       "AssetKind": "All",
@@ -929,10 +948,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Texto do seu parágrafo.gif"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\Texto do seu parágrafo.psd",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\Texto do seu parágrafo.psd",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "images/Texto do seu parágrafo.psd",
       "AssetKind": "All",
@@ -948,10 +967,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Texto do seu parágrafo.psd"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\Texto-do-seu-par-grafo-unscreen.gif",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\images\\Texto-do-seu-par-grafo-unscreen.gif",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "images/Texto-do-seu-par-grafo-unscreen.gif",
       "AssetKind": "All",
@@ -967,10 +986,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Texto-do-seu-par-grafo-unscreen.gif"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\js\\jquery.inputmask.js",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\js\\jquery.inputmask.js",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "js/jquery.inputmask.js",
       "AssetKind": "All",
@@ -986,10 +1005,10 @@
       "OriginalItemSpec": "wwwroot\\js\\jquery.inputmask.js"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\js\\site.js",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\js\\site.js",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "js/site.js",
       "AssetKind": "All",
@@ -1005,10 +1024,10 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css",
       "AssetKind": "All",
@@ -1024,10 +1043,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
       "AssetKind": "All",
@@ -1043,10 +1062,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css",
       "AssetKind": "All",
@@ -1062,10 +1081,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -1081,10 +1100,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css",
       "AssetKind": "All",
@@ -1100,10 +1119,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
       "AssetKind": "All",
@@ -1119,10 +1138,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
       "AssetKind": "All",
@@ -1138,10 +1157,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
       "AssetKind": "All",
@@ -1157,10 +1176,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css",
       "AssetKind": "All",
@@ -1176,10 +1195,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
       "AssetKind": "All",
@@ -1195,10 +1214,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
       "AssetKind": "All",
@@ -1214,10 +1233,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
       "AssetKind": "All",
@@ -1233,10 +1252,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
       "AssetKind": "All",
@@ -1252,10 +1271,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
       "AssetKind": "All",
@@ -1271,10 +1290,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
       "AssetKind": "All",
@@ -1290,10 +1309,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
       "AssetKind": "All",
@@ -1309,10 +1328,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css",
       "AssetKind": "All",
@@ -1328,10 +1347,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
       "AssetKind": "All",
@@ -1347,10 +1366,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
       "AssetKind": "All",
@@ -1366,10 +1385,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
       "AssetKind": "All",
@@ -1385,10 +1404,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
       "AssetKind": "All",
@@ -1404,10 +1423,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
       "AssetKind": "All",
@@ -1423,10 +1442,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
       "AssetKind": "All",
@@ -1442,10 +1461,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
       "AssetKind": "All",
@@ -1461,10 +1480,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css",
       "AssetKind": "All",
@@ -1480,10 +1499,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css.map",
       "AssetKind": "All",
@@ -1499,10 +1518,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css",
       "AssetKind": "All",
@@ -1518,10 +1537,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
       "AssetKind": "All",
@@ -1537,10 +1556,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
       "AssetKind": "All",
@@ -1556,10 +1575,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
       "AssetKind": "All",
@@ -1575,10 +1594,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
       "AssetKind": "All",
@@ -1594,10 +1613,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
       "AssetKind": "All",
@@ -1613,10 +1632,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js",
       "AssetKind": "All",
@@ -1632,10 +1651,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
       "AssetKind": "All",
@@ -1651,10 +1670,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -1670,10 +1689,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
       "AssetKind": "All",
@@ -1689,10 +1708,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js",
       "AssetKind": "All",
@@ -1708,10 +1727,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js.map",
       "AssetKind": "All",
@@ -1727,10 +1746,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js",
       "AssetKind": "All",
@@ -1746,10 +1765,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
       "AssetKind": "All",
@@ -1765,10 +1784,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js",
       "AssetKind": "All",
@@ -1784,10 +1803,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js.map",
       "AssetKind": "All",
@@ -1803,10 +1822,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js",
       "AssetKind": "All",
@@ -1822,10 +1841,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js.map",
       "AssetKind": "All",
@@ -1841,10 +1860,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/bootstrap/LICENSE",
       "AssetKind": "All",
@@ -1860,10 +1879,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/jquery/dist/jquery.js",
       "AssetKind": "All",
@@ -1879,10 +1898,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/jquery/dist/jquery.min.js",
       "AssetKind": "All",
@@ -1898,10 +1917,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/jquery/dist/jquery.min.map",
       "AssetKind": "All",
@@ -1917,10 +1936,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/jquery/LICENSE.txt",
       "AssetKind": "All",
@@ -1936,10 +1955,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
       "AssetKind": "All",
@@ -1955,10 +1974,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
       "AssetKind": "All",
@@ -1974,10 +1993,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
       "AssetKind": "All",
@@ -1993,10 +2012,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
       "AssetKind": "All",
@@ -2012,10 +2031,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/jquery-validation/LICENSE.md",
       "AssetKind": "All",
@@ -2031,10 +2050,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
@@ -2050,10 +2069,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
@@ -2069,10 +2088,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "HD-SUPPORT",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\",
       "BasePath": "_content/HD-SUPPORT",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",
