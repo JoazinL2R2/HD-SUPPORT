@@ -1,3 +1,6 @@
+
+
+
 * {
     padding: 0;
     margin: 0;
@@ -84,7 +87,7 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    bottom: 80px;
+    bottom: 60px;
     width: 400px;
 }
 
@@ -108,7 +111,7 @@ body {
 
 #novocadastro-form {
     position: relative;
-    bottom: 30px;
+    bottom: 0px;
 }
 
 .control-label {
