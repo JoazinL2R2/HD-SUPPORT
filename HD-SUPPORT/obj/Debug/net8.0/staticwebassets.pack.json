@@ -29,6 +29,10 @@
       "PackagePath": "staticwebassets\\css\\home.css"
     },
     {
+      "Id": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\css\\perfil.css",
+      "PackagePath": "staticwebassets\\css\\perfil.css"
+    },
+    {
       "Id": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

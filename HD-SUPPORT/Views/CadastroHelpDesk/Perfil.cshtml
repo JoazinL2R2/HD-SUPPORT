@@ -5,25 +5,39 @@
 @{
     ViewData["Title"] = "Perfil";
 }
-<section style="background-color:white">
-
-<h1>Perfil</h1>
-
-<div class="d-flex">
-    <img src="data:image/jpeg;base64,@Convert.ToBase64String(Acessor.HttpContext.Session.Get("foto"))" width="250" height="250">
-    <div>
-        <h3>Nome: @Acessor.HttpContext.Session.GetString("nome")</h3>
-        <p>Email: @Acessor.HttpContext.Session.GetString("email")</p>
-        <p>Senha: @Acessor.HttpContext.Session.GetString("senha")</p>
+<head>
+    <link rel="stylesheet" href="~/css/perfil.css">
+    <link rel="stylesheet" href="~/css/video.css">
+</head>
+<body>
+    <div class="content-stars">
+        <video src="~/images/pexels_videos_2792967 (1440p).mp4" autoplay loop muted></video>
     </div>
-</div>
-<div>
-        <a asp-action="Edit" asp-route-id="@Acessor.HttpContext.Session.GetInt32("Id")" class="btn btn-primary">Editar</a>
-        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="@("#DeleteHDModal" + Model.Id.ToString())" data-bs-url="@Url.Action($"Delete/{Model.Id}")">
-            Excluir
-        </button>
-
+    <div class="container">
+        <div class="content">
+            <div class="profile">
+                <div class="img-profile">
+                    <img src="data:image/jpeg;base64,@Convert.ToBase64String(Acessor.HttpContext.Session.Get("foto"))" width="500px" height="120px">
+                </div>
+                <div class="nome">
+                    <h1>@Acessor.HttpContext.Session.GetString("nome")</h1>
+                </div>
+                <div class="informacoes">
+                    <p>Email: @Acessor.HttpContext.Session.GetString("email")</p>
+                    <p>Senha: @Acessor.HttpContext.Session.GetString("senha")</p>
+                </div>
+                <div class="btns">
+                    <div class="btn-editar">
+                        <a asp-action="Edit" asp-route-id="@Acessor.HttpContext.Session.GetInt32("Id")">Editar</a>
+                    </div>
+                    <div class="btn-excluir">
+                        <button class="btn-excluir" type="button" data-bs-toggle="modal" data-bs-target="@("#DeleteHDModal" + Model.Id.ToString())" data-bs-url="@Url.Action($"Delete/{Model.Id}")">
+                            Excluir
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
         @await Html.PartialAsync("_ExcluirHDPartialView", Model)
-</div>
-
-</section>
+    </div>
+</body>
