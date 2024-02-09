@@ -85,6 +85,7 @@ body {
     justify-content: center;
     position: relative;
     width: 400px;
+    bottom: 30px;
 }
 
     .text-content h1 {
@@ -108,6 +109,8 @@ form {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
+    bottom: 20px;
 }
 
 #loginForm label {

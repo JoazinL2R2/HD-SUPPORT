@@ -23,15 +23,16 @@ body {
     width: 100%;
     align-items: center;
     justify-content: space-around;
-    margin-top: 8vh;
     flex-wrap: wrap;
 }
 
 .content-login {
+    position: relative;
+    bottom: 70px;
     width: 100%;
     max-width: 100%;
     background-color: rgb(255, 255, 255);
-    height: 100%;
+    height: 75%;
     border-radius: 30px;
     display: flex;
     justify-content: center;
@@ -41,29 +42,67 @@ body {
     -moz-box-shadow: 1px 1px 20px -2px rgba(0, 60, 255, 0.75);
 }
 
-    .content-login .content-left {
-        background-color: rgb(255, 255, 255);
-        height: 100%;
-        width: 50%;
-        border-radius: 30px 0 0 30px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
+.funcao {
+    text-align: center;
+}
 
-    .content-login .content-right {
-        background-color: blue;
+#categorias {
+    border: none;
+    border-style: none;
+    border: 1px solid #0169fd;
+    color: #0169fd;
+    position: relative;
+    bottom: 0px;
+    outline: 0;
+    cursor: pointer;
+    top: 10px;
+}
+
+.form-control {
+    height: 30px;
+    position: relative;
+    top: 10px;
+}
+
+.foto-label {
+    position: relative;
+    bottom: 0px;
+}
+
+.control-label {
+    position: relative;
+    top: 20px;
+}
+
+.foto {
+    border: none;
+    border-style: none;
+    color: #0169fd;
+}
+
+.content-login .content-left {
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    width: 50%;
+    border-radius: 30px 0 0 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-login .content-right {
+    background-color: blue;
+    height: 100%;
+    width: 80%;
+    border-radius: 0 30px 30px 0;
+}
+
+    .content-login .content-right img {
+        max-width: 100%;
         height: 100%;
-        width: 80%;
         border-radius: 0 30px 30px 0;
     }
-
-        .content-login .content-right img {
-            max-width: 100%;
-            height: 100%;
-            border-radius: 0 30px 30px 0;
-        }
 
 .content-form-primary {
     display: flex;
@@ -83,22 +122,25 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     justify-content: center;
     position: relative;
-    bottom: 80px;
     width: 400px;
+    top: 20px;
 }
 
     .text-content h1 {
         color: #3b3b3b;
-        font-size: 50px;
+        font-size: 30px;
         font-weight: 900;
+        bottom: 30px;
+        position: relative;
     }
 
     .text-content p {
         color: #000000;
         position: relative;
-        top: 15px;
+        bottom: 30px;
     }
 
     .text-content img {
@@ -110,6 +152,13 @@ form {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
+    bottom: 20px;
+}
+
+#conta {
+    position: relative;
+    bottom: 20px;
 }
 
 #FormCadastro label {
@@ -132,6 +181,10 @@ form {
     width: 300px;
 }
 
+#LoginCadastroFunc {
+    position: relative;
+    bottom: 25px;
+}
 
 .btn-login {
     border: 2px solid #0169fd;
@@ -139,7 +192,6 @@ form {
     justify-content: center;
     align-items: center;
     position: relative;
-    margin-top: 20px;
     height: 40px;
     border-radius: 8px;
     color: white;
@@ -148,6 +200,7 @@ form {
     text-align: center;
     transition: ease 0.5s;
     cursor: pointer;
+    bottom: 40px;
 }
 
 .btn-funcionario {
