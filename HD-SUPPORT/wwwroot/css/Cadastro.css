@@ -1,4 +1,5 @@
-﻿* {
+﻿
+* {
     padding: 0;
     margin: 0;
     font-family: 'Open Sans', sans-serif;
@@ -22,13 +23,13 @@ body {
     height: 800px;
     width: 100%;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
 .content-login {
     position: relative;
-    bottom: 70px;
+    bottom: 0px;
     width: 100%;
     max-width: 100%;
     background-color: rgb(255, 255, 255);
