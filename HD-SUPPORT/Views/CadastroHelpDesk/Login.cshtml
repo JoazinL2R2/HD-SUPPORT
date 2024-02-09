@@ -41,6 +41,9 @@
 
                         <div class="position-button">
                             <div class="funcionario-link">
+                                <a role="button" id="btnEsqueceuSenha">Esqueceu sua senha?</a>
+                            </div>
+                            <div class="funcionario-link">
                                 <a role="button" asp-controller="CadastroHelpDesk" asp-action="Cadastrar">Sou da equipe Help Desk</a>
                             </div>
 
@@ -60,8 +63,267 @@
     </div>
 </div>
 
+<div class="modal fade" id="ModalRecuperarSenha" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Recuperação de senha</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="ModalRecuperarSenhaBody">
+                    <form asp-action="EnviarEmailRecuperacao" asp-controller="CadastroHelpDesk" id="FormRecuperarSenha" method="post" enctype="multipart/form-data">
+                        <label>Informe seu E-mail:</label>
+                        <input type="email" placeholder="Digite seu E-mail" id="inputEmailRecuperacao" required />
+                        <br />
+
+                        <button class="btn btn-outline-success btnVerificar" id="btnRecuperarSenha" type="submit">Recuperar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="ModalRecuperacaoSenha" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Verifique o seu email</h1>
+            </div>
+            <div class="modal-body">
+                <div id="Verificacao">
+                    <form asp-action="VerificacaoRecuperacaoSenha" asp-controller="CadastroHelpDesk" method="post" id="FormCodigoRecuperarSenha">
+
+                        <label>Informe o código</label>
+                        <input type="text" placeholder="Digite o código" id="inputCodigoRecuperacaoEmail" required />
+                        <br />
+                        <button class="btn btn-outline-success " id="btnVerificarCodigoRecuperacao">Verificar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="ModalMudarSenha" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Alteracão de senha  </h1>
+            </div>
+            <div class="modal-body">
+                <div id="Verificacao">
+                    <form asp-action="MudarSenhaRecuperacao" asp-controller="CadastroHelpDesk" method="post" id="FormMudarSenha">
+
+                        <label>Informe a nova senha:</label>
+                        <input type="text" placeholder="insira a senha" id="novaSenha" required />
+                        <br />
+                        <label>Confirme a senha:</label>
+                        <input type="text" placeholder="Confirme a senha" id="novaSenhaConfirmacao" required />
+                        <br />
+                        <button class="btn btn-outline-success ">Alterar senha</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modalErroRecuperarSenha" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Erro :(</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="Modelsucesso">
+                    E-Mail Inexistente, Cadastre-se ou revise o email inserido
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modalErroCodigoRecuperar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Erro :(</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="Modelsucesso">
+                    <p>O codigo não confere :(</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="sucessoAlteracao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">sucesso :)</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="Modelsucesso">
+                    <p>Senha alterada com sucesso :)</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modalErroAlteracao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Erro :(</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="Modelsucesso">
+                    As senhas não conferem, tente novamente.
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
 @section Scripts {
     <script src="~/js/jquery.inputmask.js"></script>
+    <script>
+        $(document).ready(function () {
+            var emailRecuperarSenha;
+            var codigoRecuperarSenha;
+            var novaSenha;
+            var novaSenhaConfirmacao;
+
+            $('#btnEsqueceuSenha').click(function () {
+                abrirModalRecuperarSenha();
+            });
+
+            $('#btnVerificar').click(function () {
+                event.preventDefault();
+                var codigoRecuperacaoEmail = $('#ModalRecuperacaoSenha #inputCodigoRecuperacaoEmail').val();
+                window.codigoInputRecuperacaoEmail = codigoRecuperacaoEmail;
+                console.log('Código de verificação: ', codigoRecuperacaoEmail);
+                VerificarCodigoRecuperacao();
+            });
+
+            function VerificarCodigoRecuperacao() {
+                var codigoInput = window.codigoRecuperarSenhaTemporario;
+                console.log('Dados do formulário:', $('#FormCadastro').serialize());
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/CadastroHelpDesk/VerificacaoRecuperacaoSenha',
+                    data: { codigoVerificacao: codigoInput },
+                    success: function (result) {
+                        console.log('VerificacaoCodigo sucesso');
+                        if (result.success) {
+                            $('#ModalRecuperacaoSenha').modal('hide');
+                            $('#ModalMudarSenha').modal('show');
+                        } else {
+                            console.log('Código de verificação incorreto');
+                            $('#modalErroCodigoRecuperar').modal(`show`);
+                        }
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.error('VerificacaoCodigo error:', textStatus, errorThrown);
+                    }
+                });
+            }
+
+            function MudarSenha() {
+                var senha = window.novaSenha;
+                var confirmacaoSenha = window.novaSenhaConfimacao;
+                var email = window.emailRecuperarSenhaTemporario;
+                console.log('Dados do formulário:', $('#FormCadastro').serialize());
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/CadastroHelpDesk/MudarSenhaRecuperacao',
+                    data: { senha: senha, confirmacaoSenha: confirmacaoSenha, email: email },
+                    success: function (result) {
+                        console.log('alteração sucesso');
+                        if (result.success) {
+                            $('#ModalMudarSenha').modal('hide');
+                            $('#sucessoAlteracao').modal('show');
+                        } else {
+                            console.log('Código de verificação incorreto');
+                            $('#modalErroAlteracao').modal(`show`);
+                        }
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.error('VerificacaoCodigo error:', textStatus, errorThrown);
+                    }
+                });
+            }
+
+            $('#FormRecuperarSenha').submit(function (event) {
+                event.preventDefault();
+                emailRecuperarSenha = $('#inputEmailRecuperacao').val();
+                window.emailRecuperarSenhaTemporario = emailRecuperarSenha;
+                enviarEmailRecuperacao();
+            });
+
+            $('#FormMudarSenha').submit(function (event) {
+                event.preventDefault();
+                novaSenha = $('#novaSenha').val();
+                novaSenhaConfirmacao = $('#novaSenhaConfirmacao').val();
+                window.novaSenha = novaSenha;
+                window.novaSenhaConfimacao = novaSenhaConfirmacao;
+                MudarSenha();
+            });
+
+            $('#FormCodigoRecuperarSenha').submit(function (event) {
+                event.preventDefault();
+                codigoRecuperarSenha = $('#inputCodigoRecuperacaoEmail').val();
+                window.codigoRecuperarSenhaTemporario = codigoRecuperarSenha;
+                VerificarCodigoRecuperacao();
+            });
+
+            function abrirModalRecuperarSenha() {
+                $('#ModalRecuperarSenha').modal('show');
+            }
+
+            function enviarEmailRecuperacao() {
+                var emailRecuperarSenhaTemporario = window.emailRecuperarSenhaTemporario;
+                $.ajax({
+                    type: 'POST',
+                    url: '/CadastroHelpDesk/EnviarEmailRecuperacao',
+                    data: { email: emailRecuperarSenhaTemporario },
+                    success: function (result) {
+                        if (result.success) {
+                            console.log('Sucesso na recuperação de senha');
+                            $('#ModalRecuperarSenha').modal('hide');
+                            $('#ModalRecuperacaoSenha').modal('show');
+                        } else {
+                            console.log('Erro na recuperação de senha:', result.message);
+                            $('#modalErroRecuperarSenha').modal('show');
+                        }
+                    },
+                    error: function () {
+                        console.error('Erro durante a recuperação de senha');
+                    }
+                });
+            }
+
+        });
+
+    </script>
 }
 
 

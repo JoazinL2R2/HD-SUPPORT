@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj": {}
+    "C:\\Users\\Joazin\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj": {
+    "C:\\Users\\Joazin\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj",
+        "projectUniqueName": "C:\\Users\\Joazin\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj",
         "projectName": "HD-SUPPORT",
-        "projectPath": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj",
-        "packagesPath": "C:\\Users\\gustavoledo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gustavoledo\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\obj\\",
+        "projectPath": "C:\\Users\\Joazin\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj",
+        "packagesPath": "C:\\Users\\Joazin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Joazin\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\gustavoledo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Joazin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
