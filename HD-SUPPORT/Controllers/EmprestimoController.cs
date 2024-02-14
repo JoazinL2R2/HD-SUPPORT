@@ -14,7 +14,7 @@ namespace HD_SUPPORT.Controllers
         {
             _contexto = contexto;
         }
-        public async Task<IActionResult> Index(string searchString, int paginaAtual = 1)
+        public async Task<IActionResult> Index(string searchString, int paginaAtual = 1, string ordenar = "recente")
         {
             if (HttpContext.Session.GetString("nome") == null)
             {
@@ -31,9 +31,38 @@ namespace HD_SUPPORT.Controllers
                 emprestimo = emprestimo
                     .Where(x => x.Funcionario.Nome.ToUpper().Contains(searchString.ToUpper())
                                 || x.Funcionario.Email.ToUpper().Contains(searchString.ToUpper())
-                                || x.Equipamento.IdPatrimonio.ToString().Contains(searchString))
+                                || x.Funcionario.Categoria.ToUpper().Contains(searchString.ToUpper())
+                                || x.Equipamento.IdPatrimonio.ToString().Contains(searchString)
+                                || x.Equipamento.Modelo.ToUpper().Contains(searchString.ToUpper()))
                     .ToList();
             }
+
+            if (ordenar == "recente")
+            {
+                emprestimo.Reverse();
+            }
+            else if (ordenar == "az")
+            {
+                emprestimo.Sort(delegate (EmprestimoViewModel x, EmprestimoViewModel y)
+                {
+                    if (x.Funcionario.Nome == null && y.Funcionario.Nome == null) return 0;
+                    else if (x.Funcionario.Nome == null) return -1;
+                    else if (y.Funcionario.Nome == null) return 1;
+                    else return x.Funcionario.Nome.CompareTo(y.Funcionario.Nome);
+                });
+            }
+            else if (ordenar == "za")
+            {
+                emprestimo.Sort(delegate (EmprestimoViewModel x, EmprestimoViewModel y)
+                {
+                    if (x.Funcionario.Nome == null && y.Funcionario.Nome == null) return 0;
+                    else if (x.Funcionario.Nome == null) return -1;
+                    else if (y.Funcionario.Nome == null) return 1;
+                    else return y.Funcionario.Nome.CompareTo(x.Funcionario.Nome);
+                });
+            }
+
+            TempData["ordem"] = ordenar;
 
             TempData["pesquisa"] = searchString;
 

@@ -409,7 +409,7 @@ namespace HD_SUPPORT.Controllers
             {
                 return Json(new { success = false, message = "As senhas não conferem." });
             }
-            cadastro.Senha = senha;
+            cadastro.Senha = criarHash(senha);
             _contexto.CadastroHD.Update(cadastro);
             await _contexto.SaveChangesAsync();
             return Json(new { success = true, message = "Senha alterada com sucesso." });

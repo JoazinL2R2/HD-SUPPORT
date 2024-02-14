@@ -17,7 +17,7 @@ namespace HD_SUPPORT.Controllers
             _contexto = contexto;
 
         }
-        public async Task<IActionResult> Index(string searchString, string disponivel, int paginaAtual = 1)
+        public async Task<IActionResult> Index(string searchString, string disponivel = "2", int paginaAtual = 1)
         {
             if (HttpContext.Session.GetString("nome") == null)
             {

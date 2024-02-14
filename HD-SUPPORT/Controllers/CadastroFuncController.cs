@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using Microsoft.AspNetCore.Http;
 using System;
+using System.IO;
 
 
 namespace HD_SUPPORT.Controllers
@@ -24,7 +25,7 @@ namespace HD_SUPPORT.Controllers
             _contexto = contexto;
             this.emailSender = emailSender;
         }
-        public async Task<IActionResult> Index(string searchString, int paginaAtual = 1)
+        public async Task<IActionResult> Index(string searchString, int paginaAtual = 1, string ordenar = "recente")
         {
             if (HttpContext.Session.GetString("nome") == null)
             {
@@ -35,8 +36,37 @@ namespace HD_SUPPORT.Controllers
             if (!string.IsNullOrEmpty(searchString))
             {
                  Funcionarios = _contexto.CadastroUser.Where(x => x.Nome.ToUpper().Contains(searchString.ToUpper())
-                || x.Email.ToUpper().Contains(searchString.ToUpper())).ToList();
+                || x.Email.ToUpper().Contains(searchString.ToUpper())
+                || x.Status.ToUpper().Contains(searchString.ToUpper())
+                || x.Categoria.ToUpper().Contains(searchString.ToUpper())).ToList();
             }
+
+            if (ordenar == "recente")
+            {
+                Funcionarios.Reverse();
+            }
+            else if (ordenar == "az")
+            {
+                Funcionarios.Sort(delegate (CadastroUser x, CadastroUser y)
+                {
+                    if (x.Nome == null && y.Nome == null) return 0;
+                    else if (x.Nome == null) return -1;
+                    else if (y.Nome == null) return 1;
+                    else return x.Nome.CompareTo(y.Nome);
+                });
+            }
+            else if (ordenar == "za")
+            {
+                Funcionarios.Sort(delegate (CadastroUser x, CadastroUser y)
+                {
+                    if (x.Nome == null && y.Nome == null) return 0;
+                    else if (x.Nome == null) return -1;
+                    else if (y.Nome == null) return 1;
+                    else return y.Nome.CompareTo(x.Nome);
+                });
+            }
+
+            TempData["ordem"] = ordenar;
 
             TempData["pesquisa"] = searchString;
 
