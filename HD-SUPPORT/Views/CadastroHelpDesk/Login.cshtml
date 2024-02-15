@@ -49,9 +49,41 @@
 
                             <button id="loginButton" type="submit">Login</button>
 
-                            <div class="btn-funcionario">
+                            <div class="btn-funcionario" id="button2" onmouseenter="passandoButton()" onmouseout="saindoButton()">
                                 <a role="button" asp-action="NovoCadastroLogin" asp-controller="CadastroFunc">Sou Funcionario</a>
                             </div>
+                            <script>
+                                var Button2 = document.getElementById('button2');
+                                var Button = document.getElementById('loginButton');
+                                function passandoButton() {
+                                    Button.style.color = '#0169fd'
+                                    Button.style.backgroundColor = 'white'
+                                    Button.style.border = '2px #0169fd solid'
+                                    Button.style.transition = 'ease all 0.5s'
+                                   
+
+                                    Button2.style.color = 'white'
+                                    Button2.style.backgroundColor = '#0169fd'
+                                    Button2.style.border = '2px #0169fd solid'
+                                    Button2.style.transition = 'ease all 0.5s'
+                                    
+
+                                }
+                                function saindoButton() {
+                                    Button.style.color = 'white'
+                                    Button.style.backgroundColor = '#0169fd'
+                                    Button.style.border = '2px #0169fd solid'
+                                    
+                                   
+
+                                    Button2.style.color = '#0169fd'
+                                    Button2.style.backgroundColor = 'white'
+                                    Button2.style.border = '2px #0169fd solid'
+                                    Button2.style.transition = 'ease all 0.5s'
+                                   
+                                }
+
+                            </script>
                         </div>
                     </form>
                 </div>
