@@ -44,11 +44,11 @@ namespace HD_SUPPORT.Controllers
 
             TempData["paginaAtual"] = paginaAtual;
 
-            var pagina = (paginaAtual-1)*6;
+            var pagina = (paginaAtual-1)*4;
 
-            var maximo = 6;
+            var maximo = 4;
 
-            if (Funcionarios.Count < 6 + pagina)
+            if (Funcionarios.Count < 4 + pagina)
             {
                 maximo = Funcionarios.Count-pagina;
             }

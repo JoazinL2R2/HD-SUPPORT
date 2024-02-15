@@ -1,0 +1,424 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#dados{
+    width: 5000px;
+}
+
+header {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 10vh;
+}
+
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    background-color: white;
+    width: 500px;
+    height: 560px;
+    border-radius: 20px;
+}
+
+
+.titulo_menu p {
+    margin-top: 10px;
+    font-size: 40px;
+    margin-bottom: 10vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.menu label {
+    font-size: 30px;
+    text-align: left;
+}
+
+
+.align-content-center{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.menu input {
+    width: 90%;
+    height: 50px;
+    border: 2px solid #046DE1;
+    border-radius: 10px;
+    margin-left: 3vh
+}
+
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    overflow-y: auto;
+    transition: right 0.3s ease-in-out;
+}
+
+.BtnNovoCadastro button {
+    width: 20%;
+    margin: 0;
+    padding: 0;
+}
+
+.btn-group {
+    width: 100%;
+}
+
+#btn-editar{
+    width: 100%
+}
+
+#btn-detalhes {
+    width: 100%
+}
+
+#btn-excluir {
+    width: 100%
+}
+
+    .side-menu a {
+        display: block;
+        padding: 15px;
+        text-decoration: none;
+        color: #333;
+        font-size: 18px;
+    }
+
+        .side-menu a:hover {
+            background-color: #f0f0f0;
+        }
+
+.logo_bne img {
+    width: 190px;
+    margin-left: 20px;
+}
+
+.icon_menu img {
+    width: 70px;
+    margin-right: 10vh;
+    position: relative;
+    left: 1000px
+}
+
+
+
+body {
+    background-image: url(assets/2iiB.gif);
+    background-color: black;
+
+}
+
+.content-tabela {
+    margin-top: 10vh;
+    background-color: white;
+    border-radius: 10px;
+    width: 65%;
+    height: 600px;
+    margin-bottom: 10vh;
+}
+
+form button {
+    border: none;
+    background: none;
+    color: #8b8ba7;
+}
+
+.form {
+    --timing: 0.3s;
+    --width-of-input: 60%;
+    --height-of-input: 50px;
+    --border-height: 2px;
+    --input-bg: #fff;
+    --border-color: #26A4FF;
+    --border-radius: 30px;
+    --after-border-radius: 1px;
+    position: relative;
+    width: var(--width-of-input);
+    height: var(--height-of-input);
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    padding-inline: 0.8em;
+    border-radius: var(--border-radius);
+    transition: border-radius 0.5s ease;
+    background: rgba(210, 210, 210, 0.38);
+    margin-top: 20px;
+    margin-left: 20px;
+
+}
+
+.search-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#combo-box{
+    display: flex;
+    position: relative;
+    left: 150px;
+}
+
+.input {
+    font-size: 0.9rem;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    padding-inline: 0.5em;
+    padding-block: 0.7em;
+    border: none;
+}
+
+.form:before {
+    content: "";
+    position: absolute;
+    background: var(--border-color);
+    transform: scaleX(0);
+    transform-origin: center;
+    width: 100%;
+    height: var(--border-height);
+    left: 0;
+    bottom: 0;
+    border-radius: 1px;
+    transition: transform var(--timing) ease;
+}
+
+.form:focus-within {
+    border-radius: var(--after-border-radius);
+}
+
+input:focus {
+    outline: none;
+}
+
+.form:focus-within:before {
+    transform: scale(1);
+}
+
+.reset {
+    border: none;
+    background: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+input:not(:placeholder-shown) ~ .reset {
+    opacity: 1;
+    visibility: visible;
+}
+
+.form svg {
+    color: #26A4FF;
+    width: 25px;
+    margin-top: 3px;
+}
+
+
+button > i {
+    font-size: 20px;
+    color: #26A4FF;
+}
+
+thead {
+    background-color: #0169FD;
+    color: white;
+    height: 50px;
+    padding: 0px;
+}
+
+
+.table {
+    text-align: center;
+    width: 100%;
+    margin-top: 8vh;
+    flex-wrap: wrap;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .pagination a {
+        font-size: 23px;
+
+        text-decoration: none;
+        color: #0169FD;
+    }
+
+.barra {
+    color: #0169FD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+.header-tabela {
+    padding: 10px;
+}
+
+
+.qnt-func {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+@media screen and (max-width: 630px) {
+    tr {
+        font-size: 10px;
+    }
+
+    .content-tabela {
+        width: 90%;
+    }
+
+
+
+
+
+    .table {
+        width: 100%;
+        margin-top: 1vh;
+        overflow: auto;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+
+}
+
+
+@media screen and (min-width: 1700px) {
+
+}
+
+/*Responsividade da tabela*/
+
+
+
+
+@media screen and (max-width: 1137px) {
+    thead {
+        width: 10%;
+    }
+
+    .BtnNovoCadastro{
+
+
+
+    }
+    .button-add{
+        width: 100%;
+    }
+
+    .btn-group {
+        width: 100%;
+    }
+        .btn-group button {
+            width: 100%;
+        }
+
+    .btn-group i{
+
+        font-size: 10px;
+    }
+
+
+
+    tr {
+        font-size: 10px;
+    }
+
+    .content-tabela {
+        width: 90%;
+    }
+
+
+
+
+
+    .table {
+        width: 100%;
+        margin-top: 1vh;
+        overflow: auto;
+    }
+}
+
+
+
+
+@media screen and (max-width: 595px) {
+    thead {
+        width: 10%;
+    }
+
+    .BtnNovoCadastro {
+    }
+
+    .button-add {
+        width: 100%;
+    }
+
+    .btn-group {
+        width: 100%;
+    }
+
+        .btn-group button {
+            width: 100%;
+        }
+
+        .btn-group i {
+
+            font-size: 10px;
+        }
+
+
+
+    tr {
+        font-size: 10px;
+    }
+
+    .content-tabela {
+        width: 150%;
+    }
+
+
+
+
+
+    .table {
+        width: 100%;
+        margin-top: 1vh;
+        overflow: auto;
+    }
+}
+

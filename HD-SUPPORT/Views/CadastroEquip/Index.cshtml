@@ -39,125 +39,134 @@
 }
 <head>
     <link rel="stylesheet" href="~/css/Modals.css" />
-    <link rel="stylesheet" href="~/css/Tebela.css" />
+    <link rel="stylesheet" href="~/css/Tabela.css" />
 </head>
 
 <div class="align-content-center">
-    <div class="TableContainer">
+    <div class="content-tabela">
         <div class="table-menu">
-            <p style="color:white">Mostrando @TempData["QuantidadeDadosTabela"] de @TempData["QuantidadeDados"] equipamentos</p>
-            <form asp-action="Index" asp-controller="CadastroEquip">
-                <a role="button">
-                    <i class="bi bi-search"></i>
-                </a>
-                <input type="search" placeholder="Faça sua pesquisa" name="SearchString">
-                <select name="disponivel">
-                    <option value="2">
-                        Ambos
-                    </option>
-                    <option value="1">
-                        Dísponivel
-                    </option>
-                    <option value="0">
-                        Indisponível
-                    </option>
-                </select>
-            </form>
-            <span>
-                <a asp-action="Index">
-                    <i class="bi bi-x-lg"></i>
-                </a>     
-            </span>
+           
+            <div class="search-div">
+                <form asp-action="Index" class="form" asp-controller="CadastroEquip">
+
+                    <a role="button">
+                        <i class="bi bi-search"></i>
+                    </a>
+                    <input class="input" placeholder="Faça sua pesquisa" required="" type="text">
+                    <button class="reset" type="reset">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                    <select id="combo-box" name="disponivel">
+                        <option value="2">
+                            Ambos
+                        </option>
+                        <option value="1">
+                            Dísponivel
+                        </option>
+                        <option value="0">
+                            Indisponível
+                        </option>
+                    </select>
+
+                </form>
+           </div>
+
+         
         </div>
-        <table id="table-position" class="table table-hover">
-            <thead class="thead-style">
-                <tr class="tr-style">
-                    <th>
-                        Id do patrimônio
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Modelo)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Processador)
-                    </th>
-                    <th>
-                        Sistema Operacional
-                    </th>
-                    <th>
-                        Disponível
-                    </th>
+        <div class="table-forms">
+            <table id="table-position" class="table">
+                <thead class="thead-style">
+                    <tr>
+                        <th>
+                            Id do patrimônio
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Modelo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Processador)
+                        </th>
+                        <th>
+                            Sistema Operacional
+                        </th>
+                        <th>
+                            Disponível
+                        </th>
 
-                    <th scope="col">
-                        <div class="button-add">
-                            <button type="button" class="bntAdicionar">
-                                Adicionar
-                            </button>
-                        </div>
-                            
-                   </th>
-                </tr>
-            </thead>
-            <tbody>
-
-                @foreach (var item in Model)
-                {
-                    <tr class="tbody-style">
-                        <td>
-                            @Html.DisplayFor(modelItem => item.IdPatrimonio)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Modelo)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Processador)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.SistemaOperacionar)
-                        </td>
-                        <td>
-                            @if (item.Disponivel)
-                            {
-                                <text>Disponível</text>
-                            }
-                            else
-                            {
-                                <text>Indisponível</text>
-                            }
-                        </td>
-                        <td>
-                            <div class="btn-group" role="group" aria-label="Basic example">
-
-
-                                <button type="button" Equipamento-id="@item.Id" class="btn btn-dark BtnEditar">
-                                        <i class="bi bi-pencil-square"></i>
+                        <th scope="col">
+                            <div class="button-add">
+                                <button type="button" class="bntAdicionar">
+                                    Adicionar
                                 </button>
-                                
-                                
-
-                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="@("#DetalhesEquipModal" + item.Id.ToString())" data-bs-url="@Url.Action($"Detalhes/{item.Id}")">
-                                    <i class="bi bi-newspaper"></i>
-                                </button>
-
-                                @await Html.PartialAsync("_DetalhesEquipPartialView", item)
-
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="@("#DeleteEquipModal" + item.Id.ToString())" data-bs-url="@Url.Action($"Delete/{item.Id}")">
-                                    <i class="bi bi-trash-fill"></i>
-                                </button>
-
-                                @if (Acessor.HttpContext.Session.GetString("profissional") == "HelpDesk")
-                                {
-                                    @await Html.PartialAsync("_ExcluirEquipPartialView", item);
-                                }
-
                             </div>
 
-                        </td>
+                        </th>
                     </tr>
-                }
+                </thead>
+                <tbody>
 
-            </tbody>
-        </table>
+                    @foreach (var item in Model)
+                    {
+                        <tr class="tbody-style">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdPatrimonio)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Modelo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Processador)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SistemaOperacionar)
+                            </td>
+                            <td>
+                                @if (item.Disponivel)
+                                {
+                                    <text>Disponível</text>
+                                }
+                                else
+                                {
+                                    <text>Indisponível</text>
+                                }
+                            </td>
+                            <td>
+                                <div class="btn-group" role="group" aria-label="Basic example">
+
+
+                                    <button type="button" Equipamento-id="@item.Id" class="btn btn-dark BtnEditar">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </button>
+
+
+
+                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="@("#DetalhesEquipModal" + item.Id.ToString())" data-bs-url="@Url.Action($"Detalhes/{item.Id}")">
+                                        <i class="bi bi-newspaper"></i>
+                                    </button>
+
+                                    @await Html.PartialAsync("_DetalhesEquipPartialView", item)
+
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="@("#DeleteEquipModal" + item.Id.ToString())" data-bs-url="@Url.Action($"Delete/{item.Id}")">
+                                        <i class="bi bi-trash-fill"></i>
+                                    </button>
+
+                                    @if (Acessor.HttpContext.Session.GetString("profissional") == "HelpDesk")
+                                    {
+                                        @await Html.PartialAsync("_ExcluirEquipPartialView", item)
+                                        ;
+                                    }
+
+                                </div>
+
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
 
 
 
@@ -270,6 +279,10 @@
                     }
                 </ul>
             </nav>
+        </div>
+
+        <div class="qnt-func">
+            <p style="color:gray">Mostrando @TempData["QuantidadeDadosTabela"] de @TempData["QuantidadeDados"] funcionários</p>
         </div>
         <div class="modal fade" id="ModelErro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">

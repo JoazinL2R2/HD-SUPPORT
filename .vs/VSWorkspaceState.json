@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\HD-SUPPORT",
+    "\\HD-SUPPORT\\Views",
+    "\\HD-SUPPORT\\Views\\CadastroFunc",
+    "\\HD-SUPPORT\\Views\\Emprestimo"
   ],
+  "SelectedNode": "\\HD-SUPPORT\\Views\\Emprestimo\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }
