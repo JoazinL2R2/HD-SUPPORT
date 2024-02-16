@@ -74,16 +74,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9IZWxwRGVza1xDYWRhc3RyYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Joazin/Source/Repos/JoazinL2R2/HD-SUPPORT/HD-SUPPORT/Views/CadastroHelpDesk/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9IZWxwRGVza1xFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Joazin/Source/Repos/JoazinL2R2/HD-SUPPORT/HD-SUPPORT/Views/CadastroHelpDesk/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9IZWxwRGVza1xMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Joazin/Source/Repos/JoazinL2R2/HD-SUPPORT/HD-SUPPORT/Views/CadastroHelpDesk/Perfil.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9IZWxwRGVza1xQZXJmaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Joazin/Source/Repos/JoazinL2R2/HD-SUPPORT/HD-SUPPORT/Views/CadastroHelpDesk/_EditarHDPartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9IZWxwRGVza1xfRWRpdGFySERQYXJ0aWFsVmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Joazin/Source/Repos/JoazinL2R2/HD-SUPPORT/HD-SUPPORT/Views/CadastroHelpDesk/_ExcluirHDPartialView.cshtml]
