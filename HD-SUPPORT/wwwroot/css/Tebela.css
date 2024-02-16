@@ -1,5 +1,5 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600&display=swap');
 * {
     margin: 0px;
     padding: 0px;
@@ -17,6 +17,8 @@ header {
     align-items: center;
     flex-direction: row;
     margin-bottom: 10vh;
+    width: 100%;
+    height: 70px;
 }
 
 
@@ -111,16 +113,21 @@ header {
         background-color: #f0f0f0;
     }
 
-.logo_bne img {
-    width: 190px;
+.logo_bne h1 {
+    font-size: 30px;
     margin-left: 20px;
+    font-family: 'Space Grotesk', sans-serif;
+    color: #0169fd;
+    position: relative;
+    top: 42px;
 }
 
 .icon_menu img {
-    width: 70px;
-    margin-right: 10vh;
+    width: 40px;
+    cursor: pointer;
+    right: 20px;
     position: relative;
-    left: 1000px
+    top: 37px;
 }
 
 
@@ -136,7 +143,6 @@ body {
     border-radius: 10px;
     width: 65%;
     height: 600px;
-    margin-bottom: 10vh;
 }
 
 form button {
