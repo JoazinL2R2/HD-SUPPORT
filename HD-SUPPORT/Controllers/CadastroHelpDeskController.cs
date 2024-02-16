@@ -36,6 +36,7 @@ namespace HD_SUPPORT.Controllers
         [HttpGet]
         public IActionResult Cadastrar()
         {
+            TempData["categoria"] = "HelpDesk";
             return View();
         }
 
@@ -62,14 +63,15 @@ namespace HD_SUPPORT.Controllers
             {
                 if (verificado != "True")
                 {
+                    TempData["categoria"] = funcao;
                     if (_contexto.CadastroHD.Any(x => x.Email == cadastro.Email))
                     {
                         ModelState.AddModelError(nameof(cadastro.Email), "Email existente");
                         return View();
                     }
-                    else if (cadastro.Email.Split("@")[1] != "employer.com.br")
+                    else if (cadastro.Email.Split("@")[1] != "employer.com.br" && cadastro.Email.Split("@")[1] != "bne.com.br")
                     {
-                        ModelState.AddModelError(nameof(cadastro.Email), "Email deve ter @employer.com.br");
+                        ModelState.AddModelError(nameof(cadastro.Email), "Email deve ter @employer.com.br ou @bne.com.br");
                         Console.WriteLine("email paia");
                         return View();
                     }
@@ -107,6 +109,7 @@ namespace HD_SUPPORT.Controllers
                 if (Imagem == null)
                 {
                     ModelState.AddModelError(nameof(cadastro.Foto), "Insira uma foto de perfil");
+                    TempData["categoria"] = funcao;
                     return View();
                 }
                 return View(cadastro);
@@ -327,7 +330,7 @@ namespace HD_SUPPORT.Controllers
         {
             Console.WriteLine("codigo recebido do front:" + codigoVerificacao);
             var codigoArmazenado = TempData["CodigoAleatorio"] as string;
-            if (codigoVerificacao == codigoArmazenado && codigoArmazenado != null)
+            if (codigoVerificacao.ToUpper() == codigoArmazenado && codigoArmazenado != null)
             {
                 TempData["sucessoAtualizacao"] = "Conta criada com sucesso";
                 return Json(new { success = true, message = "Cadastro Criado com sucesso." });
