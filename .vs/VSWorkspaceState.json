@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\HD-SUPPORT",
+    "\\HD-SUPPORT\\Views",
+    "\\HD-SUPPORT\\Views\\Home"
   ],
-  "SelectedNode": "\\HD-SUPPORT.sln",
+  "SelectedNode": "\\HD-SUPPORT\\Views\\Home\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }

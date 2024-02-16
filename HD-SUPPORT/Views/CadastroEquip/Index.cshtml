@@ -11,30 +11,30 @@
         <div class="logo_bne">
             <h1>Help Desk</h1>
         </div>
-        <div class="icon_menu" onclick="toggleMenu()">
-            <img src="~/images/menu_icon.png" alt="">
-        </div>
-        <div class="side-menu" id="sideMenu">
-            <div class="close_menu">
-                <img src="~/images/9110796_x_icon.png" alt="" width="40px">
+       <div class="conjunto">
+           <div class="dropdown">
+              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Tabelas
+              </button>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                    @if (Acessor.HttpContext.Session.GetString("profissional") == "HelpDesk")
+                    {
+                        <li><a class="dropdown-item active" asp-controller="Emprestimo" asp-action="Index">Emprestimos</a></li>
+                    }
+                <li><a class="dropdown-item"  asp-controller="CadastroEquip" asp-action="Index">Equipamentos</a></li>
+                <li><a class="dropdown-item" asp-controller="CadastroFunc" asp-action="Index">Funcionários</a></li>
+              </ul>
             </div>
-            @if (Acessor.HttpContext.Session.GetString("profissional") == "HelpDesk")
-            {
-                <a class="dropdown-item" asp-controller="Emprestimo" asp-action="Index">Tabela Emprestimos</a>
-            }
-            <a class="dropdown-item" asp-controller="CadastroEquip" asp-action="Index">Tabela Equipamentos</a>
-            <a class="dropdown-item" asp-controller="CadastroFunc" asp-action="Index">Tabela Funcionarios</a>
-            <div>
+
+            <div class="perfil">
                 @if (Acessor.HttpContext.Session.GetString("nome") != null)
                 {
                     <a class="dropdown-item" asp-area="" asp-controller="CadastroHelpDesk" asp-action="Perfil">
-                        <img src="data:image/jpeg;base64,@Convert.ToBase64String(@Acessor.HttpContext.Session.Get("foto"))" width="50" height="50">
+                        <img src="data:image/jpeg;base64,@Convert.ToBase64String(@Acessor.HttpContext.Session.Get("foto"))" style="border-radius: 50%; position: relative; right: 10px;" width="30" height="30">
                         @Acessor.HttpContext.Session.GetString("nome")
                     </a>
                 }
             </div>
-            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="LogOut">Sair</a>
-        </div>
     </header>
 
 }

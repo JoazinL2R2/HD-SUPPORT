@@ -9,7 +9,19 @@
 #dados {
     width: 5000px;
 }
-
+.thead-style{
+    position: relative;
+    bottom: 40px;
+}
+.tbody{
+    position: relative;
+    bottom: 20px;
+}
+.input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 header {
     background-color: white;
     display: flex;
@@ -32,7 +44,12 @@ header {
     height: 560px;
     border-radius: 20px;
 }
-
+.btn{
+    background-color: #d9d9d9;
+    width: 120px;
+    border-radius: 12px;
+    outline: 0;
+}
 
 .titulo_menu p {
     margin-top: 10px;
@@ -83,22 +100,25 @@ header {
     width: 20%;
     margin: 0;
     padding: 0;
+    background-color: #0169fd;
+    color: white;
 }
 
-.btn-group {
+.btn-group button {
     width: 100%;
+    background-color: white;
 }
 
 #btn-editar {
-    width: 100%
+    width: 100%;
 }
 
 #btn-detalhes {
-    width: 100%
+    width: 100%;
 }
 
 #btn-excluir {
-    width: 100%
+    width: 100%;
 }
 
 .side-menu a {
@@ -129,7 +149,19 @@ header {
     position: relative;
     top: 37px;
 }
-
+.conjunto{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 40px;
+    right: 20px;
+}
+.perfil{
+    border-radius: 12px;
+    background-color: #d9d9d9;
+    margin-left: 20px;
+}
 
 
 body {
@@ -138,7 +170,8 @@ body {
 }
 
 .content-tabela {
-    margin-top: 10vh;
+    position: relative;
+    bottom: 10px;
     background-color: white;
     border-radius: 10px;
     width: 65%;
@@ -172,6 +205,9 @@ form button {
     background: rgba(210, 210, 210, 0.38);
     margin-top: 20px;
     margin-left: 20px;
+    border-radius: 20px;
+    width: 400px;
+    flex-direction: row;
 }
 
 .search-div {
@@ -245,12 +281,18 @@ button > i {
     font-size: 20px;
     color: #26A4FF;
 }
+button > i:hover{
+    color: white;
+}
 
 thead {
     background-color: #0169FD;
     color: white;
     height: 50px;
     padding: 0px;
+    position: relative;
+    bottom: 40px;
+    width: 100%;
 }
 
 
@@ -259,6 +301,8 @@ thead {
     width: 100%;
     margin-top: 8vh;
     flex-wrap: wrap;
+    position: relative;
+    bottom: 20px;
 }
 
 .pagination {
