@@ -28,7 +28,7 @@
                 </div>
                 <div class="btns">
                     <div class="btn-editar">
-                        <a asp-action="Edit" asp-route-id="@Acessor.HttpContext.Session.GetInt32("Id")">Editar</a>
+                            <a role="button" onclick="ModalEditarPerfil(@Acessor.HttpContext.Session.GetInt32("Id"))">Editar</a>
                     </div>
                     <div class="btn-excluir">
                         <button class="btn-excluir" type="button" data-bs-toggle="modal" data-bs-target="@("#DeleteHDModal" + Model.Id.ToString())" data-bs-url="@Url.Action($"Delete/{Model.Id}")">
@@ -39,7 +39,39 @@
             </div>
         </div>
         @await Html.PartialAsync("_ExcluirHDPartialView", Model)
+
+    </div>
+
+    <div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="editarModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editarModalLabel">Editar Perfil</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body" id="editarModalBody">
+                    
+                </div>
+            </div>
+        </div>
     </div>
 </body>
+@section Scripts{
+    <script>
+        function ModalEditarPerfil(id) {
+            $.ajax({
+                url: '/CadastroHelpDesk/Edit/' + id,
+                type: 'GET',
+                success: function (data) {
+                    $('#editarModalBody').html(data);
+                    $('#editarModal').modal('show');
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        }
+    </script>
+}
 
 

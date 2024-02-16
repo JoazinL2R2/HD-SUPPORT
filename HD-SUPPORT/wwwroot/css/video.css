@@ -10,3 +10,69 @@
     filter: brightness(20);
     filter: contrast(2);
 }
+
+
+
+#inputCodigo {
+    height: 40px;
+    border: 2px solid #0169fd;
+    width: 300px;
+    border-radius: 10px 0px 10px 10px;
+    outline: 0;
+    position: relative;
+    bottom: 20px;
+    padding: 0 10px;
+}
+
+    #inputCodigo::placeholder {
+        position: relative;
+        left: px;
+    }
+
+#btnVerificar{
+    border: none;
+    width: 150px;
+    position: relative;
+    top: 20px;
+    border: #0169fd 1px solid;
+    color: #0169fd;
+    transition: ease all 0.5s;
+}
+
+    #btnVerificarCodigo:hover {
+        background-color: #0169fd;
+        color: white;
+    }
+
+.modal-body {
+}
+
+#ModalVerificacaoCadastro {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    #ModalVerificacaoCadastro h1 {
+        position: relative;
+        bottom: 30px;
+    }
+
+    #ModalVerificacaoCadastro p {
+        position: relative;
+        bottom: 35px;
+        font-size: 15px
+    }
+
+    #ModalVerificacaoCadastro img {
+        margin-bottom: 10px;
+        margin-top: 10px;
+        position: relative;
+        bottom: 25px;
+        height: 40px;
+    }
+    .verificar{
+        position: relative;
+        top: 50px;
+    }

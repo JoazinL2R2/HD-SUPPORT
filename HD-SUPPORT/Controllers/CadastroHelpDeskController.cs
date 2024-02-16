@@ -225,7 +225,7 @@ namespace HD_SUPPORT.Controllers
             }
             CadastroHelpDesk cadastro = _contexto.CadastroHD.Where(x => x.Id == id).FirstOrDefault();
             cadastro.Senha = "";
-            return View(cadastro);
+            return PartialView("_EditarHDPartialView", cadastro);
         }
         [HttpPost]
         public IActionResult Atualizar([Bind("Id,Nome,Email,Senha,Foto")] CadastroHelpDesk cadastro, IFormFile Imagem)
@@ -236,11 +236,18 @@ namespace HD_SUPPORT.Controllers
                 {
                     return BadRequest("O objeto CadastroHelpDesk está nulo.");
                 }
+                if (cadastro.Senha == null)
+                {
+                    return Json(new { success = false, mensage = "Preencha Todos os campos", data = cadastro });
+                }
+                if (cadastro.Foto == null)
+                {
+                    return Json(new { success = false, mensage = "Preencha Todos os campos", data = cadastro });
+                }
 
                 if (_contexto.CadastroHD.Any(x => x.Email == cadastro.Email && x.Id != cadastro.Id))
                 {
-                    ModelState.AddModelError(nameof(cadastro.Email), "Email existente");
-                    return View("Edit", cadastro);
+                    return Json(new { success = false, mensage = "Email Existente", data = cadastro });
                 }
                 else
                 {
@@ -248,13 +255,11 @@ namespace HD_SUPPORT.Controllers
                     {
                         if (!ImagemFormatoCorreto(Imagem))
                         {
-                            ModelState.AddModelError(nameof(cadastro.Foto), "Formato de imagem incopatível");
-                            return View("Edit", cadastro);
+                            return Json(new { success = false, mensage = "Formato de imagem incopativel", data = cadastro });
                         }
                         if (Imagem.Length < ImageMinimumBytes)
                         {
-                            ModelState.AddModelError(nameof(cadastro.Foto), "Arquivo muito grande");
-                            return View("Edit", cadastro);
+                            return Json(new { success = false, mensage = "Arquivo muito extenso", data = cadastro });
                         }
                         using (MemoryStream ms = new MemoryStream())
                         {
@@ -266,22 +271,16 @@ namespace HD_SUPPORT.Controllers
                         _contexto.SaveChanges();
                         var usuario = _contexto.CadastroHD.Where(b => b.Email == cadastro.Email).FirstOrDefault();
                         criarSessao(usuario, HttpContext.Session.GetString("profissional"));
-                        return RedirectToAction("Perfil");
+                        return Json(new { success = true, mensage = "Editado com sucesso", data = cadastro });
                     }
                     else
                     {
-                        if (Imagem == null)
-                        {
-                            ModelState.AddModelError(nameof(cadastro.Foto), "Insira uma foto de perfil");
-                            return View("Edit", cadastro);
-                        }
-                        return View("Edit", cadastro);
+                        return Json(new { success = false, data = cadastro });
                     }
                 }
             }
             catch (Exception ex)
             {
-                // Adicione logs detalhados ou mensagens de console para identificar a causa da exceção.
                 Console.WriteLine($"Erro durante a atualização: {ex.Message}");
                 return StatusCode(500, "Erro interno do servidor");
             }

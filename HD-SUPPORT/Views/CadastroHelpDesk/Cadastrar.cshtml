@@ -68,20 +68,22 @@
         </div>
     </div>
 
+
+
+
     <div class="modal" id="ModalVerificacao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Verificar Codigo</h1>
-                </div>
                 <div class="modal-body">
-                    <div id="Verificacao">
-                        <form asp-action="VerificacaoEmail" asp-controller="CadastroHelpDesk" method="post">
-                            <h1>Verifique o seu email</h1><br />
+                    <div id="ModalVerificacaoCadastro">
+                        <form asp-action="VerificacaoEmail" id="verificar" asp-controller="CadastroHelpDesk" method="post">
+                            <img src="~/images/gmail.png" height="50px" />
+                            <h1>Verifique o seu email</h1>
+                            <p>Vefifique o código em sua caixa de mensagens</p>
 
                             <input type="text" placeholder="Digite o código" id="inputCodigo" />
-                            <br />
-                            <a role="button" class="btn btn-outline-success " id="btnVerificar">Verificar</a>
+                            
+                            <a role="button" class="btn" id="btnVerificar">Verificar</a>
                         </form>
                     </div>
                 </div>
