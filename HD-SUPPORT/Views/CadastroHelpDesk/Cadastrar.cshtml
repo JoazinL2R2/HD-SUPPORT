@@ -30,7 +30,7 @@
                             <span asp-validation-for="Nome" class="text-danger"></span>
                             <br>
                             <label asp-for="Email" class="control-label"></label>
-                            <input asp-for="Email" class="form-control" id="EmailInput" placeholder="email@employer.com.br" />
+                            <input asp-for="Email" class="form-control" id="EmailInput" placeholder="employer.com.br ou bne.com.br" type="email" />
                             <span asp-validation-for="Email" class="text-danger"></span>
                             <br />
                             <label asp-for="Senha" class="control-label"></label>
@@ -39,12 +39,24 @@
                             <br />
 
                             <select name="funcao" id="categorias">
-                                <option value="HelpDesk">
-                                    Help-Desk
-                                </option>
-                                <option value="RH">
-                                    RH
-                                </option>
+                                @if (TempData["categoria"].ToString() == "HelpDesk")
+                                {
+                                    <option value="HelpDesk" selected>
+                                        Help-Desk
+                                    </option>
+                                    <option value="RH">
+                                        RH
+                                    </option>
+                                }
+                                else
+                                {
+                                    <option value="HelpDesk">
+                                        Help-Desk
+                                    </option>
+                                    <option value="RH" selected>
+                                        RH
+                                    </option>
+                                }
                             </select>
                             <br />
                             <label asp-for="Foto" id="foto-label" class="foto-label"></label>
@@ -83,7 +95,7 @@
 
                             <input type="text" placeholder="Digite o código" id="inputCodigo" />
                             
-                            <a role="button" class="btn" id="btnVerificar">Verificar</a>
+                            <button type="submit" class="btn btn-outline-success " id="btnVerificar">Verificar</button>
                         </form>
                     </div>
                 </div>
