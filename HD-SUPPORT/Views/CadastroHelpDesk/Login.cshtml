@@ -30,7 +30,7 @@
                     <form asp-action="Login" id="loginForm">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                        <label asp-for="Email" class="control-label">Usuario</label>
+                        <label asp-for="Email" class="control-label">Usuário</label>
                         <input id="email" type="text" asp-for="Email" class="form-control">
                         <span asp-validation-for="Email" class="text-danger"></span>
 
@@ -50,7 +50,7 @@
                             <button id="loginButton" type="submit">Login</button>
 
                             <div class="btn-funcionario" id="button2" onmouseenter="passandoButton()" onmouseout="saindoButton()">
-                                <a role="button" asp-action="NovoCadastroLogin" asp-controller="CadastroFunc">Sou Funcionario</a>
+                                <a role="button" asp-action="NovoCadastroLogin" asp-controller="CadastroFunc">Sou Funcionário</a>
                             </div>
                             <script>
                                 var Button2 = document.getElementById('button2');

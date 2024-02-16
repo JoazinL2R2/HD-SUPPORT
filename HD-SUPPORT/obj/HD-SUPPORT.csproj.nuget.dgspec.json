@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj": {}
+    "C:\\Users\\Joazin\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj": {}
   },
   "projects": {
-    "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj": {
+    "C:\\Users\\Joazin\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj",
+        "projectUniqueName": "C:\\Users\\Joazin\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj",
         "projectName": "HD-SUPPORT",
-        "projectPath": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj",
-        "packagesPath": "C:\\Users\\caiobueno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\caiobueno\\Source\\Repos\\HD-SUPPORT\\HD-SUPPORT\\obj\\",
+        "projectPath": "C:\\Users\\Joazin\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\HD-SUPPORT.csproj",
+        "packagesPath": "C:\\Users\\Joazin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Joazin\\Source\\Repos\\JoazinL2R2\\HD-SUPPORT\\HD-SUPPORT\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\caiobueno\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Joazin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
