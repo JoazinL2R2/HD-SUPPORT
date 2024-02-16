@@ -1,9 +1,14 @@
-﻿* {
-    margin: 0;
-    padding: 0;
+﻿@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Open Sans', sans-serif;
 }
 
-
+#dados {
+    width: 5000px;
+}
 
 header {
     background-color: white;
@@ -15,37 +20,6 @@ header {
 }
 
 
-.logo_bne img {
-    width: 190px;
-    margin-left: 20px;
-}
-
-.logo_bne {
-    width: 200px
-}
-
-.icon_menu img {
-    width: 70px;
-    cursor: pointer;
-}
-
-.icon_menu {
-    margin-left: 140vh;
-}
-
-.control-label, .modal-title {
-    color: black;
-}
-
-body {
-    background: linear-gradient(to right, #046de1, #869cdd);
-}
-
-.content {
-    display: flex;
-    justify-content: space-around;
-}
-
 .menu {
     display: flex;
     align-items: center;
@@ -56,6 +30,7 @@ body {
     height: 560px;
     border-radius: 20px;
 }
+
 
 .titulo_menu p {
     margin-top: 10px;
@@ -72,6 +47,12 @@ body {
 }
 
 
+.align-content-center {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
 
 
 .menu input {
@@ -80,38 +61,6 @@ body {
     border: 2px solid #046DE1;
     border-radius: 10px;
     margin-left: 3vh
-}
-
-.link_sou_func {
-    margin-top: 10px;
-    font-size: 25px;
-}
-
-.Login_input button {
-    margin-left: 20vh;
-    margin-top: 5vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: white;
-    font-size: 30px;
-    background-color: #046DE1;
-    width: 120px;
-    border-radius: 10px;
-    height: 50px;
-}
-
-.subtitulo {
-    font-size: 55px;
-}
-
-
-.titulo {
-    font-family: Agrandir-regular;
-    font-size: 75px;
-    color: white;
-    text-align: center;
 }
 
 
@@ -128,206 +77,339 @@ body {
     transition: right 0.3s ease-in-out;
 }
 
-    .side-menu a {
-        display: block;
-        padding: 15px;
-        text-decoration: none;
-        color: #333;
-        font-size: 18px;
+.BtnNovoCadastro button {
+    width: 20%;
+    margin: 0;
+    padding: 0;
+}
+
+.btn-group {
+    width: 100%;
+}
+
+#btn-editar {
+    width: 100%
+}
+
+#btn-detalhes {
+    width: 100%
+}
+
+#btn-excluir {
+    width: 100%
+}
+
+.side-menu a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+}
+
+    .side-menu a:hover {
+        background-color: #f0f0f0;
     }
 
-        .side-menu a:hover {
-            background-color: #f0f0f0;
+.logo_bne img {
+    width: 190px;
+    margin-left: 20px;
+}
+
+.icon_menu img {
+    width: 70px;
+    margin-right: 10vh;
+    position: relative;
+    left: 1000px
+}
+
+
+
+body {
+    background-image: url(assets/2iiB.gif);
+    background-color: black;
+}
+
+.content-tabela {
+    margin-top: 10vh;
+    background-color: white;
+    border-radius: 10px;
+    width: 65%;
+    height: 600px;
+    margin-bottom: 10vh;
+}
+
+form button {
+    border: none;
+    background: none;
+    color: #8b8ba7;
+}
+
+.form {
+    --timing: 0.3s;
+    --width-of-input: 60%;
+    --height-of-input: 50px;
+    --border-height: 2px;
+    --input-bg: #fff;
+    --border-color: #26A4FF;
+    --border-radius: 30px;
+    --after-border-radius: 1px;
+    position: relative;
+    width: var(--width-of-input);
+    height: var(--height-of-input);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 0.8em;
+    border-radius: var(--border-radius);
+    transition: border-radius 0.5s ease;
+    background: rgba(210, 210, 210, 0.38);
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.search-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#combo-box {
+    display: flex;
+    position: relative;
+    left: 150px;
+}
+
+.input {
+    font-size: 0.9rem;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    padding-inline: 0.5em;
+    padding-block: 0.7em;
+    border: none;
+}
+
+.form:before {
+    content: "";
+    position: absolute;
+    background: var(--border-color);
+    transform: scaleX(0);
+    transform-origin: center;
+    width: 100%;
+    height: var(--border-height);
+    left: 0;
+    bottom: 0;
+    border-radius: 1px;
+    transition: transform var(--timing) ease;
+}
+
+.form:focus-within {
+    border-radius: var(--after-border-radius);
+}
+
+input:focus {
+    outline: none;
+}
+
+.form:focus-within:before {
+    transform: scale(1);
+}
+
+.reset {
+    border: none;
+    background: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+input:not(:placeholder-shown) ~ .reset {
+    opacity: 1;
+    visibility: visible;
+}
+
+.form svg {
+    color: #26A4FF;
+    width: 25px;
+    margin-top: 3px;
+}
+
+
+button > i {
+    font-size: 20px;
+    color: #26A4FF;
+}
+
+thead {
+    background-color: #0169FD;
+    color: white;
+    height: 50px;
+    padding: 0px;
+}
+
+
+.table {
+    text-align: center;
+    width: 100%;
+    margin-top: 8vh;
+    flex-wrap: wrap;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .pagination a {
+        font-size: 23px;
+        text-decoration: none;
+        color: #0169FD;
+    }
+
+.barra {
+    color: #0169FD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+.header-tabela {
+    padding: 10px;
+}
+
+
+.qnt-func {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+@media screen and (max-width: 630px) {
+    tr {
+        font-size: 10px;
+    }
+
+    .content-tabela {
+        width: 90%;
+    }
+
+
+
+
+
+    .table {
+        width: 100%;
+        margin-top: 1vh;
+        overflow: auto;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+}
+
+
+@media screen and (min-width: 1700px) {
+}
+
+/*Responsividade da tabela*/
+
+
+
+
+@media screen and (max-width: 1137px) {
+    thead {
+        width: 10%;
+    }
+
+    .BtnNovoCadastro {
+    }
+
+    .button-add {
+        width: 100%;
+    }
+
+    .btn-group {
+        width: 100%;
+    }
+
+        .btn-group button {
+            width: 100%;
+        }
+
+        .btn-group i {
+            font-size: 10px;
         }
 
 
 
-@media only screen and (max-width: 767px) {
+    tr {
+        font-size: 10px;
+    }
 
-    header {
+    .content-tabela {
+        width: 90%;
+    }
+
+
+
+
+
+    .table {
         width: 100%;
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 50px;
-    }
-
-    .icon_menu {
-        margin-right: 0px;
-    }
-
-
-    .content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .menu {
-        margin-top: 50px;
-        margin-bottom: 50px;
-        height: 500px;
-    }
-
-    .titulo_menu p {
-        margin-bottom: 70px;
-    }
-
-    .Login_input a {
-        margin-top: 50px;
+        margin-top: 1vh;
+        overflow: auto;
     }
 }
 
 
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
-    header {
-        width: 100%
+
+
+@media screen and (max-width: 595px) {
+    thead {
+        width: 10%;
     }
 
-    .Login_input a {
-        margin-top: 50px;
+    .BtnNovoCadastro {
     }
 
-    body {
+    .button-add {
         width: 100%;
     }
 
-    .left img {
-        width: 400px;
-    }
-
-    .left .titulo {
-        font-size: 70px;
-        width: 400px;
-    }
-
-    .menu {
-        margin-left: 50px;
-        width: 370px;
-        height: 560px;
-        margin-right: 20px;
-    }
-}
-
-@media only screen and (min-width: 1024px) {
-    header {
+    .btn-group {
         width: 100%;
     }
-}
 
-.body-table {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center
-}
+        .btn-group button {
+            width: 100%;
+        }
 
-.TableContainer {
-    margin-top: 10vh;
-    margin-left: 15vh;
-    height: 500px;
-    width: 80%;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0px 1px 12px -3px rgba(0,0,0,1);
-    -webkit-box-shadow: 0px 1px 12px -3px rgba(0,0,0,1);
-    -moz-box-shadow: 0px 1px 12px -3px rgba(0,0,0,1);
-    border-radius: 0px 0px 33px 32px;
-    -webkit-border-radius: 0px 0px 33px 32px;
-    -moz-border-radius: 0px 0px 33px 32px;
-    display: flex;
-    flex-direction: column;
-}
+        .btn-group i {
+            font-size: 10px;
+        }
 
-#table-position {
-    position: relative;
-    bottom: 1px;
-}
 
-.tr-style {
-    background-color: #007BFF;
-    color: white;
-    text-align: center;
-    width: 80%;
-}
 
-    .tr-style th {
-        border-left: 2px solid white;
-        border-right: 2px solid white;
+    tr {
+        font-size: 10px;
     }
 
-.tbody-style {
-    font-size: 20px;
-    text-align: center;
-    font-family: Questrial;
-}
-
-.table-menu {
-    background-color: #0b3057;
-    height: 80px;
-    width: 100%;
-}
-
-.table-menu {
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-}
-
-    .table-menu h3 {
-        font-family: Questrial;
-        font-weight: 100;
-        font-size: 20px;
+    .content-tabela {
+        width: 150%;
     }
 
-    .table-menu a {
-        text-decoration: none;
-        color: white;
-        margin-right: 10px;
+
+
+
+
+    .table {
+        width: 100%;
+        margin-top: 1vh;
+        overflow: auto;
     }
-
-    .table-menu input {
-        border-style: none;
-        outline: 0;
-        border-radius: 5px;
-        width: 300px;
-    }
-
-::-webkit-input-placeholder {
-    position: relative;
-    left: 10px;
-    color: #000000;
-    opacity: 40%;
-}
-
-.table-menu > i {
-    color: white;
-    font-size: 20px;
-    margin-right: 10px;
-    margin-bottom: 2px;
-}
-
-.button-add button {
-    width: 131px;
-    color: #007BFF;
-    background-color: white;
-    font-family: Questrial;
-    border: 1px solid white;
-    height: 40px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: ease 0.5s;
-}
-
-    .button-add button:hover {
-        background-color: #007BFF;
-        color: white;
-    }
-
-.pagination {
-    margin-top: 80px;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }

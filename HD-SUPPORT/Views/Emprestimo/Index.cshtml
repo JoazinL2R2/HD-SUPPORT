@@ -42,52 +42,54 @@
 </head>
 
 <div class="align-content-center">
-    <div class="TableContainer">
+    <div class="content-tabela">
         <div class="table-menu">
-            <p style="color:white">Mostrando @TempData["QuantidadeDadosTabela"] de @TempData["QuantidadeDados"] empréstimos</p>
-            <form asp-action="Index" asp-controller="Emprestimo" class="d-flex">
-                <a role="button">
-                    <i class="bi bi-search"></i>
-                </a>
-                <input type="search" placeholder="Faça sua pesquisa" name="SearchString" value="@TempData["pesquisa"]">
-                <div class="d-flex">
-                    <p style="color:white">Ordenar:</p>
-                    <select name="ordenar">
-                        <option value="ordenar">
-                            Recentes
-                        </option>
-                        @if (TempData["ordem"].ToString() == "az")
-                        {
-                            <option value="az" selected>
-                                De A-Z
+
+            <div class="search-div">
+                <p style="color:white">Mostrando @TempData["QuantidadeDadosTabela"] de @TempData["QuantidadeDados"] empréstimos</p>
+                <form asp-action="Index" asp-controller="Emprestimo" class="form">
+                    <input type="search" placeholder="Faça sua pesquisa" name="SearchString" value="@TempData["pesquisa"]" class="input">
+                    <div class="d-flex">
+                        <p style="color:white">Ordenar:</p>
+                        <select name="ordenar">
+                            <option value="ordenar">
+                                Recentes
                             </option>
-                        }
-                        else
-                        {
-                            <option value="az">
-                                De A-Z
-                            </option>
-                        }
-                        @if (TempData["ordem"].ToString() == "za")
-                        {
-                            <option value="za" selected>
-                                De Z-A
-                            </option>
-                        }
-                        else
-                        {
-                            <option value="za">
-                                De Z-A
-                            </option>
-                        }
-                    </select>
-                </div>
-            </form>
-            <span>
-                <a asp-action="Index">
-                    <i class="bi bi-x-lg"></i>
-                </a>
-            </span>
+                            @if (TempData["ordem"].ToString() == "az")
+                            {
+                                <option value="az" selected>
+                                    De A-Z
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="az">
+                                    De A-Z
+                                </option>
+                            }
+                            @if (TempData["ordem"].ToString() == "za")
+                            {
+                                <option value="za" selected>
+                                    De Z-A
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="za">
+                                    De Z-A
+                                </option>
+                            }
+                        </select>
+                    </div>
+                    <button class="reset" type="reset">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+
+
         </div>
         <table id="table-position" class="table table-hover">
             <thead class="thead-style">
@@ -189,7 +191,6 @@
                         <form asp-action="Index" asp-controller="Emprestimo">
                             <input hidden name="searchString" value="@TempData["pesquisa"]">
                             <input hidden name="paginaAtual" value="@(pagina-1)">
-                            <input hidden name="ordenar" value="@TempData["ordem"]">
                             @if (pagina != 1)
                             {
                                 <button class="page-link" type="submit"><i class="bi bi-arrow-left"></i></button>
@@ -205,7 +206,6 @@
                             <form asp-action="Index" asp-controller="Emprestimo">
                                 <input hidden name="searchString" value="@TempData["pesquisa"]">
                                 <input hidden name="paginaAtual" value="1">
-                                <input hidden name="ordenar" value="@TempData["ordem"]">
                                 @if (pagina != 1)
                                 {
                                     <button class="page-link" type="submit">1</button>
@@ -243,7 +243,6 @@
                                     <form asp-action="Index" asp-controller="Emprestimo">
                                         <input hidden name="searchString" value="@TempData["pesquisa"]">
                                         <input hidden name="paginaAtual" value="@pag">
-                                        <input hidden name="ordenar" value="@TempData["ordem"]">
                                         @if (pag != pagina)
                                         {
                                             <button class="page-link" type="submit">@pag</button>
@@ -262,7 +261,6 @@
                             <form asp-action="Index" asp-controller="Emprestimo">
                                 <input hidden name="searchString" value="@TempData["pesquisa"]">
                                 <input hidden name="paginaAtual" value="@dados">
-                                <input hidden name="ordenar" value="@TempData["ordem"]">
                                 @if (dados != pagina)
                                 {
                                     <button class="page-link" type="submit">@dados</button>
@@ -278,7 +276,6 @@
                         <form asp-action="Index" asp-controller="Emprestimo">
                             <input hidden name="searchString" value="@TempData["pesquisa"]">
                             <input hidden name="paginaAtual" value="@(pagina+1)">
-                            <input hidden name="ordenar" value="@TempData["ordem"]">
                             @if (pagina != dados)
                             {
                                 <button class="page-link" type="submit"><i class="bi bi-arrow-right"></i></button>
@@ -291,6 +288,10 @@
                     }
                 </ul>
             </nav>
+        </div>
+
+        <div class="qnt-func">
+            <p style="color:gray">Mostrando @TempData["QuantidadeDadosTabela"] de @TempData["QuantidadeDados"] funcionários</p>
         </div>
 
         <div class="modal fade" id="ModelErro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -306,7 +307,6 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-
                     </div>
                 </div>
             </div>
@@ -321,7 +321,6 @@
                     </div>
                     <div class="modal-body">
                         <div id="ModalEditarEmpresitmo">
-
                         </div>
                     </div>
                 </div>
@@ -338,54 +337,47 @@
                 </div>
                 <div class="modal-body">
                     <div id="ModalNovoEmprestimo">
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+@section Scripts {
+    <script src="~/js/jquery.inputmask.js"></script>
+    <script>
 
+        $(document).ready(function () {
 
-    @section Scripts {
-        <script src="~/js/jquery.inputmask.js"></script>
-        <script>
+            var erroAtualizacao = "@TempData["ErroAtualizacao"]";
+            var emprestimoId;
 
-            $(document).ready(function () {
-
-                var erroAtualizacao = "@TempData["ErroAtualizacao"]";
-                var emprestimoId;
-
-                if (erroAtualizacao) {
-                    setTimeout(function () {
-                        $('#ModelErro').modal('show');
-                    }, 100);
-                }
-                $('.BtnEditar').click(function () {
-                    emprestimoId = $(this).attr('Emprestimo-id');
-                    $.ajax({
-                        type: 'GET',
-                        url: '/Emprestimo/Edit/' + emprestimoId,
-                        success: function (result) {
-                            $("#ModalEditarEmpresitmo").html(result);
-                            $('#EditarEmprestimoModal').modal(`show`);
-                        }
-                    })
-                });
-                $('#btnNovoEmprestimo').click(function () {
-                    $.ajax({
-                        type: 'GET',
-                        url: '/Emprestimo/NovoEmprestimo',
-                        success: function (result) {
-                            $("#ModalNovoEmprestimo").html(result);
-                            $('#NovoEmprestimoModal').modal('show');
-                        }
-                    });
+            if (erroAtualizacao) {
+                setTimeout(function () {
+                    $('#ModelErro').modal('show');
+                }, 100);
+            }
+            $('.BtnEditar').click(function () {
+                emprestimoId = $(this).attr('Emprestimo-id');
+                $.ajax({
+                    type: 'GET',
+                    url: '/Emprestimo/Edit/' + emprestimoId,
+                    success: function (result) {
+                        $("#ModalEditarEmpresitmo").html(result);
+                        $('#EditarEmprestimoModal').modal(`show`);
+                    }
+                })
+            });
+            $('#btnNovoEmprestimo').click(function () {
+                $.ajax({
+                    type: 'GET',
+                    url: '/Emprestimo/NovoEmprestimo',
+                    success: function (result) {
+                        $("#ModalNovoEmprestimo").html(result);
+                        $('#NovoEmprestimoModal').modal('show');
+                    }
                 });
             });
-        </script>
-    }
-
-
-
-
-
+        });
+    </script>
+}

@@ -64,11 +64,11 @@ namespace HD_SUPPORT.Controllers
 
             TempData["disponivel"] = disponivel;
 
-            var pagina = (paginaAtual - 1) * 6;
+            var pagina = (paginaAtual - 1) * 4;
 
-            var maximo = 6;
+            var maximo = 4;
 
-            if (equipamentosFiltrados.Count < 6 + pagina)
+            if (equipamentosFiltrados.Count < 4 + pagina)
             {
                 maximo = equipamentosFiltrados.Count - pagina;
             }
