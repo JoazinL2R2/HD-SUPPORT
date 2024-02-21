@@ -13,7 +13,9 @@
     position: relative;
     bottom: 40px;
 }
-.tbody{
+
+
+.tbody {
     position: relative;
     bottom: 20px;
 }
@@ -23,7 +25,6 @@
     justify-content: center;
 }
 header {
-    background-color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -33,6 +34,10 @@ header {
     height: 70px;
 }
 
+
+#search-form{
+    padding-top: 20px;
+}
 
 .menu {
     display: flex;
@@ -132,12 +137,14 @@ header {
     .side-menu a:hover {
         background-color: #f0f0f0;
     }
-
+.dropdown-menu li {
+    background-color: white;
+}
 .logo_bne h1 {
     font-size: 30px;
-    margin-left: 20px;
+    margin-left: 10vh;
     font-family: 'Space Grotesk', sans-serif;
-    color: #0169fd;
+    color: white;
     position: relative;
     top: 42px;
 }
@@ -161,8 +168,11 @@ header {
     border-radius: 12px;
     background-color: #d9d9d9;
     margin-left: 20px;
+    display: flex;
 }
-
+#drop{
+    width: 10px;
+}
 
 body {
     background-image: url(assets/2iiB.gif);
@@ -215,6 +225,24 @@ form button {
     align-items: center;
     justify-content: center;
 }
+
+#search-emprestimo{
+    position: relative;
+    top: 10px;
+    right: 70px;
+}
+
+#select-emprestimo{
+    position: relative;
+    left: 30px;
+    bottom: 10px;
+}
+
+#select-func{
+    position: relative;
+    left: 30px;
+}
+
 
 #combo-box {
     display: flex;
@@ -317,6 +345,10 @@ thead {
         color: #0169FD;
     }
 
+    .btnAdicionar button{
+        background-color: black;
+    }
+
 .barra {
     color: #0169FD;
     display: flex;
@@ -328,6 +360,16 @@ thead {
 .header-tabela {
     padding: 10px;
 }
+
+
+.button-add {
+    width: 100%;
+}
+
+    .button-add button:hover {
+        background-color: black;
+    }
+
 
 
 .qnt-func {
@@ -381,6 +423,11 @@ thead {
 
     .button-add {
         width: 100%;
+       
+    }
+
+    .button-add button:hover{
+        background-color:black;
     }
 
     .btn-group {

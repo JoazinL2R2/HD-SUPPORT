@@ -11,30 +11,30 @@
             <h1>Help Desk</h1>
         </div>
         <div class="conjunto">
-           <div class="dropdown">
-              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Tabelas
-              </button>
-              <ul class="dropdown-menu dropdown-menu-dark">
+            <div class="dropdown">
+                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Tabelas
+                </button>
+                <ul class="dropdown-menu">
                     @if (Acessor.HttpContext.Session.GetString("profissional") == "HelpDesk")
                     {
-                        <li><a class="dropdown-item active" asp-controller="Emprestimo" asp-action="Index">Emprestimos</a></li>
+                        <li><a class="dropdown-item" asp-controller="Emprestimo" asp-action="Index" style="color:#0169fd;">Emprestimos</a></li>
                     }
-                <li><a class="dropdown-item"  asp-controller="CadastroEquip" asp-action="Index">Equipamentos</a></li>
-                <li><a class="dropdown-item" asp-controller="CadastroFunc" asp-action="Index">Funcionários</a></li>
-              </ul>
+                    <li><a class="dropdown-item" asp-controller="CadastroEquip" asp-action="Index" style="color:#0169fd;">Equipamentos</a></li>
+                    <li><a class="dropdown-item" asp-controller="CadastroFunc" asp-action="Index" style="color:#0169fd;">Funcionários</a></li>
+                </ul>
             </div>
 
             <div class="perfil">
                 @if (Acessor.HttpContext.Session.GetString("nome") != null)
                 {
-                    <a class="dropdown-item" asp-area="" asp-controller="CadastroHelpDesk" asp-action="Perfil">
+                    <a class="dropdown-item" id="drop" asp-area="" asp-controller="CadastroHelpDesk" asp-action="Perfil">
                         <img src="data:image/jpeg;base64,@Convert.ToBase64String(@Acessor.HttpContext.Session.Get("foto"))" style="border-radius: 50%; position: relative; right: 10px;" width="30" height="30">
                         @Acessor.HttpContext.Session.GetString("nome")
                     </a>
                 }
             </div>
-
+            
         </div>
     </header>
 
@@ -44,6 +44,30 @@
     <link rel="stylesheet" href="~/css/Tebela.css" />
     <link rel="stylesheet" href="~/css/Modals.css" />
 </head>
+
+<style>
+
+
+
+    .button-add button {
+        background-color: #0169fd;
+        color: white;
+        border: none;
+        border: 1px solid white;
+        padding: 5px;
+        width: 80%;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: ease all 0.3s;
+    }
+
+        .button-add button:hover {
+            background-color: white;
+            color: #0169fd;
+        }
+
+</style>
+
 <div class="content-stars">
     <video src="~/images/pexels_videos_2792967 (1440p).mp4" autoplay loop muted></video>
 </div>
@@ -51,7 +75,7 @@
     <div class="content-tabela">
         <div class="table-menu">
 
-            <div class="search-div">
+            <div class="search-div" id="search-emprestimo">
                 <p style="color:white">Mostrando @TempData["QuantidadeDadosTabela"] de @TempData["QuantidadeDados"] empréstimos</p>
                 <form asp-action="Index" asp-controller="Emprestimo" class="form">
                     <input type="search" placeholder="Faça sua pesquisa" name="SearchString" value="@TempData["pesquisa"]" class="input">
@@ -62,7 +86,7 @@
                         </svg>
                     </button>
                 </form>
-                <select name="ordenar">
+                <select name="ordenar" id="select-emprestimo">
                     <option value="ordenar">
                         Recentes
                     </option>
@@ -120,7 +144,7 @@
 
                     <th scope="col">
                         <div class="button-add">
-                            <button type="button" id="btnNovoEmprestimo">Adicionar</button>
+                            <button type="button" id="btnNovoEmprestimo" class="btnAdicionar">Adicionar</button>
                         </div>
 
                     </th>

@@ -13,6 +13,22 @@
 .modal {
 }
 
+.btn-modal{
+    background-color: #0169fd;
+    color: white; width: 300px;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all ease 0.3s
+}
+
+
+
+.btn-modal:hover{
+    border: 1px solid #0169fd;
+    background-color: white;
+    color: #0169fd
+}
+
 .titulo-modal hr {
     margin-top: 15px;
     width: 373px;

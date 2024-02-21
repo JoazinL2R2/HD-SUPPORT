@@ -16,13 +16,13 @@
                 <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Tabelas
                 </button>
-                <ul class="dropdown-menu dropdown-menu-dark">
+                <ul class="dropdown-menu">
                     @if (Acessor.HttpContext.Session.GetString("profissional") == "HelpDesk")
                     {
-                        <li><a class="dropdown-item active" asp-controller="Emprestimo" asp-action="Index">Emprestimos</a></li>
+                        <li><a class="dropdown-item" asp-controller="Emprestimo" asp-action="Index" style="color:#0169fd;">Emprestimos</a></li>
                     }
-                    <li><a class="dropdown-item" asp-controller="CadastroEquip" asp-action="Index">Equipamentos</a></li>
-                    <li><a class="dropdown-item" asp-controller="CadastroFunc" asp-action="Index">Funcionários</a></li>
+                    <li><a class="dropdown-item" asp-controller="CadastroEquip" asp-action="Index" style="color:#0169fd;">Equipamentos</a></li>
+                    <li><a class="dropdown-item" asp-controller="CadastroFunc" asp-action="Index" style="color:#0169fd;">Funcionários</a></li>
                 </ul>
             </div>
 
@@ -43,6 +43,29 @@
     <link rel="stylesheet" href="~/css/Tebela.css" />
     <link rel="stylesheet" href="~/css/Modals.css" />
 </head>
+
+<style>
+
+
+
+    .button-add button {
+        background-color: #0169fd;
+        color: white;
+        border: none;
+        border: 1px solid white;
+        padding: 5px;
+        width: 80%;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: ease all 0.3s;
+    }
+
+        .button-add button:hover {
+            background-color: white;
+            color: #0169fd;
+        }
+
+</style>
 <div class="content-stars">
     <video src="~/images/pexels_videos_2792967 (1440p).mp4" autoplay loop muted></video>
 </div>
@@ -51,13 +74,21 @@
         <div class="table-menu">
 
             <div class="search-div">
-                <p style="color:white">Mostrando @TempData["QuantidadeDadosTabela"] de @TempData["QuantidadeDados"] funcionários</p>
-                <form asp-action="Index" asp-controller="CadastroFunc" class="form">
-                   
-                    <input class="input" placeholder="Faça sua pesquisa" name="SearchString" value="@TempData["pesquisa"]" type="text">
-                    <div class="d-flex">
+               <div class="fofo">
+                    <p style="color:white">Mostrando @TempData["QuantidadeDadosTabela"] de @TempData["QuantidadeDados"] funcionários</p>
+                    <form asp-action="Index" asp-controller="CadastroFunc" class="form">
+
+                        <input type="search" placeholder="Faça sua pesquisa" name="SearchString" value="@TempData["pesquisa"]" class="input">
+
+                        <button class="reset" type="reset">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </form>
+               </div>
                        
-                        <select name="ordenar">
+                        <select name="ordenar" id="select-func">
                             <option value="ordenar">
                                 Recentes
                             </option>
@@ -86,13 +117,13 @@
                                 </option>
                             }
                         </select>
-                    </div>
+
                     <button class="reset" type="reset">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </button>
-                </form>
+
             </div>
 
 
@@ -118,7 +149,7 @@
 
                     <th scope="col">
                         <div class="button-add">
-                            <button type="button" class="BtnNovoCadastro">
+                            <button type="button" class="BtnNovoCadastro btnAdicionar">
                                 Adicionar
                             </button>
                         </div>

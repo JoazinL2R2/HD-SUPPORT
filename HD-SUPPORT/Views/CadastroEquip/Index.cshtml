@@ -12,17 +12,17 @@
             <h1>Help Desk</h1>
         </div>
        <div class="conjunto">
-           <div class="dropdown">
-              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+           <div class="dropDownHeader">
+              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" >
                 Tabelas
               </button>
               <ul class="dropdown-menu dropdown-menu-dark">
                     @if (Acessor.HttpContext.Session.GetString("profissional") == "HelpDesk")
                     {
-                        <li><a class="dropdown-item active" asp-controller="Emprestimo" asp-action="Index">Emprestimos</a></li>
+                        <li style="color:#0169fd;"><a class="dropdown-item active" asp-controller="Emprestimo" asp-action="Index" style="color:#0169fd;">Emprestimos</a></li>
                     }
-                <li><a class="dropdown-item"  asp-controller="CadastroEquip" asp-action="Index">Equipamentos</a></li>
-                <li><a class="dropdown-item" asp-controller="CadastroFunc" asp-action="Index">Funcionários</a></li>
+                    <li style="color:#0169fd;"><a class="dropdown-item" asp-controller="CadastroEquip" asp-action="Index" style="color:#0169fd;">Equipamentos</a></li>
+                    <li style="color:#0169fd;"><a class="dropdown-item" asp-controller="CadastroFunc" asp-action="Index"  style="color:#0169fd;">Funcionários</a></li>
               </ul>
             </div>
 
@@ -35,6 +35,7 @@
                     </a>
                 }
             </div>
+        </div>
     </header>
 
 }
@@ -43,6 +44,30 @@
     <link rel="stylesheet" href="~/css/Tebela.css" />
     <link rel="stylesheet" href="~/css/video.css" />
 </head>
+
+<style>
+
+
+
+    .button-add button{
+        background-color: #0169fd;
+        color: white;
+        border: none;
+        border: 1px solid white;
+        padding: 5px;
+        width: 80%;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: ease all 0.3s;
+    }
+
+    .button-add button:hover{
+        background-color: white;
+        color: #0169fd;
+       
+    }
+
+</style>
 <div class="content-stars">
     <video src="~/images/pexels_videos_2792967 (1440p).mp4" autoplay loop muted></video>
 </div>
@@ -50,7 +75,7 @@
     <div class="content-tabela">
         <div class="table-menu">
 
-            <div class="search-div">
+            <div class="search-div" id="">
                 <form asp-action="Index" class="form" asp-controller="CadastroEquip">
 
                     <a role="button">
@@ -101,7 +126,7 @@
 
                         <th scope="col">
                             <div class="button-add">
-                                <button type="button" class="bntAdicionar">
+                                <button type="button" class="bntAdicionar" style="">
                                     Adicionar
                                 </button>
                             </div>
@@ -140,7 +165,7 @@
                                 <div class="btn-group" role="group" aria-label="Basic example">
 
 
-                                    <button type="button" Equipamento-id="@item.Id" class="btn btn-dark BtnEditar">
+                                    <button type="button" Equipamento-id="@item.Id" class="btn btn-primary BtnEditar">
                                         <i class="bi bi-pencil-square"></i>
                                     </button>
 
